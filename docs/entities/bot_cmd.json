@@ -1,0 +1,36 @@
+{
+  "clearQueue": "Bool: true/false",
+  "execute": [
+    {
+      "messages": [
+        { "scope": "global", "content": "String: 'blabla'" },
+        { "scope": "local", "content": "String: 'blabla'" }
+      ]
+    },
+    {
+      "actions": [
+        { "type": "String: 'mapShot'", "properties": "Obj/String/etc" },
+        {
+          "type": "String: 'travel'",
+          "properties": {
+            "costs": 5,
+            "stations": [
+              [-669327, 387796, 1000, 1000],
+              [-116775, -66744, 1000, 1000],
+              [-829491, -837658, 1000, 1000],
+              [101034, -492350, 1000, 1000],
+              [430079, 477843, 1000, 1000]
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "messages": [
+        { "scope": "global/local", "content": "String: 'blabla'" },
+        { "scope": "global/local", "content": "String: 'blabla'" }
+      ]
+    },
+    { "...": "..." }
+  ]
+}

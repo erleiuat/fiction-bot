@@ -1,9 +1,29 @@
 {
+  "_default": {
+    "isAdmin": false,
+    "allowBotCommands": [
+      "/travel",
+      "/buyitem",
+      "/transfer",
+      "/joke",
+      "/online",
+      "/voteday",
+      "/votesun",
+      "/starterkit",
+      "/ready"
+    ],
+    "hideCommandAlarms": [],
+    "hideCommands": [],
+    "useFakeNames": false,
+    "hideLogin": false,
+    "ranking": {
+      "hidePlaytime": false,
+      "hideKills": false
+    }
+  },
   "players": {
     "isAdmin": false,
-    "permissions": {
-      "botCommands": ["/online", "/voteday", "/votesun"]
-    },
+    "allowBotCommands": [],
     "hideCommandAlarms": [],
     "hideCommands": [],
     "useFakeNames": false,
@@ -15,7 +35,7 @@
   },
   "moderators": {
     "isAdmin": false,
-    "allowBotCommands": ["/online", "/voteday", "/votesun"],
+    "allowBotCommands": ["/exec", "/spawn"],
     "hideCommandAlarms": [],
     "hideCommands": [],
     "useFakeNames": false,
@@ -27,7 +47,7 @@
   },
   "administrators": {
     "isAdmin": true,
-    "allowBotCommands": ["/online", "/voteday", "/votesun"],
+    "allowBotCommands": ["/admin"],
     "hideCommandAlarms": [],
     "hideCommands": [],
     "useFakeNames": false,
@@ -40,8 +60,8 @@
   "bots": {
     "isAdmin": true,
     "allowBotCommands": [],
-    "hideCommandAlarms": ["*"],
-    "hideCommands": [],
+    "hideCommandAlarms": ["#*"],
+    "hideCommands": ["#setfakename", "#clearfakename"],
     "useFakeNames": true,
     "hideLogin": true,
     "ranking": {

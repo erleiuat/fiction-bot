@@ -2,16 +2,47 @@
   "STEAMID": {
     "steamID": "Int: 123123",
     "discordID": "Int: (optional)",
+    "group": "String: players/moderators/administrators/bots",
+    "overwrite": "Obj: Overwrite group-props",
     "char": {
       "id": "Int: 123",
       "name": "String: 'bla'",
       "fakeName": "String: 'bla' (optional)"
     },
     "auth": {
-      "isDrone": "Bool: true/false",
       "ip": "Sting: '123.123.123.123'",
+      "isDrone": "Bool: true/false",
       "lastLogin": "Obj: Date",
       "lastLogout": "Obj: Date (optional)"
+    },
+    "stats": {
+      "firstJoin": "new Date().getTime()",
+      "lastActivity": "Obj: new Date()",
+      "totalLogins": "Int"
+    },
+    "info": {
+      "starterkit": "null/new Date().getTime()"
+    },
+    "kills": {
+      "timestamp": {
+        "type": "kill/coma",
+        "event": "true/false",
+        "distance": "Int: 123",
+        "victim": {
+          "steamID": "Int: 123123",
+          "char": {
+            "id": "Int: 123",
+            "name": "String: 'bla'"
+          }
+        },
+        "weapon": "String: weapon"
+      }
+    },
+    "session": {
+      "current": "History-Key",
+      "history": {
+        "timestamp1": { "start": "timestamp1", "end": "timestamp2", "duration": "ts-diff" }
+      }
     }
   }
 }

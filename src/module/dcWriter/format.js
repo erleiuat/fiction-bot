@@ -5,6 +5,28 @@ const weaponImage = require('../../service/weaponImage')
 const cloneDeep = require('lodash.clonedeep')
 const Discord = require('discord.js')
 
+exports.violation = function violation(action) {
+  let msgDefault = {
+    title: 'VIOLATION',
+    color: 'FDDB00',
+    description: action.properties.value,
+    fields: [
+      {
+        name: '\u200b',
+        value: ' <@&' + process.env.DC_ROLE_SUPPORT + '> '
+      }
+    ],
+    footer: {
+      text: formTime(action.date).txt
+    }
+  }
+
+  return {
+    default: false,
+    extended: new Discord.MessageEmbed(msgDefault)
+  }
+}
+
 exports.admin = function admin(action) {
   let msgDefault = {
     color: '34a853',
@@ -106,7 +128,7 @@ exports.chat = function chat(action) {
   if (uName.startsWith('・ :[FiBo]')) {
     color = '00FFFF'
     uName = '[FiBo] (FictionBot)'
-  } else if (uName.startsWith('[Discord]')) color = '7289DA'
+  } else if (uName.startsWith(process.env.DC_HANDLER_CHAT_PREFIX)) color = '7289DA'
 
   let msgDefault = {
     color: color,

@@ -21,6 +21,10 @@ async function go() {
   if (process.env.TIMEOUT_LOGHANDLER) await global.time.sleep(process.env.TIMEOUT_LOGHANDLER)
 }
 
+async function writeCache(cache) {
+  fs.writeFileSync('./data/tmp/logHandler/_cache.json', JSON.stringify(cache))
+}
+
 async function deleteFile(file) {
   fs.unlinkSync('./data/tmp/logHandler/' + file)
 }
@@ -47,10 +51,6 @@ async function getFileList() {
   return fileList
 }
 
-async function writeCache(cache) {
-  //fs.writeFileSync('./data/tmp/logHandler/_cache.json', JSON.stringify(cache))
-}
-
 async function logHandler() {
   try {
     await ftp_pp.access({
@@ -66,16 +66,21 @@ async function logHandler() {
   }
 
   let cache = {}
-  let types = {}
+  let types = {
+    admin: '',
+    chat: '',
+    kill: '',
+    login: '',
+    mines: '',
+    violations: ''
+  }
 
   if (fs.existsSync('./data/tmp/logHandler/_cache.json')) {
     cache = JSON.parse(fs.readFileSync('./data/tmp/logHandler/_cache.json'))
-    for (const file in cache) types[cache[file].type] = ''
   } else {
     cache = await getFileList()
     global.log.info(_SN + 'Downloading current logfiles')
     for (const file in cache) {
-      types[cache[file].type] = ''
       global.log.debug(_SN + 'Downloading: ' + file)
       cache[file].content = await getFileContent(file)
     }
@@ -94,6 +99,7 @@ async function logHandler() {
 
     for (const file in fileList) {
       if (!cache[file]) {
+        global.log.debug(_SN + 'Downloading: ' + file)
         fileList[file].content = await getFileContent(file)
         updates[fileList[file].type] += fileList[file].content
         cache[file] = { ...fileList[file] }

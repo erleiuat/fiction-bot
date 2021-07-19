@@ -37,6 +37,7 @@ exports.updates = async function updates(updatesObj) {
     if (updatesObj[type].length) {
       let lines = formLines(updatesObj[type])
       if (!lines) continue
+      lines.sort()
 
       global.log.info(_SN + 'Processing ' + type + ' update')
 
@@ -51,16 +52,27 @@ exports.updates = async function updates(updatesObj) {
           handleAdmin(lines)
           break
         case 'kill':
-          break
           handleKill(lines)
-        case 'mines':
           break
+        case 'mines':
           handleMine(lines)
+          break
+        case 'violations':
+          handleViolation(lines)
+          break
         default:
           global.log.info(_SN + 'Type not recognized: ' + type)
           break
       }
     }
+  }
+}
+
+async function handleViolation(lines) {
+  for (line of lines) {
+    let actionObj = initAction('violation', line)
+    actionObj.properties.value = line.slice(20).trim()
+    global.actionHandler.handle(actionObj)
   }
 }
 
@@ -77,6 +89,7 @@ async function handleChat(lines) {
     actionObj.properties.value = content.join(' ').trim()
     actionObj.properties.isCommand = content[1].trim().startsWith('/')
 
+    actionObj.user.stats.totalMessages[actionObj.properties.scope]++
     global.actionHandler.handle(actionObj)
   }
 }
@@ -112,8 +125,8 @@ async function handleAuth(lines) {
       let propLine = line.slice(22, line.lastIndexOf("' logg")).trim()
       let userProps = formUserProps(propLine.slice(propLine.indexOf(' ') + 1))
       actionObj.user = global.userManager.getUserBySteamID(userProps.steamID, actionObj.date)
-      actionObj.fakeName = actionObj.user.char.fakeName
 
+      actionObj.fakeName = actionObj.user.char.fakeName
       actionObj.properties.authType = 'login'
       actionObj.user.char.id = userProps.char.id
       actionObj.user.char.name = userProps.char.name
@@ -123,6 +136,7 @@ async function handleAuth(lines) {
         lastLogin: actionObj.date,
         lastLogout: null
       }
+      actionObj.user.startSession(actionObj.date)
       global.actionHandler.handle(actionObj)
     } else if (line.includes('logging out')) {
       let actionObj = initAction('auth', line)
@@ -131,6 +145,7 @@ async function handleAuth(lines) {
 
       actionObj.properties.authType = 'logout'
       actionObj.user.auth.lastLogout = actionObj.date
+      actionObj.user.endSession(actionObj.date)
       global.actionHandler.handle(actionObj)
     } else {
       continue
@@ -221,21 +236,31 @@ async function handleKill(lines) {
       actionObj.date
     )
 
-    actionObj.properties.location.victim = {
-      x: parseInt(victimLoc ? victimLoc[0] : 0),
-      y: parseInt(victimLoc ? victimLoc[1] : 0),
-      z: parseInt(victimLoc ? victimLoc[2] : 0)
-    }
+    if (victimLoc)
+      actionObj.properties.location.victim = {
+        x: parseInt(victimLoc[0]),
+        y: parseInt(victimLoc[1]),
+        z: parseInt(victimLoc[2])
+      }
 
     if (causerLoc)
       actionObj.properties.location.causer = {
-        x: parseInt(causerLoc ? causerLoc[0] : 0),
-        y: parseInt(causerLoc ? causerLoc[1] : 0),
-        z: parseInt(causerLoc ? causerLoc[2] : 0)
+        x: parseInt(causerLoc[0]),
+        y: parseInt(causerLoc[1]),
+        z: parseInt(causerLoc[2])
       }
+
+    if (victimLoc && causerLoc) {
+      let dx = causerLoc[0] - victimLoc[0]
+      let dy = causerLoc[1] - victimLoc[1]
+      let dz = causerLoc[2] - victimLoc[2]
+      let dist = Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2) + Math.pow(dz, 2))
+      distance = actionObj.properties.distance = Math.round(dist / 100)
+    }
 
     actionObj.properties.weapon = weapon
 
+    if (actionObj.properties.causer) actionObj.properties.causer.addKill(actionObj)
     global.actionHandler.handle(actionObj)
   }
 }
@@ -324,6 +349,7 @@ function initAction(actType, line) {
         weapon: null,
         event: false,
         causer: null,
+        distance: null,
         location: {
           causer: null,
           victim: null
@@ -336,6 +362,11 @@ function initAction(actType, line) {
         type: null,
         location: null,
         owner: null
+      }
+      break
+    case 'violation':
+      properties = {
+        value: null
       }
       break
     default:

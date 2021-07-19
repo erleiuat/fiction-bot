@@ -19,11 +19,101 @@ module.exports = class User {
   }
 
   stats = {
-    lastActivity: null
+    firstJoin: null,
+    lastActivity: null,
+    totalLogins: 0,
+    totalMessages: {
+      local: 0,
+      global: 0,
+      squad: 0
+    }
   }
 
-  constructor(steamID, group) {
+  info = {
+    starterkit: null
+  }
+
+  kills = {}
+
+  session = {
+    current: null,
+    history: {}
+  }
+
+  constructor(steamID, group = 'players') {
     this.steamID = parseInt(steamID)
     this.group = group
+  }
+
+  activeSession() {
+    let now = new Date().getTime()
+
+    if (!Object.keys(this.session.history).length) return false
+    for (const el in this.session.history) {
+      if (!this.session.history[el].end) {
+        let sRestart = new Date(this.session.history[el].start)
+
+        if (sRestart.getHours() < 6) sRestart.setHours(6, 0, 0)
+        else if (sRestart.getHours() < 12) sRestart.setHours(12, 0, 0)
+        else if (sRestart.getHours() < 18) sRestart.setHours(18, 0, 0)
+        else if (sRestart.getHours() > 18) {
+          sRestart.setDate(sRestart.getDate() + 1)
+          sRestart.setHours(0, 0, 0)
+        }
+
+        if (sRestart.getTime() < now) {
+          this.session.history[el].end = this.session.history[el].start + 10
+          this.session.history[el].duration = 10
+        } else {
+          this.session.current = el
+          return this.session.history[el]
+        }
+      }
+    }
+    return false
+  }
+
+  startSession(dateObj) {
+    let aSession = this.activeSession()
+    if (aSession) this.endSession(new Date(aSession.start + 10), aSession.start)
+
+    let loginTime = dateObj.getTime()
+    if (!this.stats.firstJoin || this.stats.firstJoin > loginTime) this.stats.firstJoin = loginTime
+
+    const session = {
+      start: dateObj.getTime(),
+      end: false,
+      duration: null
+    }
+
+    this.stats.totalLogins++
+    this.session.history[session.start] = session
+    this.session.current = session.start
+  }
+
+  endSession(dateObj, sessionKey = this.session.current) {
+    if (this.session.history[sessionKey]) {
+      let logoutTime = dateObj.getTime()
+      this.session.history[sessionKey].end = logoutTime
+      this.session.history[sessionKey].duration =
+        logoutTime - this.session.history[sessionKey].start
+    }
+    if (this.session.current == sessionKey) this.session.current = null
+  }
+
+  addKill(action) {
+    this.kills[action.timestamp] = {
+      type: action.properties.type == 'died' ? 'kill' : 'coma',
+      event: action.properties.event,
+      distance: action.properties.distance,
+      victim: {
+        steamID: action.user.steamID,
+        char: {
+          id: action.user.char.id,
+          name: action.user.char.name
+        }
+      },
+      weapon: 'String: weapon'
+    }
   }
 }

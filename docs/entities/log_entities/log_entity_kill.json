@@ -3,6 +3,7 @@
   "weapon": "String",
   "event": "Bool: true/false",
   "causer": "Obj: User",
+  "distance": "Int: 123",
   "location": {
     "causer": {
       "x": "Int: ",

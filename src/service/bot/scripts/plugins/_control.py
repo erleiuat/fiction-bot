@@ -19,7 +19,7 @@ class Control:
         time.sleep(0.05)
 
 
-    path = './app/gamebot/scripts/'
+    path = './src/service/bot/scripts/'
     props = {
         'resolutionX': 1920,
         'resolutionY': 1080,

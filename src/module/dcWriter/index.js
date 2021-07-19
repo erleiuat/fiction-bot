@@ -2,7 +2,6 @@ const _SN = '[MODULE][DCWRITER] -> '
 
 const format = require('./format')
 const Discord = require('discord.js')
-const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 const channels = {
   console: null,
   killFeed: null,
@@ -13,18 +12,19 @@ const channels = {
     auth: null,
     mine: null,
     chat: null,
-    admin: null
+    admin: null,
+    violation: null
   }
 }
 
+let client = null
 let run = false
 
-exports.start = async function start() {
-  if (!client.user) init()
-  else {
-    run = true
-    global.log.info(_SN + 'Started')
-  }
+exports.start = async function start(dcClient) {
+  client = dcClient
+  init()
+  run = true
+  global.log.info(_SN + 'Started')
 }
 
 exports.pause = async function pause() {
@@ -33,28 +33,19 @@ exports.pause = async function pause() {
 }
 
 function init() {
-  client.on('ready', () => {
-    global.log.info(_SN + `Logged in as ${client.user.tag}!`)
+  channels.console = client.channels.cache.find(ch => ch.id === process.env.DC_CH_CONSOLE)
+  channels.ingameChat = client.channels.cache.find(ch => ch.id === process.env.DC_CH_INGAMECHAT)
+  channels.killFeed = client.channels.cache.find(ch => ch.id === process.env.DC_CH_KILLFEED)
+  channels.noAdminAbuse = client.channels.cache.find(ch => ch.id === process.env.DC_CH_NOADMINABUSE)
 
-    channels.console = client.channels.cache.find(ch => ch.id === process.env.DC_CH_CONSOLE)
-    channels.ingameChat = client.channels.cache.find(ch => ch.id === process.env.DC_CH_INGAMECHAT)
-    channels.killFeed = client.channels.cache.find(ch => ch.id === process.env.DC_CH_KILLFEED)
-    channels.noAdminAbuse = client.channels.cache.find(
-      ch => ch.id === process.env.DC_CH_NOADMINABUSE
-    )
-
-    channels.log = {
-      kill: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_KILL),
-      auth: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_AUTH),
-      mine: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_MINE),
-      chat: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_CHAT),
-      admin: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_ADMIN)
-    }
-
-    run = true
-  })
-  global.log.info(_SN + 'Logging in')
-  client.login(process.env.DC_TOKEN)
+  channels.log = {
+    kill: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_KILL),
+    auth: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_AUTH),
+    mine: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_MINE),
+    chat: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_CHAT),
+    admin: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_ADMIN),
+    violation: client.channels.cache.find(ch => ch.id === process.env.DC_CH_LOG_VIOLATION)
+  }
 }
 
 async function go() {
@@ -83,6 +74,8 @@ function buildMessages(action) {
       return format.kill(action)
     case 'mine':
       return format.mine(action)
+    case 'violation':
+      return format.violation(action)
   }
 }
 
@@ -121,6 +114,12 @@ exports.sendFromLog = async function sendFromLog(action) {
       toChannels(action, [
         { channel: channels.console, extended: true },
         { channel: channels.log.auth, extended: true }
+      ])
+      break
+    case 'violation':
+      toChannels(action, [
+        { channel: channels.console, extended: true },
+        { channel: channels.log.violation, extended: true }
       ])
       break
   }

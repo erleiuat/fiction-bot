@@ -1,0 +1,9 @@
+{
+  "origin": "logHandler",
+  "type": "kill/auth/admin/chat/mine/violation",
+  "timestamp": "Date([timeString]).getTime()",
+  "date": "Object: Date",
+  "user": "Obj: User",
+  "fakeName": "String: 'bla' (optional)",
+  "properties": "log-entity: kill/auth/admin/chat/mine/violation"
+}

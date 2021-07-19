@@ -1,0 +1,18 @@
+{
+  "type": "died/comatosed",
+  "weapon": "String",
+  "event": "Bool: true/false",
+  "causer": "Obj: User",
+  "location": {
+    "causer": {
+      "x": "Int: ",
+      "y": "Int: ",
+      "z": "Int: "
+    },
+    "victim": {
+      "x": "Int: ",
+      "y": "Int: ",
+      "z": "Int: "
+    }
+  }
+}

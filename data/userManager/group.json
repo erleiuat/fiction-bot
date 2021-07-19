@@ -1,0 +1,52 @@
+{
+  "players": {
+    "isAdmin": false,
+    "permissions": {
+      "botCommands": ["/online", "/voteday", "/votesun"]
+    },
+    "hideCommandAlarms": [],
+    "hideCommands": [],
+    "useFakeNames": false,
+    "hideLogin": false,
+    "ranking": {
+      "hidePlaytime": false,
+      "hideKills": false
+    }
+  },
+  "moderators": {
+    "isAdmin": false,
+    "allowBotCommands": ["/online", "/voteday", "/votesun"],
+    "hideCommandAlarms": [],
+    "hideCommands": [],
+    "useFakeNames": false,
+    "hideLogin": false,
+    "ranking": {
+      "hidePlaytime": false,
+      "hideKills": false
+    }
+  },
+  "administrators": {
+    "isAdmin": true,
+    "allowBotCommands": ["/online", "/voteday", "/votesun"],
+    "hideCommandAlarms": [],
+    "hideCommands": [],
+    "useFakeNames": false,
+    "hideLogin": false,
+    "ranking": {
+      "hidePlaytime": false,
+      "hideKills": false
+    }
+  },
+  "bots": {
+    "isAdmin": true,
+    "allowBotCommands": [],
+    "hideCommandAlarms": ["*"],
+    "hideCommands": [],
+    "useFakeNames": true,
+    "hideLogin": true,
+    "ranking": {
+      "hidePlaytime": true,
+      "hideKills": true
+    }
+  }
+}

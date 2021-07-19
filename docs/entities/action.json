@@ -1,0 +1,6 @@
+{
+  "id": "int",
+  "timestamp": "Date().getTime()",
+  "target": "gamebot/discord",
+  "properties": "Action-Props Log / Discord"
+}

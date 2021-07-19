@@ -1,0 +1,3 @@
+exports.settings = {
+  execute: 'discord'
+}

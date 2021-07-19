@@ -1,0 +1,17 @@
+{
+  "STEAMID": {
+    "steamID": "Int: 123123",
+    "discordID": "Int: (optional)",
+    "char": {
+      "id": "Int: 123",
+      "name": "String: 'bla'",
+      "fakeName": "String: 'bla' (optional)"
+    },
+    "auth": {
+      "isDrone": "Bool: true/false",
+      "ip": "Sting: '123.123.123.123'",
+      "lastLogin": "Obj: Date",
+      "lastLogout": "Obj: Date (optional)"
+    }
+  }
+}

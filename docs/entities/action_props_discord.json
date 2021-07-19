@@ -1,0 +1,13 @@
+{
+  "origin": "dcHandler",
+  "type": "console/chat",
+  "timestamp": "Date([timeString]).getTime()",
+  "date": "Object: Date",
+  "user": "Obj: User",
+  "fakeName": "String: 'bla' (optional)",
+  "properties": {
+    "id": "Int: 123",
+    "message": "String: 'bla'",
+    "isCommand": "bool: true/false"
+  }
+}

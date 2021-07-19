@@ -1,0 +1,5 @@
+{
+  "command": "String: 'SpawnItem'",
+  "value": "String: 'Egg 10'",
+  "fakeName": "String: 'bla' (optional)"
+}

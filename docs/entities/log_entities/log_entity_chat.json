@@ -1,0 +1,5 @@
+{
+  "scope": "String: local/global/squad",
+  "value": "String: /starterkit",
+  "isCommand": "Bool: true/false"
+}

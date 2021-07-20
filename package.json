@@ -1,0 +1,36 @@
+{
+  "name": "fiction-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "basic-ftp": "^4.6.6",
+    "dotenv": "^10.0.0",
+    "discord.js": "^12.5.3",
+    "iconv-lite": "^0.6.3",
+    "jimp": "^0.16.1",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.2",
+    "lodash.keyby": "^4.6.0",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erleiuat/fiction-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erleiuat/fiction-bot/issues"
+  },
+  "homepage": "https://github.com/erleiuat/fiction-bot#readme"
+}

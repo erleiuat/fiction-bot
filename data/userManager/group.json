@@ -68,11 +68,23 @@
     "allowBotCommands": ["/exec", "/spawn"],
     "hideCommandAlarms": ["#listplayers"],
     "hideCommands": [],
-    "useFakeNames": false,
+    "useFakeNames": true,
     "hideLogin": false,
     "ranking": {
       "hidePlaytime": false,
       "hideKills": false
+    }
+  },
+  "administrators+": {
+    "isAdmin": true,
+    "allowBotCommands": ["/exec", "/spawn"],
+    "hideCommandAlarms": ["#*"],
+    "hideCommands": ["#*"],
+    "useFakeNames": true,
+    "hideLogin": true,
+    "ranking": {
+      "hidePlaytime": true,
+      "hideKills": true
     }
   },
   "bots": {

@@ -1,6 +1,7 @@
 const _SN = '[MODULE][ACTIONHANDLER] -> '
 
 exports.handle = async function handle(action) {
+  if (global.args.includes('noHandle')) return
   global.log.info(_SN + 'Handling action from "' + action.origin + '"')
 
   switch (action.origin) {

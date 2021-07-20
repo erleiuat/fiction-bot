@@ -71,7 +71,7 @@ exports.updates = async function updates(updatesObj) {
 async function handleViolation(lines) {
   for (line of lines) {
     let actionObj = initAction('violation', line)
-    actionObj.properties.value = line.slice(20).trim()
+    actionObj.properties.value = line.slice(22).trim()
     global.actionHandler.handle(actionObj)
   }
 }
@@ -80,7 +80,13 @@ async function handleChat(lines) {
   for (line of lines) {
     let actionObj = initAction('chat', line)
     let userProps = formUserProps(line.substring(22, line.indexOf(")' '") + 1))
-    setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
+
+    let tmpUser = global.userManager.getUserBySteamID(userProps.steamID)
+    if (!tmpUser) {
+      global.log.error(_SN + 'handleChat -> User not found: ' + userProps.steamID)
+      continue
+    }
+    setActionUser(actionObj, tmpUser)
 
     let content = line.split("' '")[1].slice(0, -1).split(': ')
     actionObj.properties.scope = content[0].trim().toLowerCase()
@@ -97,7 +103,13 @@ async function handleAdmin(lines) {
   for (line of lines) {
     let actionObj = initAction('admin', line)
     let userProps = formUserProps(line.substring(22, line.indexOf("' Command")))
-    setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
+
+    let tmpUser = global.userManager.getUserBySteamID(userProps.steamID)
+    if (!tmpUser) {
+      global.log.error(_SN + 'handleAdmin -> User not found: ' + userProps.steamID)
+      continue
+    }
+    setActionUser(actionObj, tmpUser)
 
     let content = line.split("' Command: '")[1].slice(0, -1).split(' ')
     let command = content[0]
@@ -122,7 +134,10 @@ async function handleAuth(lines) {
       let actionObj = initAction('auth', line)
       let propLine = line.slice(22, line.lastIndexOf("' logg")).trim()
       let userProps = formUserProps(propLine.slice(propLine.indexOf(' ') + 1))
-      setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
+
+      let tmpUser = global.userManager.getUserBySteamID(userProps.steamID)
+      if (!tmpUser) tmpUser = global.userManager.createUser(userProps.steamID)
+      setActionUser(actionObj, tmpUser)
 
       actionObj.fakeName = actionObj.user.char.fakeName
       actionObj.properties.authType = 'login'
@@ -140,8 +155,14 @@ async function handleAuth(lines) {
       global.actionHandler.handle(actionObj)
     } else if (line.includes('logging out')) {
       let actionObj = initAction('auth', line)
-      let charID = parseInt(line.substring(line.indexOf(": '") + 3, line.lastIndexOf("' logg")))
-      setActionUser(actionObj, global.userManager.getUserByCharID(charID))
+      let charID = line.substring(line.indexOf(": '") + 3, line.lastIndexOf("' logg"))
+
+      let tmpUser = global.userManager.getUserByCharID(charID)
+      if (!tmpUser) {
+        global.log.error(_SN + 'handleAuth(logout) -> User not found: ' + userProps.steamID)
+        continue
+      }
+      setActionUser(actionObj, tmpUser)
 
       actionObj.properties.authType = 'logout'
       actionObj.user.auth.lastLogout = actionObj.date.getTime()
@@ -159,7 +180,7 @@ async function handleKill(lines) {
   for (line of lines) {
     let actionObj = initAction('kill', line)
     let newLine = line
-      .slice(21)
+      .slice(20)
       .trim()
       .replace('Killer', 'Causer')
       .replace('KillerLoc', 'CauserLoc')
@@ -169,22 +190,19 @@ async function handleKill(lines) {
 
     actionObj.properties.type = newLine.substring(0, newLine.indexOf(': ')).trim().toLowerCase()
     actionObj.properties.event = newLine.toLowerCase().includes('participating in game event')
-    let victim = newLine.substring(newLine.indexOf(': ') + 2, newLine.indexOf(', Causer: ')).trim()
+
+    let vicStr = newLine.substring(newLine.indexOf(': ') + 2, newLine.indexOf(', Causer: ')).trim()
     victim = {
-      name: victim.substring(0, victim.lastIndexOf('(')).trim(),
-      steamID: parseInt(
-        victim.substring(victim.lastIndexOf('(') + 1, victim.lastIndexOf(')')).trim()
-      )
+      name: vicStr.substring(0, vicStr.lastIndexOf('(')).trim(),
+      steamID: vicStr.substring(vicStr.lastIndexOf('(') + 1, vicStr.lastIndexOf(')')).trim()
     }
 
-    let causer = newLine
+    let cauStr = newLine
       .substring(newLine.indexOf(', Causer: ') + 9, newLine.lastIndexOf('Weapon: '))
       .trim()
     causer = {
-      name: causer.substring(0, causer.lastIndexOf('(')).trim(),
-      steamID: parseInt(
-        causer.substring(causer.lastIndexOf('(') + 1, causer.lastIndexOf(')')).trim()
-      )
+      name: cauStr.substring(0, cauStr.lastIndexOf('(')).trim(),
+      steamID: cauStr.substring(cauStr.lastIndexOf('(') + 1, cauStr.lastIndexOf(')')).trim()
     }
 
     let weapon = newLine
@@ -232,8 +250,16 @@ async function handleKill(lines) {
 
     // ------------------------ Create actionObj
 
-    setActionUser(actionObj, global.userManager.getUserBySteamID(victim.steamID))
+    let tmpUser = global.userManager.getUserBySteamID(victim.steamID)
+    if (!tmpUser) {
+      global.log.error(_SN + 'handleKill -> Victim not found: ' + vicStr)
+      continue
+    }
+    setActionUser(actionObj, tmpUser)
+
     actionObj.properties.causer = global.userManager.getUserBySteamID(causer.steamID)
+    if (!actionObj.properties.causer)
+      global.log.error(_SN + 'handleKill -> Causer not found: ' + cauStr)
 
     if (victimLoc)
       actionObj.properties.location.victim = {
@@ -269,7 +295,13 @@ async function handleMine(lines) {
     let actionObj = initAction('mine', line)
     let newLine = line.substring(line.indexOf(")' ") + 2).trim()
     let userProps = formUserProps(line.substring(22, line.indexOf(")' ") + 2))
-    setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
+
+    let tmpUser = global.userManager.getUserBySteamID(userProps.steamID)
+    if (!tmpUser) {
+      global.log.error(_SN + 'handleMine -> User not found: ' + userProps.steamID)
+      continue
+    }
+    setActionUser(actionObj, tmpUser)
 
     actionObj.properties.action = newLine.split(' ')[0].trim()
     tmpType = line.substring(line.indexOf('trap (') + 6)
@@ -282,12 +314,12 @@ async function handleMine(lines) {
       actionObj.properties.location = {
         x: parseInt(loc[0]),
         y: parseInt(loc[1]),
-        z: Math.round(parseInt(loc[2]))
+        z: parseInt(loc[2])
       }
     }
 
     if (newLine.includes(') from')) {
-      let steamID = parseInt(newLine.split(') from ')[1].split(':')[0])
+      let steamID = newLine.split(') from ')[1].split(':')[0]
       actionObj.properties.owner = global.userManager.getUserBySteamID(steamID)
     }
 
@@ -305,13 +337,13 @@ function setActionUser(actionObj, user) {
 }
 
 function formUserProps(userString) {
-  let steamID = userString.slice(0, 17).trim()
+  let steamID = userString.trim().slice(0, 17).trim()
   let charName = userString.substring(18, userString.lastIndexOf('(')).trim()
   let charID = userString.substring(userString.lastIndexOf('(') + 1, userString.lastIndexOf(')'))
   return {
-    steamID: parseInt(steamID),
+    steamID: steamID,
     char: {
-      id: parseInt(charID),
+      id: charID.toString(),
       name: charName
     }
   }

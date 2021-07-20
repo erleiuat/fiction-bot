@@ -53,7 +53,7 @@ async function chatMsg(msg) {
       user: user ? user : null,
       fakeName: user ? user.char.fakeName : null,
       properties: {
-        id: parseInt(msg.id),
+        id: msg.id,
         message: msg.content.trim(),
         isCommand: msg.content.trim().startsWith('#'),
         useName: process.env.DC_HANDLER_CHAT_PREFIX + ' ' + uName
@@ -93,7 +93,7 @@ async function consoleMsg(msg) {
       user: user,
       fakeName: user.char.fakeName,
       properties: {
-        id: parseInt(msg.id),
+        id: msg.id,
         message: msg.content.trim(),
         isCommand: msg.content.trim().startsWith('#'),
         useName: uName

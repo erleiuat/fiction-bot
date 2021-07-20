@@ -73,21 +73,27 @@ module.exports = class UserManager {
     return properties
   }
 
+  createUser(steamID, group = 'players') {
+    steamID = steamID.toString()
+    if (!this.users[steamID]) this.users[steamID] = new User(steamID, group)
+    return this.users[steamID]
+  }
+
   getUserBySteamID(steamID) {
-    steamID = parseInt(steamID)
+    steamID = steamID.toString()
     let user = this.users[steamID]
-    if (!user) this.users[steamID] = new User(steamID, 'players')
+    if (!user) return false
     return this.users[steamID]
   }
 
   getUserByCharID(charID) {
-    charID = parseInt(charID)
+    charID = charID.toString()
     for (const user in this.users) if (this.users[user].char.id === charID) return this.users[user]
     return false
   }
 
   getUserByDiscordID(discordID) {
-    discordID = parseInt(discordID)
+    discordID = discordID.toString()
     for (const user in this.users)
       if (this.users[user].discordID === discordID) return this.users[user]
     return false
@@ -110,8 +116,8 @@ module.exports = class UserManager {
 
       let userCache = JSON.parse(fs.readFileSync('./data/userManager/users.json'))
       for (const u in userCache)
-        this.users[parseInt(u)] = Object.assign(
-          new User(parseInt(userCache[u].steamID), userCache[u].group),
+        this.users[u.toString()] = Object.assign(
+          new User(userCache[u].steamID.toString(), userCache[u].group),
           userCache[u]
         )
 

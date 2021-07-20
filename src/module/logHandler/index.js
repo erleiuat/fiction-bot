@@ -101,6 +101,9 @@ async function logHandler() {
 
     for (const file in fileList) {
       if (!cache[file]) {
+        if (global.args.includes('authOnly')) {
+          if (fileList[file].type != 'login') continue
+        }
         global.log.debug(_SN + 'Downloading: ' + file)
         fileList[file].content = await getFileContent(file)
         updates[fileList[file].type] += fileList[file].content

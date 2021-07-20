@@ -42,7 +42,7 @@ module.exports = class User {
   }
 
   constructor(steamID, group = 'players') {
-    this.steamID = parseInt(steamID)
+    this.steamID = steamID.toString()
     this.group = group
   }
 

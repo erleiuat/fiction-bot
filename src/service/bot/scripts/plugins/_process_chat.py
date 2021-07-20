@@ -109,7 +109,6 @@ class Chat:
 
 
     def sendMulti(self, messages):
-        self.PAG.click(self.CON.getPoint(250, 500))
         for message in messages:
             self.goScope(str(message['scope']))
             self.send(str(message['content']))

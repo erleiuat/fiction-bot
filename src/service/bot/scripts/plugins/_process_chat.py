@@ -67,8 +67,10 @@ class Chat:
         time.sleep(0.05)
         self.PAG.hotkey('ctrl','a')
         self.PAG.hotkey('ctrl', 'c')
-        self.PAG.click(self.CON.getPoint(250, 500))
         time.sleep(0.05)
+        self.PAG.press('esc')
+        time.sleep(0.05)
+        self.PAG.press('t')
         return self.readFromClip().strip()
 
 

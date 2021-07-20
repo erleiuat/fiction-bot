@@ -28,12 +28,14 @@ async function messageHandler(msg) {
 }
 
 async function chatMsg(msg) {
-  if (
-    msg.author.id !== process.env.DC_BOT_ID &&
-    !msg.content.trim().startsWith('#') &&
-    !msg.content.trim().startsWith('/')
-  ) {
+  if (msg.author.id !== process.env.DC_BOT_ID) {
     global.log.debug(_SN + 'Chat message detected!')
+
+    if (msg.content.trim().startsWith('#') || msg.content.trim().startsWith('/')) {
+      await msg.delete()
+      return
+    }
+
     msg.channel.startTyping()
 
     let uName = msg.author.username

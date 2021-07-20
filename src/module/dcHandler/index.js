@@ -29,7 +29,7 @@ async function messageHandler(msg) {
 
 async function chatMsg(msg) {
   if (
-    msg.author.id !== process.env.DISCORD_BOT_ID &&
+    msg.author.id !== process.env.DC_BOT_ID &&
     !msg.content.trim().startsWith('#') &&
     !msg.content.trim().startsWith('/')
   ) {

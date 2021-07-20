@@ -4,13 +4,21 @@ const fetch = require('node-fetch')
 const request = require('request')
 
 let botMsgs = null
-let sGlobal = 'local'
-let sLocal = 'local'
+let sGlobal = null
+let sLocal = null
 
 exports.init = function init(msgs, scopeLocal, scopeGlobal) {
   sGlobal = scopeGlobal
   sLocal = scopeLocal
   botMsgs = msgs
+}
+
+exports.mapShot = function mapShot(cmd, action) {
+  cmd.addAction('mapShot', { path: action.path })
+}
+
+exports.playerReport = function playerReport(cmd, action) {
+  cmd.addAction('playerReport', true)
 }
 
 exports.starterkit = function starterkit(cmd, action) {
@@ -120,12 +128,12 @@ exports.vote_day = function vote_day(cmd, action) {
 }
 
 exports.online = function online(cmd, action) {
-  //cmd.addMessage(sGlobal, botMsgs.pub.online.replace('{players}', global.playersOnline)) TODO
+  cmd.addMessage(sGlobal, botMsgs.pub.online.replace('{players}', global.state.players))
 }
 
 exports.time = function time(cmd, action) {
   let time = '<unavailable>'
-  // if (global.ingameTime) time = global.ingameTime TODO
+  if (global.state.time) time = global.state.time
   cmd.addMessage(sGlobal, botMsgs.pub.time.replace('{time}', time))
 }
 

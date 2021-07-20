@@ -1,17 +1,16 @@
 const _SN = '[MODULE][ACTIONHANDLER] -> '
 
 exports.handle = async function handle(action) {
-  global.log.info(_SN + 'Handling action from "' + action.origin)
+  global.log.info(_SN + 'Handling action from "' + action.origin + '"')
 
   switch (action.origin) {
     case 'logHandler':
+      if (global.gamebot) global.gamebot.sendFromLog(action)
       if (global.dcWriter) global.dcWriter.sendFromLog(action)
-      else if (global.gamebot) global.gamebot.sendFromLog(action)
       break
 
     case 'dcHandler':
-      if (global.dcWriter) global.dcWriter.sendFromDC(action)
-      else if (global.gamebot) global.gamebot.sendFromDC(action)
+      if (global.gamebot) global.gamebot.sendFromDC(action)
       break
 
     case 'schedule':
@@ -19,6 +18,6 @@ exports.handle = async function handle(action) {
       break
 
     default:
-      global.log.warning(_SN + 'Unknown Origin')
+      global.log.error(_SN + 'Unknown Origin')
   }
 }

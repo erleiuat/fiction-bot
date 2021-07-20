@@ -45,19 +45,38 @@ class Action:
             }
         return playerList
 
-
-    def mapshot(self):
-        self.PAG.press('esc')
+    def mapShot(self, props):
         now = datetime.now()
         folderName = now.strftime('%Y_%m_%d')
         fileName = now.strftime('%Y_%m_%d.%H_%M_%S')+'.png'
-        fullPath = './app/storage/maps/'+folderName+'/'+fileName
-        Path('./app/storage/maps/'+folderName).mkdir(parents=True, exist_ok=True)
+        fullPath = props['path']+folderName+'/'+fileName
+        Path(props['path']+folderName).mkdir(parents=True, exist_ok=True)
+        self.PAG.press('esc')
         self.PAG.screenshot(fullPath, region=self.CON.getRegion('map'))
         time.sleep(0.05)
         self.PAG.press('t')
         self.CON.openAll()
         self.RES.add({'fileName': fileName, 'fullPath': fullPath})
+
+    def playerReport(self):
+        playerInfo = {}
+        playerList = self.getPlayerList()
+        for player in playerList:
+            p = self.PRC_CHAT.send('#Location '+playerList[player]['userID'], read=True)
+            playerLoc = (p[(p.find(':')+1):]).strip().split()
+            playerInfo[player] = {
+                'steamID': player,
+                'charName': playerList[player]['charName'],
+                'steamName': playerList[player]['steamName'],
+                'fame': playerList[player]['fame'],
+                'location': {
+                    'x': playerLoc[0][2:],
+                    'y': playerLoc[1][2:],
+                    'z': playerLoc[2][2:]
+                }
+            }
+
+        self.RES.add({'playerInfo': playerInfo})
 
 
     def transfer(self, props):

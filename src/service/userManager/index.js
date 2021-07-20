@@ -2,15 +2,30 @@ const fs = require('fs')
 const User = require('./user')
 const merge = require('lodash.merge')
 
+/*
+var mysql = require('mysql')
+
+var con = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS
+})
+
+con.connect(function (err) {
+  if (err) throw err
+  console.log('Connected!')
+})
+*/
+
 module.exports = class UserManager {
   #_SN = '[SERVICE][USERMANAGER] -> '
   #run = true
 
   users = {}
   groups = {}
+  userPropertiesCache = {}
 
   constructor() {
-    this.loadGroups()
     this.syncLists()
     this.saveChanges()
   }
@@ -23,14 +38,19 @@ module.exports = class UserManager {
     return fullList
   }
 
-  getUserProperties(user) {
+  getPlaytime(user, startDate, endDate) {}
+
+  getUserProperties(user, ignoreCache = false) {
+    if (!ignoreCache && this.userPropertiesCache[user.steamID])
+      return this.userPropertiesCache[user.steamID]
+
     let def = this.groups['_default']
     let group = this.groups[user.group]
 
     let merged = { group: user.group }
     merged = merge(merged, def, group, user.overwrite)
 
-    return {
+    let properties = {
       ...merged,
       allowBotCommands: this.mergeProps(
         def.allowBotCommands ? def.allowBotCommands : null,
@@ -48,37 +68,28 @@ module.exports = class UserManager {
         user.overwrite.hideCommands ? user.overwrite.hideCommands : null
       )
     }
+
+    this.userPropertiesCache[user.steamID] = properties
+    return properties
   }
 
-  getActiveSessions() {
-    console.log('todo')
-  }
-
-  getUserBySteamID(steamID, date) {
+  getUserBySteamID(steamID) {
     steamID = parseInt(steamID)
     let user = this.users[steamID]
     if (!user) this.users[steamID] = new User(steamID, 'players')
-    if (date) this.users[steamID].stats.lastActivity = date
     return this.users[steamID]
   }
 
-  getUserByCharID(charID, date) {
+  getUserByCharID(charID) {
     charID = parseInt(charID)
-    for (const user in this.users)
-      if (this.users[user].char.id === charID) {
-        if (date) this.users[user].stats.lastActivity = date
-        return this.users[user]
-      }
+    for (const user in this.users) if (this.users[user].char.id === charID) return this.users[user]
     return false
   }
 
-  getUserByDiscordID(discordID, date) {
+  getUserByDiscordID(discordID) {
     discordID = parseInt(discordID)
     for (const user in this.users)
-      if (this.users[user].discordID === discordID) {
-        if (date) this.users[user].stats.lastActivity = date
-        return this.users[user]
-      }
+      if (this.users[user].discordID === discordID) return this.users[user]
     return false
   }
 
@@ -93,25 +104,27 @@ module.exports = class UserManager {
   }
 
   async syncLists() {
-    while (!this.#run) await global.time.sleep(0.05)
-    this.#run = false
+    do {
+      while (!this.#run) await global.time.sleep(0.05)
+      this.#run = false
 
-    if (fs.existsSync('./data/userManager/users.json')) {
       let userCache = JSON.parse(fs.readFileSync('./data/userManager/users.json'))
-      for (const u in userCache) {
+      for (const u in userCache)
         this.users[parseInt(u)] = Object.assign(
           new User(parseInt(userCache[u].steamID), userCache[u].group),
           userCache[u]
         )
-      }
-    }
 
-    this.#run = true
-    await global.time.sleep(60)
+      this.groups = this.loadGroups()
+      for (const user in this.users) this.getUserProperties(this.users[user], true)
+
+      this.#run = true
+      await global.time.sleep(60)
+    } while (true)
   }
 
   loadGroups() {
     if (fs.existsSync('./data/userManager/group.json'))
-      this.groups = JSON.parse(fs.readFileSync('./data/userManager/group.json'))
+      return JSON.parse(fs.readFileSync('./data/userManager/group.json'))
   }
 }

@@ -20,8 +20,9 @@ module.exports = class User {
 
   stats = {
     firstJoin: null,
-    lastActivity: null,
+    lastActivity: 0,
     totalLogins: 0,
+    totalPlaytime: 0,
     totalMessages: {
       local: 0,
       global: 0,
@@ -43,6 +44,10 @@ module.exports = class User {
   constructor(steamID, group = 'players') {
     this.steamID = parseInt(steamID)
     this.group = group
+  }
+
+  setActivity(timestamp) {
+    if (this.stats.lastActivity < timestamp) this.stats.lastActivity = timestamp
   }
 
   activeSession() {
@@ -73,12 +78,20 @@ module.exports = class User {
     return false
   }
 
-  startSession(dateObj) {
+  startSession(dateObj, ip, isDrone = false) {
     let aSession = this.activeSession()
     if (aSession) this.endSession(new Date(aSession.start + 10), aSession.start)
 
     let loginTime = dateObj.getTime()
     if (!this.stats.firstJoin || this.stats.firstJoin > loginTime) this.stats.firstJoin = loginTime
+
+    if (this.auth.lastLogin < loginTime)
+      this.auth = {
+        isDrone: isDrone,
+        ip: ip,
+        lastLogin: loginTime,
+        lastLogout: null
+      }
 
     const session = {
       start: dateObj.getTime(),
@@ -86,6 +99,7 @@ module.exports = class User {
       duration: null
     }
 
+    this.setActivity(loginTime)
     this.stats.totalLogins++
     this.session.history[session.start] = session
     this.session.current = session.start
@@ -97,6 +111,9 @@ module.exports = class User {
       this.session.history[sessionKey].end = logoutTime
       this.session.history[sessionKey].duration =
         logoutTime - this.session.history[sessionKey].start
+      this.setActivity(logoutTime)
+      this.stats.totalPlaytime += this.session.history[sessionKey].duration
+      if (this.auth.lastLogout < logoutTime) this.auth.lastLogout = logoutTime
     }
     if (this.session.current == sessionKey) this.session.current = null
   }
@@ -106,6 +123,7 @@ module.exports = class User {
       type: action.properties.type == 'died' ? 'kill' : 'coma',
       event: action.properties.event,
       distance: action.properties.distance,
+      suicide: action.user.steamID == action.properties.causer.steamID,
       victim: {
         steamID: action.user.steamID,
         char: {
@@ -113,7 +131,7 @@ module.exports = class User {
           name: action.user.char.name
         }
       },
-      weapon: 'String: weapon'
+      weapon: action.properties.weapon
     }
   }
 }

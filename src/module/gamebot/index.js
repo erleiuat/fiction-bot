@@ -1,34 +1,31 @@
 const _SN = '[MODULE][GAMEBOT] -> '
 
-const Command = require('./command')
+const playerReporter = require('./playerReporter')
 const messages = require('./_messages').messages
-const schedule = require('./schedule')
 const commands = require('./_commands').commands
-const routines = require('./routines')
 const bot = require('../../service/bot/')
+const schedule = require('./schedule')
+const routines = require('./routines')
+const Command = require('./command')
 
 let run = false
 let queue = {}
-let sGlobal = 'local'
-let sLocal = 'local'
+let sGlobal = process.env.SETTING_CHAT_GLOBAL_SCOPE
+let sLocal = process.env.SETTING_CHAT_LOCAL_SCOPE
 
-exports.start = async function start() {
+exports.start = async function start(dcClient) {
   routines.init(messages, sLocal, sGlobal)
   schedule.start(messages, sLocal, sGlobal)
-  //let state = await bot.start()
-  run = true
-  return
+  playerReporter.start(dcClient, routines)
 
+  let state = await bot.start()
   if (state.status == 'success') {
-    /*
     let cmd = new Command(true)
     routines.botStart(cmd)
-    await bot.execute(cmd)
-    */
     run = true
-
+    await executeCommand(cmd)
     global.log.info(_SN + 'Started')
-  } else global.log.warning(_SN + 'Unable to start Bot')
+  } else global.log.error(_SN + 'Unable to start Bot')
 }
 
 exports.pause = async function pause() {
@@ -38,7 +35,6 @@ exports.pause = async function pause() {
 
 async function go() {
   while (!run) await global.time.sleep(0.001)
-  if (process.env.TIMEOUT_DCWRITER) await global.time.sleep(process.env.TIMEOUT_DCWRITER)
 }
 
 function addToQueue(cmd) {
@@ -47,27 +43,33 @@ function addToQueue(cmd) {
   return timestamp
 }
 
-async function executeCommand() {
+async function executeCommand(cmd) {
   await go()
-
-  if (!Object.keys(queue).length) return
   run = false
+  global.log.debug(_SN + 'Executing: ' + JSON.stringify(cmd))
+  let data = await bot.execute(cmd)
+  if (cmd.clearQueue) queue = {}
+  run = true
+  return data
+}
+
+exports.executeCommand = executeCommand
+
+async function executeQueue() {
+  if (!Object.keys(queue).length) return
 
   while (Object.keys(queue).length) {
     let key = Object.keys(queue).sort()[0]
     if (queue[key]) {
-      global.log.debug(_SN + 'Executing: ' + JSON.stringify(queue[key]))
-      //await bot.execute(queue[key])
-      delete queue[key]
+      await executeCommand(queue[key])
+      if (queue[key]) delete queue[key]
     }
   }
-
-  run = true
 }
 
-async function processCommand(cmd) {
+async function queueCommand(cmd) {
   let key = addToQueue(cmd)
-  executeCommand(key)
+  executeQueue(key)
 }
 
 exports.sendFromSchedule = async function sendFromSchedule(action) {
@@ -75,7 +77,7 @@ exports.sendFromSchedule = async function sendFromSchedule(action) {
   if (action.properties.type == 'messages') {
     for (const msg of action.properties.values) cmd.addMessage(msg.scope, msg.content)
   }
-  processCommand(cmd)
+  queueCommand(cmd)
 }
 
 exports.sendFromDC = async function sendFromDC(action) {
@@ -84,14 +86,14 @@ exports.sendFromDC = async function sendFromDC(action) {
   switch (action.type) {
     case 'console':
       routines.dcMessage(cmd, action)
-      processCommand(cmd)
+      executeCommand(cmd)
       break
     case 'chat':
       routines.dcMessage(cmd, action)
-      processCommand(cmd)
+      queueCommand(cmd)
       break
     default:
-      global.log.warning(_SN + 'sendFromDC(): Type not recognized: ' + action.type)
+      global.log.error(_SN + 'sendFromDC(): Type not recognized: ' + action.type)
       cmd = null
       break
   }
@@ -105,7 +107,7 @@ exports.sendFromLog = async function sendFromLog(action) {
       if (!action.properties.isCommand) break
       let cmdKey = action.properties.value.split(' ')[0].trim()
       if (commands[cmdKey]) {
-        //if (!commands[cmdKey].scopes.includes(action.properties.scope)) return
+        if (!commands[cmdKey].scopes.includes(action.properties.scope)) return
         let userProps = global.userManager.getUserProperties(action.user)
         if (
           userProps.allowBotCommands.includes('/*') ||
@@ -117,12 +119,12 @@ exports.sendFromLog = async function sendFromLog(action) {
         }
       } else
         cmd.addMessage(sGlobal, messages.unknownCommand.replace('{user}', action.user.char.name))
-      processCommand(cmd)
+      queueCommand(cmd)
       break
 
     case 'mine':
       cmd.addMessage(sGlobal, messages.in.traps)
-      processCommand(cmd)
+      queueCommand(cmd)
       break
 
     case 'kill':
@@ -136,7 +138,7 @@ exports.sendFromLog = async function sendFromLog(action) {
           .replace('{event}', event)
           .replace('{user2}', action.user.char.name)
       )
-      processCommand(cmd)
+      queueCommand(cmd)
       break
 
     case 'auth':
@@ -157,7 +159,7 @@ exports.sendFromLog = async function sendFromLog(action) {
         }
       } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', action.user.char.name))
 
-      processCommand(cmd)
+      queueCommand(cmd)
       break
   }
 }

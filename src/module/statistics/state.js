@@ -9,7 +9,7 @@ exports.check = async function check() {
         url: process.env.BATTLEMETRICS_URL
       },
       (error, response) => {
-        if (error) global.log.error(sn + 'Error: ' + error)
+        if (error) global.log.error(_SN + 'Error: ' + error)
         else {
           try {
             let data = JSON.parse(response.body)
@@ -22,7 +22,7 @@ exports.check = async function check() {
               })
             }
           } catch (e) {
-            global.log.error(sn + 'Unable to read Server-Status: ' + e)
+            global.log.error(_SN + 'Unable to read Server-Status: ' + e)
             resolve({
               players: null,
               time: null

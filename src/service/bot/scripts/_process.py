@@ -36,10 +36,12 @@ class Process:
             actions = self.testActions
 
         self.RES.addInput({'input': actions})
-
+        
         for action in actions:
-            if(action['type'] == 'mapshot'):
-                self.PRC_ACTION.mapshot()
+            if(action['type'] == 'mapShot'):
+                self.PRC_ACTION.mapShot(action['properties'])
+            if(action['type'] == 'playerReport'):
+                self.PRC_ACTION.playerReport()
             elif(action['type'] == 'sale'):
                 self.PRC_ACTION.sale(action['properties'])
             elif(action['type'] == 'travel'):
@@ -48,25 +50,17 @@ class Process:
                 self.PRC_ACTION.transfer(action['properties'])
 
 
-    testActions = {
-        "type":"transfer",
-        "properties": {
-            'from': '76561198058320009',
-            'to': 'ScumFiction',
-            'amount': '1',
-            'message': {
-                'notEnough': ':[Transfer]: ・ @Test You don\'t have enough famepoints for this transaction.',
-                'notFound': ':[Transfer]: ・ @Test I couldn\'t find the recipient with that name. Make sure to tell the name as it is spelled in chat.',
-                'success': ':[Transfer]: ・ @Test Your transaction was successful.',
-                'started': ':[Transfer]: ・ @Test Transaction started. Please wait...',
-                'somethingWrong': ':[Transfer]: ・ Something went wrong. Please try again.'
-            }
-        }
-    }
+    testActions = [{
+        "type":"playerReport"
+    }]
 
     testMessages = [
-        {"scope":"local","message":"#listanimals"},
-        {"scope":"global","message":"#Teleport -117159 -66722 37200"},
-        {"scope":"local","message":"#Teleport -117159 -66722 37200"},
-        {"scope":"local","message":"#Teleport -117159 -66722 100000"}
+        {"scope":"local","content":"1"},
+        {"scope":"local","content":"2"},
+        {"scope":"local","content":"3"},
+        {"scope":"local","content":"4"},
+        {"scope":"local","content":"5"},
+        {"scope":"local","content":"6"},
+        {"scope":"local","content":"7"},
+        {"scope":"local","content":"8"},
     ]

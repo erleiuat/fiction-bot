@@ -8,7 +8,8 @@
 */
 
 //const botName = 'scumfiction'
-const botName = 'Chris P. Bacon'
+//const botName = 'Chris P. Bacon'
+const botName = process.env.SETTING_BOT_NAME
 
 exports.messages = {
   schedule: {

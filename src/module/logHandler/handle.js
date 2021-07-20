@@ -43,8 +43,8 @@ exports.updates = async function updates(updatesObj) {
 
       switch (type) {
         case 'login':
-          break
           handleAuth(lines)
+          break
         case 'chat':
           handleChat(lines)
           break
@@ -80,8 +80,7 @@ async function handleChat(lines) {
   for (line of lines) {
     let actionObj = initAction('chat', line)
     let userProps = formUserProps(line.substring(22, line.indexOf(")' '") + 1))
-    actionObj.user = global.userManager.getUserBySteamID(userProps.steamID, actionObj.date)
-    actionObj.fakeName = actionObj.user.char.fakeName
+    setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
 
     let content = line.split("' '")[1].slice(0, -1).split(': ')
     actionObj.properties.scope = content[0].trim().toLowerCase()
@@ -98,8 +97,7 @@ async function handleAdmin(lines) {
   for (line of lines) {
     let actionObj = initAction('admin', line)
     let userProps = formUserProps(line.substring(22, line.indexOf("' Command")))
-    actionObj.user = global.userManager.getUserBySteamID(userProps.steamID, actionObj.date)
-    actionObj.fakeName = actionObj.user.char.fakeName
+    setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
 
     let content = line.split("' Command: '")[1].slice(0, -1).split(' ')
     let command = content[0]
@@ -124,7 +122,7 @@ async function handleAuth(lines) {
       let actionObj = initAction('auth', line)
       let propLine = line.slice(22, line.lastIndexOf("' logg")).trim()
       let userProps = formUserProps(propLine.slice(propLine.indexOf(' ') + 1))
-      actionObj.user = global.userManager.getUserBySteamID(userProps.steamID, actionObj.date)
+      setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
 
       actionObj.fakeName = actionObj.user.char.fakeName
       actionObj.properties.authType = 'login'
@@ -133,18 +131,22 @@ async function handleAuth(lines) {
       actionObj.user.auth = {
         isDrone: line.includes('drone'),
         ip: line.substring(22, line.lastIndexOf("' logg")).split(' ')[0].trim(),
-        lastLogin: actionObj.date,
+        lastLogin: actionObj.date.getTime(),
         lastLogout: null
       }
+
+      global.state.players++
       actionObj.user.startSession(actionObj.date)
       global.actionHandler.handle(actionObj)
     } else if (line.includes('logging out')) {
       let actionObj = initAction('auth', line)
       let charID = parseInt(line.substring(line.indexOf(": '") + 3, line.lastIndexOf("' logg")))
-      actionObj.user = global.userManager.getUserByCharID(charID, actionObj.date)
+      setActionUser(actionObj, global.userManager.getUserByCharID(charID))
 
       actionObj.properties.authType = 'logout'
-      actionObj.user.auth.lastLogout = actionObj.date
+      actionObj.user.auth.lastLogout = actionObj.date.getTime()
+
+      global.state.players--
       actionObj.user.endSession(actionObj.date)
       global.actionHandler.handle(actionObj)
     } else {
@@ -164,6 +166,7 @@ async function handleKill(lines) {
     if (newLine.startsWith('{')) continue
 
     // ------------------------ Build props
+
     actionObj.properties.type = newLine.substring(0, newLine.indexOf(': ')).trim().toLowerCase()
     actionObj.properties.event = newLine.toLowerCase().includes('participating in game event')
     let victim = newLine.substring(newLine.indexOf(': ') + 2, newLine.indexOf(', Causer: ')).trim()
@@ -229,12 +232,8 @@ async function handleKill(lines) {
 
     // ------------------------ Create actionObj
 
-    actionObj.user = global.userManager.getUserBySteamID(victim.steamID, actionObj.date)
-    actionObj.fakeName = actionObj.user.char.fakeName
-    actionObj.properties.causer = global.userManager.getUserBySteamID(
-      causer.steamID,
-      actionObj.date
-    )
+    setActionUser(actionObj, global.userManager.getUserBySteamID(victim.steamID))
+    actionObj.properties.causer = global.userManager.getUserBySteamID(causer.steamID)
 
     if (victimLoc)
       actionObj.properties.location.victim = {
@@ -270,8 +269,7 @@ async function handleMine(lines) {
     let actionObj = initAction('mine', line)
     let newLine = line.substring(line.indexOf(")' ") + 2).trim()
     let userProps = formUserProps(line.substring(22, line.indexOf(")' ") + 2))
-    actionObj.user = global.userManager.getUserBySteamID(userProps.steamID, actionObj.date)
-    actionObj.fakeName = actionObj.user.char.fakeName
+    setActionUser(actionObj, global.userManager.getUserBySteamID(userProps.steamID))
 
     actionObj.properties.action = newLine.split(' ')[0].trim()
     tmpType = line.substring(line.indexOf('trap (') + 6)
@@ -300,6 +298,12 @@ async function handleMine(lines) {
   }
 }
 
+function setActionUser(actionObj, user) {
+  actionObj.user = user
+  actionObj.user.setActivity(actionObj.timestamp)
+  actionObj.fakeName = actionObj.user.char.fakeName
+}
+
 function formUserProps(userString) {
   let steamID = userString.slice(0, 17).trim()
   let charName = userString.substring(18, userString.lastIndexOf('(')).trim()
@@ -320,8 +324,9 @@ function initAction(actType, line) {
   let stampParts = timestring.split('-')
   let dP = stampParts[0].split('.')
   let tP = stampParts[1].split('.')
-  let date = new Date(Date.UTC(dP[0], dP[1], dP[2], tP[0], tP[1], tP[2]))
-  date.setTime(date.getTime() + 0 * 60 * 60 * 1000)
+  let dateStr = dP[0] + '-' + dP[1] + '-' + dP[2] + 'T' + tP[0] + ':' + tP[1] + ':' + tP[2]
+  let date = new Date(dateStr)
+  date.setTime(date.getTime() + 2 * 60 * 60 * 1000)
   let timestamp = date.getTime()
 
   switch (actType) {

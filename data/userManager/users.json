@@ -1,29 +1,28 @@
 {
-  "76561198316166190": {
-    "steamID": 76561198316166190,
+  "76561198316166198": {
+    "steamID": "76561198316166198",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 122, "name": "Keyfu79", "fakeName": null },
+    "char": { "id": "122", "name": "Keyfu79", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "95.90.241.222",
-      "lastLogin": 1626792520000,
-      "lastLogout": 1626796803000
+      "lastLogin": 1626796865000,
+      "lastLogout": null
     },
     "stats": {
-      "firstJoin": 1626300096000,
-      "lastActivity": 1626796803000,
+      "firstJoin": 1626321706000,
+      "lastActivity": 1626796865000,
       "totalLogins": 17,
-      "totalPlaytime": 114728000,
+      "totalPlaytime": 93220000,
       "totalMessages": { "local": 3, "global": 0, "squad": 0 }
     },
     "info": { "starterkit": null },
     "kills": {},
     "session": {
-      "current": null,
+      "current": 1626796865000,
       "history": {
-        "1626300096000": { "start": 1626300096000, "end": 1626321604000, "duration": 21508000 },
         "1626321706000": { "start": 1626321706000, "end": 1626322438000, "duration": 732000 },
         "1626350562000": { "start": 1626350562000, "end": 1626356167000, "duration": 5605000 },
         "1626356322000": { "start": 1626356322000, "end": 1626361392000, "duration": 5070000 },
@@ -39,85 +38,35 @@
         "1626472894000": { "start": 1626472894000, "end": 1626473082000, "duration": 188000 },
         "1626752743000": { "start": 1626752743000, "end": 1626753041000, "duration": 298000 },
         "1626786231000": { "start": 1626786231000, "end": 1626792401000, "duration": 6170000 },
-        "1626792520000": { "start": 1626792520000, "end": 1626796803000, "duration": 4283000 }
+        "1626792520000": { "start": 1626792520000, "end": 1626796803000, "duration": 4283000 },
+        "1626796865000": { "start": 1626796865000, "end": false, "duration": null }
       }
     }
   },
-  "76561198112546820": {
-    "steamID": 76561198112546820,
+  "76561199166410611": {
+    "steamID": "76561199166410611",
     "discordID": null,
-    "group": "players",
+    "group": "bots",
     "overwrite": {},
-    "char": { "id": 124, "name": "LatinoHeat", "fakeName": null },
-    "auth": {
-      "isDrone": false,
-      "ip": "80.131.80.65",
-      "lastLogin": 1626794473000,
-      "lastLogout": 1626796803000
-    },
-    "stats": {
-      "firstJoin": 1626300106000,
-      "lastActivity": 1626796803000,
-      "totalLogins": 23,
-      "totalPlaytime": 62294000,
-      "totalMessages": { "local": 6, "global": 0, "squad": 0 }
-    },
-    "info": { "starterkit": null },
-    "kills": {},
-    "session": {
-      "current": null,
-      "history": {
-        "1626300106000": { "start": 1626300106000, "end": 1626301525000, "duration": 1419000 },
-        "1626330051000": { "start": 1626330051000, "end": 1626331580000, "duration": 1529000 },
-        "1626331656000": { "start": 1626331656000, "end": 1626334075000, "duration": 2419000 },
-        "1626362289000": { "start": 1626362289000, "end": 1626364807000, "duration": 2518000 },
-        "1626364879000": { "start": 1626364879000, "end": 1626366744000, "duration": 1865000 },
-        "1626375497000": { "start": 1626375497000, "end": 1626377080000, "duration": 1583000 },
-        "1626377691000": { "start": 1626377691000, "end": 1626377900000, "duration": 209000 },
-        "1626378157000": { "start": 1626378157000, "end": 1626378603000, "duration": 446000 },
-        "1626379081000": { "start": 1626379081000, "end": 1626379261000, "duration": 180000 },
-        "1626380028000": { "start": 1626380028000, "end": 1626386153000, "duration": 6125000 },
-        "1626424723000": { "start": 1626424723000, "end": 1626427242000, "duration": 2519000 },
-        "1626428876000": { "start": 1626428876000, "end": 1626429607000, "duration": 731000 },
-        "1626432432000": { "start": 1626432432000, "end": 1626439881000, "duration": 7449000 },
-        "1626439921000": { "start": 1626439921000, "end": 1626440249000, "duration": 328000 },
-        "1626444294000": { "start": 1626444294000, "end": 1626450613000, "duration": 6319000 },
-        "1626466315000": { "start": 1626466315000, "end": 1626472830000, "duration": 6515000 },
-        "1626526655000": { "start": 1626526655000, "end": 1626527535000, "duration": 880000 },
-        "1626598861000": { "start": 1626598861000, "end": 1626602430000, "duration": 3569000 },
-        "1626615594000": { "start": 1626615594000, "end": 1626618401000, "duration": 2807000 },
-        "1626618642000": { "start": 1626618642000, "end": 1626621939000, "duration": 3297000 },
-        "1626714694000": { "start": 1626714694000, "end": 1626721241000, "duration": 6547000 },
-        "1626721539000": { "start": 1626721539000, "end": 1626722249000, "duration": 710000 },
-        "1626794473000": { "start": 1626794473000, "end": 1626796803000, "duration": 2330000 }
-      }
-    }
-  },
-  "76561199166410610": {
-    "steamID": 76561199166410610,
-    "discordID": null,
-    "group": "players",
-    "overwrite": {},
-    "char": { "id": 6, "name": "ScumFiction", "fakeName": "・ :[FiBo]" },
+    "char": { "id": "6", "name": "ScumFiction", "fakeName": "・ :[FiBo]" },
     "auth": {
       "isDrone": true,
       "ip": "212.51.149.99",
-      "lastLogin": 1626775384000,
-      "lastLogout": 1626796803000
+      "lastLogin": 1626796965000,
+      "lastLogout": null
     },
     "stats": {
-      "firstJoin": 1626300181000,
-      "lastActivity": 1626796803000,
+      "firstJoin": 1626321779000,
+      "lastActivity": 1626799924000,
       "totalLogins": 34,
-      "totalPlaytime": 465831000,
-      "totalMessages": { "local": 70, "global": 683, "squad": 0 }
+      "totalPlaytime": 444408000,
+      "totalMessages": { "local": 71, "global": 696, "squad": 0 }
     },
     "info": { "starterkit": null },
     "kills": {},
     "session": {
-      "current": null,
+      "current": 1626796965000,
       "history": {
-        "1626300181000": { "start": 1626300181000, "end": 1626321604000, "duration": 21423000 },
         "1626321779000": { "start": 1626321779000, "end": 1626329080000, "duration": 7301000 },
         "1626329150000": { "start": 1626329150000, "end": 1626331580000, "duration": 2430000 },
         "1626332616000": { "start": 1626332616000, "end": 1626343228000, "duration": 10612000 },
@@ -150,16 +99,17 @@
         "1626710595000": { "start": 1626710595000, "end": 1626732029000, "duration": 21434000 },
         "1626732187000": { "start": 1626732187000, "end": 1626753605000, "duration": 21418000 },
         "1626753782000": { "start": 1626753782000, "end": 1626775206000, "duration": 21424000 },
-        "1626775384000": { "start": 1626775384000, "end": 1626796803000, "duration": 21419000 }
+        "1626775384000": { "start": 1626775384000, "end": 1626796803000, "duration": 21419000 },
+        "1626796965000": { "start": 1626796965000, "end": false, "duration": null }
       }
     }
   },
-  "76561199100988510": {
-    "steamID": 76561199100988510,
+  "76561199100988505": {
+    "steamID": "76561199100988505",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 128, "name": "itzremble", "fakeName": null },
+    "char": { "id": "128", "name": "itzremble", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "69.255.180.169",
@@ -180,7 +130,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561199100988510, "char": { "id": 128, "name": "itzremble" } },
+        "victim": { "steamID": "76561199100988505", "char": { "id": "128", "name": "itzremble" } },
         "weapon": "Mine_01_C_2147252165 [Explosion]"
       }
     },
@@ -230,24 +180,24 @@
       }
     }
   },
-  "76561198058320020": {
-    "steamID": 76561198058320020,
+  "76561198058320009": {
+    "steamID": "76561198058320009",
     "discordID": null,
-    "group": "players",
+    "group": "administrators+",
     "overwrite": {},
-    "char": { "id": 120, "name": "Joppala", "fakeName": null },
+    "char": { "id": "120", "name": "Joppala", "fakeName": null },
     "auth": {
-      "isDrone": true,
+      "isDrone": false,
       "ip": "212.51.149.99",
-      "lastLogin": 1626787213000,
-      "lastLogout": 1626796803000
+      "lastLogin": 1626797153000,
+      "lastLogout": null
     },
     "stats": {
       "firstJoin": 1626328044000,
-      "lastActivity": 1626796803000,
-      "totalLogins": 98,
-      "totalPlaytime": 261093000,
-      "totalMessages": { "local": 609, "global": 107, "squad": 1 }
+      "lastActivity": 1626799949000,
+      "totalLogins": 100,
+      "totalPlaytime": 261358000,
+      "totalMessages": { "local": 609, "global": 115, "squad": 1 }
     },
     "info": { "starterkit": null },
     "kills": {
@@ -256,7 +206,7 @@
         "event": true,
         "distance": 15,
         "suicide": false,
-        "victim": { "steamID": 76561199166410610, "char": { "id": 6, "name": "ScumFiction" } },
+        "victim": { "steamID": "76561199166410611", "char": { "id": "6", "name": "ScumFiction" } },
         "weapon": "BP_Weapon_AK47_C [Projectile]"
       },
       "1626438240000": {
@@ -264,7 +214,7 @@
         "event": true,
         "distance": 4,
         "suicide": false,
-        "victim": { "steamID": 76561199166410610, "char": { "id": 6, "name": "ScumFiction" } },
+        "victim": { "steamID": "76561199166410611", "char": { "id": "6", "name": "ScumFiction" } },
         "weapon": "Event_2H_Katana_C_2146528234 [Throwing]"
       },
       "1626439498000": {
@@ -272,7 +222,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198058320020, "char": { "id": 120, "name": "Joppala" } },
+        "victim": { "steamID": "76561198058320009", "char": { "id": "120", "name": "Joppala" } },
         "weapon": "Mine_01_C_2146361599 [Explosion]"
       },
       "1626592769000": {
@@ -280,7 +230,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198058320020, "char": { "id": 120, "name": "Joppala" } },
+        "victim": { "steamID": "76561198058320009", "char": { "id": "120", "name": "Joppala" } },
         "weapon": "Mine_01_C_2147457043 [Explosion]"
       },
       "1626599444000": {
@@ -288,7 +238,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198058320020, "char": { "id": 120, "name": "Joppala" } },
+        "victim": { "steamID": "76561198058320009", "char": { "id": "120", "name": "Joppala" } },
         "weapon": "Mine_01_C_2147299651 [Explosion]"
       },
       "1626693588000": {
@@ -296,7 +246,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198058320020, "char": { "id": 120, "name": "Joppala" } },
+        "victim": { "steamID": "76561198058320009", "char": { "id": "120", "name": "Joppala" } },
         "weapon": "Mine_01_C_2147405738 [Explosion]"
       },
       "1626693754000": {
@@ -304,12 +254,12 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198058320020, "char": { "id": 120, "name": "Joppala" } },
+        "victim": { "steamID": "76561198058320009", "char": { "id": "120", "name": "Joppala" } },
         "weapon": "Mine_01_C_2147399944 [Explosion]"
       }
     },
     "session": {
-      "current": null,
+      "current": 1626797153000,
       "history": {
         "1626328044000": { "start": 1626328044000, "end": 1626329080000, "duration": 1036000 },
         "1626329170000": { "start": 1626329170000, "end": 1626331580000, "duration": 2410000 },
@@ -408,16 +358,68 @@
         "1626761096000": { "start": 1626761096000, "end": 1626775206000, "duration": 14110000 },
         "1626775401000": { "start": 1626775401000, "end": 1626785355000, "duration": 9954000 },
         "1626785423000": { "start": 1626785423000, "end": 1626787124000, "duration": 1701000 },
-        "1626787213000": { "start": 1626787213000, "end": 1626796803000, "duration": 9590000 }
+        "1626787213000": { "start": 1626787213000, "end": 1626796803000, "duration": 9590000 },
+        "1626796881000": { "start": 1626796881000, "end": 1626797146000, "duration": 265000 },
+        "1626797153000": { "start": 1626797153000, "end": false, "duration": null }
       }
     }
   },
-  "76561198426100210": {
-    "steamID": 76561198426100210,
+  "76561198112546814": {
+    "steamID": "76561198112546814",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 21, "name": "Henry Tres", "fakeName": null },
+    "char": { "id": "124", "name": "LatinoHeat", "fakeName": null },
+    "auth": {
+      "isDrone": false,
+      "ip": "80.131.80.65",
+      "lastLogin": 1626796920000,
+      "lastLogout": null
+    },
+    "stats": {
+      "firstJoin": 1626330051000,
+      "lastActivity": 1626796920000,
+      "totalLogins": 23,
+      "totalPlaytime": 60875000,
+      "totalMessages": { "local": 6, "global": 0, "squad": 0 }
+    },
+    "info": { "starterkit": null },
+    "kills": {},
+    "session": {
+      "current": 1626796920000,
+      "history": {
+        "1626330051000": { "start": 1626330051000, "end": 1626331580000, "duration": 1529000 },
+        "1626331656000": { "start": 1626331656000, "end": 1626334075000, "duration": 2419000 },
+        "1626362289000": { "start": 1626362289000, "end": 1626364807000, "duration": 2518000 },
+        "1626364879000": { "start": 1626364879000, "end": 1626366744000, "duration": 1865000 },
+        "1626375497000": { "start": 1626375497000, "end": 1626377080000, "duration": 1583000 },
+        "1626377691000": { "start": 1626377691000, "end": 1626377900000, "duration": 209000 },
+        "1626378157000": { "start": 1626378157000, "end": 1626378603000, "duration": 446000 },
+        "1626379081000": { "start": 1626379081000, "end": 1626379261000, "duration": 180000 },
+        "1626380028000": { "start": 1626380028000, "end": 1626386153000, "duration": 6125000 },
+        "1626424723000": { "start": 1626424723000, "end": 1626427242000, "duration": 2519000 },
+        "1626428876000": { "start": 1626428876000, "end": 1626429607000, "duration": 731000 },
+        "1626432432000": { "start": 1626432432000, "end": 1626439881000, "duration": 7449000 },
+        "1626439921000": { "start": 1626439921000, "end": 1626440249000, "duration": 328000 },
+        "1626444294000": { "start": 1626444294000, "end": 1626450613000, "duration": 6319000 },
+        "1626466315000": { "start": 1626466315000, "end": 1626472830000, "duration": 6515000 },
+        "1626526655000": { "start": 1626526655000, "end": 1626527535000, "duration": 880000 },
+        "1626598861000": { "start": 1626598861000, "end": 1626602430000, "duration": 3569000 },
+        "1626615594000": { "start": 1626615594000, "end": 1626618401000, "duration": 2807000 },
+        "1626618642000": { "start": 1626618642000, "end": 1626621939000, "duration": 3297000 },
+        "1626714694000": { "start": 1626714694000, "end": 1626721241000, "duration": 6547000 },
+        "1626721539000": { "start": 1626721539000, "end": 1626722249000, "duration": 710000 },
+        "1626794473000": { "start": 1626794473000, "end": 1626796803000, "duration": 2330000 },
+        "1626796920000": { "start": 1626796920000, "end": false, "duration": null }
+      }
+    }
+  },
+  "76561198426100211": {
+    "steamID": "76561198426100211",
+    "discordID": null,
+    "group": "players",
+    "overwrite": {},
+    "char": { "id": "21", "name": "Henry Tres", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "62.107.48.174",
@@ -438,7 +440,7 @@
         "event": false,
         "distance": null,
         "suicide": false,
-        "victim": { "steamID": 76561199100988510, "char": { "id": 128, "name": "itzremble" } },
+        "victim": { "steamID": "76561199100988505", "char": { "id": "128", "name": "itzremble" } },
         "weapon": "Mine_01_C_2147252148 [Explosion]"
       }
     },
@@ -471,12 +473,12 @@
       }
     }
   },
-  "76561198838539090": {
-    "steamID": 76561198838539090,
+  "76561198838539082": {
+    "steamID": "76561198838539082",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 4, "name": "Skorpion", "fakeName": null },
+    "char": { "id": "4", "name": "Skorpion", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "92.76.112.22",
@@ -497,7 +499,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198838539090, "char": { "id": 4, "name": "Skorpion" } },
+        "victim": { "steamID": "76561198838539082", "char": { "id": "4", "name": "Skorpion" } },
         "weapon": "Claymore_C_2147478296 [Explosion]"
       },
       "1626474261000": {
@@ -505,7 +507,7 @@
         "event": false,
         "distance": null,
         "suicide": true,
-        "victim": { "steamID": 76561198838539090, "char": { "id": 4, "name": "Skorpion" } },
+        "victim": { "steamID": "76561198838539082", "char": { "id": "4", "name": "Skorpion" } },
         "weapon": "Claymore_C_2147215108 [Explosion]"
       }
     },
@@ -519,12 +521,12 @@
       }
     }
   },
-  "76561197969940500": {
-    "steamID": 76561197969940500,
+  "76561197969940498": {
+    "steamID": "76561197969940498",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 27, "name": "Skree", "fakeName": null },
+    "char": { "id": "27", "name": "Skree", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "176.23.3.58",
@@ -551,12 +553,12 @@
       }
     }
   },
-  "76561199118612530": {
-    "steamID": 76561199118612530,
+  "76561199118612532": {
+    "steamID": "76561199118612532",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 13, "name": "Reaper", "fakeName": null },
+    "char": { "id": "13", "name": "Reaper", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "109.40.67.112",
@@ -582,12 +584,12 @@
       }
     }
   },
-  "76561199011125150": {
-    "steamID": 76561199011125150,
+  "76561199011125154": {
+    "steamID": "76561199011125154",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 84, "name": "MOHAMMEDヅ", "fakeName": null },
+    "char": { "id": "84", "name": "MOHAMMEDヅ", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "37.237.30.43",
@@ -608,7 +610,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145990709 [Melee]"
       },
       "1626441440000": {
@@ -616,7 +618,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145990709 [Melee]"
       },
       "1626441499000": {
@@ -624,7 +626,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145990709 [Melee]"
       },
       "1626441547000": {
@@ -632,7 +634,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145961803 [Melee]"
       },
       "1626441565000": {
@@ -640,7 +642,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145961803 [Melee]"
       },
       "1626441613000": {
@@ -648,7 +650,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145961803 [Melee]"
       },
       "1626441789000": {
@@ -656,7 +658,7 @@
         "event": true,
         "distance": 0,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145915792 [Melee]"
       },
       "1626442091000": {
@@ -664,7 +666,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Event_2H_Katana_C_2145866390 [Melee]"
       },
       "1626443399000": {
@@ -672,7 +674,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145591651 [Melee]"
       },
       "1626443403000": {
@@ -680,7 +682,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145591651 [Melee]"
       },
       "1626443566000": {
@@ -688,7 +690,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "Sledgehammer_C_2145558648 [Melee]"
       },
       "1626443599000": {
@@ -696,7 +698,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145548087 [Melee]"
       },
       "1626443602000": {
@@ -704,7 +706,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145548087 [Melee]"
       },
       "1626443694000": {
@@ -712,7 +714,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145533540 [Melee]"
       },
       "1626443707000": {
@@ -720,7 +722,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145525402 [Melee]"
       },
       "1626443748000": {
@@ -728,7 +730,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145518925 [Melee]"
       },
       "1626443764000": {
@@ -736,7 +738,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145518925 [Melee]"
       },
       "1626443798000": {
@@ -744,7 +746,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145518925 [Melee]"
       },
       "1626444124000": {
@@ -752,7 +754,7 @@
         "event": true,
         "distance": 72,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626444554000": {
@@ -760,7 +762,7 @@
         "event": true,
         "distance": 29,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626444614000": {
@@ -768,7 +770,7 @@
         "event": true,
         "distance": 60,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626444646000": {
@@ -776,7 +778,7 @@
         "event": true,
         "distance": 21,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626447183000": {
@@ -784,7 +786,7 @@
         "event": true,
         "distance": 21,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626447196000": {
@@ -792,7 +794,7 @@
         "event": true,
         "distance": 64,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626447411000": {
@@ -800,7 +802,7 @@
         "event": true,
         "distance": 5,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626471187000": {
@@ -808,7 +810,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Axe_C_2145210161 [Melee]"
       },
       "1626471191000": {
@@ -816,7 +818,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Axe_C_2145210161 [Melee]"
       },
       "1626471237000": {
@@ -824,7 +826,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Axe_C_2145201193 [Melee]"
       },
       "1626471294000": {
@@ -832,7 +834,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Pitchfork_C_2145190580 [Melee]"
       },
       "1626471301000": {
@@ -840,7 +842,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Pitchfork_C_2145190580 [Melee]"
       },
       "1626471333000": {
@@ -848,7 +850,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Pitchfork_C_2145178223 [Melee]"
       },
       "1626471393000": {
@@ -856,7 +858,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Baseball_Bat_C_2145166303 [Melee]"
       },
       "1626471494000": {
@@ -864,7 +866,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Axe_C_2145151392 [Melee]"
       },
       "1626471511000": {
@@ -872,7 +874,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Axe_C_2145151392 [Melee]"
       },
       "1626471533000": {
@@ -880,7 +882,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Axe_C_2145134224 [Melee]"
       },
       "1626471578000": {
@@ -888,7 +890,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "1H_Crowbar_C_2145124430 [Melee]"
       },
       "1626471606000": {
@@ -896,7 +898,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145121653 [Melee]"
       },
       "1626471621000": {
@@ -904,7 +906,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145121653 [Melee]"
       },
       "1626471768000": {
@@ -912,7 +914,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145089754 [Melee]"
       },
       "1626471809000": {
@@ -920,7 +922,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145073371 [Melee]"
       },
       "1626471839000": {
@@ -928,7 +930,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145064409 [Melee]"
       },
       "1626471861000": {
@@ -936,7 +938,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145064409 [Melee]"
       },
       "1626471901000": {
@@ -944,7 +946,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145064409 [Melee]"
       },
       "1626471966000": {
@@ -952,7 +954,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145039828 [Melee]"
       },
       "1626472020000": {
@@ -960,7 +962,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145030677 [Melee]"
       },
       "1626472077000": {
@@ -968,7 +970,7 @@
         "event": true,
         "distance": 3,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145017629 [Melee]"
       },
       "1626472146000": {
@@ -976,7 +978,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Pitchfork_C_2144996396 [Melee]"
       },
       "1626472148000": {
@@ -984,7 +986,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Pitchfork_C_2144996396 [Melee]"
       },
       "1626472295000": {
@@ -992,7 +994,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2144972727 [Melee]"
       },
       "1626473450000": {
@@ -1000,7 +1002,7 @@
         "event": true,
         "distance": 18,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BP_Weapon_AS_Val_C [Projectile]"
       },
       "1626473507000": {
@@ -1008,7 +1010,7 @@
         "event": true,
         "distance": 7,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_AS_Val_C [Projectile]"
       },
       "1626473542000": {
@@ -1016,7 +1018,7 @@
         "event": true,
         "distance": 14,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_AS_Val_C [Projectile]"
       },
       "1626473702000": {
@@ -1024,7 +1026,7 @@
         "event": true,
         "distance": 25,
         "suicide": false,
-        "victim": { "steamID": 76561198120333040, "char": { "id": 3, "name": "Chaotix" } },
+        "victim": { "steamID": "76561198120333042", "char": { "id": "3", "name": "Chaotix" } },
         "weapon": "BP_Weapon_AS_Val_C [Projectile]"
       },
       "1626473718000": {
@@ -1032,7 +1034,7 @@
         "event": true,
         "distance": 24,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_AS_Val_C [Projectile]"
       },
       "1626473730000": {
@@ -1040,7 +1042,7 @@
         "event": true,
         "distance": 4,
         "suicide": false,
-        "victim": { "steamID": 76561198120333040, "char": { "id": 3, "name": "Chaotix" } },
+        "victim": { "steamID": "76561198120333042", "char": { "id": "3", "name": "Chaotix" } },
         "weapon": "BP_Weapon_AS_Val_C [Projectile]"
       },
       "1626475055000": {
@@ -1048,7 +1050,7 @@
         "event": true,
         "distance": 34,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BP_Weapon_MP5_C [Projectile]"
       },
       "1626475282000": {
@@ -1056,7 +1058,7 @@
         "event": true,
         "distance": 49,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626475943000": {
@@ -1064,7 +1066,7 @@
         "event": true,
         "distance": 14,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626476051000": {
@@ -1072,7 +1074,7 @@
         "event": true,
         "distance": 13,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       }
     },
@@ -1086,12 +1088,12 @@
       }
     }
   },
-  "76561198894072080": {
-    "steamID": 76561198894072080,
+  "76561198894072077": {
+    "steamID": "76561198894072077",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 90, "name": "is.hashim", "fakeName": null },
+    "char": { "id": "90", "name": "is.hashim", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "37.237.30.24",
@@ -1112,7 +1114,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pitchfork_C_2146018513 [Melee]"
       },
       "1626441532000": {
@@ -1120,7 +1122,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145968597 [Melee]"
       },
       "1626441650000": {
@@ -1128,7 +1130,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Shovel_01_C_2145946562 [Melee]"
       },
       "1626441704000": {
@@ -1136,7 +1138,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Shovel_01_C_2145946562 [Melee]"
       },
       "1626441766000": {
@@ -1144,7 +1146,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Shovel_01_C_2145946562 [Melee]"
       },
       "1626441839000": {
@@ -1152,7 +1154,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145910028 [Melee]"
       },
       "1626442274000": {
@@ -1160,7 +1162,7 @@
         "event": true,
         "distance": 50,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_98k_Karabiner_EVENT_C [Projectile]"
       },
       "1626442366000": {
@@ -1168,7 +1170,7 @@
         "event": true,
         "distance": 45,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_98k_Karabiner_EVENT_C [Projectile]"
       },
       "1626442408000": {
@@ -1176,7 +1178,7 @@
         "event": true,
         "distance": 13,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_98k_Karabiner_EVENT_C [Projectile]"
       },
       "1626443312000": {
@@ -1184,7 +1186,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Shovel_01_C_2145618308 [Melee]"
       },
       "1626443356000": {
@@ -1192,7 +1194,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Shovel_01_C_2145598055 [Melee]"
       },
       "1626443366000": {
@@ -1200,7 +1202,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Shovel_01_C_2145598055 [Melee]"
       },
       "1626443399000": {
@@ -1208,7 +1210,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Shovel_01_C_2145598055 [Melee]"
       },
       "1626443621000": {
@@ -1216,7 +1218,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145544534 [Melee]"
       },
       "1626443664000": {
@@ -1224,7 +1226,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Baseball_Bat_C_2145534184 [Melee]"
       },
       "1626443673000": {
@@ -1232,7 +1234,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Baseball_Bat_C_2145534184 [Melee]"
       },
       "1626443730000": {
@@ -1240,7 +1242,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145521669 [Melee]"
       },
       "1626443740000": {
@@ -1248,7 +1250,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Baseball_Bat_C_2145521669 [Melee]"
       },
       "1626443813000": {
@@ -1256,7 +1258,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145507751 [Melee]"
       },
       "1626447296000": {
@@ -1264,7 +1266,7 @@
         "event": true,
         "distance": 15,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626447336000": {
@@ -1272,7 +1274,7 @@
         "event": true,
         "distance": 6,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626447411000": {
@@ -1280,7 +1282,7 @@
         "event": true,
         "distance": 5,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626447529000": {
@@ -1288,7 +1290,7 @@
         "event": true,
         "distance": 25,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626447631000": {
@@ -1296,7 +1298,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626471146000": {
@@ -1304,7 +1306,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Baseball_Bat_C_2145234148 [Melee]"
       },
       "1626471183000": {
@@ -1312,7 +1314,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Baseball_Bat_C_2145234148 [Melee]"
       },
       "1626471215000": {
@@ -1320,7 +1322,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145206294 [Melee]"
       },
       "1626471249000": {
@@ -1328,7 +1330,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Baseball_Bat_C_2145206294 [Melee]"
       },
       "1626471393000": {
@@ -1336,7 +1338,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Baseball_Bat_C_2145168793 [Melee]"
       },
       "1626471442000": {
@@ -1344,7 +1346,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Baseball_Bat_C_2145168793 [Melee]"
       },
       "1626471522000": {
@@ -1352,7 +1354,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145168793 [Melee]"
       },
       "1626471563000": {
@@ -1360,7 +1362,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145168793 [Melee]"
       },
       "1626471637000": {
@@ -1368,7 +1370,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145112432 [Melee]"
       },
       "1626471789000": {
@@ -1376,7 +1378,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145077627 [Melee]"
       },
       "1626471828000": {
@@ -1384,7 +1386,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Baseball_Bat_C_2145077627 [Melee]"
       },
       "1626471895000": {
@@ -1392,7 +1394,7 @@
         "event": true,
         "distance": 5,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "1H_Crowbar_C_2145061902 [Melee]"
       },
       "1626471910000": {
@@ -1400,7 +1402,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "1H_Crowbar_C_2145061902 [Melee]"
       },
       "1626471941000": {
@@ -1408,7 +1410,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "1H_Crowbar_C_2145061902 [Melee]"
       },
       "1626472039000": {
@@ -1416,7 +1418,7 @@
         "event": true,
         "distance": 0,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Shovel_01_C_2145036959 [Melee]"
       },
       "1626472043000": {
@@ -1424,7 +1426,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Shovel_01_C_2145036959 [Melee]"
       },
       "1626472231000": {
@@ -1432,7 +1434,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Shovel_01_C_2144992949 [Melee]"
       },
       "1626473507000": {
@@ -1440,7 +1442,7 @@
         "event": true,
         "distance": 7,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_UMP45_C [Projectile]"
       },
       "1626473531000": {
@@ -1448,7 +1450,7 @@
         "event": true,
         "distance": 11,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BPC_Weapon_UMP45_C [Projectile]"
       },
       "1626473565000": {
@@ -1456,7 +1458,7 @@
         "event": true,
         "distance": 14,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_UMP45_C [Projectile]"
       },
       "1626473803000": {
@@ -1464,7 +1466,7 @@
         "event": true,
         "distance": 41,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BPC_Weapon_UMP45_C [Projectile]"
       },
       "1626473840000": {
@@ -1472,7 +1474,7 @@
         "event": true,
         "distance": 22,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626473857000": {
@@ -1480,7 +1482,7 @@
         "event": true,
         "distance": 12,
         "suicide": false,
-        "victim": { "steamID": 76561198120333040, "char": { "id": 3, "name": "Chaotix" } },
+        "victim": { "steamID": "76561198120333042", "char": { "id": "3", "name": "Chaotix" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626474997000": {
@@ -1488,7 +1490,7 @@
         "event": true,
         "distance": 11,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626475023000": {
@@ -1496,7 +1498,7 @@
         "event": true,
         "distance": 4,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626475150000": {
@@ -1504,7 +1506,7 @@
         "event": true,
         "distance": 29,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626475263000": {
@@ -1512,7 +1514,7 @@
         "event": true,
         "distance": 17,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626475282000": {
@@ -1520,7 +1522,7 @@
         "event": true,
         "distance": 49,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626475580000": {
@@ -1528,7 +1530,7 @@
         "event": true,
         "distance": 56,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475618000": {
@@ -1536,7 +1538,7 @@
         "event": true,
         "distance": 11,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475654000": {
@@ -1544,7 +1546,7 @@
         "event": true,
         "distance": 22,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475711000": {
@@ -1552,7 +1554,7 @@
         "event": true,
         "distance": 30,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475777000": {
@@ -1560,7 +1562,7 @@
         "event": true,
         "distance": 30,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       }
     },
@@ -1575,12 +1577,12 @@
       }
     }
   },
-  "76561198876915120": {
-    "steamID": 76561198876915120,
+  "76561198876915126": {
+    "steamID": "76561198876915126",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 130, "name": "EL_COMANDANTE", "fakeName": null },
+    "char": { "id": "130", "name": "EL_COMANDANTE", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "37.36.86.55",
@@ -1663,12 +1665,12 @@
       }
     }
   },
-  "76561198299940540": {
-    "steamID": 76561198299940540,
+  "76561198299940539": {
+    "steamID": "76561198299940539",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 97, "name": "Alawe", "fakeName": null },
+    "char": { "id": "97", "name": "Alawe", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "149.255.249.19",
@@ -1689,7 +1691,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "1H_Crowbar_C_2145612278 [Melee]"
       },
       "1626443344000": {
@@ -1697,7 +1699,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145612278 [Melee]"
       },
       "1626443433000": {
@@ -1705,7 +1707,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Pitchfork_C_2145584965 [Melee]"
       },
       "1626443437000": {
@@ -1713,7 +1715,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pitchfork_C_2145584965 [Melee]"
       },
       "1626443464000": {
@@ -1721,7 +1723,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "Sledgehammer_C_2145575580 [Melee]"
       },
       "1626443481000": {
@@ -1729,7 +1731,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145575580 [Melee]"
       },
       "1626443697000": {
@@ -1737,7 +1739,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Axe_C_2145531601 [Melee]"
       },
       "1626443716000": {
@@ -1745,7 +1747,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Axe_C_2145531601 [Melee]"
       },
       "1626443752000": {
@@ -1753,7 +1755,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145516649 [Melee]"
       },
       "1626443771000": {
@@ -1761,7 +1763,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145516649 [Melee]"
       },
       "1626443782000": {
@@ -1769,7 +1771,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "Sledgehammer_C_2145516649 [Melee]"
       },
       "1626443785000": {
@@ -1777,7 +1779,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145516649 [Melee]"
       },
       "1626444183000": {
@@ -1785,7 +1787,7 @@
         "event": true,
         "distance": 22,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626444632000": {
@@ -1793,7 +1795,7 @@
         "event": true,
         "distance": 31,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       }
     },
@@ -1804,12 +1806,12 @@
       }
     }
   },
-  "76561199105132460": {
-    "steamID": 76561199105132460,
+  "76561199105132468": {
+    "steamID": "76561199105132468",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 83, "name": "KIAN", "fakeName": null },
+    "char": { "id": "83", "name": "KIAN", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "149.255.200.6",
@@ -1830,7 +1832,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Baseball_Bat_C_2145583885 [Melee]"
       },
       "1626443511000": {
@@ -1838,7 +1840,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Axe_C_2145571191 [Melee]"
       },
       "1626443519000": {
@@ -1846,7 +1848,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Axe_C_2145571191 [Melee]"
       },
       "1626443531000": {
@@ -1854,7 +1856,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Axe_C_2145571191 [Melee]"
       },
       "1626443582000": {
@@ -1862,7 +1864,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Axe_C_2145551346 [Melee]"
       },
       "1626443635000": {
@@ -1870,7 +1872,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Pitchfork_C_2145542746 [Melee]"
       },
       "1626443640000": {
@@ -1878,7 +1880,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pitchfork_C_2145542746 [Melee]"
       },
       "1626443653000": {
@@ -1886,7 +1888,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Pitchfork_C_2145542746 [Melee]"
       },
       "1626443656000": {
@@ -1894,7 +1896,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pitchfork_C_2145542746 [Melee]"
       },
       "1626443721000": {
@@ -1902,7 +1904,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Baseball_Bat_C_2145522982 [Melee]"
       },
       "1626443816000": {
@@ -1910,7 +1912,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198299940540, "char": { "id": 97, "name": "Alawe" } },
+        "victim": { "steamID": "76561198299940539", "char": { "id": "97", "name": "Alawe" } },
         "weapon": "2H_Pitchfork_C_2145504328 [Melee]"
       },
       "1626444301000": {
@@ -1918,7 +1920,7 @@
         "event": true,
         "distance": 109,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_SVD_Dragunov_C [Projectile]"
       },
       "1626444570000": {
@@ -1926,7 +1928,7 @@
         "event": true,
         "distance": 52,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626447267000": {
@@ -1934,7 +1936,7 @@
         "event": true,
         "distance": 46,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626447507000": {
@@ -1942,7 +1944,7 @@
         "event": true,
         "distance": 13,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626447630000": {
@@ -1950,7 +1952,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       },
       "1626471168000": {
@@ -1958,7 +1960,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pitchfork_C_2145215152 [Melee]"
       },
       "1626471271000": {
@@ -1966,7 +1968,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145191944 [Melee]"
       },
       "1626471322000": {
@@ -1974,7 +1976,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "Sledgehammer_C_2145184215 [Melee]"
       },
       "1626471375000": {
@@ -1982,7 +1984,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "Sledgehammer_C_2145176293 [Melee]"
       },
       "1626471440000": {
@@ -1990,7 +1992,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pickaxe_C_2145162550 [Melee]"
       },
       "1626471578000": {
@@ -1998,7 +2000,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "Sledgehammer_C_2145131096 [Melee]"
       },
       "1626471585000": {
@@ -2006,7 +2008,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145131096 [Melee]"
       },
       "1626471627000": {
@@ -2014,7 +2016,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "Sledgehammer_C_2145115550 [Melee]"
       },
       "1626471783000": {
@@ -2022,7 +2024,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "Sledgehammer_C_2145085472 [Melee]"
       },
       "1626471828000": {
@@ -2030,7 +2032,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Pitchfork_C_2145067786 [Melee]"
       },
       "1626471939000": {
@@ -2038,7 +2040,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "Sledgehammer_C_2145047782 [Melee]"
       },
       "1626471949000": {
@@ -2046,7 +2048,7 @@
         "event": true,
         "distance": 5,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "Sledgehammer_C_2145047782 [Throwing]"
       },
       "1626471979000": {
@@ -2054,7 +2056,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "Sledgehammer_C_2145033301 [Melee]"
       },
       "1626471983000": {
@@ -2062,7 +2064,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "Sledgehammer_C_2145033301 [Melee]"
       },
       "1626472061000": {
@@ -2070,7 +2072,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "2H_Axe_C_2145021452 [Melee]"
       },
       "1626473780000": {
@@ -2078,7 +2080,7 @@
         "event": true,
         "distance": 38,
         "suicide": false,
-        "victim": { "steamID": 76561198120333040, "char": { "id": 3, "name": "Chaotix" } },
+        "victim": { "steamID": "76561198120333042", "char": { "id": "3", "name": "Chaotix" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626473803000": {
@@ -2086,7 +2088,7 @@
         "event": true,
         "distance": 41,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626473828000": {
@@ -2094,7 +2096,7 @@
         "event": true,
         "distance": 29,
         "suicide": false,
-        "victim": { "steamID": 76561199011404020, "char": { "id": 100, "name": "Jassem22" } },
+        "victim": { "steamID": "76561199011404011", "char": { "id": "100", "name": "Jassem22" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626473906000": {
@@ -2102,7 +2104,7 @@
         "event": true,
         "distance": 46,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626474943000": {
@@ -2110,7 +2112,7 @@
         "event": true,
         "distance": 30,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626475048000": {
@@ -2118,7 +2120,7 @@
         "event": true,
         "distance": 39,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_M16A4_C [Projectile]"
       },
       "1626475726000": {
@@ -2126,7 +2128,7 @@
         "event": true,
         "distance": 75,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475782000": {
@@ -2134,7 +2136,7 @@
         "event": true,
         "distance": 26,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475814000": {
@@ -2142,7 +2144,7 @@
         "event": true,
         "distance": 23,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475910000": {
@@ -2150,7 +2152,7 @@
         "event": true,
         "distance": 49,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626475950000": {
@@ -2158,7 +2160,7 @@
         "event": true,
         "distance": 36,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626476010000": {
@@ -2166,7 +2168,7 @@
         "event": true,
         "distance": 39,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       },
       "1626476060000": {
@@ -2174,7 +2176,7 @@
         "event": true,
         "distance": 36,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_BlackHawk_Crossbow_EVENT_C [Projectile]"
       }
     },
@@ -2190,12 +2192,12 @@
       }
     }
   },
-  "76561198297305980": {
-    "steamID": 76561198297305980,
+  "76561198297305977": {
+    "steamID": "76561198297305977",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 5, "name": "Hans der Schwanz", "fakeName": null },
+    "char": { "id": "5", "name": "Hans der Schwanz", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "109.40.242.62",
@@ -2220,12 +2222,12 @@
       }
     }
   },
-  "76561198907112460": {
-    "steamID": 76561198907112460,
+  "76561198907112461": {
+    "steamID": "76561198907112461",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 2, "name": "TJVirus", "fakeName": null },
+    "char": { "id": "2", "name": "TJVirus", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "79.202.147.105",
@@ -2246,7 +2248,7 @@
         "event": false,
         "distance": null,
         "suicide": false,
-        "victim": { "steamID": 76561198838539090, "char": { "id": 4, "name": "Skorpion" } },
+        "victim": { "steamID": "76561198838539082", "char": { "id": "4", "name": "Skorpion" } },
         "weapon": "Claymore_C_2144880150 [Explosion]"
       },
       "1626472693000": {
@@ -2254,7 +2256,7 @@
         "event": false,
         "distance": null,
         "suicide": false,
-        "victim": { "steamID": 76561198838539090, "char": { "id": 4, "name": "Skorpion" } },
+        "victim": { "steamID": "76561198838539082", "char": { "id": "4", "name": "Skorpion" } },
         "weapon": "Mine_01_C_2144880139 [Explosion]"
       },
       "1626472777000": {
@@ -2262,7 +2264,7 @@
         "event": false,
         "distance": null,
         "suicide": false,
-        "victim": { "steamID": 76561198838539090, "char": { "id": 4, "name": "Skorpion" } },
+        "victim": { "steamID": "76561198838539082", "char": { "id": "4", "name": "Skorpion" } },
         "weapon": "BarbedSpikeTrap_C_2144880309 [Point]"
       }
     },
@@ -2273,12 +2275,12 @@
       }
     }
   },
-  "76561198120333040": {
-    "steamID": 76561198120333040,
+  "76561198120333042": {
+    "steamID": "76561198120333042",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 3, "name": "Chaotix", "fakeName": null },
+    "char": { "id": "3", "name": "Chaotix", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "95.91.231.110",
@@ -2299,7 +2301,7 @@
         "event": true,
         "distance": 30,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626473666000": {
@@ -2307,7 +2309,7 @@
         "event": true,
         "distance": 4,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626473717000": {
@@ -2315,7 +2317,7 @@
         "event": true,
         "distance": 21,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626473730000": {
@@ -2323,7 +2325,7 @@
         "event": true,
         "distance": 4,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626473770000": {
@@ -2331,7 +2333,7 @@
         "event": true,
         "distance": 20,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "BPC_Weapon_AK15_C [Projectile]"
       },
       "1626473845000": {
@@ -2339,7 +2341,7 @@
         "event": true,
         "distance": 32,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       }
     },
@@ -2352,12 +2354,12 @@
       }
     }
   },
-  "76561199011404020": {
-    "steamID": 76561199011404020,
+  "76561199011404011": {
+    "steamID": "76561199011404011",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 100, "name": "Jassem22", "fakeName": null },
+    "char": { "id": "100", "name": "Jassem22", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "149.255.248.23",
@@ -2378,7 +2380,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Shovel_01_C_2145207081 [Melee]"
       },
       "1626471254000": {
@@ -2386,7 +2388,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Pickaxe_C_2145195611 [Melee]"
       },
       "1626471329000": {
@@ -2394,7 +2396,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Pitchfork_C_2145182521 [Melee]"
       },
       "1626471367000": {
@@ -2402,7 +2404,7 @@
         "event": true,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Pitchfork_C_2145175052 [Melee]"
       },
       "1626471440000": {
@@ -2410,7 +2412,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "2H_Axe_C_2145162315 [Melee]"
       },
       "1626471641000": {
@@ -2418,7 +2420,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199105132460, "char": { "id": 83, "name": "KIAN" } },
+        "victim": { "steamID": "76561199105132468", "char": { "id": "83", "name": "KIAN" } },
         "weapon": "1H_Crowbar_C_2145110974 [Melee]"
       },
       "1626472126000": {
@@ -2426,7 +2428,7 @@
         "event": true,
         "distance": 1,
         "suicide": false,
-        "victim": { "steamID": 76561199011125150, "char": { "id": 84, "name": "MOHAMMEDヅ" } },
+        "victim": { "steamID": "76561199011125154", "char": { "id": "84", "name": "MOHAMMEDヅ" } },
         "weapon": "2H_Axe_C_2145011322 [Melee]"
       },
       "1626472234000": {
@@ -2434,7 +2436,7 @@
         "event": true,
         "distance": 0,
         "suicide": false,
-        "victim": { "steamID": 76561198894072080, "char": { "id": 90, "name": "is.hashim" } },
+        "victim": { "steamID": "76561198894072077", "char": { "id": "90", "name": "is.hashim" } },
         "weapon": "2H_Axe_C_2144992322 [Melee]"
       },
       "1626473914000": {
@@ -2442,7 +2444,7 @@
         "event": true,
         "distance": 11,
         "suicide": false,
-        "victim": { "steamID": 76561198120333040, "char": { "id": 3, "name": "Chaotix" } },
+        "victim": { "steamID": "76561198120333042", "char": { "id": "3", "name": "Chaotix" } },
         "weapon": "BP_Weapon_MK18_C [Projectile]"
       }
     },
@@ -2454,12 +2456,12 @@
       }
     }
   },
-  "76561198824611500": {
-    "steamID": 76561198824611500,
+  "76561198824611504": {
+    "steamID": "76561198824611504",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 103, "name": "anthonymarcotte2000", "fakeName": null },
+    "char": { "id": "103", "name": "anthonymarcotte2000", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "74.250.68.190",
@@ -2480,7 +2482,10 @@
         "event": false,
         "distance": 2,
         "suicide": false,
-        "victim": { "steamID": 76561199052810640, "char": { "id": 104, "name": "thuggbubble001" } },
+        "victim": {
+          "steamID": "76561199052810634",
+          "char": { "id": "104", "name": "thuggbubble001" }
+        },
         "weapon": "BPC_Weapon_M1911_Gold_C [Projectile]"
       }
     },
@@ -2506,12 +2511,12 @@
       }
     }
   },
-  "76561199052810640": {
-    "steamID": 76561199052810640,
+  "76561199052810634": {
+    "steamID": "76561199052810634",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 104, "name": "thuggbubble001", "fakeName": null },
+    "char": { "id": "104", "name": "thuggbubble001", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "98.181.23.186",
@@ -2533,8 +2538,8 @@
         "distance": 2,
         "suicide": false,
         "victim": {
-          "steamID": 76561198824611500,
-          "char": { "id": 103, "name": "anthonymarcotte2000" }
+          "steamID": "76561198824611504",
+          "char": { "id": "103", "name": "anthonymarcotte2000" }
         },
         "weapon": "BPC_Weapon_M9_Silver_C [Projectile]"
       },
@@ -2544,8 +2549,8 @@
         "distance": 5,
         "suicide": false,
         "victim": {
-          "steamID": 76561198824611500,
-          "char": { "id": 103, "name": "anthonymarcotte2000" }
+          "steamID": "76561198824611504",
+          "char": { "id": "103", "name": "anthonymarcotte2000" }
         },
         "weapon": "BPC_Weapon_AK47_Engraved_C [Projectile]"
       }
@@ -2573,12 +2578,12 @@
       }
     }
   },
-  "76561198187594290": {
-    "steamID": 76561198187594290,
+  "76561198187594291": {
+    "steamID": "76561198187594291",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 131, "name": "DU-Paddy", "fakeName": null },
+    "char": { "id": "131", "name": "DU-Paddy", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "37.5.245.0",
@@ -2602,12 +2607,12 @@
       }
     }
   },
-  "76561198142997390": {
-    "steamID": 76561198142997390,
+  "76561198142997387": {
+    "steamID": "76561198142997387",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 132, "name": "DU-NoVaSpAcE", "fakeName": null },
+    "char": { "id": "132", "name": "DU-NoVaSpAcE", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "95.91.193.141",
@@ -2631,12 +2636,12 @@
       }
     }
   },
-  "76561197991555460": {
-    "steamID": 76561197991555460,
+  "76561197991555459": {
+    "steamID": "76561197991555459",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 96, "name": "Manti", "fakeName": null },
+    "char": { "id": "96", "name": "Manti", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "87.63.47.81",
@@ -2660,12 +2665,12 @@
       }
     }
   },
-  "76561198052108670": {
-    "steamID": 76561198052108670,
+  "76561198052108673": {
+    "steamID": "76561198052108673",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 133, "name": "You-Must-Die", "fakeName": null },
+    "char": { "id": "133", "name": "You-Must-Die", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "101.109.242.5",
@@ -2688,12 +2693,12 @@
       }
     }
   },
-  "76561198010219340": {
-    "steamID": 76561198010219340,
+  "76561198010219351": {
+    "steamID": "76561198010219351",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 117, "name": "Tompson", "fakeName": null },
+    "char": { "id": "117", "name": "Tompson", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "79.249.102.47",
@@ -2728,12 +2733,12 @@
       }
     }
   },
-  "76561199180138190": {
-    "steamID": 76561199180138190,
+  "76561199180138192": {
+    "steamID": "76561199180138192",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 134, "name": "饭不是饭团.", "fakeName": null },
+    "char": { "id": "134", "name": "饭不是饭团.", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "122.10.126.108",
@@ -2756,12 +2761,12 @@
       }
     }
   },
-  "76561198013088380": {
-    "steamID": 76561198013088380,
+  "76561198013088391": {
+    "steamID": "76561198013088391",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 135, "name": "byg_ro_ma_", "fakeName": null },
+    "char": { "id": "135", "name": "byg_ro_ma_", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "85.136.166.205",
@@ -2784,12 +2789,12 @@
       }
     }
   },
-  "76561198178851310": {
-    "steamID": 76561198178851310,
+  "76561198178851306": {
+    "steamID": "76561198178851306",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 136, "name": "uncle_jezzy", "fakeName": null },
+    "char": { "id": "136", "name": "uncle_jezzy", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "89.246.122.53",
@@ -2813,44 +2818,45 @@
     }
   },
   "76561198289331970": {
-    "steamID": 76561198289331970,
+    "steamID": "76561198289331970",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 121, "name": "Eismann_79", "fakeName": null },
+    "char": { "id": "121", "name": "Eismann_79", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "84.183.195.123",
-      "lastLogin": 1626787037000,
-      "lastLogout": 1626796803000
+      "lastLogin": 1626797720000,
+      "lastLogout": null
     },
     "stats": {
       "firstJoin": 1626655408000,
-      "lastActivity": 1626796803000,
-      "totalLogins": 6,
+      "lastActivity": 1626797720000,
+      "totalLogins": 7,
       "totalPlaytime": 26831000,
       "totalMessages": { "local": 0, "global": 1, "squad": 0 }
     },
     "info": { "starterkit": null },
     "kills": {},
     "session": {
-      "current": null,
+      "current": 1626797720000,
       "history": {
         "1626655408000": { "start": 1626655408000, "end": 1626657381000, "duration": 1973000 },
         "1626696990000": { "start": 1626696990000, "end": 1626700809000, "duration": 3819000 },
         "1626707996000": { "start": 1626707996000, "end": 1626710246000, "duration": 2250000 },
         "1626711307000": { "start": 1626711307000, "end": 1626711779000, "duration": 472000 },
         "1626714836000": { "start": 1626714836000, "end": 1626723387000, "duration": 8551000 },
-        "1626787037000": { "start": 1626787037000, "end": 1626796803000, "duration": 9766000 }
+        "1626787037000": { "start": 1626787037000, "end": 1626796803000, "duration": 9766000 },
+        "1626797720000": { "start": 1626797720000, "end": false, "duration": null }
       }
     }
   },
-  "76561198082356500": {
-    "steamID": 76561198082356500,
+  "76561198082356492": {
+    "steamID": "76561198082356492",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 137, "name": "Karios", "fakeName": null },
+    "char": { "id": "137", "name": "Karios", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "88.238.11.105",
@@ -2873,24 +2879,24 @@
       }
     }
   },
-  "76561198000483180": {
-    "steamID": 76561198000483180,
+  "76561198000483188": {
+    "steamID": "76561198000483188",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 138, "name": ".TucLance", "fakeName": null },
+    "char": { "id": "138", "name": ".TucLance", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "45.131.189.104",
-      "lastLogin": 1626796480000,
-      "lastLogout": 1626796803000
+      "lastLogin": 1626797039000,
+      "lastLogout": 1626799912000
     },
     "stats": {
       "firstJoin": 1626765879000,
-      "lastActivity": 1626796803000,
-      "totalLogins": 7,
-      "totalPlaytime": 17123000,
-      "totalMessages": { "local": 9, "global": 12, "squad": 0 }
+      "lastActivity": 1626799912000,
+      "totalLogins": 8,
+      "totalPlaytime": 19996000,
+      "totalMessages": { "local": 9, "global": 22, "squad": 0 }
     },
     "info": { "starterkit": null },
     "kills": {},
@@ -2903,16 +2909,17 @@
         "1626775699000": { "start": 1626775699000, "end": 1626776580000, "duration": 881000 },
         "1626779538000": { "start": 1626779538000, "end": 1626779982000, "duration": 444000 },
         "1626781520000": { "start": 1626781520000, "end": 1626791690000, "duration": 10170000 },
-        "1626796480000": { "start": 1626796480000, "end": 1626796803000, "duration": 323000 }
+        "1626796480000": { "start": 1626796480000, "end": 1626796803000, "duration": 323000 },
+        "1626797039000": { "start": 1626797039000, "end": 1626799912000, "duration": 2873000 }
       }
     }
   },
-  "76561198420877380": {
-    "steamID": 76561198420877380,
+  "76561198420877369": {
+    "steamID": "76561198420877369",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 139, "name": "josiahtheminer", "fakeName": null },
+    "char": { "id": "139", "name": "josiahtheminer", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "24.129.46.243",
@@ -2935,12 +2942,12 @@
       }
     }
   },
-  "76561198273245650": {
-    "steamID": 76561198273245650,
+  "76561198273245648": {
+    "steamID": "76561198273245648",
     "discordID": null,
     "group": "players",
     "overwrite": {},
-    "char": { "id": 140, "name": "VΛMPIЯΣ ZΩMBIΞ", "fakeName": null },
+    "char": { "id": "140", "name": "VΛMPIЯΣ ZΩMBIΞ", "fakeName": null },
     "auth": {
       "isDrone": false,
       "ip": "83.4.87.144",

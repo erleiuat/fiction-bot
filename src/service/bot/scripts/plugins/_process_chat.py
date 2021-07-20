@@ -67,7 +67,7 @@ class Chat:
         time.sleep(0.05)
         self.PAG.hotkey('ctrl','a')
         self.PAG.hotkey('ctrl', 'c')
-        time.sleep(0.05)
+        time.sleep(0.1)
         self.PAG.press('esc')
         time.sleep(0.05)
         self.PAG.press('t')

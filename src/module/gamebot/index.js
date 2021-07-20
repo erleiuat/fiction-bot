@@ -1,6 +1,6 @@
 const _SN = '[MODULE][GAMEBOT] -> '
 
-const playerReporter = require('./playerReporter')
+//const playerReporter = require('./playerReporter')
 const messages = require('./_messages').messages
 const commands = require('./_commands').commands
 const bot = require('../../service/bot/')
@@ -16,7 +16,7 @@ let sLocal = process.env.SETTING_CHAT_LOCAL_SCOPE
 exports.start = async function start(dcClient) {
   routines.init(messages, sLocal, sGlobal)
   schedule.start(messages, sLocal, sGlobal)
-  playerReporter.start(dcClient, routines)
+  //playerReporter.start(dcClient, routines)
 
   let state = await bot.start()
   if (state.status == 'success') {

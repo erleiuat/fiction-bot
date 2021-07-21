@@ -10,6 +10,7 @@ const Command = require('./command')
 
 let run = false
 let ready = false
+let started = false
 let sGlobal = process.env.SETTING_CHAT_GLOBAL_SCOPE
 let sLocal = process.env.SETTING_CHAT_LOCAL_SCOPE
 
@@ -28,6 +29,7 @@ exports.start = async function start(dcClient) {
     run = true
     await executeCommand(cmd)
     global.log.info(_SN + 'Started')
+    started = true
   } else global.log.error(_SN + 'Unable to start Bot')
 }
 
@@ -52,6 +54,7 @@ async function executeCommand(cmd) {
 }
 
 exports.sendFromSchedule = async function sendFromSchedule(action) {
+  if (!started) return
   let cmd = new Command()
   if (action.properties.type == 'messages') {
     for (const msg of action.properties.values) cmd.addMessage(msg.scope, msg.content)
@@ -60,6 +63,7 @@ exports.sendFromSchedule = async function sendFromSchedule(action) {
 }
 
 exports.sendFromDC = async function sendFromDC(action) {
+  if (!started) return
   let cmd = new Command()
 
   switch (action.type) {
@@ -79,6 +83,7 @@ exports.sendFromDC = async function sendFromDC(action) {
 }
 
 exports.sendFromLog = async function sendFromLog(action) {
+  if (!started) return
   let cmd = new Command()
 
   switch (action.type) {

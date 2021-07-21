@@ -69,7 +69,7 @@ exports.start = async function start(msgs, scopeLocal, scopeGlobal) {
     let key = global.nZero.form(now.getHours()) + ':' + global.nZero.form(now.getMinutes())
 
     if (!schedules[key]) {
-      await global.time.sleep(15)
+      await global.time.sleep(10)
       continue
     }
 
@@ -81,6 +81,6 @@ exports.start = async function start(msgs, scopeLocal, scopeGlobal) {
       properties: { ...schedules[key] }
     })
 
-    await global.time.sleep(50)
+    await global.time.sleep(60)
   } while (true)
 }

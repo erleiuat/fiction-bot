@@ -54,13 +54,6 @@ class Process:
         "type":"playerReport"
     }]
 
-    testMessages = [
-        {"scope":"local","content":"1"},
-        {"scope":"local","content":"2"},
-        {"scope":"local","content":"3"},
-        {"scope":"local","content":"4"},
-        {"scope":"local","content":"5"},
-        {"scope":"local","content":"6"},
-        {"scope":"local","content":"7"},
-        {"scope":"local","content":"8"},
-    ]
+    testMessages = []
+    for x in range(20):
+        testMessages.append({"scope":"local","content": str(x+1) + ': Msg' })

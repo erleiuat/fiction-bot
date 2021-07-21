@@ -6,16 +6,16 @@ exports.handle = async function handle(action) {
 
   switch (action.origin) {
     case 'logHandler':
-      if (global.gamebot) global.gamebot.sendFromLog(action)
       if (global.dcWriter) global.dcWriter.sendFromLog(action)
+      if (global.gamebot) await global.gamebot.sendFromLog(action)
       break
 
     case 'dcHandler':
-      if (global.gamebot) global.gamebot.sendFromDC(action)
+      if (global.gamebot) await global.gamebot.sendFromDC(action)
       break
 
     case 'schedule':
-      if (global.gamebot) global.gamebot.sendFromSchedule(action)
+      if (global.gamebot) await global.gamebot.sendFromSchedule(action)
       break
 
     default:

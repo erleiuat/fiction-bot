@@ -13,17 +13,23 @@ class Ready:
         self.CON = control
         self.FOC = focus
 
+    def getGameState(self):
+        self.CON.setWindow(self.FOC.getWindowProps())
+        chat = self.CON.onScreen('img/chat_stumm.png', region='chatStumm')
+        mapi = self.CON.onScreen('img/mapi.png', region='mapi')
+        if(chat and mapi):
+            return 'ready'
+        else:
+            return 'game'
+
 
     def getState(self):
+        if(self.FOC.doIt()):
+            return self.getGameState()
         if(self.FOC.check('steam')):
             if(self.FOC.check('scum')):
-                self.CON.setWindow(self.FOC.getWindowProps())
-                chat = self.CON.onScreen('img/chat_stumm.png', region='chatStumm')
-                mapi = self.CON.onScreen('img/mapi.png', region='mapi')
-                if(chat and mapi):
-                    return 'ready'
-                else:
-                    return 'game'
+                self.FOC.doIt()
+                return self.getGameState()
             else:
                 return 'steam'
         else:

@@ -63,13 +63,14 @@ class Chat:
 
 
     def read(self):
-        self.PAG.click(self.CON.getPoint(150, 470))
-        time.sleep(0.05)
+        x, y = self.CON.getPoint(150, 470)
+        self.PAG.moveTo(x, y, 0.1, self.PAG.easeOutQuad)
+        self.PAG.hotkey('ctrl','v')
+        self.PAG.press('enter')
+        self.PAG.click(x, y)
         self.PAG.hotkey('ctrl','a')
         self.PAG.hotkey('ctrl', 'c')
-        time.sleep(0.1)
         self.PAG.press('esc')
-        time.sleep(0.05)
         self.PAG.press('t')
         return self.readFromClip().strip()
 
@@ -98,13 +99,15 @@ class Chat:
                 return data
         self.RES.printer('SENDING MSG -> ' + message)
         self.copyToClip(message)
-        self.PAG.hotkey('ctrl','v')
-        self.PAG.press('enter')
         if(read):
             data = self.read()
-        elif(teleport):
-            while(current == self.getLocation()):
-                time.sleep(0.15)
+        else:
+            self.PAG.hotkey('ctrl','v')
+            self.PAG.press('enter')
+            if(teleport):
+                while(current == self.getLocation()):
+                    time.sleep(0.15)
+
         time.sleep(0.05)
         return data
         self.RES.printer('SENDING MSG DONE')

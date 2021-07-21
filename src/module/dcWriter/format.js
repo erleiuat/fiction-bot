@@ -45,7 +45,8 @@ exports.admin = function admin(action) {
 
   let msgExtended = cloneDeep(msgDefault)
   extendedAddInfo(msgExtended, action)
-  checkCommand(msgDefault, userProps, action.user.discordID, action.properties.command)
+  console.log(userProps)
+  msgDefault = checkCommand(msgDefault, userProps, action.user.discordID, action.properties.command)
 
   return {
     default: msgDefault ? new Discord.MessageEmbed(msgDefault) : msgDefault,
@@ -301,6 +302,7 @@ function checkCommand(msgDefault, userProps, discordID, command) {
   } else {
     msgDefault = false
   }
+  return msgDefault
 }
 
 function getDisplayVals(action, userProps) {

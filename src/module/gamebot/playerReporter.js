@@ -40,7 +40,7 @@ exports.start = async function start(dcClient, routines) {
     }
 
     await global.time.sleep(60)
-  } while (false)
+  } while (true)
 }
 /*
 exports.start = async function start(dcClient, routines) {

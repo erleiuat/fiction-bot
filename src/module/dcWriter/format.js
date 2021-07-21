@@ -151,7 +151,7 @@ exports.chat = function chat(action) {
 exports.auth = function auth(action) {
   let msgDefault = {
     title: action.properties.authType == 'login' ? 'Login' : 'Logout',
-    description: action.user.char.name + (action.user.auth.isDrone ? '(Drone)' : ''),
+    description: action.user.char.name + (action.user.auth.isDrone ? ' (Drone)' : ''),
     fields: [
       { name: 'IP', value: action.user.auth.ip, inline: true },
       { name: 'charID', value: action.user.char.id, inline: true },

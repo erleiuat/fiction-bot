@@ -28,7 +28,10 @@
       "/ping",
       "/pong",
       "/starterkit",
-      "/ready"
+      "/ready",
+      "/shop",
+      "/fictionshop",
+      "/botshop"
     ],
     "hideCommandAlarms": [],
     "hideCommands": [],

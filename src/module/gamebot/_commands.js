@@ -145,5 +145,20 @@ exports.commands = {
     routine: 'starterkit_ready',
     scopes: ['local', 'global'],
     cooldown: 0
+  },
+  '/shop': {
+    routine: 'shop_info',
+    scopes: ['local', 'global'],
+    cooldown: 0
+  },
+  '/fictionshop': {
+    routine: 'shop_info',
+    scopes: ['local', 'global'],
+    cooldown: 0
+  },
+  '/botshop': {
+    routine: 'shop_info',
+    scopes: ['local', 'global'],
+    cooldown: 0
   }
 }

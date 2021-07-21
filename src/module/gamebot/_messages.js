@@ -58,6 +58,7 @@ exports.messages = {
     }
   },
   shop: {
+    info: ':[Shop]: ・ @{user} Check https://shop.scumfiction.com/ to find our range of products! Then, use /buyitem [item_key] to buy something!',
     trans: {
       form: ':[Transfer]: ・ @{user} Use this format: /transfer [amount] [user]',
       notEnough: ":[Transfer]: ・ @{user} You don't have enough famepoints for this transaction.",

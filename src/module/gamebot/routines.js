@@ -87,12 +87,17 @@ exports.joke = async function joke(cmd, action) {
   cmd.addMessage(sGlobal, botMsgs.pub.joke.replace('{joke}', joke))
 }
 
-exports.botStart = function botStart(cmd) {
+exports.botStart = function botStart(cmd, action = null) {
   cmd.addMessage(sLocal, botMsgs.fName)
   cmd.addMessage(sLocal, '#ListAnimals')
   cmd.addMessage(sLocal, botMsgs.pos.idle)
   cmd.addMessage(sLocal, '#ShowOtherPlayerInfo true')
+  cmd.addMessage(sLocal, '#ShowFlagLocations true')
   cmd.addMessage(sGlobal, botMsgs.start.ready)
+}
+
+exports.shop_info = function shop_info(cmd, action) {
+  cmd.addMessage(sGlobal, botMsgs.shop.info.replace('{user}', action.user.char.name))
 }
 
 exports.dcMessage = function dcMessage(cmd, action) {

@@ -57,7 +57,7 @@ class Focus:
             if 'SCUM.exe' in proc.name():
                 self.getTryFocus(proc)
                 self.RES.printer('FOCUSED')
-                time.sleep(0.5)
+                time.sleep(0.05)
                 return True
         return False
                 

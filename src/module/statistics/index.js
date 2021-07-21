@@ -142,40 +142,54 @@ async function rankingSts() {
   } while (true)
 }
 
+let checkCounter = 0
+let stateCheck = null
+
+async function getBMState() {
+  do {
+    await go()
+
+    if (checkCounter <= 0) {
+      stateCheck = await state.check()
+      checkCounter = 60
+    } else {
+      checkCounter--
+    }
+
+    await global.time.sleep(5)
+  } while (true)
+}
+
 async function stateSts() {
   let playersCache = null
   let msgCache = ''
+  getBMState()
 
   do {
     await go()
 
-    stateCheck = await state.check()
-
-    let serverState = {
-      players: global.state.players,
-      time: global.state.time
-    }
-
-    if (playersCache == serverState.players && stateCheck.players) {
+    if (stateCheck && stateCheck.time) global.state.time = stateCheck.time
+    if (playersCache == global.state.players && stateCheck && stateCheck.players) {
       global.state.players = stateCheck.players
-      serverState.players = stateCheck.players
-    }
-    playersCache == serverState.players
-
-    if (stateCheck.time) {
-      global.state.time = stateCheck.time
-      serverState.time = stateCheck.time
+    } else if (playersCache != global.state.players) {
+      checkCounter = 60
     }
 
-    let msg = serverState.players + ' 👥'
-    if (serverState.time) msg += ' | ' + serverState.time.slice(0, -3) + ' 🕒'
-    if (msg != msgCache) {
-      msgCache = msg
-      client.user.setActivity(msg, {
-        type: 'WATCHING'
-      })
+    stateCheck = null
+    playersCache = global.state.players
+
+    if (global.state.players) {
+      let msg = global.state.players + ' 👥'
+      if (global.state.time) msg += ' | ' + global.state.time.slice(0, -3) + ' 🕒'
+
+      if (msg != msgCache) {
+        msgCache = msg
+        client.user.setActivity(msg, {
+          type: 'WATCHING'
+        })
+      }
     }
 
-    await global.time.sleep(120)
+    await global.time.sleep(5)
   } while (true)
 }

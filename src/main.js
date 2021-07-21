@@ -9,7 +9,7 @@ global.statistics = null
 global.dcWriter = null
 global.gamebot = null
 global.state = {
-  players: 0,
+  players: null,
   time: null
 }
 

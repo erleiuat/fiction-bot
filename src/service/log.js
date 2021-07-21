@@ -1,24 +1,37 @@
 const { createLogger, format, transports } = require('winston')
 const { combine, timestamp, printf, colorize } = format
-let now = new Date()
-let logTS =
-  now.getFullYear() +
-  '_' +
-  (now.getMonth() + 1) +
-  '_' +
-  now.getDate() +
-  '_' +
-  now.getHours() +
-  '_' +
-  now.getMinutes() +
-  '_' +
-  now.getSeconds()
+const fs = require('fs')
+const timezoned = () => {
+  let d = new Date()
+  return (
+    d.getFullYear() +
+    '_' +
+    (d.getMonth() + 1) +
+    '_' +
+    d.getDate() +
+    '/' +
+    d.getHours() +
+    '_' +
+    d.getMinutes() +
+    '_' +
+    d.getSeconds() +
+    '_' +
+    d.getMilliseconds()
+  )
+}
+
+let fFull = timezoned()
+let fName = fFull.substring(fFull.indexOf('/') + 1)
+let fPath = fFull.substring(0, fFull.indexOf('/') + 1)
+if (!fs.existsSync(fPath)) fs.mkdirSync(fPath)
 
 global.log = createLogger({
   format: combine(
-    timestamp(),
+    timestamp({
+      format: timezoned
+    }),
     printf(({ level, message, timestamp }) => {
-      return `${timestamp}: ${message}`
+      return `[${timestamp}][${level}] ${message}`
     })
   ),
   transports: [
@@ -33,7 +46,7 @@ global.log = createLogger({
       )
     }),
     new transports.File({
-      filename: process.env.SETTING_LOGS_PATH + logTS + '_debug.log',
+      filename: process.env.SETTING_LOGS_PATH + fPath + fName + '_debug.log',
       level: 'debug',
       format: combine(
         timestamp(),
@@ -43,8 +56,18 @@ global.log = createLogger({
       )
     }),
     new transports.File({
-      filename: process.env.SETTING_LOGS_PATH + logTS + '_info.log',
+      filename: process.env.SETTING_LOGS_PATH + fPath + fName + '_info.log',
       level: 'info',
+      format: combine(
+        timestamp(),
+        printf(({ level, message, timestamp }) => {
+          return `${timestamp}: ${message}`
+        })
+      )
+    }),
+    new transports.File({
+      filename: process.env.SETTING_LOGS_PATH + fPath + fName + '_error.log',
+      level: 'error',
       format: combine(
         timestamp(),
         printf(({ level, message, timestamp }) => {

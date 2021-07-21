@@ -15,7 +15,7 @@ exports.check = async function check() {
             let data = JSON.parse(response.body)
             if (data.data) {
               inf = data.data
-              global.log.info(_SN + 'State updated')
+              global.log.info(_SN + 'State loaded')
               resolve({
                 players: inf.attributes.players,
                 time: inf.attributes.details.time

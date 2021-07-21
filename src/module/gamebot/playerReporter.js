@@ -13,8 +13,6 @@ exports.start = async function start(dcClient, routines) {
     routines.mapShot(cmd, { path: './data/tmp/mapShots/' })
     let imgInfo = await global.gamebot.executeCommand(cmd)
 
-    console.log(imgInfo)
-
     if (!imgInfo.data) {
       global.log.error(_SN + 'No image info received')
       await global.time.sleep(10)

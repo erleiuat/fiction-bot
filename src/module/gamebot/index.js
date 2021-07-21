@@ -48,6 +48,8 @@ async function executeCommand(cmd) {
   run = false
   global.log.debug(_SN + 'Executing: ' + JSON.stringify(cmd))
   let data = await bot.execute(cmd)
+  if (data.status == 'error')
+    global.log.error(_SN + 'Bot-Command failed: ' + data.message + '; ' + data.type)
   ready = true
   run = true
   return data

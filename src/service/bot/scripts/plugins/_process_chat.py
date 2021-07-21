@@ -82,7 +82,15 @@ class Chat:
 
 
     def getLocation(self):
+        i = 0
         loc = self.send('#Location', read = True)
+        while(not loc.lower().startswith('scumfiction') and i < 10):
+            loc = self.send('#Location', read = True)
+            i = i + 1
+        if(not not loc.lower().startswith('scumfiction')):
+            self.RES.addError('Unable to catch location', '_process_chat: getLocation()')
+            self.RES.send()
+            return false
         loc = loc.split(': X=')[1]
         loc = loc.split(' ')
         return str(round(float(loc[0]))) + ' ' + str(round(float(loc[1][2:]))) + ' ' + str(round(float(loc[2][2:])))

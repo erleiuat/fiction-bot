@@ -28,10 +28,13 @@ exports.violation = function violation(action) {
 }
 
 exports.admin = function admin(action) {
+  let userProps = global.userManager.getUserProperties(action.user)
+  let display = getDisplayVals(action, userProps)
+
   let msgDefault = {
-    color: '34a853',
+    color: display.color,
     author: {
-      name: action.user.char.name
+      name: display.name
     },
     description: '```\n' + action.properties.command + ' ' + action.properties.value + '\n```',
     fields: [],
@@ -42,10 +45,6 @@ exports.admin = function admin(action) {
 
   let msgExtended = cloneDeep(msgDefault)
   extendedAddInfo(msgExtended, action)
-
-  let userProps = global.userManager.getUserProperties(action.user)
-
-  if (action.fakeName && userProps.useFakeNames) msgDefault.author.name = action.fakeName
   checkCommand(msgDefault, userProps, action.user.discordID, action.properties.command)
 
   return {
@@ -119,20 +118,13 @@ exports.mine = function mine(action) {
 exports.chat = function chat(action) {
   let color = 'ffffff'
 
-  if (action.properties.isCommand) color = 'FFCC00'
-
-  let uName = action.user.char.name
   let userProps = global.userManager.getUserProperties(action.user)
-
-  if (action.fakeName && userProps.useFakeNames) uName = action.fakeName
-  if (uName.startsWith('・ :[FiBo]')) {
-    color = '00FFFF'
-    uName = '[FiBo] (FictionBot)'
-  } else if (uName.startsWith(process.env.DC_HANDLER_CHAT_PREFIX)) color = '7289DA'
+  let display = getDisplayVals(action, userProps)
+  if (action.properties.isCommand) display.color = 'FFCC00'
 
   let msgDefault = {
-    color: color,
-    title: uName,
+    color: display.color,
+    title: display.name,
     description: '```\n' + action.properties.value + '\n```',
     fields: [],
     footer: {
@@ -309,4 +301,19 @@ function checkCommand(msgDefault, userProps, discordID, command) {
   } else {
     msgDefault = false
   }
+}
+
+function getDisplayVals(action, userProps) {
+  let vals = {
+    name: action.user.char.name,
+    color: 'ffffff'
+  }
+
+  if (action.fakeName && userProps.useFakeNames) vals.name = action.fakeName
+  if (vals.name.startsWith('・ :[FiBo]')) {
+    vals.color = '00FFFF'
+    vals.name = '[FiBo] (FictionBot)'
+  } else if (vals.name.startsWith(process.env.DC_HANDLER_CHAT_PREFIX)) vals.color = '7289DA'
+
+  return vals
 }

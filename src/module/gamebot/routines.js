@@ -229,7 +229,7 @@ exports.transfer = function transfer(cmd, action) {
 }
 
 async function getItemList() {
-  let url = process.env.SETTING_DATA_URL + 'shop_data/items.json'
+  let url = process.env.SETTING_SHOPITEMS_URL
   return await fetch(url, {
     method: 'Get'
   })

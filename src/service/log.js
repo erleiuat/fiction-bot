@@ -23,7 +23,7 @@ const timezoned = () => {
 let fFull = timezoned()
 let fName = fFull.substring(fFull.indexOf('/') + 1)
 let fPath = fFull.substring(0, fFull.indexOf('/') + 1)
-if (!fs.existsSync(fPath)) fs.mkdirSync(fPath)
+if (!fs.existsSync(fPath)) fs.mkdirSync(fPath, { recursive: true })
 
 global.log = createLogger({
   format: combine(

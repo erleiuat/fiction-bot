@@ -53,7 +53,7 @@ exports.generateMulti = function generateFull(
     map.composite(marker, cX - imgs['marker'].width / 2, cY - imgs['marker'].height + 20)
   }
 
-  if (!fs.existsSync(path)) fs.mkdirSync(path)
+  if (!fs.existsSync(path)) fs.mkdirSync(path, { recursive: true })
   map.write(path + name)
   return {
     path: path,
@@ -78,7 +78,7 @@ exports.generate = function generate(
   map.composite(marker, cX - imgs['marker'].width / 2, cY - imgs['marker'].height + 20)
   cProp = imageProps(cX, cY, imgDimensions, imgs['map'].width, imgs['map'].height)
   map.crop(cProp[0], cProp[1], cProp[2], cProp[3])
-  if (!fs.existsSync(path)) fs.mkdirSync(path)
+  if (!fs.existsSync(path)) fs.mkdirSync(path, { recursive: true })
   map.write(path + name)
   return {
     path: path,

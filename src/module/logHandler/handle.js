@@ -10,7 +10,8 @@ if (fs.existsSync('./data/logHandler/mines.json')) {
 async function safeMines() {
   do {
     await global.time.sleep(60)
-    if (!fs.existsSync('./data/logHandler/')) fs.mkdirSync('./data/logHandler/')
+    if (!fs.existsSync('./data/logHandler/'))
+      fs.mkdirSync('./data/logHandler/', { recursive: true })
     fs.writeFileSync('./data/logHandler/mines.json', JSON.stringify(mines))
   } while (true)
 }

@@ -42,7 +42,7 @@ exports.updates = async function updates(updatesObj) {
 async function handleViolation(lines) {
   for (line of lines) {
     let actionObj = initAction('violation', line)
-    actionObj.properties.value = line.slice(22).trim()
+    actionObj.properties.value = line.slice(21).trim()
     global.actionHandler.handle(actionObj)
   }
 }

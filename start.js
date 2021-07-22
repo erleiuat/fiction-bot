@@ -1,11 +1,18 @@
 const _SN = '[START] -> '
-global.args = process.argv.slice(2).map(el => el.replace('-', '').trim())
+
+/**
+ *
+ * Possible args:
+ *
+ * -discord     -> Post stuff on discord
+ * -gamebot     -> Use gamebot
+ * -noHandle    -> Don't use actionHandler (don't process events)
+ * -authOnly    -> Only process auth-events (create/handle users with userManager)
+ * -test        -> Output gamebot & discord events to console without executing them
+ *
+ */
 
 require('dotenv').config()
-require('./src/service/time')
-require('./src/service/nZero')
-require('./src/service/log')
-const UserManager = require('./src/service/userManager/')
-global.userManager = new UserManager()
+global.args = process.argv.slice(2).map(el => el.replace('-', '').trim())
 
 require('./src/main')

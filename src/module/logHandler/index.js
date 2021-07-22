@@ -18,7 +18,6 @@ exports.pause = async function pause() {
 
 async function go() {
   while (!run) await global.time.sleep(0.0005)
-  if (process.env.TIMEOUT_LOGHANDLER) await global.time.sleep(process.env.TIMEOUT_LOGHANDLER)
 }
 
 async function writeCache(cache) {
@@ -101,10 +100,10 @@ async function logHandler() {
     let fileList = await getFileList()
 
     for (const file in fileList) {
+      if (global.args.includes('authOnly') && fileList[file].type != 'login') continue
+      if (global.args.includes('mineOnly') && fileList[file].type != 'mines') continue
+      if (global.args.includes('killOnly') && fileList[file].type != 'kill') continue
       if (!cache[file]) {
-        if (global.args.includes('authOnly')) {
-          if (fileList[file].type != 'login') continue
-        }
         global.log.debug(_SN + 'Downloading: ' + file)
         fileList[file].content = await getFileContent(file)
         updates[fileList[file].type] += fileList[file].content

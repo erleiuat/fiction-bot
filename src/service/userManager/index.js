@@ -13,7 +13,6 @@ var con = mysql.createConnection({
 
 con.connect(function (err) {
   if (err) throw err
-  console.log('Connected!')
 })
 */
 
@@ -126,7 +125,7 @@ module.exports = class UserManager {
 
       this.#run = true
       await global.time.sleep(60)
-    } while (true)
+    } while (false)
   }
 
   loadGroups() {

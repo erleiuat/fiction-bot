@@ -56,23 +56,12 @@ exports.admin = function admin(action) {
 exports.mine = function mine(action) {
   let formedTime = formTime(action.date)
 
-  let mLocPath = './data/tmp/mapLocation/mine/'
-  let mLocName =
-    formedTime.key + '.' + action.user.steamID + '.' + action.properties.action + '.jpg'
-
-  mapLocation.generate(
-    action.properties.location.x,
-    action.properties.location.y,
-    mLocName,
-    mLocPath
-  )
-
   let msgDefault = {
-    title: 'MINE-ACTION -> ' + action.properties.action,
+    title: 'AAAA MINE-ACTION -> ' + action.properties.action,
     color: 'F3EA5F',
     fields: [
       {
-        name: 'From',
+        name: 'Causer',
         value: action.user.char.name,
         inline: true
       },
@@ -83,7 +72,16 @@ exports.mine = function mine(action) {
       },
       {
         name: 'Type',
-        value: action.properties.type,
+        value: action.properties.mine.type,
+        inline: true
+      },
+      {
+        name: 'Owner',
+        value:
+          action.properties.mine.owner.char.name +
+          ' (' +
+          action.properties.mine.owner.steamID +
+          ')',
         inline: true
       }
     ],
@@ -92,19 +90,22 @@ exports.mine = function mine(action) {
     }
   }
 
+  let fPath = global.mineManager.imagePath
+  let fName = action.properties.mine.image
+
   let msgExtended = cloneDeep(msgDefault)
-  msgExtended.files = [new Discord.MessageAttachment(mLocPath + mLocName, mLocName)]
+  msgExtended.files = [new Discord.MessageAttachment(fPath + fName, fName)]
   msgExtended.image = {
-    url: 'attachment://' + mLocName
+    url: 'attachment://' + fName
   }
   msgExtended.fields.push({
     name: 'Location',
     value:
-      action.properties.location.x +
+      action.properties.mine.location.x +
       ' ' +
-      action.properties.location.y +
+      action.properties.mine.location.y +
       ' ' +
-      action.properties.location.z
+      action.properties.mine.location.z
   })
 
   extendedAddInfo(msgExtended, action)
@@ -252,7 +253,7 @@ function extendedAddInfo(msgExtended, action) {
     },
     {
       name: 'FakeName',
-      value: action.fakeName,
+      value: action.fakeName ? action.fakeName : '_None_',
       inline: true
     }
   )

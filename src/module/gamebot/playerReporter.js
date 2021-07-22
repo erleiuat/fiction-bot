@@ -53,13 +53,8 @@ exports.start = async function start(dcClient, routines) {
     let cmd = new Command()
     routines.playerReport(cmd, null)
 
-    console.log(' ')
-    console.log(' ')
     //let data = await global.gamebot.executeCommand(cmd)
     let data = tmpData()
-    console.log(data)
-    console.log(' ')
-    console.log(' ')
 
     let mLocPath = './data/tmp/mapLocation/playerReport/'
     let mLocName = 'tmp.jpg'

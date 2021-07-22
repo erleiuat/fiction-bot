@@ -4,6 +4,7 @@ const Discord = require('discord.js')
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 
 global.actionHandler = null
+global.mineHandler = null
 global.logHandler = null
 global.statistics = null
 global.dcWriter = null
@@ -27,7 +28,22 @@ client.on('ready', () => {
 global.log.info(_SN + 'Logging in')
 client.login(process.env.DC_TOKEN)
 
-async function def() {
+function def() {
+  require('./service/log')
+  global.log.info(_SN + 'Started Service "global.log"')
+  require('./service/time')
+  global.log.info(_SN + 'Started Service "global.time"')
+  require('./service/nZero')
+  global.log.info(_SN + 'Started Service "global.nZero"')
+
+  const UserManager = require('./service/userManager/')
+  global.userManager = new UserManager()
+  global.log.info(_SN + 'Started Service "global.userManager"')
+
+  const MineManager = require('./service/mineManager/')
+  global.mineManager = new MineManager()
+  global.log.info(_SN + 'Started Service "global.mineManager"')
+
   global.log.info(_SN + 'Starting Module "actionHandler"')
   global.actionHandler = require('./module/actionHandler/')
 

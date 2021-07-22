@@ -1,23 +1,6 @@
 const _SN = '[MODULE][LOGHANDLER][HANDLE] -> '
 const fs = require('fs')
 
-let mines = {}
-
-if (fs.existsSync('./data/logHandler/mines.json')) {
-  mines = JSON.parse(fs.readFileSync('./data/logHandler/mines.json'))
-}
-
-async function safeMines() {
-  do {
-    await global.time.sleep(60)
-    if (!fs.existsSync('./data/logHandler/'))
-      fs.mkdirSync('./data/logHandler/', { recursive: true })
-    fs.writeFileSync('./data/logHandler/mines.json', JSON.stringify(mines))
-  } while (true)
-}
-
-safeMines()
-
 function formLines(content) {
   let lines = []
   let tmpLines = content.trim().split(/\r?\n/)
@@ -34,40 +17,26 @@ function formLines(content) {
   return false
 }
 
+async function processUpdates(updatesObj, type, handleFunction) {
+  global.log.info(_SN + 'Processing ' + type + ' updates')
+  const typeLines = formLines(updatesObj[type])
+  if (!typeLines) return
+  typeLines.sort()
+  await handleFunction(typeLines)
+}
+
 exports.updates = async function updates(updatesObj) {
-  for (const type in updatesObj) {
-    if (updatesObj[type].length) {
-      let lines = formLines(updatesObj[type])
-      if (!lines) continue
-      lines.sort()
+  if (updatesObj['login']) await processUpdates(updatesObj, 'login', handleAuth)
 
-      global.log.info(_SN + 'Processing ' + type + ' update')
+  if (updatesObj['mines']) await processUpdates(updatesObj, 'mines', handleMine)
 
-      switch (type) {
-        case 'login':
-          await handleAuth(lines)
-          break
-        case 'chat':
-          await handleChat(lines)
-          break
-        case 'admin':
-          await handleAdmin(lines)
-          break
-        case 'kill':
-          await handleKill(lines)
-          break
-        case 'mines':
-          await handleMine(lines)
-          break
-        case 'violations':
-          await handleViolation(lines)
-          break
-        default:
-          global.log.info(_SN + 'Type not recognized: ' + type)
-          break
-      }
-    }
-  }
+  if (updatesObj['admin']) processUpdates(updatesObj, 'admin', handleAdmin)
+
+  if (updatesObj['chat']) processUpdates(updatesObj, 'chat', handleChat)
+
+  if (updatesObj['kill']) processUpdates(updatesObj, 'kill', handleKill)
+
+  if (updatesObj['violations']) processUpdates(updatesObj, 'violations', handleViolation)
 }
 
 async function handleViolation(lines) {
@@ -161,7 +130,7 @@ async function handleAuth(lines) {
 
       let tmpUser = global.userManager.getUserByCharID(charID)
       if (!tmpUser) {
-        global.log.error(_SN + 'handleAuth(logout) -> User not found: ' + userProps.steamID)
+        global.log.error(_SN + 'handleAuth(logout) -> User not found: ' + charID)
         continue
       }
       setActionUser(actionObj, tmpUser)
@@ -199,15 +168,33 @@ async function handleKill(lines) {
       steamID: vicStr.substring(vicStr.lastIndexOf('(') + 1, vicStr.lastIndexOf(')')).trim()
     }
 
+    let tmpUser = global.userManager.getUserBySteamID(victim.steamID)
+    if (!tmpUser) {
+      global.log.error(_SN + 'handleKill -> Victim not found: ' + vicStr)
+      continue
+    }
+    setActionUser(actionObj, tmpUser)
+
+    let victimLoc = newLine.substring(newLine.lastIndexOf('VictimLoc')).trim()
+    victimLoc = victimLoc.substring(victimLoc.indexOf(':') + 1, victimLoc.indexOf(']'))
+    victimLoc = victimLoc.replace(/,/g, '').trim().split(' ')
+    if (victimLoc)
+      actionObj.properties.location.victim = {
+        x: parseInt(victimLoc[0]),
+        y: parseInt(victimLoc[1]),
+        z: parseInt(victimLoc[2])
+      }
+
     let cauStr = newLine
       .substring(newLine.indexOf(', Causer: ') + 9, newLine.lastIndexOf('Weapon: '))
       .trim()
+
     causer = {
       name: cauStr.substring(0, cauStr.lastIndexOf('(')).trim(),
       steamID: cauStr.substring(cauStr.lastIndexOf('(') + 1, cauStr.lastIndexOf(')')).trim()
     }
 
-    let weapon = newLine
+    actionObj.properties.weapon = newLine
       .substring(newLine.lastIndexOf(' Weapon: ') + 8, newLine.indexOf(']') + 1)
       .trim()
 
@@ -217,20 +204,8 @@ async function handleKill(lines) {
 
       do {
         i++
-
-        if (mines[victim.steamID])
-          for (const mine of mines[victim.steamID])
-            if (
-              mine.properties.action == 'triggered' &&
-              actionObj.timestamp - 10 * 60 * 1000 < mine.timestamp &&
-              actionObj.timestamp + 10 * 60 * 1000 > mine.timestamp
-            ) {
-              causer = {
-                name: mine.properties.owner.char.name,
-                steamID: mine.properties.owner.steamID
-              }
-            }
-
+        let mineProps = global.mineManager.findTriggeredMine(actionObj.timestamp, victim)
+        if (mineProps) causer = mineProps.mine.owner
         if (causer.steamID == -1) await global.time.sleep(0.5)
       } while (causer.steamID == -1 && i < 20)
 
@@ -244,38 +219,18 @@ async function handleKill(lines) {
         .replace(/,/g, '')
         .trim()
         .split(' ')
+
+      if (causerLoc)
+        actionObj.properties.location.causer = {
+          x: parseInt(causerLoc[0]),
+          y: parseInt(causerLoc[1]),
+          z: parseInt(causerLoc[2])
+        }
     }
-
-    let victimLoc = newLine.substring(newLine.lastIndexOf('VictimLoc')).trim()
-    victimLoc = victimLoc.substring(victimLoc.indexOf(':') + 1, victimLoc.indexOf(']'))
-    victimLoc = victimLoc.replace(/,/g, '').trim().split(' ')
-
-    // ------------------------ Create actionObj
-
-    let tmpUser = global.userManager.getUserBySteamID(victim.steamID)
-    if (!tmpUser) {
-      global.log.error(_SN + 'handleKill -> Victim not found: ' + vicStr)
-      continue
-    }
-    setActionUser(actionObj, tmpUser)
 
     actionObj.properties.causer = global.userManager.getUserBySteamID(causer.steamID)
     if (!actionObj.properties.causer)
       global.log.error(_SN + 'handleKill -> Causer not found: ' + cauStr)
-
-    if (victimLoc)
-      actionObj.properties.location.victim = {
-        x: parseInt(victimLoc[0]),
-        y: parseInt(victimLoc[1]),
-        z: parseInt(victimLoc[2])
-      }
-
-    if (causerLoc)
-      actionObj.properties.location.causer = {
-        x: parseInt(causerLoc[0]),
-        y: parseInt(causerLoc[1]),
-        z: parseInt(causerLoc[2])
-      }
 
     if (victimLoc && causerLoc) {
       let dx = causerLoc[0] - victimLoc[0]
@@ -285,74 +240,139 @@ async function handleKill(lines) {
       distance = actionObj.properties.distance = Math.round(dist / 100)
     }
 
-    actionObj.properties.weapon = weapon
-
     if (actionObj.properties.causer) actionObj.properties.causer.addKill(actionObj)
     global.actionHandler.handle(actionObj)
   }
 }
 
 async function handleMine(lines) {
+  let first = []
+  let second = []
+
   for (line of lines) {
-    let actionObj = initAction('mine', line)
-    let newLine = line.substring(line.indexOf(")' ") + 2).trim()
-    let userProps = formUserProps(line.substring(22, line.indexOf(")' ") + 2))
-
-    let tmpUser = global.userManager.getUserBySteamID(userProps.steamID)
-    if (!tmpUser) {
-      global.log.error(_SN + 'handleMine -> User not found: ' + userProps.steamID)
-      continue
-    }
-    setActionUser(actionObj, tmpUser)
-
-    actionObj.properties.action = newLine.split(' ')[0].trim()
-    tmpType = line.substring(line.indexOf('trap (') + 6)
-    actionObj.properties.type = tmpType.substring(0, tmpType.indexOf(')')).trim()
-
-    if (newLine.includes('on location(')) {
-      tmpLoc = newLine.substring(newLine.indexOf('on location(') + 12)
-      tmpLoc = tmpLoc.substring(0, tmpLoc.indexOf(')')).trim()
-      loc = tmpLoc.split(' ').map(el => el.slice(0, el.indexOf('.') + 5).trim())
-      actionObj.properties.location = {
-        x: parseInt(loc[0]),
-        y: parseInt(loc[1]),
-        z: parseInt(loc[2])
-      }
-    }
-
-    if (newLine.includes(') from')) {
-      let steamID = newLine.split(') from ')[1].split(':')[0]
-      actionObj.properties.owner = global.userManager.getUserBySteamID(steamID)
-    }
-
-    if (!mines[actionObj.user.steamID]) mines[actionObj.user.steamID] = []
-
-    let found = false
-    if (mines[actionObj.user.steamID].length) {
-      let uMines = mines[actionObj.user.steamID]
-      for (const mine of uMines) {
-        if (
-          mine.user.steamID == actionObj.user.steamID &&
-          mine.properties.type == actionObj.properties.type &&
-          mine.properties.action == actionObj.properties.action &&
-          mine.timestamp >= actionObj.timestamp - 5 * 1000 &&
-          mine.timestamp <= actionObj.timestamp + 5 * 1000
-        ) {
-          found = true
-        }
-        if (found) break
-      }
-    }
-
-    mines[actionObj.user.steamID].push(actionObj)
-    if (!found) global.actionHandler.handle(actionObj)
+    let tmpLine = line.substring(line.indexOf(")' ") + 2).trim()
+    if (tmpLine.startsWith('crafted') || tmpLine.startsWith('armed')) first.push(line)
+    else second.push(line)
   }
+
+  for (line of first) handleMineLine(line)
+  for (line of second) handleMineLine(line)
+}
+
+function handleMineLine(line) {
+  let actionObj = initAction('mine', line)
+  let newLine = line.substring(line.indexOf(")' ") + 2).trim()
+  let userProps = formUserProps(line.substring(22, line.indexOf(")' ") + 2))
+
+  let tmpUser = global.userManager.getUserBySteamID(userProps.steamID)
+  if (!tmpUser) {
+    global.log.error(_SN + 'handleMine -> User not found: ' + userProps.steamID)
+    return
+  }
+  setActionUser(actionObj, tmpUser)
+
+  let mineProps = formMineProps(newLine, actionObj.user, actionObj.timestamp)
+  actionObj.properties.action = mineProps.action
+
+  if (mineProps.key) actionObj.properties.mine = global.mineManager.getMineByKey(mineProps.key)
+
+  if (!actionObj.properties.mine) {
+    if (mineProps.canCreate)
+      actionObj.properties.mine = global.mineManager.createMine(mineProps, actionObj.timestamp)
+    else {
+      actionObj.properties.mine = global.mineManager.findMine(mineProps)
+    }
+  }
+
+  if (!actionObj.properties.mine) {
+    global.log.error(_SN + 'handleMine -> Mine not found: ' + JSON.stringify(mineProps))
+    return
+  }
+
+  let found = false
+  if (Object.keys(actionObj.properties.mine.events).length > 1) {
+    let tmpEvents = actionObj.properties.mine.events
+    let after = actionObj.timestamp - 5 * 1000
+    let before = actionObj.timestamp + 5 * 1000
+
+    for (const e in tmpEvents)
+      if (tmpEvents[e].action == actionObj.properties.action)
+        if (tmpEvents[e].timestamp >= after && tmpEvents[e].timestamp <= before) found = true
+  }
+
+  let created = actionObj.properties.mine.handleEvent(
+    mineProps,
+    actionObj.user,
+    actionObj.timestamp
+  )
+
+  /*
+  if (!created) {
+    global.log.warn(_SN + 'handleMine -> Event already exists: ' + JSON.stringify(mineProps))
+    return
+  }
+  */
+
+  if (!found) global.actionHandler.handle(actionObj)
 }
 
 function setActionUser(actionObj, user) {
   actionObj.user = user
   actionObj.user.setActivity(actionObj.timestamp)
   actionObj.fakeName = actionObj.user.char.fakeName
+}
+
+function formMineProps(mineString, actUser, timestamp) {
+  mStr = mineString.trim()
+
+  let key = null
+  let type = null
+  let owner = null
+  let canCreate = false
+  let action = mStr.substring(0, mStr.indexOf(' ')).trim()
+
+  if (action != 'disarmed') type = mStr.substring(mStr.indexOf('(') + 1, mStr.indexOf(')')).trim()
+  if (mStr.includes(' from ')) {
+    owner = formUserProps(mStr.substring(mStr.indexOf(' from ') + 5).trim())
+    mStr = mStr.substring(0, mStr.indexOf(' from '))
+  }
+
+  let tmpLoc = mStr
+    .substring(mStr.indexOf('on location(') + 12, mStr.lastIndexOf(')'))
+    .split(' ')
+    .map(el => el.slice(0, el.indexOf('.') + 5).trim())
+
+  let location = {
+    x: parseInt(tmpLoc[0]),
+    y: parseInt(tmpLoc[1]),
+    z: parseInt(tmpLoc[2])
+  }
+
+  let locationKey = global.mineManager.locationToKey(location)
+
+  if (action == 'armed' || action == 'crafted') {
+    canCreate = true
+    owner = {
+      steamID: actUser.steamID,
+      char: {
+        id: actUser.char.id,
+        name: actUser.char.name
+      }
+    }
+  }
+
+  if (owner && owner.steamID)
+    key = locationKey + owner.steamID + '_' + type.split(' ')[0].toLowerCase() + '_'
+
+  return {
+    key: key,
+    locationKey: locationKey,
+    canCreate: canCreate,
+    action: action,
+    type: type,
+    location: location,
+    owner: owner
+  }
 }
 
 function formUserProps(userString) {
@@ -415,9 +435,7 @@ function initAction(actType, line) {
     case 'mine':
       properties = {
         action: null,
-        type: null,
-        location: null,
-        owner: null
+        mine: null
       }
       break
     case 'violation':

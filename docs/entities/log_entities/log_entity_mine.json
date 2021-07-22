@@ -1,6 +1,4 @@
 {
   "action": "triggered/armed/crafted/disarmed",
-  "type": "String: 'Anti-personnel mine'",
-  "location": { "x": "Int", "y": "Int", "z": "Int" },
-  "owner": "Obj: User (optional)"
+  "mine": "Obj: Mine"
 }

@@ -32,6 +32,10 @@ exports.pause = async function pause() {
   global.log.info(_SN + 'Paused')
 }
 
+async function go() {
+  while (!run) await global.time.sleep(0.0005)
+}
+
 function init() {
   channels.console = client.channels.cache.find(ch => ch.id === process.env.DC_CH_CONSOLE)
   channels.ingameChat = client.channels.cache.find(ch => ch.id === process.env.DC_CH_INGAMECHAT)
@@ -60,11 +64,6 @@ async function sendMessage(channel, message) {
         JSON.stringify(message) +
         '\n'
     )
-}
-
-async function go() {
-  while (!run) await global.time.sleep(0.001)
-  if (process.env.TIMEOUT_DCWRITER) await global.time.sleep(process.env.TIMEOUT_DCWRITER)
 }
 
 async function toChannels(action, channels) {

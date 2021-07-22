@@ -57,6 +57,14 @@ module.exports = class MineManager {
     return key
   }
 
+  getActiveMines() {
+    let list = []
+    for (const m in this.mines) {
+      if (this.mines[m].active) list.push(this.mines[m])
+    }
+    return list
+  }
+
   getMineByKey(key) {
     key = key.toString()
     let mine = this.mines[key]
@@ -64,19 +72,16 @@ module.exports = class MineManager {
     return this.mines[key]
   }
 
-  /*
-  findMinesByLocation(loc) {
-    //let key = this.locationToKey(location)
-    let results = []
+  findMineByLocation(loc, type) {
+    let key = this.locationToKey(loc)
+    if (type) type = type.split(' ')[0].trim()
     for (const m in this.mines) {
-
-      if(loc.x -100 )
-
-      //if (this.mines[m].locationKey.trim() == key) results.push(this.mines[m])
+      if (this.mines[m].locationKey.trim() == key)
+        if (type && this.mines[m].type.startsWith(type)) return this.mines[m]
+        else if (!type) return this.mines[m]
     }
-    return results
+    return false
   }
-  */
 
   findTriggeredMine(timestamp, user) {
     let after = timestamp - 5 * 1000
@@ -106,11 +111,12 @@ module.exports = class MineManager {
 
     for (const m in this.mines) {
       let tmpMine = this.mines[m]
-
-      if (tmpMine.locationKey.trim() == mProps.locationKey.trim()) {
-        if (tmpMine.type.startsWith(typeKey)) {
-          if (!needActive) return this.mines[m]
-          else if (tmpMine.active) return this.mines[m]
+      if (mProps.owner.steamID == tmpMine.owner.steamID) {
+        if (tmpMine.locationKey.trim() == mProps.locationKey.trim()) {
+          if (tmpMine.type.startsWith(typeKey)) {
+            if (!needActive) return this.mines[m]
+            else if (tmpMine.active) return this.mines[m]
+          }
         }
       }
     }

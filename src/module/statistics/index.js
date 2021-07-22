@@ -4,6 +4,7 @@ const state = require('./state')
 const ranking = require('./ranking')
 const players = require('./players')
 const newPlayers = require('./newPlayers')
+const minesActive = require('./minesActive')
 const playersOnline = require('./playersOnline')
 const rankingFormat = require('./rankingFormat')
 const Discord = require('discord.js')
@@ -12,7 +13,8 @@ const channels = {
   players: null,
   ranking: null,
   newPlayers: null,
-  playersOnline: null
+  playersOnline: null,
+  minesActive: null
 }
 
 let client = null
@@ -34,6 +36,7 @@ exports.pause = async function pause() {
 function init() {
   channels.players = client.channels.cache.find(ch => ch.id === process.env.DC_CH_STATS_PLAYERS)
   channels.ranking = client.channels.cache.find(ch => ch.id === process.env.DC_CH_STATS_RANKING)
+  channels.minesActive = client.channels.cache.find(ch => ch.id === process.env.DC_CH_MINES_ACTIVE)
   channels.newPlayers = client.channels.cache.find(
     ch => ch.id === process.env.DC_CH_STATS_NEWPLAYERS
   )
@@ -62,6 +65,26 @@ async function iterateStatistics() {
   newPlayersSts()
   playersSts()
   playersOnlineSts()
+  //minesActiveSts() TODO
+}
+
+async function minesActiveSts() {
+  let dataCache = ''
+  do {
+    await go()
+
+    let data = global.mineManager.getActiveMines()
+    if (dataCache != JSON.stringify(data)) {
+      global.log.info(_SN + 'Updating "MinesActive"')
+      await cleanUp(channels.minesActive)
+      let msgs = minesActive.format(data)
+      return
+      for (const msg of msgs) if (msg && msg.length > 0) await channels.minesActive.send(msg)
+      dataCache = JSON.stringify(data)
+    }
+
+    await global.time.sleep(15)
+  } while (true)
 }
 
 async function playersOnlineSts() {

@@ -279,9 +279,12 @@ function handleMineLine(line) {
   if (!actionObj.properties.mine) {
     if (mineProps.canCreate)
       actionObj.properties.mine = global.mineManager.createMine(mineProps, actionObj.timestamp)
-    else {
-      actionObj.properties.mine = global.mineManager.findMine(mineProps)
-    }
+    else if (mineProps.owner) actionObj.properties.mine = global.mineManager.findMine(mineProps)
+    else
+      actionObj.properties.mine = global.mineManager.findMineByLocation(
+        mineProps.location,
+        mineProps.type
+      )
   }
 
   if (!actionObj.properties.mine) {
@@ -300,19 +303,7 @@ function handleMineLine(line) {
         if (tmpEvents[e].timestamp >= after && tmpEvents[e].timestamp <= before) found = true
   }
 
-  let created = actionObj.properties.mine.handleEvent(
-    mineProps,
-    actionObj.user,
-    actionObj.timestamp
-  )
-
-  /*
-  if (!created) {
-    global.log.warn(_SN + 'handleMine -> Event already exists: ' + JSON.stringify(mineProps))
-    return
-  }
-  */
-
+  actionObj.properties.mine.handleEvent(mineProps, actionObj.user, actionObj.timestamp)
   if (!found) global.actionHandler.handle(actionObj)
 }
 

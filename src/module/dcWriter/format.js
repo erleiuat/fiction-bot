@@ -45,7 +45,6 @@ exports.admin = function admin(action) {
 
   let msgExtended = cloneDeep(msgDefault)
   extendedAddInfo(msgExtended, action)
-  console.log(userProps)
   msgDefault = checkCommand(msgDefault, userProps, action.user.discordID, action.properties.command)
 
   return {

@@ -48,6 +48,20 @@ function init() {
   }
 }
 
+async function sendMessage(channel, message) {
+  if (!global.args.includes('test')) await channel.send(message)
+  else
+    console.log(
+      '\n' +
+        _SN +
+        '[TEST] -> Sending message to Channel "' +
+        channel.name +
+        '":' +
+        JSON.stringify(message) +
+        '\n'
+    )
+}
+
 async function go() {
   while (!run) await global.time.sleep(0.001)
   if (process.env.TIMEOUT_DCWRITER) await global.time.sleep(process.env.TIMEOUT_DCWRITER)
@@ -56,8 +70,8 @@ async function go() {
 async function toChannels(action, channels) {
   let msgs = buildMessages(action)
   for (const el of channels)
-    if (el.extended) await el.channel.send(msgs.extended)
-    else if (msgs.default) await el.channel.send(msgs.default)
+    if (el.extended) await sendMessage(el.channel, msgs.extended)
+    else if (msgs.default) await sendMessage(el.channel, msgs.default)
 
   global.log.info(_SN + 'sendFromLog(): ' + action.type + ' sent')
 }

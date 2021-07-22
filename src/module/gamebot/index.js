@@ -20,9 +20,13 @@ exports.ready = ready
 exports.start = async function start(dcClient) {
   routines.init(messages, sLocal, sGlobal)
   schedule.start(messages, sLocal, sGlobal)
-  playerReporter.start(dcClient, routines)
 
-  let state = await bot.start()
+  let state = { status: 'success' }
+  if (!global.args.includes('test')) {
+    playerReporter.start(dcClient, routines)
+    state = await bot.start()
+  }
+
   if (state.status == 'success') {
     let cmd = new Command(true)
     routines.botStart(cmd)
@@ -47,7 +51,9 @@ async function executeCommand(cmd) {
   await go()
   run = false
   global.log.debug(_SN + 'Executing: ' + JSON.stringify(cmd))
-  let data = await bot.execute(cmd)
+  let data = { status: 'success' }
+  if (!global.args.includes('test')) data = await bot.execute(cmd)
+  else console.log('\n' + _SN + '[TEST] -> Sending command to Bot:' + JSON.stringify(cmd) + '\n')
   if (data.status == 'error')
     global.log.error(_SN + 'Bot-Command failed: ' + data.message + '; ' + data.type)
   ready = true
@@ -110,6 +116,7 @@ exports.sendFromLog = async function sendFromLog(action) {
       break
 
     case 'mine':
+      if (action.properties.action != 'armed') break
       cmd.addMessage(sGlobal, messages.in.traps)
       await executeCommand(cmd)
       break

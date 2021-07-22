@@ -44,22 +44,22 @@ exports.updates = async function updates(updatesObj) {
 
       switch (type) {
         case 'login':
-          handleAuth(lines)
+          await handleAuth(lines)
           break
         case 'chat':
-          handleChat(lines)
+          await handleChat(lines)
           break
         case 'admin':
-          handleAdmin(lines)
+          await handleAdmin(lines)
           break
         case 'kill':
-          handleKill(lines)
+          await handleKill(lines)
           break
         case 'mines':
-          handleMine(lines)
+          await handleMine(lines)
           break
         case 'violations':
-          handleViolation(lines)
+          await handleViolation(lines)
           break
         default:
           global.log.info(_SN + 'Type not recognized: ' + type)
@@ -325,9 +325,26 @@ async function handleMine(lines) {
     }
 
     if (!mines[actionObj.user.steamID]) mines[actionObj.user.steamID] = []
-    mines[actionObj.user.steamID].push(actionObj)
 
-    global.actionHandler.handle(actionObj)
+    let found = false
+    if (mines[actionObj.user.steamID].length) {
+      let uMines = mines[actionObj.user.steamID]
+      for (const mine of uMines) {
+        if (
+          mine.user.steamID == actionObj.user.steamID &&
+          mine.properties.type == actionObj.properties.type &&
+          mine.properties.action == actionObj.properties.action &&
+          mine.timestamp >= actionObj.timestamp - 5 * 1000 &&
+          mine.timestamp <= actionObj.timestamp + 5 * 1000
+        ) {
+          found = true
+        }
+        if (found) break
+      }
+    }
+
+    mines[actionObj.user.steamID].push(actionObj)
+    if (!found) global.actionHandler.handle(actionObj)
   }
 }
 

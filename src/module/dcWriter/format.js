@@ -57,7 +57,7 @@ exports.mine = function mine(action) {
   let formedTime = formTime(action.date)
 
   let msgDefault = {
-    title: 'AAAA MINE-ACTION -> ' + action.properties.action,
+    title: 'MINE-ACTION -> ' + action.properties.action,
     color: 'F3EA5F',
     fields: [
       {

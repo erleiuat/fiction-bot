@@ -1,15 +1,11 @@
-timeout /t 2
+timeout /t 1
 
 echo "start cmd.exe /c pm2 stop all"
 start cmd.exe /c pm2 stop all
 
-timeout /t 2
+timeout /t 5
 
 echo "%cd%"
-CD %cd%
-
-timeout /t 2
-
 echo "git pull"
 git pull
 

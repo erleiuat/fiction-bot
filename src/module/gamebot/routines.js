@@ -13,6 +13,23 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
   botMsgs = msgs
 }
 
+exports.anonymize_login = function anonymize_login(cmd, action) {
+  let userProps = global.userManager.getUserProperties(action.user)
+  let msg = null
+  let setTo = null
+  if (userProps.loginAnonym) {
+    msg = botMsgs.anonymize.off.replace('{user}', action.user.char.name)
+    setTo = false
+  } else {
+    msg = botMsgs.anonymize.on.replace('{user}', action.user.char.name)
+    setTo = true
+  }
+  action.user.overwrite['loginAnonym'] = setTo
+  global.userManager.saveChanges()
+  global.userManager.getUserProperties(action.user, true)
+  cmd.addMessage(sGlobal, msg)
+}
+
 exports.mapShot = function mapShot(cmd, action) {
   cmd.addAction('mapShot', { path: action.path })
 }

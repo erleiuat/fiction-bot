@@ -144,8 +144,9 @@ exports.sendFromLog = async function sendFromLog(action) {
     case 'auth':
       let userProps = global.userManager.getUserProperties(action.user)
       if (userProps.hideLogin) break
+      let uName = userProps.loginAnonym ? '(Anonymous)' : action.user.char.name
       if (action.properties.authType == 'login') {
-        cmd.addMessage(sGlobal, messages.in.login.replace('{user}', action.user.char.name))
+        cmd.addMessage(sGlobal, messages.in.login.replace('{user}', uName))
         if (action.user.stats.totalLogins <= 1) {
           cmd.addMessage(sGlobal, messages.pPos.firstJoin.replace('{userID}', action.user.steamID))
           cmd.addMessage(
@@ -157,7 +158,7 @@ exports.sendFromLog = async function sendFromLog(action) {
             messages.in.firstJoin.welcome.replace('{user}', action.user.char.name)
           )
         }
-      } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', action.user.char.name))
+      } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', uName))
 
       await executeCommand(cmd)
       break

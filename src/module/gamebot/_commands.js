@@ -1,6 +1,21 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/anonymous': {
+    routine: 'anonymize_login',
+    scopes: ['global'],
+    cooldown: null
+  },
+  '/anonym': {
+    routine: 'anonymize_login',
+    scopes: ['global'],
+    cooldown: null
+  },
+  '/anonymize': {
+    routine: 'anonymize_login',
+    scopes: ['global'],
+    cooldown: null
+  },
   '/reboot': {
     routine: 'reboot_bot',
     scopes: ['local', 'global'],

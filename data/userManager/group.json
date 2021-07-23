@@ -2,6 +2,7 @@
   "_default": {
     "isAdmin": false,
     "allowBotCommands": [
+      "/anonymize",
       "/voteday",
       "/dayvote",
       "/votenight",

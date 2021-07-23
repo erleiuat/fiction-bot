@@ -1,6 +1,6 @@
-from subprocess import Popen, PIPE
 from datetime import datetime
 from pathlib import Path
+import subprocess 
 import time
 import sys
 import os
@@ -49,10 +49,7 @@ class Action:
 
     def reloadBot(self):
         scriptPath =  os.path.dirname(os.path.abspath(__file__)) + r'\reload.bat'
-        CREATE_NEW_PROCESS_GROUP = 0x00000200
-        DETACHED_PROCESS = 0x00000008
-        p = Popen([scriptPath], stdin=PIPE, stdout=PIPE, stderr=PIPE,
-          creationflags=DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP)
+        subprocess.call([scriptPath])
         return True
 
     def mapShot(self, props):

@@ -55,7 +55,7 @@ function init() {
 async function sendMessage(channel, message) {
   if (!global.args.includes('test')) await channel.send(message)
   else
-    console.log(
+    global.log.debug(
       '\n' +
         _SN +
         '[TEST] -> Sending message to Channel "' +

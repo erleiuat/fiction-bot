@@ -35,6 +35,8 @@
     ],
     "hideCommandAlarms": [],
     "hideCommands": [],
+    "loginAnonym": false,
+    "noTrapNotification": false,
     "useFakeNames": false,
     "hideLogin": false,
     "ranking": {
@@ -68,7 +70,7 @@
   },
   "administrators": {
     "isAdmin": true,
-    "allowBotCommands": ["/exec", "/spawn"],
+    "allowBotCommands": ["/exec", "/spawn", "/reload"],
     "hideCommandAlarms": ["#listplayers"],
     "hideCommands": [],
     "useFakeNames": true,
@@ -80,7 +82,7 @@
   },
   "administrators+": {
     "isAdmin": true,
-    "allowBotCommands": ["/exec", "/spawn"],
+    "allowBotCommands": ["/exec", "/spawn", "/reload"],
     "hideCommandAlarms": ["#*"],
     "hideCommands": ["#*"],
     "useFakeNames": true,

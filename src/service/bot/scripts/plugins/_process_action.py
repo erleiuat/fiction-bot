@@ -1,7 +1,9 @@
 from datetime import datetime
 from pathlib import Path
+import subprocess
 import time
 import sys
+import os
 
 
 class Action:
@@ -44,6 +46,11 @@ class Action:
                 'fame': pProps[3].strip()
             }
         return playerList
+
+    def reloadBot(self):
+        scriptPath =  os.path.dirname(os.path.abspath(__file__)) + r'\reload.bat'
+        p = subprocess.Popen([scriptPath])
+        return True
 
     def mapShot(self, props):
         now = datetime.now()

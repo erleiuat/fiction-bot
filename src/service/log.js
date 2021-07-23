@@ -22,7 +22,7 @@ const timezoned = () => {
 
 let fFull = timezoned()
 let fName = fFull.substring(fFull.indexOf('/') + 1)
-let fPath = fFull.substring(0, fFull.indexOf('/') + 1)
+let fPath = process.env.SETTING_LOGS_PATH + fFull.substring(0, fFull.indexOf('/') + 1)
 if (!fs.existsSync(fPath)) fs.mkdirSync(fPath, { recursive: true })
 
 global.log = createLogger({
@@ -46,7 +46,7 @@ global.log = createLogger({
       )
     }),
     new transports.File({
-      filename: process.env.SETTING_LOGS_PATH + fPath + fName + '_debug.log',
+      filename: fPath + fName + '_debug.log',
       level: 'debug',
       format: combine(
         timestamp(),
@@ -56,7 +56,7 @@ global.log = createLogger({
       )
     }),
     new transports.File({
-      filename: process.env.SETTING_LOGS_PATH + fPath + fName + '_info.log',
+      filename: fPath + fName + '_info.log',
       level: 'info',
       format: combine(
         timestamp(),
@@ -66,7 +66,7 @@ global.log = createLogger({
       )
     }),
     new transports.File({
-      filename: process.env.SETTING_LOGS_PATH + fPath + fName + '_error.log',
+      filename: fPath + fName + '_error.log',
       level: 'error',
       format: combine(
         timestamp(),

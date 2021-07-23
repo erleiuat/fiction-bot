@@ -295,3 +295,9 @@ exports.shop_item = async function shop_item(cmd, action) {
 
   cmd.addMessage(sGlobal, botMsgs.pos.idle)
 }
+
+exports.reload_bot = function reload_bot(cmd, action) {
+  cmd.addMessage(sLocal, 'Reloading...')
+  cmd.addAction('reloadBot')
+  global.userManager.saveChanges()
+}

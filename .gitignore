@@ -259,3 +259,4 @@ dmypy.json
 cython_debug/
 data/userManager/users.json
 data/logHandler/mines.json
+data/mineManager/mines.json

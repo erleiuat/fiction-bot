@@ -59,9 +59,13 @@ module.exports = class MineManager {
 
   getActiveMines() {
     let list = []
-    for (const m in this.mines) {
-      if (this.mines[m].active) list.push(this.mines[m])
-    }
+    for (const m in this.mines) if (this.mines[m].active) list.push(this.mines[m])
+    return list
+  }
+
+  getInactiveMines() {
+    let list = []
+    for (const m in this.mines) if (!this.mines[m].active) list.push(this.mines[m])
     return list
   }
 

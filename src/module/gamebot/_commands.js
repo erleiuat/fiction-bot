@@ -3,7 +3,7 @@
 exports.commands = {
   '/reload': {
     routine: 'reload_bot',
-    scopes: ['local'],
+    scopes: ['local', 'global'],
     cooldown: 0
   },
   '/voteday': {

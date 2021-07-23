@@ -32,6 +32,7 @@ exports.messages = {
     outside: '#Teleport -116146 -66392 37065 {userID}'
   },
   start: {
+    reload: ' ・ Reloading...',
     ready: " ・ I'm ready!"
   },
   in: {

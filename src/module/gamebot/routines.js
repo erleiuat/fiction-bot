@@ -96,6 +96,12 @@ exports.botStart = function botStart(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.start.ready)
 }
 
+exports.reload_bot = function reload_bot(cmd, action = null) {
+  cmd.addMessage(sGlobal, botMsgs.start.reload)
+  cmd.addAction('reloadBot')
+  global.userManager.saveChanges()
+}
+
 exports.shop_info = function shop_info(cmd, action) {
   cmd.addMessage(sGlobal, botMsgs.shop.info.replace('{user}', action.user.char.name))
 }
@@ -294,10 +300,4 @@ exports.shop_item = async function shop_item(cmd, action) {
   })
 
   cmd.addMessage(sGlobal, botMsgs.pos.idle)
-}
-
-exports.reload_bot = function reload_bot(cmd, action) {
-  cmd.addMessage(sLocal, 'Reloading...')
-  cmd.addAction('reloadBot')
-  global.userManager.saveChanges()
 }

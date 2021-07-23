@@ -200,7 +200,7 @@ class Action:
                     nearShop = True
 
             if(not nearShop):
-                self.PRC_CHAT.goScope('global')
+                self.PRC_CHAT.goScope('global') 
                 self.PRC_CHAT.send(props['messages']['notNearShop'])
                 return
 

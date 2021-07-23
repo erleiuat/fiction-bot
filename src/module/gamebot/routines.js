@@ -130,7 +130,6 @@ exports.help = function help(cmd, action) {
 }
 
 exports.what_is_going_on = function what_is_going_on(cmd, action) {
-  if (cmd.tooEarly()) return
   cmd.addMessage(sGlobal, ':[Wot]: ・ ...is going on here')
   cmd.addMessage(sGlobal, ':[Wot]: ・ BREKFEST')
 }

@@ -51,6 +51,7 @@ module.exports = class Command {
   tooEarly(action, waitMins) {
     let now = new Date().getTime()
     waitMins = waitMins * 60 * 1000
+    console.log(lastDone)
     if (lastDone[action] && lastDone[action] > now - waitMins) {
       let waitFor = Math.round((waitMins - (now - lastDone[action])) / 1000 / 60)
       this.addMessage('global', 'Sorry, you are too fast. Please wait ' + waitFor + ' minutes.')

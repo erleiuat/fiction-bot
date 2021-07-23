@@ -107,7 +107,11 @@ exports.sendFromLog = async function sendFromLog(action) {
           userProps.allowBotCommands.includes('/*') ||
           userProps.allowBotCommands.includes(cmdKey)
         ) {
-          await routines[commands[cmdKey].routine](cmd, action)
+          if (
+            !commands[cmdKey].cooldown ||
+            !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
+          )
+            await routines[commands[cmdKey].routine](cmd, action)
         } else {
           cmd.addMessage(sGlobal, messages.noPermission.replace('{user}', action.user.char.name))
         }

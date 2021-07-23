@@ -4,12 +4,12 @@ exports.commands = {
   '/reboot': {
     routine: 'reboot_bot',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/reload': {
     routine: 'reload_bot',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/voteday': {
     routine: 'vote_day',
@@ -44,47 +44,47 @@ exports.commands = {
   '/online': {
     routine: 'online',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/players': {
     routine: 'online',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/playersonline': {
     routine: 'online',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/onlineplayers': {
     routine: 'online',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/restart': {
     routine: 'restart_countdown',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/whenrestart': {
     routine: 'restart_countdown',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/restartwhen': {
     routine: 'restart_countdown',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/help': {
     routine: 'help',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/commands': {
     routine: 'help',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/joke': {
     routine: 'joke',
@@ -94,81 +94,81 @@ exports.commands = {
   '/time': {
     routine: 'time',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/what': {
     routine: 'what_is_going_on',
     scopes: ['local', 'global', 'squad'],
-    cooldown: 0
+    cooldown: null
   },
   '/fasttravel': {
     routine: 'travel',
     scopes: ['local', 'global', 'squad'],
-    cooldown: 0
+    cooldown: null
   },
   '/travel': {
     routine: 'travel',
     scopes: ['local', 'global', 'squad'],
-    cooldown: 0
+    cooldown: null
   },
   '/transfer': {
     routine: 'transfer',
     scopes: ['local', 'global', 'squad'],
-    cooldown: 0
+    cooldown: null
   },
   '/buyitem': {
     routine: 'shop_item',
     scopes: ['local', 'global', 'squad'],
-    cooldown: 0
+    cooldown: null
   },
   '/buy': {
     routine: 'shop_item',
     scopes: ['local', 'global', 'squad'],
-    cooldown: 0
+    cooldown: null
   },
   '/ping': {
     routine: 'ping',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/pong': {
     routine: 'ping',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: 1
   },
   '/exec': {
     routine: 'exec',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/spawn': {
     routine: 'spawn',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/starterkit': {
     routine: 'starterkit',
     scopes: ['global'],
-    cooldown: 0
+    cooldown: null
   },
   '/ready': {
     routine: 'starterkit_ready',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/shop': {
     routine: 'shop_info',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/fictionshop': {
     routine: 'shop_info',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   },
   '/botshop': {
     routine: 'shop_info',
     scopes: ['local', 'global'],
-    cooldown: 0
+    cooldown: null
   }
 }

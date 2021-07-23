@@ -49,6 +49,7 @@ class Action:
 
     def reloadBot(self):
         scriptPath =  os.path.dirname(os.path.abspath(__file__)) + r'\reload.bat'
+        subprocess.Popen([scriptPath], creationflags=DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
         p = subprocess.Popen([scriptPath])
         return True
 

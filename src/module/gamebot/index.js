@@ -19,6 +19,7 @@ exports.ready = ready
 
 exports.start = async function start(dcClient) {
   routines.init(messages, sLocal, sGlobal)
+  new Command().init(messages, sLocal, sGlobal)
   schedule.start(messages, sLocal, sGlobal)
 
   let state = { status: 'success' }

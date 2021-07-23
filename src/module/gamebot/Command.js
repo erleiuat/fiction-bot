@@ -1,8 +1,18 @@
 let lastDone = {}
 
+let botMsgs = null
+let sGlobal = null
+let sLocal = null
+
 module.exports = class Command {
   clearQueue = false
   commands = []
+
+  init(msgs, scopeLocal, scopeGlobal) {
+    sGlobal = scopeGlobal
+    sLocal = scopeLocal
+    botMsgs = msgs
+  }
 
   constructor(clearQueue = false) {
     this.clearQueue = clearQueue
@@ -54,7 +64,7 @@ module.exports = class Command {
     console.log(lastDone)
     if (lastDone[action] && lastDone[action] > now - waitMins) {
       let waitFor = Math.round((waitMins - (now - lastDone[action])) / 1000 / 60)
-      this.addMessage('global', 'Sorry, you are too fast. Please wait ' + waitFor + ' minutes.')
+      this.addMessage(sGlobal, botMsgs.tooEarly.replace('{minutes}', waitFor))
       return true
     }
     lastDone[action] = now

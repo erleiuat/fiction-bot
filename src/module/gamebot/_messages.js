@@ -18,6 +18,7 @@ exports.messages = {
       ":[Restart-Info]: ・ Don't drive and make sure there are no valuable items on the floor!",
     restart3: '#Announce Restart in 1 minute!'
   },
+  tooEarly: ' ・ Sorry, you are too fast. Please wait {minutes} minutes.',
   noPermission: ":[Error]: ・ @{user}: Sorry, You don't have enough permissions for this.",
   unknownCommand: ":[Error]: ・ @{user}: Sorry, I don't know this command.",
   prefix: ' ・ ',

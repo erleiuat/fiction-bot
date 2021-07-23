@@ -1,6 +1,11 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/reboot': {
+    routine: 'reboot_bot',
+    scopes: ['local', 'global'],
+    cooldown: 0
+  },
   '/reload': {
     routine: 'reload_bot',
     scopes: ['local', 'global'],

@@ -53,6 +53,11 @@ class Action:
         time.sleep(30)
         return True
 
+    def rebootBot(self):
+        self.CON.restart()
+        time.sleep(30)
+        return True
+
     def mapShot(self, props):
         now = datetime.now()
         folderName = now.strftime('%Y_%m_%d')

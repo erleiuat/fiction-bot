@@ -102,6 +102,12 @@ exports.reload_bot = function reload_bot(cmd, action = null) {
   global.userManager.saveChanges()
 }
 
+exports.reboot_bot = function reload_bot(cmd, action = null) {
+  cmd.addMessage(sGlobal, botMsgs.start.reboot)
+  cmd.addAction('rebootBot')
+  global.userManager.saveChanges()
+}
+
 exports.shop_info = function shop_info(cmd, action) {
   cmd.addMessage(sGlobal, botMsgs.shop.info.replace('{user}', action.user.char.name))
 }

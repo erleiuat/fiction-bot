@@ -33,6 +33,7 @@ exports.messages = {
   },
   start: {
     reload: ' ・ Reloading...',
+    reboot: " ・ I will reboot my PC now. It can take up to 10 minutes untill I'm ready again.",
     ready: " ・ I'm ready!"
   },
   in: {

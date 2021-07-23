@@ -35,10 +35,10 @@
     ],
     "hideCommandAlarms": [],
     "hideCommands": [],
+    "hideLogin": false,
     "loginAnonym": false,
     "noTrapNotification": false,
     "useFakeNames": false,
-    "hideLogin": false,
     "ranking": {
       "hidePlaytime": false,
       "hideKills": false
@@ -49,8 +49,10 @@
     "allowBotCommands": [],
     "hideCommandAlarms": [],
     "hideCommands": [],
-    "useFakeNames": false,
     "hideLogin": false,
+    "loginAnonym": false,
+    "noTrapNotification": false,
+    "useFakeNames": false,
     "ranking": {
       "hidePlaytime": false,
       "hideKills": false
@@ -61,8 +63,10 @@
     "allowBotCommands": ["/exec", "/spawn"],
     "hideCommandAlarms": [],
     "hideCommands": [],
-    "useFakeNames": false,
     "hideLogin": false,
+    "loginAnonym": false,
+    "noTrapNotification": false,
+    "useFakeNames": false,
     "ranking": {
       "hidePlaytime": false,
       "hideKills": false
@@ -70,11 +74,13 @@
   },
   "administrators": {
     "isAdmin": true,
-    "allowBotCommands": ["/exec", "/spawn", "/reload"],
+    "allowBotCommands": ["/exec", "/spawn", "/reload", "/reboot"],
     "hideCommandAlarms": ["#listplayers"],
     "hideCommands": [],
     "useFakeNames": true,
     "hideLogin": false,
+    "loginAnonym": false,
+    "noTrapNotification": false,
     "ranking": {
       "hidePlaytime": false,
       "hideKills": false
@@ -82,11 +88,13 @@
   },
   "administrators+": {
     "isAdmin": true,
-    "allowBotCommands": ["/exec", "/spawn", "/reload"],
+    "allowBotCommands": ["/exec", "/spawn", "/reload", "/reboot"],
     "hideCommandAlarms": ["#*"],
     "hideCommands": ["#*"],
     "useFakeNames": true,
     "hideLogin": true,
+    "loginAnonym": false,
+    "noTrapNotification": false,
     "ranking": {
       "hidePlaytime": true,
       "hideKills": true
@@ -99,6 +107,8 @@
     "hideCommands": ["#setfakename", "#clearfakename"],
     "useFakeNames": true,
     "hideLogin": true,
+    "loginAnonym": false,
+    "noTrapNotification": false,
     "ranking": {
       "hidePlaytime": true,
       "hideKills": true

@@ -188,6 +188,7 @@ module.exports = class UserManager {
               }
             }
 
+            this.getUserProperties(tmpUser, true)
             fs.renameSync(
               './data/userManager/updates/' + files[e],
               './data/userManager/backup/updates/' + now + '_' + files[e]

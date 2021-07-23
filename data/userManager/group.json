@@ -87,20 +87,6 @@
       "hideKills": false
     }
   },
-  "administrators+": {
-    "isAdmin": true,
-    "allowBotCommands": ["/exec", "/spawn", "/reload", "/reboot"],
-    "hideCommandAlarms": ["#*"],
-    "hideCommands": ["#*"],
-    "useFakeNames": true,
-    "hideLogin": true,
-    "loginAnonym": false,
-    "noTrapNotification": false,
-    "ranking": {
-      "hidePlaytime": true,
-      "hideKills": true
-    }
-  },
   "bots": {
     "isAdmin": true,
     "allowBotCommands": [],

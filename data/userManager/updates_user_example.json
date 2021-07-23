@@ -1,5 +1,5 @@
 {
-  "76561199192438131": {
+  "112233445566778899": {
     "discordID": null,
     "group": "players",
     "overwrite": {
@@ -16,7 +16,7 @@
         "hideKills": false
       }
     },
-    "char": { "id": "151", "name": "Salomon", "fakeName": null },
+    "char": { "id": "99999", "name": "AAAAAAAAAAA", "fakeName": null },
     "info": { "starterkit": null }
   }
 }

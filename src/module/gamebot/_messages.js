@@ -34,7 +34,7 @@ exports.messages = {
   pPos: {
     firstJoin: '#Teleport -113641 -64016 37682 {userID}',
     inside: '#Teleport -116800 -66735 37065 {userID}',
-    outside: '#Teleport -116146 -66392 37065 {userID}'
+    outside: '#Teleport -113436 -65667 37000 {userID}'
   },
   start: {
     reload: ' ・ Reloading...',

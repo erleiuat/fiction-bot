@@ -50,6 +50,7 @@ class Action:
     def reloadBot(self):
         scriptPath =  os.path.dirname(os.path.abspath(__file__)) + r'\reload.bat'
         subprocess.call([scriptPath])
+        time.sleep(30)
         return True
 
     def mapShot(self, props):

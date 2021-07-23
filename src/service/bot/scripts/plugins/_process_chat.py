@@ -54,6 +54,7 @@ class Chat:
 
 
     def doClean(self):
+        self.CON.isItReady()
         self.PAG.hotkey('ctrl','a')
         self.PAG.press('backspace')
         win32clipboard.OpenClipboard()

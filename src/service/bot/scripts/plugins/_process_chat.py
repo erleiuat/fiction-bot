@@ -68,7 +68,7 @@ class Chat:
         self.PAG.moveTo(loc[0], loc[1], 0.4, self.PAG.easeOutQuad)
         self.PAG.hotkey('ctrl','v')
         self.PAG.press('enter')
-        self.PAG.click(loc)
+        self.PAG.click()
         self.PAG.hotkey('ctrl','a')
         self.PAG.hotkey('ctrl', 'c')
         self.PAG.press('esc')

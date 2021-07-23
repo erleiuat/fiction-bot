@@ -90,9 +90,9 @@ exports.joke = async function joke(cmd, action) {
 exports.botStart = function botStart(cmd, action = null) {
   cmd.addMessage(sLocal, botMsgs.fName)
   cmd.addMessage(sLocal, '#ListAnimals')
-  cmd.addMessage(sLocal, botMsgs.pos.idle)
   cmd.addMessage(sLocal, '#ShowOtherPlayerInfo true')
   cmd.addMessage(sLocal, '#ShowFlagLocations true')
+  cmd.addMessage(sLocal, botMsgs.pos.idle)
   cmd.addMessage(sGlobal, botMsgs.start.ready)
 }
 

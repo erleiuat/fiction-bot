@@ -11,7 +11,7 @@ import _ready
 
 import pyautogui as PAG
 PAG.PAUSE = 0.15
-test = True
+test = False
 
 
 RES = _respond.Respond(test)
@@ -26,10 +26,8 @@ RDY = _ready.Ready(RES, FOC, CON, PRC_CHAT)
 
 
 RES.start('START')
-"""
 if(not RDY.doIt()):
     RES.addError('Unable to get ready (MAIN)')
-"""
 RES.send()
 
 if(test):

@@ -4,7 +4,7 @@ const state = require('./state')
 const ranking = require('./ranking')
 const players = require('./players')
 const newPlayers = require('./newPlayers')
-const minesActive = require('./minesActive')
+const minesFormat = require('./minesFormat')
 const playersOnline = require('./playersOnline')
 const rankingFormat = require('./rankingFormat')
 const Discord = require('discord.js')
@@ -14,7 +14,8 @@ const channels = {
   ranking: null,
   newPlayers: null,
   playersOnline: null,
-  minesActive: null
+  minesActive: null,
+  minesInactive: null
 }
 
 let client = null
@@ -37,6 +38,9 @@ function init() {
   channels.players = client.channels.cache.find(ch => ch.id === process.env.DC_CH_STATS_PLAYERS)
   channels.ranking = client.channels.cache.find(ch => ch.id === process.env.DC_CH_STATS_RANKING)
   channels.minesActive = client.channels.cache.find(ch => ch.id === process.env.DC_CH_MINES_ACTIVE)
+  channels.minesInactive = client.channels.cache.find(
+    ch => ch.id === process.env.DC_CH_MINES_INACTIVE
+  )
   channels.newPlayers = client.channels.cache.find(
     ch => ch.id === process.env.DC_CH_STATS_NEWPLAYERS
   )
@@ -65,9 +69,29 @@ async function iterateStatistics() {
   newPlayersSts()
   playersSts()
   playersOnlineSts()
-  //minesActiveSts() TODO
+  minesActiveSts()
+  //minesInactiveSts()
 }
 
+/*
+async function minesInactiveSts() {
+  let dataCache = ''
+  do {
+    await go()
+
+    let data = global.mineManager.getInactiveMines()
+    if (dataCache != JSON.stringify(data)) {
+      global.log.info(_SN + 'Updating "MinesActive"')
+      await cleanUp(channels.minesInactive)
+      let msgs = minesFormat.format(data)
+      for (const msg of msgs) if (msg && msg.length > 0) await channels.minesInactive.send(msg)
+      dataCache = JSON.stringify(data)
+    }
+
+    await global.time.sleep(15)
+  } while (true)
+}
+*/
 async function minesActiveSts() {
   let dataCache = ''
   do {
@@ -77,8 +101,7 @@ async function minesActiveSts() {
     if (dataCache != JSON.stringify(data)) {
       global.log.info(_SN + 'Updating "MinesActive"')
       await cleanUp(channels.minesActive)
-      let msgs = minesActive.format(data)
-      return
+      let msgs = minesFormat.format(data)
       for (const msg of msgs) if (msg && msg.length > 0) await channels.minesActive.send(msg)
       dataCache = JSON.stringify(data)
     }

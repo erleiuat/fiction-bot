@@ -191,17 +191,19 @@ exports.kill = function kill(action) {
     fields: [
       {
         name: 'Attacker',
-        value: action.properties.causer.char.name,
-        inline: true
+        value: action.properties.causer.char.name
       },
       {
         name: 'Victim',
-        value: action.user.char.name,
-        inline: true
+        value: action.user.char.name
       },
       {
         name: 'Weapon',
         value: weaponTxt
+      },
+      {
+        name: 'Distance',
+        value: action.properties.distance + ' meters'
       }
     ],
     footer: {

@@ -1,0 +1,22 @@
+{
+  "76561199192438131": {
+    "discordID": null,
+    "group": "players",
+    "overwrite": {
+      "isAdmin": false,
+      "allowBotCommands": [],
+      "hideCommandAlarms": [],
+      "hideCommands": [],
+      "hideLogin": false,
+      "loginAnonym": false,
+      "noTrapNotification": false,
+      "useFakeNames": false,
+      "ranking": {
+        "hidePlaytime": false,
+        "hideKills": false
+      }
+    },
+    "char": { "id": "151", "name": "Salomon", "fakeName": null },
+    "info": { "starterkit": null }
+  }
+}

@@ -25,6 +25,10 @@ module.exports = class UserManager {
   userPropertiesCache = {}
 
   constructor() {
+    if (!fs.existsSync('./data/userManager/updates/'))
+      fs.mkdirSync('./data/userManager/updates/', { recursive: true })
+    if (!fs.existsSync('./data/userManager/backup/updates/'))
+      fs.mkdirSync('./data/userManager/backup/updates/', { recursive: true })
     this.loadCached()
     this.importUpdates()
     this.iterateSave()
@@ -113,23 +117,92 @@ module.exports = class UserManager {
 
   loadCached() {
     this.#run = false
-    let userCache = JSON.parse(fs.readFileSync('./data/userManager/users.json'))
+
+    let userCache = {}
+    if (fs.existsSync('./data/userManager/users.json'))
+      userCache = JSON.parse(fs.readFileSync('./data/userManager/users.json'))
+
     for (const u in userCache)
       this.users[u.toString()] = Object.assign(
         new User(userCache[u].steamID.toString(), userCache[u].group),
         userCache[u]
       )
+
     this.groups = this.loadGroups()
     for (const user in this.users) this.getUserProperties(this.users[user], true)
+
     this.#run = true
   }
 
   async importUpdates() {
     do {
       while (!this.#run) await global.time.sleep(0.05)
-      // this. TODO
+      this.#run = false
+
+      let files = fs.readdirSync('./data/userManager/updates/')
+
+      if (files.length) {
+        console.log(files)
+
+        let now = new Date().getTime()
+        fs.copyFileSync(
+          './data/userManager/users.json',
+          './data/userManager/backup/users_' + now + '.json'
+        )
+
+        for (const e in files) {
+          try {
+            let data = JSON.parse(fs.readFileSync('./data/userManager/updates/' + files[e]))
+
+            console.log(data)
+
+            for (const user in data) {
+              if (!this.users[user]) continue
+
+              let tmpUser = this.users[user]
+              let up = data[user]
+
+              if ('discordID' in up) {
+                tmpUser.discordID = up.discordID
+                global.log.info(this.#_SN + 'Updated discordID for user: ' + user)
+              }
+
+              if ('group' in up) {
+                tmpUser.group = up.group
+                global.log.info(this.#_SN + 'Updated group for user: ' + user)
+              }
+
+              if ('overwrite' in up) {
+                tmpUser.overwrite = up.overwrite
+                global.log.info(this.#_SN + 'Updated overwrite for user: ' + user)
+              }
+
+              if ('char' in up) {
+                tmpUser.char = up.char
+                global.log.info(this.#_SN + 'Updated char for user: ' + user)
+              }
+
+              if ('info' in up) {
+                tmpUser.info = up.info
+                global.log.info(this.#_SN + 'Updated info for user: ' + user)
+              }
+            }
+
+            fs.renameSync(
+              './data/userManager/updates/' + files[e],
+              './data/userManager/backup/updates/' + now + '_' + files[e]
+            )
+          } catch (err) {
+            global.log.error(this.#_SN + 'Failed to parse JSON: ' + files[e])
+          }
+        }
+
+        this.saveChanges()
+      }
+
+      this.#run = true
       await global.time.sleep(15)
-    } while (false)
+    } while (true)
   }
 
   loadGroups() {

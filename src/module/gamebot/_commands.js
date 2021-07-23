@@ -1,6 +1,11 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/reload': {
+    routine: 'reload_bot',
+    scopes: ['local'],
+    cooldown: 0
+  },
   '/voteday': {
     routine: 'vote_day',
     scopes: ['global'],

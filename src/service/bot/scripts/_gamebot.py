@@ -69,7 +69,7 @@ class RunBot(Thread):
                 if(not self.test):
                     cmd = unquote(input()).strip()
                 else:
-                    cmd = 'MESSAGES'
+                    cmd = 'ACTION'
                 busyWork = True
                 while (busyCheck):
                     time.sleep(0.0001)

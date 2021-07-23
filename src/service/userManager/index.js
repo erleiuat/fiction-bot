@@ -25,8 +25,9 @@ module.exports = class UserManager {
   userPropertiesCache = {}
 
   constructor() {
-    this.syncLists()
-    this.saveChanges()
+    this.loadCached()
+    this.importUpdates()
+    this.iterateSave()
   }
 
   mergeProps(...lists) {
@@ -36,8 +37,6 @@ module.exports = class UserManager {
         for (const item of list) if (!fullList.includes(item)) fullList.push(item)
     return fullList
   }
-
-  getPlaytime(user, startDate, endDate) {}
 
   getUserProperties(user, ignoreCache = false) {
     if (!ignoreCache && this.userPropertiesCache[user.steamID])
@@ -98,33 +97,38 @@ module.exports = class UserManager {
     return false
   }
 
-  async saveChanges() {
+  async iterateSave() {
     do {
       while (!this.#run) await global.time.sleep(0.05)
-      this.#run = false
-      fs.writeFileSync('./data/userManager/users.json', JSON.stringify(this.users))
-      this.#run = true
-      await global.time.sleep(5)
+      this.saveChanges()
+      await global.time.sleep(15)
     } while (true)
   }
 
-  async syncLists() {
+  saveChanges() {
+    this.#run = false
+    fs.writeFileSync('./data/userManager/users.json', JSON.stringify(this.users))
+    this.#run = true
+  }
+
+  loadCached() {
+    this.#run = false
+    let userCache = JSON.parse(fs.readFileSync('./data/userManager/users.json'))
+    for (const u in userCache)
+      this.users[u.toString()] = Object.assign(
+        new User(userCache[u].steamID.toString(), userCache[u].group),
+        userCache[u]
+      )
+    this.groups = this.loadGroups()
+    for (const user in this.users) this.getUserProperties(this.users[user], true)
+    this.#run = true
+  }
+
+  async importUpdates() {
     do {
       while (!this.#run) await global.time.sleep(0.05)
-      this.#run = false
-
-      let userCache = JSON.parse(fs.readFileSync('./data/userManager/users.json'))
-      for (const u in userCache)
-        this.users[u.toString()] = Object.assign(
-          new User(userCache[u].steamID.toString(), userCache[u].group),
-          userCache[u]
-        )
-
-      this.groups = this.loadGroups()
-      for (const user in this.users) this.getUserProperties(this.users[user], true)
-
-      this.#run = true
-      await global.time.sleep(60)
+      // this. TODO
+      await global.time.sleep(15)
     } while (false)
   }
 

@@ -15,7 +15,7 @@ class Control:
         self.SCB = scb
         self.FOC = focus
         self.PAG = pyautogui
-        self.FOC.doIt()
+        #self.FOC.doIt()
         time.sleep(0.05)
 
 

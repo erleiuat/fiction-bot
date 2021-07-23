@@ -64,11 +64,11 @@ class Chat:
 
 
     def read(self):
-        x, y = self.CON.getPoint(150, 470)
-        self.PAG.moveTo(x, y, 0.1, self.PAG.easeOutQuad)
+        loc = self.CON.getPoint(150, 470)
+        self.PAG.moveTo(loc[0], loc[1], 0.4, self.PAG.easeOutQuad)
         self.PAG.hotkey('ctrl','v')
         self.PAG.press('enter')
-        self.PAG.click(x, y)
+        self.PAG.click(loc[0], loc[1])
         self.PAG.hotkey('ctrl','a')
         self.PAG.hotkey('ctrl', 'c')
         self.PAG.press('esc')

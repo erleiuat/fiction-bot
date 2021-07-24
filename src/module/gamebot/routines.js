@@ -200,7 +200,9 @@ exports.botStart = function botStart(cmd, action = null) {
 
 async function execScript(scriptName) {
   try {
-    await global.time.sleep(5)
+    global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
+    await global.time.sleep(10)
+    global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
     const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
     child.on('data', data => console.log(data))
     child.on('error', error => console.log(error))
@@ -211,17 +213,21 @@ async function execScript(scriptName) {
 }
 
 exports.reload_bot = function reload_bot(cmd, action = null) {
-  cmd.addMessage(sGlobal, botMsgs.start.reload)
+  global.log.info(_SN + 'RELOAD: STARTED')
+  execScript('.\\src\\scripts\\reload.bat')
   global.userManager.saveChanges()
   global.mineManager.saveChanges()
-  execScript('.\\src\\scripts\\reload.bat')
+  global.log.info(_SN + 'RELOAD: Saved mngr data')
+  cmd.addMessage(sGlobal, botMsgs.start.reload)
 }
 
 exports.reboot_bot = function reload_bot(cmd, action = null) {
-  cmd.addMessage(sGlobal, botMsgs.start.reboot)
+  global.log.info(_SN + 'REBOOT: STARTED')
+  if (!global.args.includes('test')) execScript('.\\src\\scripts\\reboot.bat')
   global.userManager.saveChanges()
   global.mineManager.saveChanges()
-  if (!global.args.includes('test')) execScript('.\\src\\scripts\\reboot.bat')
+  global.log.info(_SN + 'REBOOT: Saved mngr data')
+  cmd.addMessage(sGlobal, botMsgs.start.reboot)
 }
 
 exports.shop_info = function shop_info(cmd, action) {

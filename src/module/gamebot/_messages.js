@@ -57,7 +57,7 @@ exports.messages = {
   fName: '#SetFakeName ・ :[FiBo]',
   pos: {
     idle: '#Teleport -117145 -66735 37125 "' + botName + '"',
-    outside: '#Teleport -113436 -65667 37300 "' + botName + '"'
+    outside: '#Teleport -116360 -66380 37477 "' + botName + '"'
   },
   pPos: {
     firstJoin: '#Teleport -113641 -64016 37682 {userID}',

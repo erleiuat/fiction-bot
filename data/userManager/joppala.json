@@ -1,0 +1,15 @@
+{
+  "76561198058320009": {
+    "group": "administrators",
+    "overwrite": {
+      "hideCommandAlarms": ["#*"],
+      "allowCommands": ["#*"],
+      "hideCommands": ["#*"],
+      "useFakeNames": true,
+      "ranking": {
+        "hidePlaytime": true,
+        "hideKills": true
+      }
+    }
+  }
+}

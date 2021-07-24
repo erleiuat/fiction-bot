@@ -6,6 +6,7 @@
       "isAdmin": false,
       "allowBotCommands": [],
       "hideCommandAlarms": [],
+      "allowCommands": [],
       "hideCommands": [],
       "hideLogin": false,
       "loginAnonym": false,

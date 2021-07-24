@@ -99,6 +99,7 @@
       "#Unban",
       "#SetFamePoints",
       "#SpawnVehicle",
+      "#DestroyVehicle",
       "#SpawnItem",
       "#Teleport",
       "#TeleportTo",

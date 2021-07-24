@@ -18,7 +18,7 @@ exports.commands = {
   },
   '/rules': {
     routine: 'list_rules',
-    scopes: ['local'],
+    scopes: ['local', 'global'],
     cooldown: 5
   },
   '/rule': {

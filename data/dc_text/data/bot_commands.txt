@@ -47,6 +47,20 @@ Show the current ingame-time (also only approximate, since from battlemetrics)
 Anonymize the notifications when you join or leave the game (Undo with the same command)
 
 
+➡️ `/connect`
+Connect you Discord and Ingame account for extra features like participating in the ingame-chat from Discord
+
+
+➡️ `/rules`
+Show a list of the server rules ingame
+
+
+➡️ `/whoami`
+Show statistics about you (like total playtime, kills and chat-messages)
+
+
+
+
 -
 {{SPLIT}}
 -

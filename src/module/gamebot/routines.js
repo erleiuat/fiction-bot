@@ -35,9 +35,9 @@ function getDuration(milli) {
   minutes = (hours - Math.floor(hours)) * 60
   hours = Math.floor(hours) - days * 24
   return {
-    d: global.nZero.form(Math.floor(days)),
-    h: global.nZero.form(Math.floor(hours)),
-    m: global.nZero.form(Math.floor(minutes))
+    d: Math.floor(days),
+    h: Math.floor(hours),
+    m: Math.floor(minutes)
   }
 }
 

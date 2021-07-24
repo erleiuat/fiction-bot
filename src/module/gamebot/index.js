@@ -161,9 +161,9 @@ exports.sendFromLog = async function sendFromLog(action) {
               sGlobal,
               messages.in.firstJoin.welcome1.replace('{user}', action.user.char.name)
             )
-            cmd.addMessage(scope, messages.in.firstJoin.welcome2)
-            cmd.addMessage(scope, messages.in.firstJoin.welcome3)
-            cmd.addMessage(scope, messages.in.firstJoin.welcome4)
+            cmd.addMessage(sGlobal, messages.in.firstJoin.welcome2)
+            cmd.addMessage(sGlobal, messages.in.firstJoin.welcome3)
+            cmd.addMessage(sGlobal, messages.in.firstJoin.welcome4)
           }
         } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', uName))
 

@@ -147,7 +147,7 @@ exports.reload_bot = function reload_bot(cmd, action = null) {
   })
 
   cmd.addMessage(sGlobal, botMsgs.start.reload)
-  cmd.addAction('reloadBot')
+  //cmd.addAction('reloadBot')
   global.userManager.saveChanges()
 }
 

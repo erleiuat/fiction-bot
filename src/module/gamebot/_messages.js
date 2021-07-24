@@ -13,19 +13,19 @@ const botName = process.env.SETTING_BOT_NAME
 
 exports.messages = {
   rules: {
-    intro:
-      'There are the rules on the server. Check Discord for more details about a specific rule',
+    intro: ':[Rules]: ・ These are the rules on the server. Check Discord for more details.',
+    notFound: ':[Rules]: ・ There is no rule #{number}',
     rules: [
-      '- #1 DBAA / Don’t be an asshole',
-      '- #2 No purposeless destruction',
-      '- #3 No destruction of vehicles',
-      '- #4 No Bambi kills',
-      '- #5 Maximum 1 vehicle per player + 1 spare vehicle per squad',
-      '- #6 Write in English or German and don’t spam',
-      '- #7 No thievery in the Tradingzone B2.',
-      '- #8 Don’t raid if your base is within the safe zone Z0',
-      '- #9 Traps only in own flag circle and NOT on roads or POIs',
-      '- #10 Bases must not be unraidable'
+      ':[Rules]: ・ - #1 DBAA / Don’t be an asshole',
+      ':[Rules]: ・ - #2 No purposeless destruction',
+      ':[Rules]: ・ - #3 No destruction of vehicles',
+      ':[Rules]: ・ - #4 No Bambi kills',
+      ':[Rules]: ・ - #5 Maximum 1 vehicle per player + 1 spare vehicle per squad',
+      ':[Rules]: ・ - #6 Write in English or German and don’t spam',
+      ':[Rules]: ・ - #7 No thievery in the Tradingzone B2.',
+      ':[Rules]: ・ - #8 Don’t raid if your base is within the safe zone Z0',
+      ':[Rules]: ・ - #9 Traps only in own flag circle and NOT on roads or POIs',
+      ':[Rules]: ・ - #10 Bases must not be unraidable'
     ]
   },
   schedule: {

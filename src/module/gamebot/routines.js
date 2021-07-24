@@ -15,8 +15,11 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
 
 exports.show_rule = function show_rule(cmd, action) {
   let scope = sLocal
+  let ruleKey = parseInt(action.properties.value.split(' ')[1])
   if (action.properties.scope == 'global') scope = sGlobal
-  cmd.addMessage(sLocal, JSON.stringify(action.properties))
+  let rule = botMsgs.rules.rules[ruleKey - 1]
+  if (!rule) rule = botMsgs.rules.notFound.replace('{number}', ruleKey)
+  cmd.addMessage(scope, rule)
 }
 
 exports.list_rules = function list_rules(cmd, action = null) {

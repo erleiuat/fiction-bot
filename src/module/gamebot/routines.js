@@ -56,7 +56,7 @@ exports.whoami_stats = function whoami_stats(cmd, action) {
     sGlobal,
     botMsgs.whoami.m2
       .replace('{logins}', action.user.stats.totalLogins)
-      .replace('{playtime}', pTime.d * 24 + pTime.h)
+      .replace('{playtime}', parseInt(pTime.d) * 24 + parseInt(pTime.h))
   )
   cmd.addMessage(
     sGlobal,

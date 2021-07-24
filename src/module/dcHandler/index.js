@@ -18,8 +18,10 @@ function init() {
   channels.console = client.channels.cache.find(ch => ch.id === process.env.DC_CH_CONSOLE)
   channels.ingameChat = client.channels.cache.find(ch => ch.id === process.env.DC_CH_INGAMECHAT)
   client.on('message', async msg => {
-    global.log.info(_SN + 'Message detected: ' + msg.content.trim())
-    messageHandler(msg)
+    if (msg.author.id !== process.env.DC_BOT_ID) {
+      global.log.info(_SN + 'Message detected: ' + msg.content.trim())
+      messageHandler(msg)
+    }
   })
 }
 

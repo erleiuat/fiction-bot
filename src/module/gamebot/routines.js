@@ -200,6 +200,7 @@ exports.botStart = function botStart(cmd, action = null) {
 
 async function execScript(scriptName) {
   try {
+    await global.time.sleep(5)
     const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
     child.on('data', data => console.log(data))
     child.on('error', error => console.log(error))

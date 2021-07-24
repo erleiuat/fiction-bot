@@ -300,6 +300,19 @@ function checkCommand(msgDefault, userProps, discordID, command) {
             '_@here if you don\'t want to receive admin abuse notifications in the future, change the notification settings of this channel to "nothing"_'
         }
       )
+      if (
+        !userProps.allowCommands.includes('#*') &&
+        !userProps.allowCommands.includes(command.toLowerCase())
+      ) {
+        msgDefault.color = 'FF3333'
+        msgDefault.fields.push({
+          name: '\u200b',
+          value:
+            '__**<@&' +
+            process.env.DC_ROLE_SUPPORT +
+            '> THIS USER IS NOT ALLOWED TO EXECUTE THIS COMMAND**__'
+        })
+      }
     }
   } else {
     msgDefault = false

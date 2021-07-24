@@ -41,6 +41,25 @@ function getDuration(milli) {
   }
 }
 
+exports.forbiddenCommand = function forbiddenCommand(cmd, action) {
+  let msg =
+    '@ADMIN: USER "' +
+    action.user.char.name +
+    '" WITH ROLE "' +
+    action.user.group +
+    '" HAS BEEN KICKED FOR USING "' +
+    action.properties.command +
+    ' ' +
+    action.properties.value +
+    '"'
+  global.log.info(_SN + msg)
+  global.log.warn(_SN + msg)
+  global.log.error(_SN + msg)
+  cmd.addMessage(sLocal, '#Kick ' + action.user.steamID)
+  cmd.addMessage(sLocal, msg)
+  //cmd.addMessage(sGlobal, msg)
+}
+
 exports.whoami_stats = function whoami_stats(cmd, action) {
   let jD = stampToDateTime(action.user.stats.firstJoin)
   let pTime = getDuration(action.user.stats.totalPlaytime)

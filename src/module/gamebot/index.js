@@ -94,17 +94,24 @@ exports.sendFromDC = async function sendFromDC(action) {
 
 exports.sendFromLog = async function sendFromLog(action) {
   if (!started) return
+  let userProps = global.userManager.getUserProperties(action.user)
   let cmd = new Command()
 
   try {
     switch (action.type) {
+      case 'admin':
+        if (userProps.allowCommands.includes('#*')) break
+        if (userProps.allowCommands.includes(action.properties.command.toLowerCase())) break
+        await routines.forbiddenCommand(cmd, action)
+        await executeCommand(cmd)
+        break
+
       case 'chat':
         if (!action.properties.isCommand) break
         if (!ready) break
         let cmdKey = action.properties.value.split(' ')[0].trim()
         if (commands[cmdKey]) {
           if (!commands[cmdKey].scopes.includes(action.properties.scope)) break
-          let userProps = global.userManager.getUserProperties(action.user)
           if (
             userProps.allowBotCommands.includes('/*') ||
             userProps.allowBotCommands.includes(cmdKey)
@@ -143,7 +150,6 @@ exports.sendFromLog = async function sendFromLog(action) {
         break
 
       case 'auth':
-        let userProps = global.userManager.getUserProperties(action.user)
         if (userProps.hideLogin) break
         let uName = userProps.loginAnonym ? '(Anonymous)' : action.user.char.name
         if (action.properties.authType == 'login') {

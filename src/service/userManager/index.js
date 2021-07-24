@@ -58,7 +58,8 @@ module.exports = class UserManager {
     let fullList = []
     for (const list of lists)
       if (list && list.length)
-        for (const item of list) if (!fullList.includes(item)) fullList.push(item)
+        for (const item of list)
+          if (!fullList.includes(item.toLowerCase())) fullList.push(item.toLowerCase())
     return fullList
   }
 
@@ -83,6 +84,11 @@ module.exports = class UserManager {
         def.hideCommandAlarms ? def.hideCommandAlarms : null,
         group.hideCommandAlarms ? group.hideCommandAlarms : null,
         user.overwrite.hideCommandAlarms ? user.overwrite.hideCommandAlarms : null
+      ),
+      allowCommands: this.mergeProps(
+        def.allowCommands ? def.allowCommands : null,
+        group.allowCommands ? group.allowCommands : null,
+        user.overwrite.allowCommands ? user.overwrite.allowCommands : null
       ),
       hideCommands: [].concat(
         def.hideCommands ? def.hideCommands : null,

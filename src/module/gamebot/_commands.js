@@ -176,16 +176,6 @@ exports.commands = {
     scopes: ['local', 'global'],
     cooldown: 1
   },
-  '/exec': {
-    routine: 'exec',
-    scopes: ['local', 'global'],
-    cooldown: null
-  },
-  '/spawn': {
-    routine: 'spawn',
-    scopes: ['local', 'global'],
-    cooldown: null
-  },
   '/starterkit': {
     routine: 'starterkit',
     scopes: ['global'],

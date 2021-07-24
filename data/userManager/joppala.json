@@ -1,0 +1,12 @@
+{
+  "76561198058320009": {
+    "discordID": null,
+    "group": "moderators",
+    "overwrite": {
+      "hideCommandAlarms": [],
+      "allowCommands": ["#ListPlayers"],
+      "hideCommands": [],
+      "hideLogin": false
+    }
+  }
+}

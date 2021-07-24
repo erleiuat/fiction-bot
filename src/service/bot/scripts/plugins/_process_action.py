@@ -47,16 +47,6 @@ class Action:
             }
         return playerList
 
-    def reloadBot(self):
-        scriptPath =  os.path.dirname(os.path.abspath(__file__)) + r'\reload.bat'
-        subprocess.call([scriptPath])
-        time.sleep(30)
-        return True
-
-    def rebootBot(self):
-        self.CON.restart()
-        time.sleep(30)
-        return True
 
     def mapShot(self, props):
         now = datetime.now()

@@ -1,2 +1,8 @@
-start cmd.exe /c "%cd%\src\service\bot\scripts\plugins\reloadStart.bat"
-echo "%cd%\src\service\bot\scripts\plugins\reloadStart.bat"
+echo "%cd%"
+echo "git pull"
+git pull
+
+echo "pm2 restart all"
+pm2 restart all
+
+timeout /t 2

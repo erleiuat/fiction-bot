@@ -48,10 +48,6 @@ class Process:
                 self.PRC_ACTION.travel(action['properties'])
             elif(action['type'] == 'transfer'):
                 self.PRC_ACTION.transfer(action['properties'])
-            elif(action['type'] == 'reloadBot'):
-                self.PRC_ACTION.reloadBot()
-            elif(action['type'] == 'rebootBot'):
-                self.PRC_ACTION.rebootBot()
 
 
     testActions = [{

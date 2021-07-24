@@ -13,7 +13,13 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
   botMsgs = msgs
 }
 
-exports.rules = function rules(cmd, action) {
+exports.show_rule = function show_rule(cmd, action) {
+  let scope = sLocal
+  if (action.properties.scope == 'global') scope = sGlobal
+  cmd.addMessage(sLocal, JSON.stringify(action.properties))
+}
+
+exports.list_rules = function list_rules(cmd, action = null) {
   cmd.addMessage(sLocal, botMsgs.rules.intro)
   for (const rule of botMsgs.rules.rules) cmd.addMessage(sLocal, rule)
 }
@@ -39,7 +45,7 @@ exports.mapShot = function mapShot(cmd, action) {
   cmd.addAction('mapShot', { path: action.path })
 }
 
-exports.playerReport = function playerReport(cmd, action) {
+exports.playerReport = function playerReport(cmd, action = null) {
   cmd.addAction('playerReport', true)
 }
 
@@ -103,7 +109,7 @@ function getJoke() {
   })
 }
 
-exports.joke = async function joke(cmd, action) {
+exports.joke = async function joke(cmd, action = null) {
   let joke = await getJoke()
   while (joke.length > 195) joke = await getJoke()
   cmd.addMessage(sGlobal, botMsgs.pub.joke.replace('{joke}', joke))
@@ -151,32 +157,34 @@ exports.help = function help(cmd, action) {
   cmd.addMessage(sGlobal, botMsgs.pub.help.m4)
 }
 
-exports.what_is_going_on = function what_is_going_on(cmd, action) {
-  cmd.addMessage(sGlobal, ':[Wot]: ・ ...is going on here')
-  cmd.addMessage(sGlobal, ':[Wot]: ・ BREKFEST')
+exports.what_is_going_on = function what_is_going_on(cmd, action = null) {
+  let scope = sLocal
+  if (action.properties.scope == 'global') scope = sGlobal
+  cmd.addMessage(scope, ':[Wot]: ・ ...is going on here')
+  cmd.addMessage(scope, ':[Wot]: ・ BREKFEST')
 }
 
-exports.vote_weather_sun = function vote_weather_sun(cmd, action) {
+exports.vote_weather_sun = function vote_weather_sun(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.pub.vote.sun)
   cmd.addMessage(sGlobal, '#vote SetWeather 0')
 }
 
-exports.vote_day = function vote_day(cmd, action) {
+exports.vote_day = function vote_day(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.pub.vote.day)
   cmd.addMessage(sGlobal, '#vote SetTimeOfDay 7')
 }
 
-exports.online = function online(cmd, action) {
+exports.online = function online(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.pub.online.replace('{players}', global.state.players))
 }
 
-exports.time = function time(cmd, action) {
+exports.time = function time(cmd, action = null) {
   let time = '<unavailable>'
   if (global.state.time) time = global.state.time
   cmd.addMessage(sGlobal, botMsgs.pub.time.replace('{time}', time))
 }
 
-exports.restart_countdown = function restart_countdown(cmd, action) {
+exports.restart_countdown = function restart_countdown(cmd, action = null) {
   let now = new Date()
   let curHour = now.getHours()
   let countDownDate = new Date()

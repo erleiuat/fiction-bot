@@ -8,7 +8,7 @@ exports.commands = {
   },
   '/rule': {
     routine: 'show_rule',
-    scopes: ['global'],
+    scopes: ['global', 'local'],
     cooldown: 5
   },
   '/anonymous': {

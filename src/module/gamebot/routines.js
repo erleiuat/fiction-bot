@@ -200,20 +200,6 @@ exports.botStart = function botStart(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.start.ready)
 }
 
-async function execScript(scriptName) {
-  try {
-    global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
-    await global.time.sleep(10)
-    global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
-    const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
-    child.on('data', data => console.log(data))
-    child.on('error', error => console.log(error))
-    child.on('close', code => console.log(code))
-  } catch (error) {
-    console.log(error)
-  }
-}
-
 exports.connectDC = function connectDC(cmd, action) {
   let code = action.properties.value.split(' ')[1]
 
@@ -225,6 +211,20 @@ exports.connectDC = function connectDC(cmd, action) {
   if (global.userManager.redeemConnectionCode(action.user, code))
     cmd.addMessage(sGlobal, botMsgs.connect.yap)
   else cmd.addMessage(sGlobal, botMsgs.connect.nope)
+}
+
+async function execScript(scriptName) {
+  try {
+    global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
+    await global.time.sleep(5)
+    global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
+    const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
+    child.on('data', data => console.log(data))
+    child.on('error', error => console.log(error))
+    child.on('close', code => console.log(code))
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 exports.reload_bot = function reload_bot(cmd, action = null) {

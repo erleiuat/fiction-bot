@@ -65,7 +65,7 @@
   },
   "moderators": {
     "isAdmin": false,
-    "allowBotCommands": ["/exec", "/spawn"],
+    "allowBotCommands": ["/exec", "/spawn", "/reload", "/welcome"],
     "hideCommandAlarms": [],
     "hideCommands": [],
     "hideLogin": false,
@@ -79,7 +79,7 @@
   },
   "administrators": {
     "isAdmin": true,
-    "allowBotCommands": ["/exec", "/spawn", "/reload", "/reboot"],
+    "allowBotCommands": ["/exec", "/spawn", "/reload", "/reboot", "/welcome"],
     "hideCommandAlarms": ["#listplayers"],
     "hideCommands": [],
     "useFakeNames": true,

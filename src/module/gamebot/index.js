@@ -96,71 +96,83 @@ exports.sendFromLog = async function sendFromLog(action) {
   if (!started) return
   let cmd = new Command()
 
-  switch (action.type) {
-    case 'chat':
-      if (!action.properties.isCommand) break
-      if (!ready) break
-      let cmdKey = action.properties.value.split(' ')[0].trim()
-      if (commands[cmdKey]) {
-        if (!commands[cmdKey].scopes.includes(action.properties.scope)) return
-        let userProps = global.userManager.getUserProperties(action.user)
-        if (
-          userProps.allowBotCommands.includes('/*') ||
-          userProps.allowBotCommands.includes(cmdKey)
-        ) {
+  try {
+    switch (action.type) {
+      case 'chat':
+        if (!action.properties.isCommand) break
+        if (!ready) break
+        let cmdKey = action.properties.value.split(' ')[0].trim()
+        if (commands[cmdKey]) {
+          if (!commands[cmdKey].scopes.includes(action.properties.scope)) return
+          let userProps = global.userManager.getUserProperties(action.user)
           if (
-            !commands[cmdKey].cooldown ||
-            !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
-          )
-            await routines[commands[cmdKey].routine](cmd, action)
-        } else {
-          cmd.addMessage(sGlobal, messages.noPermission.replace('{user}', action.user.char.name))
-        }
-      } else if (action.properties.scope == 'global')
-        cmd.addMessage(sGlobal, messages.unknownCommand.replace('{user}', action.user.char.name))
-      await executeCommand(cmd)
-      break
+            userProps.allowBotCommands.includes('/*') ||
+            userProps.allowBotCommands.includes(cmdKey)
+          ) {
+            if (
+              !commands[cmdKey].cooldown ||
+              !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
+            )
+              await routines[commands[cmdKey].routine](cmd, action)
+          } else {
+            cmd.addMessage(sGlobal, messages.noPermission.replace('{user}', action.user.char.name))
+          }
+        } else if (action.properties.scope == 'global')
+          cmd.addMessage(sGlobal, messages.unknownCommand.replace('{user}', action.user.char.name))
+        await executeCommand(cmd)
+        break
 
-    case 'mine':
-      if (action.properties.action != 'armed') break
-      cmd.addMessage(sGlobal, messages.in.traps)
-      await executeCommand(cmd)
-      break
+      case 'mine':
+        if (action.properties.action != 'armed') break
+        cmd.addMessage(sGlobal, messages.in.traps)
+        await executeCommand(cmd)
+        break
 
-    case 'kill':
-      if (action.properties.event) break
-      let event = 'killed'
-      if (action.properties.type == 'comatosed') event = 'knocked out'
-      cmd.addMessage(
-        sGlobal,
-        messages.in.kill
-          .replace('{user1}', action.properties.causer.char.name)
-          .replace('{event}', event)
-          .replace('{user2}', action.user.char.name)
-      )
-      await executeCommand(cmd)
-      break
+      case 'kill':
+        if (action.properties.event) break
+        let event = 'killed'
+        if (action.properties.type == 'comatosed') event = 'knocked out'
+        cmd.addMessage(
+          sGlobal,
+          messages.in.kill
+            .replace('{user1}', action.properties.causer.char.name)
+            .replace('{event}', event)
+            .replace('{user2}', action.user.char.name)
+        )
+        await executeCommand(cmd)
+        break
 
-    case 'auth':
-      let userProps = global.userManager.getUserProperties(action.user)
-      if (userProps.hideLogin) break
-      let uName = userProps.loginAnonym ? '(Anonymous)' : action.user.char.name
-      if (action.properties.authType == 'login') {
-        cmd.addMessage(sGlobal, messages.in.login.replace('{user}', uName))
-        if (action.user.stats.totalLogins <= 1) {
-          cmd.addMessage(sGlobal, messages.pPos.firstJoin.replace('{userID}', action.user.steamID))
-          cmd.addMessage(
-            sGlobal,
-            messages.in.firstJoin.fPoints.replace('{userID}', action.user.steamID)
-          )
-          cmd.addMessage(
-            sGlobal,
-            messages.in.firstJoin.welcome.replace('{user}', action.user.char.name)
-          )
-        }
-      } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', uName))
+      case 'auth':
+        let userProps = global.userManager.getUserProperties(action.user)
+        if (userProps.hideLogin) break
+        let uName = userProps.loginAnonym ? '(Anonymous)' : action.user.char.name
+        if (action.properties.authType == 'login') {
+          cmd.addMessage(sGlobal, messages.in.login.replace('{user}', uName))
+          if (action.user.stats.totalLogins <= 1) {
+            cmd.addMessage(
+              sGlobal,
+              messages.pPos.firstJoin.replace('{userID}', action.user.steamID)
+            )
+            cmd.addMessage(
+              sGlobal,
+              messages.in.firstJoin.fPoints.replace('{userID}', action.user.steamID)
+            )
+            cmd.addMessage(
+              sGlobal,
+              messages.in.firstJoin.welcome1.replace('{user}', action.user.char.name)
+            )
+            cmd.addMessage(scope, messages.in.firstJoin.welcome2)
+            cmd.addMessage(scope, messages.in.firstJoin.welcome3)
+            cmd.addMessage(scope, messages.in.firstJoin.welcome4)
+          }
+        } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', uName))
 
-      await executeCommand(cmd)
-      break
+        await executeCommand(cmd)
+        break
+    }
+  } catch (error) {
+    global.log.error(_SN + 'sendFromLog(): ERROR: ' + error)
+    cmd.addMessage()
+    await executeCommand(cmd)
   }
 }

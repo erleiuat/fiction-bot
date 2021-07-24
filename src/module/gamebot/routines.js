@@ -13,6 +13,19 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
   botMsgs = msgs
 }
 
+exports.manual_welcome = function manual_welcome(cmd, action) {
+  let scope = sLocal
+  if (action.properties.scope == 'global') scope = sGlobal
+
+  let user = action.properties.value.split(' ')[1]
+  cmd.addMessage(scope, botMsgs.pPos.firstJoin.replace('{userID}', user))
+  cmd.addMessage(scope, botMsgs.in.firstJoin.fPoints.replace('{userID}', user))
+  cmd.addMessage(scope, botMsgs.in.firstJoin.welcome1.replace('{user}', user))
+  cmd.addMessage(scope, botMsgs.in.firstJoin.welcome2)
+  cmd.addMessage(scope, botMsgs.in.firstJoin.welcome3)
+  cmd.addMessage(scope, botMsgs.in.firstJoin.welcome4)
+}
+
 exports.show_rule = function show_rule(cmd, action) {
   let scope = sLocal
   if (action.properties.scope == 'global') scope = sGlobal

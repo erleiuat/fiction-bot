@@ -1,6 +1,11 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/welcome': {
+    routine: 'manual_welcome',
+    scopes: ['local', 'global'],
+    cooldown: null
+  },
   '/rules': {
     routine: 'list_rules',
     scopes: ['local'],

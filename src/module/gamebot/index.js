@@ -116,7 +116,7 @@ exports.sendFromLog = async function sendFromLog(action) {
         } else {
           cmd.addMessage(sGlobal, messages.noPermission.replace('{user}', action.user.char.name))
         }
-      } else
+      } else if (action.properties.scope == 'global')
         cmd.addMessage(sGlobal, messages.unknownCommand.replace('{user}', action.user.char.name))
       await executeCommand(cmd)
       break

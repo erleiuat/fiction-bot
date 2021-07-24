@@ -1,5 +1,6 @@
 const _SN = '[MODULE][GAMEBOT][ROUTINES] -> '
 
+const cp = require('child_process')
 const fetch = require('node-fetch')
 const request = require('request')
 
@@ -141,6 +142,10 @@ exports.botStart = function botStart(cmd, action = null) {
 }
 
 exports.reload_bot = function reload_bot(cmd, action = null) {
+  cp.exec('./src/scripts/reload.bat', (error, stdout, stderr) => {
+    console.log(stdout)
+  })
+
   cmd.addMessage(sGlobal, botMsgs.start.reload)
   cmd.addAction('reloadBot')
   global.userManager.saveChanges()

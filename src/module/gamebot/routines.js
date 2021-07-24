@@ -19,7 +19,6 @@ exports.manual_welcome = function manual_welcome(cmd, action) {
 
   let user = action.properties.value.split(' ')[1]
   cmd.addMessage(scope, botMsgs.pPos.firstJoin.replace('{userID}', user))
-  cmd.addMessage(scope, botMsgs.in.firstJoin.fPoints.replace('{userID}', user))
   cmd.addMessage(scope, botMsgs.in.firstJoin.welcome1.replace('{user}', user))
   cmd.addMessage(scope, botMsgs.in.firstJoin.welcome2)
   cmd.addMessage(scope, botMsgs.in.firstJoin.welcome3)

@@ -1,0 +1,57 @@
+IP:                                     
+                                **__50.3.80.210:7062__**
+
+Loot-Menge:         x8
+Mechs:                   Deaktiviert
+Zombies:               Viele mit verringertem Schaden
+Restarts:                **00:00  |  06:00  |  12:00  |  18:00**
+{{SPLIT}}
+```ini
+[Vorsicht bei Restarts]
+
+Während einem Restart kann es vorkommen, dass Items welche auf dem Boden herum liegen gelöscht werden. Stellt also sicher, dass ihr vor einem Restart alles in eine Kiste oder ein Auto verräumt. Items die wegen einem Restart verloren gehen werden nicht ersetzt.
+```
+{{SPLIT}}
+```ini
+[Fahrzeuge]
+
+In der Regel genug, werden bei niedriger Verfügbarkeit erweitert.
+```
+{{SPLIT}}
+```ini
+[Respawn-Preise]
+
+Zufällig:          Gratis
+Sektor:            80 Ruhmpunkte
+Am Unterstand:     10 Ruhmpunkte
+```
+{{SPLIT}}
+```ini
+[Safezones (Sicheres Looten)]
+
+Die Safezones in A1, C4, D1 sind nur zum Looten gedacht. Wer sich dort eine Base baut oder Türen abschliesst sollte beachten, dass es anderen Spielern immernoch möglich ist, Bauwerke zu zerstören und Schlösser zu knacken. Ihr könnt sie auch nicht davon abhalten, da in diesen Zonen PVP deaktiviert ist.
+```
+{{SPLIT}}
+```ini
+[Handelszone]
+
+Die Tankstelle in B2 ist für den Handel zwischen Spielern sowie den Einkauf von Items aus unserem Shopping-Katalog gedacht. Ihr müsst hier keine Angst um euch oder euer Fahrzeug haben. Ausser ihr verhungert oder so.
+```
+{{SPLIT}}
+```ini
+[Safezone Z0]
+
+Anderst als bei den anderen Safezonen, welche lediglich für ein sicheres Looten (PVE) sorgen, ist in der Safezone in Z0 das Zerstören von Basen und Knacken von Schlössern unterbunden. Ihr könnt dort als nicht geraided werden, dürft jedoch auch keine anderen Basen ausserhalb der Safezone raiden gehen. 
+```
+{{SPLIT}}
+```ini
+[Ersatz bei Loot-Verlust durch Bugs]
+
+Wir ersetzen euch unter bestimmten Voraussetzungen euren Loot, falls ihr ihn durch einen Bug/Glitch verlieren solltet. Dabei müsst ihr beachten, dass einige Bugs durch aus- und wieder einloggen behoben werden können. Falls euch aber z.B. euer Fahrzeug unter die Map fliegt und mit samt dem Loot verschwindet, könnt ihr euch bei uns melden um Ersatz zu erhalten. Dazu benötigt ihr jedoch auf jeden Fall einen Nachweis der zeigt, was genau verloren gegangen ist.
+```
+{{SPLIT}}
+```ini
+[Videonachweis]
+
+Wenn euer Loot durch Bugs verloren geht und ihr Ersatz möchtet, benötigt ihr einen Videonachweis auf welchem klar zu sehen ist was verloren ging. Videonachweise können unter anderem bei Nvidia-GPUs mit GeForce Experience, sowie auch mit einem Programm wie https://lowkey.gg aufgenommen werden. Die Aufnahme müsst ihr dann auf eine beliebige Seite (G-Drive/Youtube) hochladen und uns den Link senden. Wichtig: bei Verlust eures Fahrzeuges müssen auf dem Video auch die Items im Kofferraum ersichtlich sein, damit diese ersetzt werden können.
+```

@@ -1,6 +1,16 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/rules': {
+    routine: 'list_rules',
+    scopes: ['local'],
+    cooldown: 5
+  },
+  '/rule': {
+    routine: 'show_rule',
+    scopes: ['global'],
+    cooldown: 5
+  },
   '/anonymous': {
     routine: 'anonymize_login',
     scopes: ['global'],

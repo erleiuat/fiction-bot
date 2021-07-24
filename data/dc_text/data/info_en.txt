@@ -1,0 +1,57 @@
+IP:                   
+                            **__50.3.80.210:7062__**
+
+Loot quantity:   x8
+Mechs:               Disabled
+Zombies:            Many with reduced damage
+Restarts:             **00:00 | 06:00 | 12:00 | 18:00**
+{{SPLIT}}
+```ini
+[Caution during restarts]
+
+During restarts it could happen that items lying on the ground will be deleted. So make sure that you put everything in a box or a car before a restart. Items lost due to a restart will not be replaced.
+```
+{{SPLIT}}
+```ini
+[Vehicles]
+
+Usually enough, will be upgraded if availability is low.
+```
+{{SPLIT}}
+```ini
+[Respawn-Prices]
+
+Random:        Free
+Sector:        80 Famepoints
+At shelter:    10 Famepoints
+```
+{{SPLIT}}
+```ini
+[Safezones (Safe Looting)]
+
+The Safezones in A1, C4, D1 are for looting only. If you build a base or lock doors there, please note that other players are still able to destroy structures and pick locks. You can't stop them from doing so either, as PVP is disabled in these zones.
+```
+{{SPLIT}}
+```ini
+[Tradingzone]
+
+The gas station in B2 is for trading between players as well as purchasing items from our shopping catalog. You don't have to worry about yourself or your vehicle here. Unless you starve or something.
+```
+{{SPLIT}}
+```ini
+[Safezone Z0]
+
+Unlike the other safezones, which only provide safe looting (PVE), destroying bases and picking locks is prohibited in the safezone in Z0. You cannot be raided there, but you are also not allowed to raid other bases outside the safezone. 
+```
+{{SPLIT}}
+```ini
+[Replacement in case of loot loss due to bugs]
+
+We will replace your loot under certain conditions if you lose it due to a bug/glitch. Please note that some bugs can be fixed by logging out and logging back in. But if your vehicle falls under the map and disappears with your loot, you can contact us to get a replacement. For this you must have a proof that shows what exactly has been lost.
+```
+{{SPLIT}}
+```ini
+[Video evidence]
+
+If your loot is lost due to bugs and you want a replacement, you must have a video proof that clearly shows what was lost. Video evidence can be recorded with Nvidia GPUs with GeForce Experience, as well as with a program like https://lowkey.gg. You then need to upload the recording to a site of your choice (G-Drive/Youtube) and send us the link. Important: If you lose your vehicle, the items in the trunk must also be visible on the video in order to be replaceable.
+```

@@ -13,6 +13,11 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
   botMsgs = msgs
 }
 
+exports.rules = function rules(cmd, action) {
+  cmd.addMessage(sLocal, botMsgs.rules.intro)
+  for (const rule of botMsgs.rules.rules) cmd.addMessage(sLocal, rule)
+}
+
 exports.anonymize_login = function anonymize_login(cmd, action) {
   let userProps = global.userManager.getUserProperties(action.user)
   let msg = null

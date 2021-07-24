@@ -94,7 +94,9 @@ exports.show_rule = function show_rule(cmd, action) {
 }
 
 exports.list_rules = function list_rules(cmd, action = null) {
-  cmd.addMessage(sLocal, botMsgs.rules.intro)
+  let scope = sLocal
+  if (action.properties.scope == 'global') scope = sGlobal
+  cmd.addMessage(scope, botMsgs.rules.intro)
   for (const rule of botMsgs.rules.rules) cmd.addMessage(sLocal, rule)
 }
 

@@ -103,7 +103,7 @@ exports.sendFromLog = async function sendFromLog(action) {
         if (!ready) break
         let cmdKey = action.properties.value.split(' ')[0].trim()
         if (commands[cmdKey]) {
-          if (!commands[cmdKey].scopes.includes(action.properties.scope)) return
+          if (!commands[cmdKey].scopes.includes(action.properties.scope)) break
           let userProps = global.userManager.getUserProperties(action.user)
           if (
             userProps.allowBotCommands.includes('/*') ||
@@ -166,7 +166,6 @@ exports.sendFromLog = async function sendFromLog(action) {
             cmd.addMessage(sGlobal, messages.in.firstJoin.welcome4)
           }
         } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', uName))
-
         await executeCommand(cmd)
         break
     }

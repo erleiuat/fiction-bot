@@ -142,9 +142,15 @@ exports.botStart = function botStart(cmd, action = null) {
 }
 
 exports.reload_bot = function reload_bot(cmd, action = null) {
-  cp.exec('./src/scripts/reload.bat', (error, stdout, stderr) => {
-    console.log(stdout)
-  })
+  try {
+    cp.exec('./src/scripts/reload.bat', (error, stdout, stderr) => {
+      if (error) console.log(error)
+      if (stdout) console.log(stdout)
+      if (stderr) console.log(stderr)
+    })
+  } catch (error) {
+    console.log(error)
+  }
 
   cmd.addMessage(sGlobal, botMsgs.start.reload)
   //cmd.addAction('reloadBot')

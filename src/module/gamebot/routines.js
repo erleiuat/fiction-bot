@@ -97,7 +97,7 @@ exports.list_rules = function list_rules(cmd, action = null) {
   let scope = sLocal
   if (action.properties.scope == 'global') scope = sGlobal
   cmd.addMessage(scope, botMsgs.rules.intro)
-  for (const rule of botMsgs.rules.rules) cmd.addMessage(sLocal, rule)
+  for (const rule of botMsgs.rules.rules) cmd.addMessage(scope, rule)
 }
 
 exports.anonymize_login = function anonymize_login(cmd, action) {

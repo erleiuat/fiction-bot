@@ -212,6 +212,19 @@ async function execScript(scriptName) {
   }
 }
 
+exports.connectDC = function connectDC(cmd, action) {
+  let code = action.properties.value.split(' ')[1]
+
+  if (!code) {
+    cmd.addMessage(sGlobal, botMsgs.connect.help)
+    return
+  }
+
+  if (global.userManager.redeemConnectionCode(action.user, code))
+    cmd.addMessage(sGlobal, botMsgs.connect.yap)
+  else cmd.addMessage(sGlobal, botMsgs.connect.nope)
+}
+
 exports.reload_bot = function reload_bot(cmd, action = null) {
   global.log.info(_SN + 'RELOAD: STARTED')
   execScript('.\\src\\scripts\\reload.bat')

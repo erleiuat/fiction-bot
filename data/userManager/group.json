@@ -2,6 +2,7 @@
   "_default": {
     "isAdmin": false,
     "allowBotCommands": [
+      "/connect",
       "/whoami",
       "/rules",
       "/rule",

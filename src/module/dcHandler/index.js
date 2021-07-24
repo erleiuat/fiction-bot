@@ -18,13 +18,40 @@ function init() {
   channels.console = client.channels.cache.find(ch => ch.id === process.env.DC_CH_CONSOLE)
   channels.ingameChat = client.channels.cache.find(ch => ch.id === process.env.DC_CH_INGAMECHAT)
   client.on('message', async msg => {
+    global.log.info(_SN + 'Message detected: ' + msg.content.trim())
     messageHandler(msg)
   })
 }
 
 async function messageHandler(msg) {
   if (msg.channel.id == process.env.DC_CH_CONSOLE) consoleMsg(msg)
+  else if (msg.content.trim() == '/connect') buildConnection(msg)
   else if (msg.channel.id == process.env.DC_CH_INGAMECHAT) chatMsg(msg)
+}
+
+async function buildConnection(msg) {
+  let code = this.global.userManager.getConnectionCode(msg.author.id)
+
+  msg.author.send(
+    `:arrow_down: 
+    \n\n\nHi there **` +
+      msg.author.username +
+      `!**  :metal: 
+    \nHere's your connection-code to pair your Discord account with your Ingame character:
+    (Only valid until the next server restart)
+    \n__**` +
+      code +
+      `**__
+    \nUse the code in the ingame-chat (global) with the command \`/connect\` to finish the pairing.\nThe full command would be:
+    \`\`\`/connect ` +
+      code +
+      `\`\`\`
+    \n_Best Regards, your FiBo_  :kissing_heart: 
+    \n\n:arrow_up: 
+    `
+  )
+
+  if (msg.guild.id == process.env.DC_SERVER_ID) await msg.delete()
 }
 
 async function chatMsg(msg) {
@@ -40,8 +67,13 @@ async function chatMsg(msg) {
 
     let uName = msg.author.username
     let user = global.userManager.getUserByDiscordID(msg.author.id)
-    if (!user) global.log.info(_SN + 'chatMsg(): User not found: ' + msg.author.username)
-    else {
+    if (!user) {
+      global.log.info(_SN + 'chatMsg(): User not found: ' + msg.author.username)
+      msg.author.send('**Please pair your Accounts before you use the ingame-chat feature:**')
+      buildConnection(msg)
+      msg.channel.stopTyping()
+      return
+    } else {
       uName = user.char.name
       let userProps = global.userManager.getUserProperties(user)
       if (user.char.fakeName && userProps.useFakeNames) uName = action.fakeName

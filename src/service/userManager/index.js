@@ -23,6 +23,7 @@ module.exports = class UserManager {
   users = {}
   groups = {}
   userPropertiesCache = {}
+  connectionCodes = {}
 
   constructor() {
     if (!fs.existsSync('./data/userManager/updates/'))
@@ -32,6 +33,25 @@ module.exports = class UserManager {
     this.loadCached()
     this.importUpdates()
     this.iterateSave()
+  }
+
+  redeemConnectionCode(user, code) {
+    let discordID = this.connectionCodes[code]
+    if (!discordID) return false
+    user.discordID = discordID
+    this.saveChanges()
+    delete this.connectionCodes[code]
+    return true
+  }
+
+  getConnectionCode(discordID) {
+    let result = ''
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    let charactersLength = characters.length
+    for (let i = 0; i < 10; i++)
+      result += characters.charAt(Math.floor(Math.random() * charactersLength))
+    this.connectionCodes[result] = discordID
+    return result
   }
 
   mergeProps(...lists) {
@@ -142,8 +162,6 @@ module.exports = class UserManager {
       let files = fs.readdirSync('./data/userManager/updates/')
 
       if (files.length) {
-        console.log(files)
-
         let now = new Date().getTime()
         fs.copyFileSync(
           './data/userManager/users.json',
@@ -153,8 +171,6 @@ module.exports = class UserManager {
         for (const e in files) {
           try {
             let data = JSON.parse(fs.readFileSync('./data/userManager/updates/' + files[e]))
-
-            console.log(data)
 
             for (const user in data) {
               if (!this.users[user]) continue
@@ -189,13 +205,14 @@ module.exports = class UserManager {
             }
 
             this.getUserProperties(tmpUser, true)
-            fs.renameSync(
-              './data/userManager/updates/' + files[e],
-              './data/userManager/backup/updates/' + now + '_' + files[e]
-            )
           } catch (err) {
             global.log.error(this.#_SN + 'Failed to parse JSON: ' + files[e])
           }
+
+          fs.renameSync(
+            './data/userManager/updates/' + files[e],
+            './data/userManager/backup/updates/' + now + '_' + files[e]
+          )
         }
 
         this.saveChanges()

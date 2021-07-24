@@ -12,11 +12,16 @@
 const botName = process.env.SETTING_BOT_NAME
 
 exports.messages = {
+  connect: {
+    help: ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "/connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server!',
+    nope: ':[Connect]: ・ Sorry, this didn’t work. Try getting a new code over on Discord or contact support.',
+    yap: ':[Connect]: ・ Your Discord account has been successfully paired!'
+  },
   whoami: {
-    m1: 'You are {user} and you have the role "{group}". You joined for the first time on {date} at {time}.',
-    m2: 'Since then, you have logged in {logins} times and spent a total of {playtime} hours on the server.',
-    m3: 'By now you have sent {local} messages in local, {global} in global, and {squad} messages in squad chat.',
-    m4: 'During events and in the normal game together you made a total of {kills} kills (including suicides).'
+    m1: ':[Stats]: ・ You are {user} and you have the role "{group}". You joined for the first time on {date} at {time}.',
+    m2: ':[Stats]: ・ Since then, you have logged in {logins} times and spent a total of {playtime} hours on the server.',
+    m3: ':[Stats]: ・ By now you have sent {local} messages in local, {global} in global, and {squad} messages in squad chat.',
+    m4: ':[Stats]: ・ During events and in the normal game together you made a total of {kills} kills (including suicides).'
   },
   rules: {
     intro: ':[Rules]: ・ These are the rules on the server. Check Discord for more details.',

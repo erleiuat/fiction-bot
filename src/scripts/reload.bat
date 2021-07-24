@@ -1,3 +1,5 @@
+timeout /t 5
+
 echo "%cd%"
 echo "git pull"
 git pull

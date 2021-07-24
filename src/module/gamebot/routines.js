@@ -141,12 +141,9 @@ exports.botStart = function botStart(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.start.ready)
 }
 
-exports.reload_bot = function reload_bot(cmd, action = null) {
-  cmd.addMessage(sGlobal, botMsgs.start.reload)
-  global.userManager.saveChanges()
-  global.mineManager.saveChanges()
+async function execScript(scriptName) {
   try {
-    const child = cp.spawn('cmd.exe', ['/c', '.\\src\\scripts\\reload.bat'], { detached: true })
+    const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
     child.on('data', data => console.log(data))
     child.on('error', error => console.log(error))
     child.on('close', code => console.log(code))
@@ -155,18 +152,18 @@ exports.reload_bot = function reload_bot(cmd, action = null) {
   }
 }
 
+exports.reload_bot = function reload_bot(cmd, action = null) {
+  cmd.addMessage(sGlobal, botMsgs.start.reload)
+  global.userManager.saveChanges()
+  global.mineManager.saveChanges()
+  execScript('.\\src\\scripts\\reload.bat')
+}
+
 exports.reboot_bot = function reload_bot(cmd, action = null) {
   cmd.addMessage(sGlobal, botMsgs.start.reboot)
   global.userManager.saveChanges()
   global.mineManager.saveChanges()
-  try {
-    const child = cp.spawn('cmd.exe', ['/c', '.\\src\\scripts\\reboot.bat'], { detached: true })
-    child.on('data', data => console.log(data))
-    child.on('error', error => console.log(error))
-    child.on('close', code => console.log(code))
-  } catch (error) {
-    console.log(error)
-  }
+  if (!global.args.includes('test')) execScript('.\\src\\scripts\\reboot.bat')
 }
 
 exports.shop_info = function shop_info(cmd, action) {

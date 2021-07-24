@@ -14,6 +14,63 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
   botMsgs = msgs
 }
 
+function stampToDateTime(timestamp) {
+  let date = new Date(timestamp)
+  let day = global.nZero.form(date.getDate())
+  let month = global.nZero.form(date.getMonth() + 1)
+  let year = global.nZero.form(date.getFullYear())
+  let hour = global.nZero.form(date.getHours())
+  let minute = global.nZero.form(date.getMinutes())
+  let second = global.nZero.form(date.getSeconds())
+  return {
+    date: year + '/' + month + '/' + day,
+    time: hour + ':' + minute + ':' + second
+  }
+}
+
+function getDuration(milli) {
+  let minutes = milli / 60000
+  let hours = minutes / 60
+  let days = Math.floor(Math.floor(hours) / 24)
+  minutes = (hours - Math.floor(hours)) * 60
+  hours = Math.floor(hours) - days * 24
+  return {
+    d: global.nZero.form(Math.floor(days)),
+    h: global.nZero.form(Math.floor(hours)),
+    m: global.nZero.form(Math.floor(minutes))
+  }
+}
+
+exports.whoami_stats = function whoami_stats(cmd, action) {
+  let jD = stampToDateTime(action.user.stats.firstJoin)
+  let pTime = getDuration(action.user.stats.totalPlaytime)
+  cmd.addMessage(
+    sGlobal,
+    botMsgs.whoami.m1
+      .replace('{user}', action.user.char.name)
+      .replace('{group}', action.user.group)
+      .replace('{date}', jD.date)
+      .replace('{time}', jD.time)
+  )
+  cmd.addMessage(
+    sGlobal,
+    botMsgs.whoami.m2
+      .replace('{logins}', action.user.stats.totalLogins)
+      .replace('{playtime}', pTime.d * 24 + pTime.h)
+  )
+  cmd.addMessage(
+    sGlobal,
+    botMsgs.whoami.m3
+      .replace('{local}', action.user.stats.totalMessages.local)
+      .replace('{global}', action.user.stats.totalMessages.global)
+      .replace('{squad}', action.user.stats.totalMessages.squad)
+  )
+  cmd.addMessage(
+    sGlobal,
+    botMsgs.whoami.m4.replace('{kills}', Object.keys(action.user.kills).length)
+  )
+}
+
 exports.manual_welcome = function manual_welcome(cmd, action) {
   let scope = sLocal
   if (action.properties.scope == 'global') scope = sGlobal

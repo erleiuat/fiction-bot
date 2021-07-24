@@ -1,6 +1,11 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/whoami': {
+    routine: 'whoami_stats',
+    scopes: ['global'],
+    cooldown: null
+  },
   '/welcome': {
     routine: 'manual_welcome',
     scopes: ['local', 'global'],

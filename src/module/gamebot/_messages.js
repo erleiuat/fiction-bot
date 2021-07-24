@@ -12,6 +12,12 @@
 const botName = process.env.SETTING_BOT_NAME
 
 exports.messages = {
+  whoami: {
+    m1: 'You are {user} and you have the role "{group}". You joined for the first time on {date} at {time}.',
+    m2: 'Since then, you have logged in {logins} times and spent a total of {playtime} hours on the server.',
+    m3: 'By now you have sent {local} messages in local, {global} in global, and {squad} messages in squad chat.',
+    m4: 'During events and in the normal game together you made a total of {kills} kills (including suicides).'
+  },
   rules: {
     intro: ':[Rules]: ・ These are the rules on the server. Check Discord for more details.',
     notFound: ':[Rules]: ・ There is no rule #{number}',

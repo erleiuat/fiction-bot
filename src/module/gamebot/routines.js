@@ -84,7 +84,7 @@ function addStats(cmd, sUser, scope) {
     scope,
     botMsgs.whoami.m1
       .replace('{user}', sUser.char.name)
-      .replace('{group}', sUser.group)
+      .replace('{group}', global.userManager.groups[sUser.group].name)
       .replace('{date}', jD.date)
       .replace('{time}', jD.time)
   )

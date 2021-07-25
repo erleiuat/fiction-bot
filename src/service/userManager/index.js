@@ -123,7 +123,7 @@ module.exports = class UserManager {
   getUserByCharName(charName) {
     let cName = charName.toString().trim().toLowerCase()
     for (const user in this.users)
-      if (this.users[user].char.nametoLowerCase() === cName) return this.users[user]
+      if (this.users[user].char.name.toLowerCase() === cName) return this.users[user]
     return false
   }
 

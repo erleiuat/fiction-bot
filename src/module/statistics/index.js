@@ -142,7 +142,7 @@ async function playersSts() {
       dataCache = JSON.stringify(data)
     }
 
-    await global.time.sleep(15)
+    await global.time.sleep(120)
   } while (true)
 }
 

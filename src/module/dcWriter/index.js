@@ -97,11 +97,13 @@ exports.sendFromLog = async function sendFromLog(action) {
   await go()
   switch (action.type) {
     case 'admin':
-      toChannels(action, [
-        { channel: channels.console, extended: true },
-        { channel: channels.log.admin, extended: true },
-        { channel: channels.noAdminAbuse, extended: false }
-      ])
+      if (userProps.undercover) toChannels(action, [{ channel: channels.console, extended: true }])
+      else
+        toChannels(action, [
+          { channel: channels.console, extended: true },
+          { channel: channels.log.admin, extended: true },
+          { channel: channels.noAdminAbuse, extended: false }
+        ])
       break
     case 'chat':
       toChannels(action, [
@@ -124,10 +126,12 @@ exports.sendFromLog = async function sendFromLog(action) {
       ])
       break
     case 'auth':
-      toChannels(action, [
-        { channel: channels.console, extended: true },
-        { channel: channels.log.auth, extended: true }
-      ])
+      if (userProps.undercover) toChannels(action, [{ channel: channels.console, extended: true }])
+      else
+        toChannels(action, [
+          { channel: channels.console, extended: true },
+          { channel: channels.log.auth, extended: true }
+        ])
       break
     case 'violation':
       toChannels(action, [

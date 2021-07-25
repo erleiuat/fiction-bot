@@ -191,6 +191,13 @@ module.exports = class UserManager {
               let tmpUser = this.users[user]
               let up = data[user]
 
+              undercover
+
+              if ('undercover' in up) {
+                tmpUser.undercover = up.undercover
+                global.log.info(this.#_SN + 'Updated undercover for user: ' + user)
+              }
+
               if ('discordID' in up) {
                 tmpUser.discordID = up.discordID
                 global.log.info(this.#_SN + 'Updated discordID for user: ' + user)

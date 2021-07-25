@@ -4,6 +4,7 @@ module.exports = class User {
 
   group = null
   overwrite = {}
+  undercover = false
 
   char = {
     id: null,

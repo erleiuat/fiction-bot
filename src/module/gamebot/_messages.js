@@ -25,10 +25,10 @@ exports.messages = {
     yap: ':[Connect]: ・ Your Discord account has been successfully paired!'
   },
   whoami: {
-    m1: ':[Stats]: ・ You are {user} and you have the role "{group}". You joined for the first time on {date} at {time}.',
-    m2: ':[Stats]: ・ Since then, you have logged in {logins} times and spent a total of {playtime} hours on the server.',
-    m3: ':[Stats]: ・ By now you have sent {local} messages in local, {global} in global, and {squad} messages in squad chat.',
-    m4: ':[Stats]: ・ During events and in the normal game together you made a total of {kills} kills (including suicides).'
+    m1: ':[Stats]: ・ Name: {user} | Role: "{group}" | Joined: {date} at {time}',
+    m2: ':[Stats]: ・ Total logins: {logins} | Total playtime: {playtime} hours',
+    m3: ':[Stats]: ・ Messages - Local: {local} | Global: {global} | Squad: {squad}',
+    m4: ':[Stats]: ・ Kills: {kills} (including events and suicides)'
   },
   rules: {
     intro: ':[Rules]: ・ These are the rules on the server. Check Discord for more details.',

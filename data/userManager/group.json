@@ -100,7 +100,9 @@
       "#Silence",
       "#Unsilence",
       "#FindSquadMember",
-      "#ListSquadMembers"
+      "#ListSquadMembers",
+      "#ListSpawnedAnimals",
+      "#ListSpawnedVehicles"
     ],
     "allowCommands": [
       "#Kick",

@@ -1,6 +1,13 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  /*
+  '/team': {
+    routine: 'team_channel',
+    scopes: ['squad'],
+    cooldown: null
+  },
+  */
   '/whois': {
     routine: 'whois_stats',
     scopes: ['local', 'global'],

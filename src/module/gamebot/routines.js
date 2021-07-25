@@ -77,6 +77,28 @@ exports.forbiddenCommand = function forbiddenCommand(cmd, action) {
   //cmd.addMessage(sGlobal, msg)
 }
 
+exports.team_channel = async function team_channel(cmd, action) {
+  let parts = action.properties.value.split(' ')
+  let stmt = parts[1].trim().toLowerCase()
+  console.log(parts)
+  switch (stmt) {
+    case 'create':
+      let name = parts[2] ? parts[2].trim().toLowerCase() : false
+      if (!name) {
+        cmd.addMessage(sLocal, botMsgs.tChnl.needName)
+        return
+      }
+
+      await global.teams.create(name)
+
+      break
+    case 'addmember':
+      break
+    case 'removemember':
+      break
+  }
+}
+
 function addStats(cmd, sUser, scope) {
   let jD = stampToDateTime(sUser.stats.firstJoin)
   let pTime = getDuration(sUser.stats.totalPlaytime)
@@ -276,7 +298,7 @@ async function execScript(scriptName) {
 
 exports.reload_bot = function reload_bot(cmd, action = null) {
   let scope = sLocal
-  if (action.properties.scope == 'global') scope = sGlobal
+  if (action && action.properties && action.properties.scope == 'global') scope = sGlobal
   global.log.info(_SN + 'RELOAD: STARTED')
   execScript('.\\src\\scripts\\reload.bat')
   global.userManager.saveChanges()
@@ -287,7 +309,7 @@ exports.reload_bot = function reload_bot(cmd, action = null) {
 
 exports.reboot_bot = function reload_bot(cmd, action = null) {
   let scope = sLocal
-  if (action.properties.scope == 'global') scope = sGlobal
+  if (action && action.properties && action.properties.scope == 'global') scope = sGlobal
   global.log.info(_SN + 'REBOOT: STARTED')
   if (!global.args.includes('test')) execScript('.\\src\\scripts\\reboot.bat')
   global.userManager.saveChanges()

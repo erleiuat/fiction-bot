@@ -19,6 +19,9 @@ exports.messages = {
   noPermission: ':[Error]: ・ @{user}: Sorry, You don’t have enough permissions for this.',
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
+  tChnl: {
+    needName: ':[Teams]: ・ Please tell me the name you’d like to use ("/team create [team-name]")'
+  },
   connect: {
     help: ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "/connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server!',
     nope: ':[Connect]: ・ Sorry, this didn’t work. Try getting a new code over on Discord or contact support.',

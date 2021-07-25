@@ -94,6 +94,7 @@ function buildMessages(action) {
 
 exports.sendFromLog = async function sendFromLog(action) {
   global.log.info(_SN + 'sendFromLog(): ' + action.type + ' received')
+  let userProps = global.userManager.getUserProperties(action.user)
   await go()
   switch (action.type) {
     case 'admin':

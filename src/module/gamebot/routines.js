@@ -77,11 +77,11 @@ exports.forbiddenCommand = function forbiddenCommand(cmd, action) {
   //cmd.addMessage(sGlobal, msg)
 }
 
-function addStats(cmd, sUser) {
+function addStats(cmd, sUser, scope) {
   let jD = stampToDateTime(sUser.stats.firstJoin)
   let pTime = getDuration(sUser.stats.totalPlaytime)
   cmd.addMessage(
-    sGlobal,
+    scope,
     botMsgs.whoami.m1
       .replace('{user}', sUser.char.name)
       .replace('{group}', sUser.group)
@@ -89,19 +89,19 @@ function addStats(cmd, sUser) {
       .replace('{time}', jD.time)
   )
   cmd.addMessage(
-    sGlobal,
+    scope,
     botMsgs.whoami.m2
       .replace('{logins}', sUser.stats.totalLogins)
       .replace('{playtime}', parseInt(pTime.d) * 24 + parseInt(pTime.h))
   )
   cmd.addMessage(
-    sGlobal,
+    scope,
     botMsgs.whoami.m3
       .replace('{local}', sUser.stats.totalMessages.local)
       .replace('{global}', sUser.stats.totalMessages.global)
       .replace('{squad}', sUser.stats.totalMessages.squad)
   )
-  cmd.addMessage(sGlobal, botMsgs.whoami.m4.replace('{kills}', Object.keys(sUser.kills).length))
+  cmd.addMessage(scope, botMsgs.whoami.m4.replace('{kills}', Object.keys(sUser.kills).length))
 }
 
 exports.whois_stats = function whois_stats(cmd, action) {
@@ -111,11 +111,11 @@ exports.whois_stats = function whois_stats(cmd, action) {
   let charName = action.properties.value.split(' ')[1]
   let sUser = global.userManager.getUserByCharName(charName)
   if (!sUser) cmd.addMessage(scope, botMsgs.unknownUser.replace('{user}', charName))
-  else addStats(cmd, sUser)
+  else addStats(cmd, sUser, scope)
 }
 
 exports.whoami_stats = function whoami_stats(cmd, action) {
-  addStats(cmd, action.user)
+  addStats(cmd, action.user, sGlobal)
 }
 
 exports.manual_welcome = function manual_welcome(cmd, action) {

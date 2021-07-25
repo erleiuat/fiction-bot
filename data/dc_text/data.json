@@ -1,18 +1,36 @@
 {
+  "vip_info": {
+    "id": "868770087820197909",
+    "content": [
+      {
+        "type": "text",
+        "data": "https://scumfiction.com/bot_data/dc_text/data/roles_info/vip_info.txt"
+      }
+    ]
+  },
+  "mod_info": {
+    "id": "868568025807339540",
+    "content": [
+      {
+        "type": "text",
+        "data": "https://scumfiction.com/bot_data/dc_text/data/roles_info/mod_info.txt"
+      }
+    ]
+  },
   "bot_commands": {
     "id": "864424447649906718",
     "content": [
       {
         "type": "image",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/bot_cmds.png"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/bot_cmds/bot_cmds.png"
       },
       {
         "type": "text",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/bot_commands.txt"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/bot_cmds/bot_commands.txt"
       },
       {
         "type": "image",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/stations/all.png"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/bot_cmds/travel/all.png"
       }
     ]
   },
@@ -21,11 +39,11 @@
     "content": [
       {
         "type": "image",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/Logo1.png"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/info/Logo1.png"
       },
       {
         "type": "text",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/info_en.txt"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/info/info_en.txt"
       }
     ]
   },
@@ -34,11 +52,11 @@
     "content": [
       {
         "type": "image",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/Logo1.png"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/info/Logo1.png"
       },
       {
         "type": "text",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/info_de.txt"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/info/info_de.txt"
       }
     ]
   },
@@ -47,11 +65,11 @@
     "content": [
       {
         "type": "image",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/rules.png"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/rules/rules.png"
       },
       {
         "type": "text",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/rules_en.txt"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/rules/rules_en.txt"
       }
     ]
   },
@@ -60,11 +78,11 @@
     "content": [
       {
         "type": "image",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/rules.png"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/rules/rules.png"
       },
       {
         "type": "text",
-        "data": "https://scumfiction.com/bot_data/dc_text/data/rules_de.txt"
+        "data": "https://scumfiction.com/bot_data/dc_text/data/rules/rules_de.txt"
       }
     ]
   }

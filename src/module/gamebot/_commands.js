@@ -1,6 +1,16 @@
 /* eslint prettier/prettier: ["error", { printWidth: 200 }] */
 
 exports.commands = {
+  '/whois': {
+    routine: 'whois_stats',
+    scopes: ['local', 'global'],
+    cooldown: null
+  },
+  '/reset': {
+    routine: 'reset_starterkit',
+    scopes: ['local', 'global'],
+    cooldown: null
+  },
   '/connect': {
     routine: 'connectDC',
     scopes: ['global'],

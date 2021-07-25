@@ -120,6 +120,12 @@ module.exports = class UserManager {
     return false
   }
 
+  getUserByCharName(charName) {
+    cName = charName.toString().trim()
+    for (const user in this.users) if (this.users[user].char.name === cName) return this.users[user]
+    return false
+  }
+
   getUserByDiscordID(discordID) {
     discordID = discordID.toString()
     for (const user in this.users)
@@ -131,7 +137,7 @@ module.exports = class UserManager {
     do {
       while (!this.#run) await global.time.sleep(0.05)
       this.saveChanges()
-      await global.time.sleep(15)
+      await global.time.sleep(30)
     } while (true)
   }
 
@@ -210,7 +216,7 @@ module.exports = class UserManager {
               }
             }
 
-            this.getUserProperties(tmpUser, true)
+            this.getUserProperties(this.users[user], true)
           } catch (err) {
             global.log.error(this.#_SN + 'Failed to parse JSON: ' + files[e])
           }

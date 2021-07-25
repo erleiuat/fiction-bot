@@ -1,6 +1,7 @@
 {
   "_default": {
     "isAdmin": false,
+    "name": "Default",
     "allowBotCommands": [
       "/connect",
       "/whoami",
@@ -54,7 +55,24 @@
   },
   "players": {
     "isAdmin": false,
+    "name": "Player",
     "allowBotCommands": [],
+    "hideCommandAlarms": [],
+    "allowCommands": [],
+    "hideCommands": [],
+    "hideLogin": false,
+    "loginAnonym": false,
+    "noTrapNotification": false,
+    "useFakeNames": false,
+    "ranking": {
+      "hidePlaytime": false,
+      "hideKills": false
+    }
+  },
+  "vip": {
+    "isAdmin": false,
+    "name": "VIP",
+    "allowBotCommands": ["/reload", "/reboot"],
     "hideCommandAlarms": [],
     "allowCommands": [],
     "hideCommands": [],
@@ -69,7 +87,8 @@
   },
   "moderators": {
     "isAdmin": true,
-    "allowBotCommands": ["/reload", "/reboot", "/welcome"],
+    "name": "MOD",
+    "allowBotCommands": ["/reload", "/reboot", "/welcome", "/reset", "/whois"],
     "hideCommandAlarms": [
       "#Kick",
       "#Vote",
@@ -117,14 +136,20 @@
   },
   "administrators": {
     "isAdmin": true,
-    "allowBotCommands": ["/reload", "/reboot", "/welcome"],
+    "name": "Admin",
+    "allowBotCommands": ["/*"],
     "hideCommandAlarms": [
-      "#listplayers",
+      "#Kick",
       "#Vote",
       "#SetTime",
       "#SetWeather",
-      "#setfakename",
-      "#clearfakename"
+      "#Announce",
+      "#Mute",
+      "#Unmute",
+      "#Silence",
+      "#Unsilence",
+      "#FindSquadMember",
+      "#ListSquadMembers"
     ],
     "allowCommands": ["#*"],
     "hideCommands": [],
@@ -139,6 +164,7 @@
   },
   "bots": {
     "isAdmin": true,
+    "name": "Bot",
     "allowBotCommands": [],
     "hideCommandAlarms": ["#*"],
     "hideCommands": ["#setfakename", "#clearfakename"],

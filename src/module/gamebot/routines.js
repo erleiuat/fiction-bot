@@ -41,6 +41,23 @@ function getDuration(milli) {
   }
 }
 
+exports.reset_starterkit = function reset_starterkit(cmd, action) {
+  let scope = sLocal
+  if (action.properties.scope == 'global') scope = sGlobal
+
+  let charName = action.properties.value.split(' ')[1]
+  let sUser = global.userManager.getUserByCharName(charName)
+  if (!sUser) cmd.addMessage(scope, botMsgs.unknownUser.replace('{user}', charName))
+  else {
+    sUser.info.starterkit = null
+    global.userManager.saveChanges()
+    cmd.addMessage(
+      scope,
+      botMsgs.resetStarter.replace('{user}', sUser.char.name + '(' + sUser.char.id + ')')
+    )
+  }
+}
+
 exports.forbiddenCommand = function forbiddenCommand(cmd, action) {
   let msg =
     '@ADMIN: USER "' +
@@ -60,34 +77,45 @@ exports.forbiddenCommand = function forbiddenCommand(cmd, action) {
   //cmd.addMessage(sGlobal, msg)
 }
 
-exports.whoami_stats = function whoami_stats(cmd, action) {
-  let jD = stampToDateTime(action.user.stats.firstJoin)
-  let pTime = getDuration(action.user.stats.totalPlaytime)
+function addStats(cmd, sUser) {
+  let jD = stampToDateTime(sUser.stats.firstJoin)
+  let pTime = getDuration(sUser.stats.totalPlaytime)
   cmd.addMessage(
     sGlobal,
     botMsgs.whoami.m1
-      .replace('{user}', action.user.char.name)
-      .replace('{group}', action.user.group)
+      .replace('{user}', sUser.char.name)
+      .replace('{group}', sUser.group)
       .replace('{date}', jD.date)
       .replace('{time}', jD.time)
   )
   cmd.addMessage(
     sGlobal,
     botMsgs.whoami.m2
-      .replace('{logins}', action.user.stats.totalLogins)
+      .replace('{logins}', sUser.stats.totalLogins)
       .replace('{playtime}', parseInt(pTime.d) * 24 + parseInt(pTime.h))
   )
   cmd.addMessage(
     sGlobal,
     botMsgs.whoami.m3
-      .replace('{local}', action.user.stats.totalMessages.local)
-      .replace('{global}', action.user.stats.totalMessages.global)
-      .replace('{squad}', action.user.stats.totalMessages.squad)
+      .replace('{local}', sUser.stats.totalMessages.local)
+      .replace('{global}', sUser.stats.totalMessages.global)
+      .replace('{squad}', sUser.stats.totalMessages.squad)
   )
-  cmd.addMessage(
-    sGlobal,
-    botMsgs.whoami.m4.replace('{kills}', Object.keys(action.user.kills).length)
-  )
+  cmd.addMessage(sGlobal, botMsgs.whoami.m4.replace('{kills}', Object.keys(sUser.kills).length))
+}
+
+exports.whois_stats = function whois_stats(cmd, action) {
+  let scope = sLocal
+  if (action.properties.scope == 'global') scope = sGlobal
+
+  let charName = action.properties.value.split(' ')[1]
+  let sUser = global.userManager.getUserByCharName(charName)
+  if (!sUser) cmd.addMessage(scope, botMsgs.unknownUser.replace('{user}', charName))
+  else addStats(cmd, sUser)
+}
+
+exports.whoami_stats = function whoami_stats(cmd, action) {
+  addStats(cmd, action.user)
 }
 
 exports.manual_welcome = function manual_welcome(cmd, action) {

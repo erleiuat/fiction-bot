@@ -12,6 +12,13 @@
 const botName = process.env.SETTING_BOT_NAME
 
 exports.messages = {
+  prefix: ' ・ ',
+  error: ':[Error]: ・ Something went wrong. Please try again or contact support.',
+  tooEarly: ':[Error]: ・ Sorry, you are too fast. Please wait {minutes} minutes.',
+  unknownUser: ':[Error]: ・ Sorry, I was not able to find the user {user}.',
+  noPermission: ':[Error]: ・ @{user}: Sorry, You don’t have enough permissions for this.',
+  unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
+  resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
   connect: {
     help: ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "/connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server!',
     nope: ':[Connect]: ・ Sorry, this didn’t work. Try getting a new code over on Discord or contact support.',
@@ -49,11 +56,6 @@ exports.messages = {
     on: ' ・ @{user}: Your logins & logouts will be anonymous by now.',
     off: ' ・ @{user}: Your logins & logouts won’t me anonymous anymore.'
   },
-  tooEarly: ' ・ Sorry, you are too fast. Please wait {minutes} minutes.',
-  error: ':[Error]: ・ Something went wrong. Please try again or contact support.',
-  noPermission: ':[Error]: ・ @{user}: Sorry, You don’t have enough permissions for this.',
-  unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
-  prefix: ' ・ ',
   fName: '#SetFakeName ・ :[FiBo]',
   pos: {
     idle: '#Teleport -117145 -66735 37125 "' + botName + '"',

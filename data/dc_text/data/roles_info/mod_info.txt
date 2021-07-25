@@ -1,0 +1,57 @@
+-
+
+
+
+__**MODERATOR ROLE INFO**__
+
+
+
+Some commands will trigger a notification (to all users currently online) in #👀・no-admin-abuse and require an explanation. 
+
+
+**Commands which __don't__ trigger an Alert:**
+- #Kick
+- #Vote
+- #SetTime
+- #SetWeather
+- #Announce
+- #Mute
+- #Unmute
+- #Silence
+- #Unsilence
+- #FindSquadMember
+- #ListSquadMembers
+
+
+**Commands which __do__ trigger an Alert:**
+- #Ban
+- #Unban
+- #SetFamePoints
+- #SpawnVehicle
+- #DestroyVehicle
+- #SpawnItem
+- #Teleport
+- #TeleportTo
+- #TeleportToMe
+
+
+To find out what these commands do check: https://scum.fandom.com/wiki/Admin_commands
+
+**WARNING:** The commands listed above are the only ones intended for mods. When any other command gets detected, you will be automaticly kicked from the Server and an announcement will be sent out.
+
+
+-----------------------
+
+
+**Mods can also use `/reload` as well as `/reboot`**
+
+`/reload` will restart FiBo without restarting the whole PC he runs on. This could solve some issues in case the bot doesn't answer anymore etc.
+
+`/reboot` will restart the PC FiBo runs on completely, which could take some time. This should only be used when `/reload` couldn't solve the issue.
+
+
+If the commands are not working ingame, it probably is because the whole Bot-Service crashed completely. In this case the last hope is for the Discord-Handler Service to still be running fine.
+The same commands can be used everywhere on the Discord server as well. If your message gets deleted right after you send it, it means that the command was successful and the bot should reload/restart soon.
+
+
+-----------------------

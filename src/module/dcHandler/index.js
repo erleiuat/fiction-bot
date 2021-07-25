@@ -29,8 +29,8 @@ function init() {
 async function messageHandler(msg) {
   if (msg.channel.id == process.env.DC_CH_CONSOLE) consoleMsg(msg)
   else if (msg.content.trim() == '/connect') buildConnection(msg)
-  else if (msg.content.trim() == '!reload!') forceReload(msg)
-  else if (msg.content.trim() == '!reboot!') forceReboot(msg)
+  else if (msg.content.trim() == '/reload') forceReload(msg)
+  else if (msg.content.trim() == '/reboot') forceReboot(msg)
   else if (msg.channel.id == process.env.DC_CH_INGAMECHAT) chatMsg(msg)
 }
 

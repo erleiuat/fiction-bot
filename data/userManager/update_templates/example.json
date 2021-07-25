@@ -1,0 +1,24 @@
+{
+  "STEAM_ID": {
+    "discordID": "DISCORD_ID",
+    "group": "GROUP_KEY",
+    "undercover": "TRUE/FALSE",
+    "overwrite": {
+      "isAdmin": "TRUE/FALSE",
+      "allowBotCommands": [],
+      "hideCommandAlarms": [],
+      "allowCommands": [],
+      "hideCommands": [],
+      "hideLogin": "TRUE/FALSE",
+      "loginAnonym": "TRUE/FALSE",
+      "noTrapNotification": "TRUE/FALSE",
+      "useFakeNames": "TRUE/FALSE",
+      "ranking": {
+        "hidePlaytime": "TRUE/FALSE",
+        "hideKills": "TRUE/FALSE"
+      }
+    },
+    "char": { "id": "99999", "name": "AAAAAAAAAAA", "fakeName": null },
+    "info": { "starterkit": null }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "76561199192438131": {
-    "discordID": null,
-    "group": "administrators",
+    "group": "bots",
+    "undercover": true,
     "overwrite": {
       "isAdmin": true,
       "hideCommandAlarms": ["#*"],

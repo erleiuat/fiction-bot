@@ -45,7 +45,9 @@ exports.reset_starterkit = function reset_starterkit(cmd, action) {
   let scope = sLocal
   if (action.properties.scope == 'global') scope = sGlobal
 
-  let charName = action.properties.value.split(' ')[1]
+  let charName = action.properties.value.split(' ')
+  delete charName[0]
+  charName = charName.join(' ')
   let sUser = global.userManager.getUserByCharName(charName)
   if (!sUser) cmd.addMessage(scope, botMsgs.unknownUser.replace('{user}', charName))
   else {
@@ -133,6 +135,7 @@ exports.whois_stats = function whois_stats(cmd, action) {
   let charName = action.properties.value.split(' ')
   delete charName[0]
   charName = charName.join(' ')
+
   let sUser = global.userManager.getUserByCharName(charName)
   if (!sUser) cmd.addMessage(scope, botMsgs.unknownUser.replace('{user}', charName))
   else addStats(cmd, sUser, scope)
@@ -146,9 +149,11 @@ exports.manual_welcome = function manual_welcome(cmd, action) {
   let scope = sLocal
   if (action.properties.scope == 'global') scope = sGlobal
 
-  let user = action.properties.value.split(' ')[1]
-  cmd.addMessage(scope, botMsgs.pPos.firstJoin.replace('{userID}', user))
-  cmd.addMessage(scope, botMsgs.in.firstJoin.welcome1.replace('{user}', user))
+  let charName = action.properties.value.split(' ')
+  delete charName[0]
+  charName = charName.join(' ')
+  cmd.addMessage(scope, botMsgs.pPos.firstJoin.replace('{userID}', charName))
+  cmd.addMessage(scope, botMsgs.in.firstJoin.welcome1.replace('{user}', charName))
   cmd.addMessage(scope, botMsgs.in.firstJoin.welcome2)
   cmd.addMessage(scope, botMsgs.in.firstJoin.welcome3)
   cmd.addMessage(scope, botMsgs.in.firstJoin.welcome4)

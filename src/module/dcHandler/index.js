@@ -1,5 +1,6 @@
 const _SN = '[MODULE][DCHANDLER] -> '
 
+const cp = require('child_process')
 const Discord = require('discord.js')
 const channels = {
   console: null,
@@ -28,7 +29,49 @@ function init() {
 async function messageHandler(msg) {
   if (msg.channel.id == process.env.DC_CH_CONSOLE) consoleMsg(msg)
   else if (msg.content.trim() == '/connect') buildConnection(msg)
+  else if (msg.content.trim() == '!reload!') forceReload(msg)
+  else if (msg.content.trim() == '!reboot!') forceReboot(msg)
   else if (msg.channel.id == process.env.DC_CH_INGAMECHAT) chatMsg(msg)
+}
+
+async function execScript(scriptName) {
+  try {
+    global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
+    await global.time.sleep(5)
+    global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
+    const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
+    child.on('data', data => console.log(data))
+    child.on('error', error => console.log(error))
+    child.on('close', code => console.log(code))
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function forceReload(msg) {
+  if (
+    msg.member.roles.cache.has(process.env.DC_ROLE_MOD) ||
+    msg.member.roles.cache.has(process.env.DC_ROLE_SUPPORT) ||
+    msg.member.hasPermission('ADMINISTRATOR')
+  ) {
+    execScript('.\\src\\scripts\\reload.bat')
+    global.userManager.saveChanges()
+    global.mineManager.saveChanges()
+    await msg.delete()
+  }
+}
+
+async function forceReboot(msg) {
+  if (
+    msg.member.roles.cache.has(process.env.DC_ROLE_MOD) ||
+    msg.member.roles.cache.has(process.env.DC_ROLE_SUPPORT) ||
+    msg.member.hasPermission('ADMINISTRATOR')
+  ) {
+    execScript('.\\src\\scripts\\reboot.bat')
+    global.userManager.saveChanges()
+    global.mineManager.saveChanges()
+    await msg.delete()
+  }
 }
 
 async function buildConnection(msg) {

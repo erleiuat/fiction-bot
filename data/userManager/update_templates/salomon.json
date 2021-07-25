@@ -1,0 +1,18 @@
+{
+  "76561199192438131": {
+    "discordID": null,
+    "group": "administrators",
+    "overwrite": {
+      "isAdmin": true,
+      "hideCommandAlarms": ["#*"],
+      "allowCommands": ["#*"],
+      "hideCommands": ["#*"],
+      "useFakeNames": true,
+      "hideLogin": true,
+      "ranking": {
+        "hidePlaytime": true,
+        "hideKills": true
+      }
+    }
+  }
+}

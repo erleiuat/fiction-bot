@@ -56,8 +56,10 @@ async function executeCommand(cmd) {
   if (!global.args.includes('test')) data = await bot.execute(cmd)
   else
     global.log.debug('\n' + _SN + '[TEST] -> Sending command to Bot:' + JSON.stringify(cmd) + '\n')
-  if (data.status == 'error')
+  if (!data || data.status == 'error') {
+    routines.reload_bot(cmd)
     global.log.error(_SN + 'Bot-Command failed: ' + data.message + '; ' + data.type)
+  }
   ready = true
   run = true
   return data
@@ -109,7 +111,7 @@ exports.sendFromLog = async function sendFromLog(action) {
       case 'chat':
         if (!action.properties.isCommand) break
         if (!ready) break
-        let cmdKey = action.properties.value.split(' ')[0].trim()
+        let cmdKey = action.properties.value.split(' ')[0].trim().toLowerCase()
         if (commands[cmdKey]) {
           if (!commands[cmdKey].scopes.includes(action.properties.scope)) break
           if (
@@ -177,6 +179,7 @@ exports.sendFromLog = async function sendFromLog(action) {
     }
   } catch (error) {
     global.log.error(_SN + 'sendFromLog(): ERROR: ' + error)
+    routines.reload_bot(cmd)
     cmd.addMessage()
     await executeCommand(cmd)
   }

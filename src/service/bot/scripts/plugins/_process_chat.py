@@ -116,7 +116,6 @@ class Chat:
             if(teleport):
                 while(current == self.getLocation()):
                     time.sleep(0.15)
-        #time.sleep(0.02)
         return data
         self.RES.printer('SENDING MSG DONE')
 

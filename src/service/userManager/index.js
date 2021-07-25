@@ -121,7 +121,7 @@ module.exports = class UserManager {
   }
 
   getUserByCharName(charName) {
-    cName = charName.toString().trim()
+    let cName = charName.toString().trim()
     for (const user in this.users) if (this.users[user].char.name === cName) return this.users[user]
     return false
   }

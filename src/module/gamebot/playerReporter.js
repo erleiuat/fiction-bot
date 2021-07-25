@@ -39,7 +39,7 @@ exports.start = async function start(dcClient, routines) {
       global.log.error(_SN + error)
     }
 
-    await global.time.sleep(60)
+    await global.time.sleep(180)
   } while (true)
 }
 /*

@@ -130,7 +130,9 @@ exports.whois_stats = function whois_stats(cmd, action) {
   let scope = sLocal
   if (action.properties.scope == 'global') scope = sGlobal
 
-  let charName = action.properties.value.split(' ')[1]
+  let charName = action.properties.value.split(' ')
+  delete charName[0]
+  charName = charName.join(' ')
   let sUser = global.userManager.getUserByCharName(charName)
   if (!sUser) cmd.addMessage(scope, botMsgs.unknownUser.replace('{user}', charName))
   else addStats(cmd, sUser, scope)

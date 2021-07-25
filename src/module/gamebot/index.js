@@ -57,8 +57,15 @@ async function executeCommand(cmd) {
   else
     global.log.debug('\n' + _SN + '[TEST] -> Sending command to Bot:' + JSON.stringify(cmd) + '\n')
   if (!data || data.status == 'error') {
-    routines.reload_bot(cmd)
-    global.log.error(_SN + 'Bot-Command failed: ' + data.message + '; ' + data.type)
+    global.log.error(
+      _SN +
+        'Bot-Command failed: ' +
+        JSON.stringify(cmd) +
+        ' ; Error:' +
+        data.message +
+        ' ; ' +
+        data.type
+    )
   }
   ready = true
   run = true

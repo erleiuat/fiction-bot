@@ -1,3 +1,5 @@
+const _SN = '[MODULE][GAMEBOT][ROUTINES][CHAT] -> '
+
 let bms = null
 let sGlobal = null
 let sLocal = null

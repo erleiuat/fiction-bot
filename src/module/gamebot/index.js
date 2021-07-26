@@ -130,7 +130,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (!ready) break
 
         if (!action.properties.isCommand) {
-          if (action.properties.scope != 'global') break
+          //if (action.properties.scope != 'global') break
           let s = action.properties.value
           let numUpper =
             s.length -
@@ -144,8 +144,8 @@ exports.sendFromLog = async function sendFromLog(action = false) {
                 sGlobal,
                 messages['en'].capslock.replace('{user}', action.user.char.name)
               )
+              await executeCommand(cmd)
             }
-            await executeCommand(cmd)
           }
           break
         }
@@ -223,7 +223,9 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         break
     }
   } catch (error) {
-    global.log.error(_SN + 'sendFromLog(): ERROR: ' + error + ' -> ' + JSON.stringify(action))
+    global.log.error(
+      _SN + 'sendFromLog(): ERROR: ' + error + ' -> ' + JSON.stringify(action.properties)
+    )
     routines.chat.reload_bot(cmd)
     cmd.addMessage()
     await executeCommand(cmd)

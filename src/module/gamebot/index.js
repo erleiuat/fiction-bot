@@ -130,7 +130,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (!ready) break
 
         if (!action.properties.isCommand) {
-          //if (action.properties.scope != 'global') break
+          if (action.properties.scope != 'global') break
           let s = action.properties.value
           let numUpper =
             s.length -

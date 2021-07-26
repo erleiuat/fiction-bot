@@ -141,8 +141,8 @@ module.exports = {
     delete charName[0]
     charName = charName.join(' ')
     cmd.addMessage(scope, bms[action.user.lang].pPos.firstJoin.replace('{userID}', charName))
-    cmd.addMessage(sGlobal, messages['en'].firstJoin.m1.replace('{user}', charName))
-    cmd.addMessage(sGlobal, messages['en'].firstJoin.m2)
+    cmd.addMessage(sGlobal, bms['en'].firstJoin.m1.replace('{user}', charName))
+    cmd.addMessage(sGlobal, bms['en'].firstJoin.m2)
   },
   show_rule: function (cmd, action) {
     let scope = sLocal
@@ -468,7 +468,7 @@ module.exports = {
     global.userManager.saveChanges()
     global.mineManager.saveChanges()
     global.log.info(_SN + 'RELOAD: Saved mngr data')
-    cmd.addMessage(scope, bms[action.user.lang].start.reload)
+    cmd.addMessage(scope, bms['en'].start.reload)
   },
   reboot_bot: function (cmd, action = null) {
     let scope = sLocal
@@ -478,7 +478,7 @@ module.exports = {
     global.userManager.saveChanges()
     global.mineManager.saveChanges()
     global.log.info(_SN + 'REBOOT: Saved mngr data')
-    cmd.addMessage(scope, bms[action.user.lang].start.reboot)
+    cmd.addMessage(scope, bms['en'].start.reboot)
   }
 }
 

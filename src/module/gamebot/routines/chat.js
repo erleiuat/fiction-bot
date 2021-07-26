@@ -141,10 +141,8 @@ module.exports = {
     delete charName[0]
     charName = charName.join(' ')
     cmd.addMessage(scope, bms[action.user.lang].pPos.firstJoin.replace('{userID}', charName))
-    cmd.addMessage(scope, bms[action.user.lang].in.firstJoin.welcome1.replace('{user}', charName))
-    cmd.addMessage(scope, bms[action.user.lang].in.firstJoin.welcome2)
-    cmd.addMessage(scope, bms[action.user.lang].in.firstJoin.welcome3)
-    cmd.addMessage(scope, bms[action.user.lang].in.firstJoin.welcome4)
+    cmd.addMessage(sGlobal, messages['en'].firstJoin.m1.replace('{user}', charName))
+    cmd.addMessage(sGlobal, messages['en'].firstJoin.m2)
   },
   show_rule: function (cmd, action) {
     let scope = sLocal

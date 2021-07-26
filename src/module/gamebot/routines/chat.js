@@ -240,7 +240,8 @@ module.exports = {
     cmd.addMessage(sGlobal, bms[action.user.lang].pub.help.m4)
   },
   set_lang: function (cmd, action) {
-    let lang = action.properties.value.split(' ')[1].toLowerCase().trim()
+    let lang = action.properties.value.split(' ')[1]
+    if (lang) lang = lang.toLowerCase().trim()
     if (!lang) {
       cmd.addMessage(
         sGlobal,

@@ -18,6 +18,17 @@ module.exports = {
     eng: ':[Lang]: ・ @{user}: Language set to English.',
     rus: ':[Lang]: ・ @{user}: Language set to Russian.'
   },
+  firstJoin: {
+    m1: ':[Welcome]: ・ Welcome to the Server @{user}!',
+    m2: ':[Welcome]: ・ Open chat with "T" and write "/new" to get started!'
+  },
+  newP: {
+    fPoints: '#SetFamePoints 10 {userID}',
+    welcome1: ':[Welcome]: ・ Welcome to the Server @{user}!',
+    welcome2: ':[Welcome]: ・ Get your starterkit! Write: "/starterkit" in global-chat.',
+    welcome3: ':[Welcome]: ・ You can open chat with "T" and change the scope with "TAB".',
+    welcome4: ':[Welcome]: ・ If you have any questions, please don’t hesitate to contact us.'
+  },
   tChnl: {
     needName: ':[Teams]: ・ Please tell me the name you’d like to use ("/team create [team-name]")'
   },
@@ -77,13 +88,6 @@ module.exports = {
     login: ' ・ >> {user} is joining << ・ ',
     logout: ' ・ >> {user} left << ・ ',
     kill: ':[Killfeed]: ・ >> {user1} {event} {user2} << ・ ',
-    firstJoin: {
-      fPoints: '#SetFamePoints 10 {userID}',
-      welcome1: ':[Welcome]: ・ Welcome to the Server @{user}!',
-      welcome2: ':[Welcome]: ・ Get your starterkit! Write: "/starterkit" in global-chat.',
-      welcome3: ':[Welcome]: ・ You can open chat with "T" and change the scope with "TAB".',
-      welcome4: ':[Welcome]: ・ If you have any questions, please don’t hesitate to contact us.'
-    },
     traps:
       ':[Traps]: ・ If you have just placed a trap, please note that this is only allowed in and immediately around your Base. Remove the mine if this is not the case.',
     sKit: {

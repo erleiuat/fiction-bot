@@ -1,5 +1,9 @@
 const _SN = '[MODULE][GAMEBOT][ROUTINES][CHAT] -> '
 
+const cp = require('child_process')
+const fetch = require('node-fetch')
+const request = require('request')
+
 let bms = null
 let sGlobal = null
 let sLocal = null

@@ -9,7 +9,7 @@ module.exports = {
   unknownUser: ':[Error]: ・ Sorry, ich konnte den Benutzer {user} nicht finden.',
   noPermission: ':[Error]: ・ @{user}: Sorry, du hast nicht genügend Berechtigungen dazu.',
   unknownCommand: ':[Error]: ・ @{user}: Sorry, ich kenne diesen Befehl nicht.',
-  capslock: ':[Warn]: ・ @{user}: Bitte schreibe nicht zu viel mit capslock.',
+  capslock: ':[Warn]: ・ @{user}: Bitte schreibe nicht zu viel mit capslock <3',
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
   lang: {
     unknown:

@@ -153,7 +153,7 @@ exports.sendFromLog = async function sendFromLog(action) {
           messages.in.kill
             .replace(
               '{user1}',
-              action.properties.causer ? ction.properties.causer.char.name : 'unknown'
+              action.properties.causer ? action.properties.causer.char.name : 'unknown'
             )
             .replace('{event}', event)
             .replace('{user2}', action.user.char.name)

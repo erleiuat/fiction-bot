@@ -8,6 +8,11 @@ exports.commands = {
     cooldown: null
   },
   */
+  '/new': {
+    routine: 'new_player',
+    scopes: ['squad', 'global', 'local'],
+    cooldown: null
+  },
   '/lang': {
     routine: 'set_lang',
     scopes: ['squad', 'global', 'local'],

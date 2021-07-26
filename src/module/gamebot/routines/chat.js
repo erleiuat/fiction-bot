@@ -22,6 +22,9 @@ module.exports = {
     sLocal = scopeLocal
     bms = msgs
   },
+  new_player: function (cmd, action) {
+    cmd.addMessage(sLocal, bms[action.user.lang].new.ms1.replace('{user}', action.user.char.name))
+  },
   ping: function (cmd, action) {
     cmd.addMessage(sGlobal, bms[action.user.lang].pub.ping.replace('{user}', action.user.char.name))
   },

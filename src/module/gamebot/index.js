@@ -133,16 +133,22 @@ exports.sendFromLog = async function sendFromLog(action) {
             )
               await routines.chat[commands[cmdKey].routine](cmd, action)
           } else {
-            cmd.addMessage(sGlobal, messages.noPermission.replace('{user}', action.user.char.name))
+            cmd.addMessage(
+              sGlobal,
+              messages['en'].noPermission.replace('{user}', action.user.char.name)
+            )
           }
         } else if (action.properties.scope == 'global')
-          cmd.addMessage(sGlobal, messages.unknownCommand.replace('{user}', action.user.char.name))
+          cmd.addMessage(
+            sGlobal,
+            messages['en'].unknownCommand.replace('{user}', action.user.char.name)
+          )
         await executeCommand(cmd)
         break
 
       case 'mine':
         if (action.properties.action != 'armed') break
-        cmd.addMessage(sGlobal, messages.in.traps)
+        cmd.addMessage(sGlobal, messages['en'].in.traps)
         await executeCommand(cmd)
         break
 
@@ -152,7 +158,7 @@ exports.sendFromLog = async function sendFromLog(action) {
         if (action.properties.type == 'comatosed') event = 'knocked out'
         cmd.addMessage(
           sGlobal,
-          messages.in.kill
+          messages['en'].in.kill
             .replace(
               '{user1}',
               action.properties.causer ? action.properties.causer.char.name : 'unknown'
@@ -169,25 +175,25 @@ exports.sendFromLog = async function sendFromLog(action) {
           ? '(Anonymous)'
           : global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
         if (action.properties.authType == 'login') {
-          cmd.addMessage(sGlobal, messages.in.login.replace('{user}', uName))
+          cmd.addMessage(sGlobal, messages['en'].in.login.replace('{user}', uName))
           if (action.user.stats.totalLogins <= 1) {
             cmd.addMessage(
               sGlobal,
-              messages.pPos.firstJoin.replace('{userID}', action.user.steamID)
+              messages['en'].pPos.firstJoin.replace('{userID}', action.user.steamID)
             )
             cmd.addMessage(
               sGlobal,
-              messages.in.firstJoin.fPoints.replace('{userID}', action.user.steamID)
+              messages['en'].in.firstJoin.fPoints.replace('{userID}', action.user.steamID)
             )
             cmd.addMessage(
               sGlobal,
-              messages.in.firstJoin.welcome1.replace('{user}', action.user.char.name)
+              messages['en'].in.firstJoin.welcome1.replace('{user}', action.user.char.name)
             )
-            cmd.addMessage(sGlobal, messages.in.firstJoin.welcome2)
-            cmd.addMessage(sGlobal, messages.in.firstJoin.welcome3)
-            cmd.addMessage(sGlobal, messages.in.firstJoin.welcome4)
+            cmd.addMessage(sGlobal, messages['en'].in.firstJoin.welcome2)
+            cmd.addMessage(sGlobal, messages['en'].in.firstJoin.welcome3)
+            cmd.addMessage(sGlobal, messages['en'].in.firstJoin.welcome4)
           }
-        } else cmd.addMessage(sGlobal, messages.in.logout.replace('{user}', uName))
+        } else cmd.addMessage(sGlobal, messages['en'].in.logout.replace('{user}', uName))
         await executeCommand(cmd)
         break
     }

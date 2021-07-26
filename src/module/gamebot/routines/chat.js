@@ -27,7 +27,14 @@ module.exports = {
     bms = msgs
   },
   new_player: function (cmd, action) {
-    cmd.addMessage(sLocal, bms[action.user.lang].new.ms1.replace('{user}', action.user.char.name))
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m1.replace('{user}', action.user.char.name))
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m2)
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m3)
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m4)
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m5)
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m6)
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m7)
+    cmd.addMessage(sLocal, bms[action.user.lang].newP.m8)
   },
   ping: function (cmd, action) {
     cmd.addMessage(sGlobal, bms[action.user.lang].pub.ping.replace('{user}', action.user.char.name))

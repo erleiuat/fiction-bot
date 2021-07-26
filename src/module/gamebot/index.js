@@ -181,17 +181,12 @@ exports.sendFromLog = async function sendFromLog(action) {
               sGlobal,
               messages['en'].pPos.firstJoin.replace('{userID}', action.user.steamID)
             )
+            cmd.addMessage(sGlobal, '#SetFamePoints 10 ' + action.user.steamID)
             cmd.addMessage(
               sGlobal,
-              messages['en'].in.firstJoin.fPoints.replace('{userID}', action.user.steamID)
+              messages['en'].firstJoin.m1.replace('{user}', action.user.char.name)
             )
-            cmd.addMessage(
-              sGlobal,
-              messages['en'].in.firstJoin.welcome1.replace('{user}', action.user.char.name)
-            )
-            cmd.addMessage(sGlobal, messages['en'].in.firstJoin.welcome2)
-            cmd.addMessage(sGlobal, messages['en'].in.firstJoin.welcome3)
-            cmd.addMessage(sGlobal, messages['en'].in.firstJoin.welcome4)
+            cmd.addMessage(sGlobal, messages['en'].firstJoin.m2)
           }
         } else cmd.addMessage(sGlobal, messages['en'].in.logout.replace('{user}', uName))
         await executeCommand(cmd)

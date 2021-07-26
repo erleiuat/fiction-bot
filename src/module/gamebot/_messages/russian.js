@@ -18,6 +18,20 @@ module.exports = {
     eng: ':[Lang]: ・ @{user}: Language set to English.',
     rus: ':[Lang]: ・ @{user}: Language set to Russian.'
   },
+  firstJoin: {
+    m1: ':[Welcome]: ・ Welcome to the Server @{user}!',
+    m2: ':[Welcome]: ・ Open chat with "T" and write "/new" to get started!'
+  },
+  newP: {
+    m1: ':[New]: ・ Welcome to the Server @{user}!',
+    m2: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
+    m3: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m4: ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "/rules" command. Use "/rules" in local to get a list of the rules.',
+    m5: ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
+    m6: ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',
+    m7: ':[New]: ・ There are quite a few more commands available. Get a list of some important ones by writing "/help".',
+    m8: ':[New]: ・ To see all commands as well as tons of other features, join our Discord! https://discord.gg/pZtw7NPdrZ'
+  },
   tChnl: {
     needName: ':[Teams]: ・ Please tell me the name you’d like to use ("/team create [team-name]")'
   },
@@ -64,7 +78,7 @@ module.exports = {
     outside: '#Teleport -116360 -66380 37477 "' + botName + '"'
   },
   pPos: {
-    firstJoin: '#Teleport -113641 -64016 37682 {userID}',
+    firstJoin: '#Teleport -116250 -64286 37312 {userID}',
     inside: '#Teleport -116800 -66735 37065 {userID}',
     outside: '#Teleport -116101 -66406 37065 {userID}'
   },
@@ -77,13 +91,6 @@ module.exports = {
     login: ' ・ >> {user} is joining << ・ ',
     logout: ' ・ >> {user} left << ・ ',
     kill: ':[Killfeed]: ・ >> {user1} {event} {user2} << ・ ',
-    firstJoin: {
-      fPoints: '#SetFamePoints 10 {userID}',
-      welcome1: ':[Welcome]: ・ Welcome to the Server @{user}!',
-      welcome2: ':[Welcome]: ・ Get your starterkit! Write: "/starterkit" in global-chat.',
-      welcome3: ':[Welcome]: ・ You can open chat with "T" and change the scope with "TAB".',
-      welcome4: ':[Welcome]: ・ If you have any questions, please don’t hesitate to contact us.'
-    },
     traps:
       ':[Traps]: ・ If you have just placed a trap, please note that this is only allowed in and immediately around your Base. Remove the mine if this is not the case.',
     sKit: {
@@ -135,8 +142,8 @@ module.exports = {
     },
     help: {
       m1: ':[Help]: ・ @{user}: Available commands (if bot is online):',
-      m2: ':[Help]: ・ /voteday, /votesun, /online, /restart, /joke, /starterkit, /time',
-      m3: ':[Help]: ・ (Most will only work in GLOBAL Chat! Press "TAB" to change chatroom)',
+      m2: ':[Help]: ・ /voteday, /votesun, /online, /restart, /starterkit, /shop, /transfer, /fasttravel, /whoami, /ping',
+      m3: ':[Help]: ・ (Most will only work in GLOBAL Chat! Open chat with "T" and press "TAB" to change chatroom)',
       m4: ':[Help]: ・ To see more commands check Discord: https://discord.gg/pZtw7NPdrZ'
     },
     joke: ':[Joke]: ・ {joke}',

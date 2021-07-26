@@ -531,7 +531,7 @@ function addStats(cmd, sUser, scope) {
   let pTime = getDuration(sUser.stats.totalPlaytime)
   cmd.addMessage(
     scope,
-    bms[action.user.lang].whoami.m1
+    bms['en'].whoami.m1
       .replace('{user}', sUser.char.name)
       .replace('{group}', global.userManager.groups[sUser.group].name)
       .replace('{date}', jD.date)
@@ -539,21 +539,18 @@ function addStats(cmd, sUser, scope) {
   )
   cmd.addMessage(
     scope,
-    bms[action.user.lang].whoami.m2
+    bms['en'].whoami.m2
       .replace('{logins}', sUser.stats.totalLogins)
       .replace('{playtime}', parseInt(pTime.d) * 24 + parseInt(pTime.h))
   )
   cmd.addMessage(
     scope,
-    bms[action.user.lang].whoami.m3
+    bms['en'].whoami.m3
       .replace('{local}', sUser.stats.totalMessages.local)
       .replace('{global}', sUser.stats.totalMessages.global)
       .replace('{squad}', sUser.stats.totalMessages.squad)
   )
-  cmd.addMessage(
-    scope,
-    bms[action.user.lang].whoami.m4.replace('{kills}', Object.keys(sUser.kills).length)
-  )
+  cmd.addMessage(scope, bms['en'].whoami.m4.replace('{kills}', Object.keys(sUser.kills).length))
 }
 
 function stampToDateTime(timestamp) {

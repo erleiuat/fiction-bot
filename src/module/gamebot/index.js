@@ -109,96 +109,94 @@ exports.sendFromLog = async function sendFromLog(action = false) {
   let userProps = global.userManager.getUserProperties(action.user)
   let cmd = new Command()
 
-  //try {
-  switch (action.type) {
-    case 'admin':
-      if (userProps.allowCommands.includes('#*')) break
-      if (userProps.allowCommands.includes(action.properties.command.toLowerCase())) break
-      await routines.forbiddenCommand(cmd, action)
-      await executeCommand(cmd)
-      break
+  try {
+    switch (action.type) {
+      case 'admin':
+        if (userProps.allowCommands.includes('#*')) break
+        if (userProps.allowCommands.includes(action.properties.command.toLowerCase())) break
+        await routines.forbiddenCommand(cmd, action)
+        await executeCommand(cmd)
+        break
 
-    case 'chat':
-      if (!action.properties.isCommand) break
-      if (!ready) break
-      let cmdKey = action.properties.value.split(' ')[0].trim().toLowerCase()
-      if (commands[cmdKey]) {
-        if (!commands[cmdKey].scopes.includes(action.properties.scope)) break
-        if (
-          userProps.allowBotCommands.includes('/*') ||
-          userProps.allowBotCommands.includes(cmdKey)
-        ) {
+      case 'chat':
+        if (!action.properties.isCommand) break
+        if (!ready) break
+        let cmdKey = action.properties.value.split(' ')[0].trim().toLowerCase()
+        if (commands[cmdKey]) {
+          if (!commands[cmdKey].scopes.includes(action.properties.scope)) break
           if (
-            !commands[cmdKey].cooldown ||
-            !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
-          )
-            await routines.chat[commands[cmdKey].routine](cmd, action)
-        } else {
+            userProps.allowBotCommands.includes('/*') ||
+            userProps.allowBotCommands.includes(cmdKey)
+          ) {
+            if (
+              !commands[cmdKey].cooldown ||
+              !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
+            )
+              await routines.chat[commands[cmdKey].routine](cmd, action)
+          } else {
+            cmd.addMessage(
+              sGlobal,
+              messages['en'].noPermission.replace('{user}', action.user.char.name)
+            )
+          }
+        } else if (action.properties.scope == 'global')
           cmd.addMessage(
             sGlobal,
-            messages['en'].noPermission.replace('{user}', action.user.char.name)
+            messages['en'].unknownCommand.replace('{user}', action.user.char.name)
           )
-        }
-      } else if (action.properties.scope == 'global')
+        await executeCommand(cmd)
+        break
+
+      case 'mine':
+        if (action.properties.action != 'armed') break
+        cmd.addMessage(sGlobal, messages['en'].in.traps)
+        await executeCommand(cmd)
+        break
+
+      case 'kill':
+        if (action.properties.event) break
+        let event = 'killed'
+        if (action.properties.type == 'comatosed') event = 'knocked out'
         cmd.addMessage(
           sGlobal,
-          messages['en'].unknownCommand.replace('{user}', action.user.char.name)
+          messages['en'].in.kill
+            .replace(
+              '{user1}',
+              action.properties.causer ? action.properties.causer.char.name : 'unknown'
+            )
+            .replace('{event}', event)
+            .replace('{user2}', action.user.char.name)
         )
-      await executeCommand(cmd)
-      break
+        await executeCommand(cmd)
+        break
 
-    case 'mine':
-      if (action.properties.action != 'armed') break
-      cmd.addMessage(sGlobal, messages['en'].in.traps)
-      await executeCommand(cmd)
-      break
-
-    case 'kill':
-      if (action.properties.event) break
-      let event = 'killed'
-      if (action.properties.type == 'comatosed') event = 'knocked out'
-      cmd.addMessage(
-        sGlobal,
-        messages['en'].in.kill
-          .replace(
-            '{user1}',
-            action.properties.causer ? action.properties.causer.char.name : 'unknown'
-          )
-          .replace('{event}', event)
-          .replace('{user2}', action.user.char.name)
-      )
-      await executeCommand(cmd)
-      break
-
-    case 'auth':
-      if (userProps.hideLogin || userProps.undercover) break
-      let uName = userProps.loginAnonym
-        ? '(Anonymous)'
-        : global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
-      if (action.properties.authType == 'login') {
-        cmd.addMessage(sGlobal, messages['en'].in.login.replace('{user}', uName))
-        if (action.user.stats.totalLogins <= 1) {
-          cmd.addMessage(
-            sGlobal,
-            messages['en'].pPos.firstJoin.replace('{userID}', action.user.steamID)
-          )
-          cmd.addMessage(sGlobal, '#SetFamePoints 10 ' + action.user.steamID)
-          cmd.addMessage(
-            sGlobal,
-            messages['en'].firstJoin.m1.replace('{user}', action.user.char.name)
-          )
-          cmd.addMessage(sGlobal, messages['en'].firstJoin.m2)
-        }
-      } else cmd.addMessage(sGlobal, messages['en'].in.logout.replace('{user}', uName))
-      await executeCommand(cmd)
-      break
-  }
-  /*
+      case 'auth':
+        if (userProps.hideLogin || userProps.undercover) break
+        let uName = userProps.loginAnonym
+          ? '(Anonymous)'
+          : global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
+        if (action.properties.authType == 'login') {
+          cmd.addMessage(sGlobal, messages['en'].in.login.replace('{user}', uName))
+          if (action.user.stats.totalLogins <= 1) {
+            cmd.addMessage(
+              sGlobal,
+              messages['en'].pPos.firstJoin.replace('{userID}', action.user.steamID)
+            )
+            cmd.addMessage(sGlobal, '#SetFamePoints 10 ' + action.user.steamID)
+            cmd.addMessage(
+              sGlobal,
+              messages['en'].firstJoin.m1.replace('{user}', action.user.char.name)
+            )
+            cmd.addMessage(sGlobal, messages['en'].firstJoin.m2)
+          }
+        } else cmd.addMessage(sGlobal, messages['en'].in.logout.replace('{user}', uName))
+        await executeCommand(cmd)
+        break
+    }
   } catch (error) {
     global.log.error(_SN + 'sendFromLog(): ERROR: ' + error + ' -> ' + JSON.stringify(action))
     routines.chat.reload_bot(cmd)
     cmd.addMessage()
     await executeCommand(cmd)
   }
-  */
 }

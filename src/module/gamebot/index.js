@@ -119,8 +119,30 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         break
 
       case 'chat':
-        if (!action.properties.isCommand) break
+        if (!ready) {
+          let i = 0
+          while (!ready && i < 5) {
+            await global.time.sleep(0.5)
+            i++
+          }
+        }
+
         if (!ready) break
+
+        if (!action.properties.isCommand) {
+          if (action.properties.scope != 'global') return
+          let s = action.properties.value
+          let numUpper = s.length - s.replace(/[A-Z]/g, '').length
+          if (numUpper > s.length * 0.9)
+            cmd.addMessage(
+              sGlobal,
+              messages[action.properties.user.lang].capslock.replace(
+                '{user}',
+                action.user.char.name
+              )
+            )
+        }
+
         let cmdKey = action.properties.value.split(' ')[0].trim().toLowerCase()
         if (commands[cmdKey]) {
           if (!commands[cmdKey].scopes.includes(action.properties.scope)) break

@@ -4,11 +4,11 @@ const botName = process.env.SETTING_BOT_NAME
 
 module.exports = {
   prefix: ' ・ ',
-  error: ':[Error]: ・ Something went wrong. Please try again or contact support.',
-  tooEarly: ':[Error]: ・ Sorry, you are too fast. Please wait {minutes} minutes.',
-  unknownUser: ':[Error]: ・ Sorry, I was not able to find the user {user}.',
-  noPermission: ':[Error]: ・ @{user}: Sorry, You don’t have enough permissions for this.',
-  unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
+  error: ':[Error]: ・ Etwas ging schief... Bitte versuche es erneut oder kontaktiere den Support.',
+  tooEarly: ':[Error]: ・ Entschuldigung, du bist zu schnell. Bitte warte {minutes} Minuten.',
+  unknownUser: ':[Error]: ・ Sorry, ich konnte den Benutzer {user} nicht finden.',
+  noPermission: ':[Error]: ・ @{user}: Sorry, du hast nicht genügend Berechtigungen dazu.',
+  unknownCommand: ':[Error]: ・ @{user}: Sorry, ich kenne diesen Befehl nicht.',
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
   lang: {
     unknown:
@@ -24,8 +24,8 @@ module.exports = {
   },
   newP: {
     m1: ':[New]: ・ Welcome to the Server @{user}!',
-    m2: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
-    m3: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m2: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m3: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
     m4: ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "/rules" command. Use "/rules" in local to get a list of the rules.',
     m5: ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
     m6: ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',
@@ -95,18 +95,18 @@ module.exports = {
       ':[Traps]: ・ If you have just placed a trap, please note that this is only allowed in and immediately around your Base. Remove the mine if this is not the case.',
     sKit: {
       illegal:
-        ':[Starterkit]: ・ @{user} you should have already received your starterkit ;) If not, please contact support.',
+        ':[Starterkit]: ・ @{user} du solltest dein Starterkit bereits erhalten haben ;) Wenn nicht, kontaktiere bitte den Support.',
       start1:
-        ':[Starterkit]: ・ @{user} you will be teleported to the trading-zone (green circle in B2) to receive your starterkit. Make sure you are ready and not driving a vehicle.',
+        ':[Starterkit]: ・ @{user} du wirst zur Handelszone (grüner Kreis in B2) teleportiert, um dein Starterkit zu erhalten. Stelle sicher, dass du bereit bist und kein Fahrzeug fährst.',
       start2:
-        ':[Starterkit]: ・ Type "/ready" when you are ready. You will get a quad to get out of the trading-zone again.',
+        ':[Starterkit]: ・ Schreibe "/ready", wenn du soweit bist. Du erhälst ein Quad, um wieder aus der Handelszone herauszukommen.',
       start3:
-        ':[Starterkit]: ・ @{user} you will be transported to the trading zone in a few seconds.',
-      done: ':[Starterkit]: ・ @{user} your starterkit should now be there and your Quad should be waiting for you outside.'
+        ':[Starterkit]: ・ @{user} du wirst in wenigen Sekunden in die Handelszone transportiert.',
+      done: ':[Starterkit]: ・ @{user} dein Starterkit sollte nun da sein und dein Quad sollte draußen auf dich warten.'
     }
   },
   shop: {
-    info: ':[Shop]: ・ @{user} Check https://shop.scumfiction.com/ to find our range of products! Then, use /buyitem [item_key] to buy something!',
+    info: ':[Shop]: ・ @{user} Besuche https://shop.scumfiction.com/ um unser Angebot zu finden! Verwende dann /buyitem [item_key], um etwas zu kaufen!',
     trans: {
       form: ':[Transfer]: ・ @{user} Use this format: /transfer [amount] [user]',
       notEnough: ':[Transfer]: ・ @{user} You don’t have enough famepoints for this transaction.',
@@ -116,16 +116,19 @@ module.exports = {
       started: ':[Transfer]: ・ @{user} Transaction started. Please wait...',
       somethingWrong: ':[Transfer]: ・ @{user} Something went wrong. Please try again.'
     },
-    pleaseWait: ':[Shop]: ・ @{user} Please be patient, your item should be there shortly.',
-    noItem: ':[Shop]: ・ @{user} you need to tell me what Item you want to buy.',
-    unknownItem: ':[Shop]: ・ @{user} I don’t know this item.',
-    notNearShop: ':[Shop]: ・ @{user} you need to be near the shop to buy things.',
-    notEnoughMoney: ':[Shop]: ・ @{user} you need at least {fame} Famepoints to buy this.',
+    pleaseWait:
+      ':[Shop]: ・ @{user} bitte hab etwas Geduld, dein Artikel sollte in Kürze bei dir sein.',
+    noItem: ':[Shop]: ・ @{user} du musst mir noch sagen, welchen Artikel due kaufen möchtest.',
+    unknownItem: ':[Shop]: ・ @{user} Ich kenne diesen Artikel nicht.',
+    notNearShop: ':[Shop]: ・ @{user} du musst in der Nähe des Shops sein um Dinge zu kaufen.',
+    notEnoughMoney:
+      ':[Shop]: ・ @{user} du brauchst mindestens {fame} Ruhmpunkte um das zu kaufen.',
     startSale:
-      ':[Shop]: ・ @{user} your purchase of {item} for {fame} Famepoints starts shortly. You will be teleported to your Item when it’s done.',
-    endSale: ':[Shop]: ・ @{user} you successfully bought {item} for {fame} Famepoints!',
-    somethingWrong: ':[Shop]: ・ Something went wrong. Please try again.'
+      ':[Shop]: ・ @{user} dein Kauf von {item} für {fame} Ruhmpunkte beginnt in Kürze. Du wirst zu deinem Artikel teleportiert, wenn es soweit ist.',
+    endSale: ':[Shop]: ・ @{user} du hast erfolgreich {item} für {fame} Ruhmpunkte gekauft!',
+    somethingWrong: ':[Shop]: ・ Es ist ein Fehler aufgetreten. Bitte versuche es erneut.'
   },
+
   pub: {
     travel: {
       info: ':[Travel]: ・ @{user}: Every trip costs 5 Famepoints. Available FastTravel-Stations: D0, B2, Z0, A3, D4',
@@ -141,11 +144,12 @@ module.exports = {
       sun: ':[Voting]: ・ Weather voting begins! (Sunny) Press "F2" or "F3" to vote!'
     },
     help: {
-      m1: ':[Help]: ・ @{user}: Available commands (if bot is online):',
+      m1: ':[Help]: ・ @{user}: Verfügbare Befehle (wenn der Bot online ist):',
       m2: ':[Help]: ・ /voteday, /votesun, /online, /restart, /starterkit, /shop, /transfer, /fasttravel, /whoami, /ping',
-      m3: ':[Help]: ・ (Most will only work in GLOBAL Chat! Open chat with "T" and press "TAB" to change chatroom)',
-      m4: ':[Help]: ・ To see more commands check Discord: https://discord.gg/pZtw7NPdrZ'
+      m3: ':[Help]: ・ (Die meisten funktionieren nur im GLOBAL-Chat! Öffnen den Chat mit "T" und drücke "TAB", um den Chatraum zu wechseln)',
+      m4: ':[Help]: ・ Um weitere Befehle zu sehen, besuche uns auf Discord: https://discord.gg/pZtw7NPdrZ'
     },
+
     joke: ':[Joke]: ・ {joke}',
     ping: ':[BadaBong]: ・ Pong direkt zurück an dich @{user} ;)',
     online: ':[Online]: ・ There are currently {players} Players online.',

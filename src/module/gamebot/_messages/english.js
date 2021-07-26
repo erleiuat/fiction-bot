@@ -24,8 +24,8 @@ module.exports = {
   },
   newP: {
     m1: ':[New]: ・ Welcome to the Server @{user}!',
-    m2: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
-    m3: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m2: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m3: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
     m4: ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "/rules" command. Use "/rules" in local to get a list of the rules.',
     m5: ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
     m6: ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',

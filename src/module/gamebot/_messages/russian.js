@@ -24,8 +24,8 @@ module.exports = {
   },
   newP: {
     m1: ':[New]: ・ Welcome to the Server @{user}!',
-    m2: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
-    m3: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m2: ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
+    m3: ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
     m4: ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "/rules" command. Use "/rules" in local to get a list of the rules.',
     m5: ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
     m6: ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',
@@ -141,10 +141,10 @@ module.exports = {
       sun: ':[Voting]: ・ Weather voting begins! (Sunny) Press "F2" or "F3" to vote!'
     },
     help: {
-      m1: ':[Help]: ・ @{user}: Available commands (if bot is online):',
+      m1: ':[Help]: ・ @{user}: Доступные команды (если бот находится в сети):',
       m2: ':[Help]: ・ /voteday, /votesun, /online, /restart, /starterkit, /shop, /transfer, /fasttravel, /whoami, /ping',
-      m3: ':[Help]: ・ (Most will only work in GLOBAL Chat! Open chat with "T" and press "TAB" to change chatroom)',
-      m4: ':[Help]: ・ To see more commands check Discord: https://discord.gg/pZtw7NPdrZ'
+      m3: ':[Help]: ・ (Большинство из них будут работать только в ГЛОБАЛЬНОМ чате! Откройте чат с помощью "T" и нажмите "TAB", чтобы изменить чат)',
+      m4: ':[Help]: ・ Чтобы увидеть больше команд, проверьте Discord: https://discord.gg/pZtw7NPdrZ'
     },
     joke: ':[Joke]: ・ {joke}',
     ping: ':[BadaBong]: ・ Pong прямо на тебя @{user} ;)',

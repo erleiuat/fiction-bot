@@ -136,10 +136,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
           if (numUpper > s.length * 0.9) {
             cmd.addMessage(
               sGlobal,
-              messages[action.properties.user.lang].capslock.replace(
-                '{user}',
-                action.user.char.name
-              )
+              messages['en'].capslock.replace('{user}', action.user.char.name)
             )
           }
           break

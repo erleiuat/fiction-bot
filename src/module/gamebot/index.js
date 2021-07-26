@@ -141,6 +141,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
                 action.user.char.name
               )
             )
+          break
         }
 
         let cmdKey = action.properties.value.split(' ')[0].trim().toLowerCase()

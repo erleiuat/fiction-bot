@@ -193,9 +193,9 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         await executeCommand(cmd)
         break
     }
-  } catch (error) {
-    global.log.error(_SN + 'sendFromLog(): ERROR-LINE: ' + error.lineNumber)
-    global.log.error(_SN + 'sendFromLog(): ERROR: ' + error)
+  } catch (e) {
+    global.log.error(_SN + 'sendFromLog(): ERROR-LINE: ' + e.lineNumber)
+    global.log.error(_SN + 'sendFromLog(): ERROR: ' + e)
     global.log.error(_SN + 'sendFromLog(): DATA: ' + JSON.stringify(action))
     routines.chat.reload_bot(cmd)
     cmd.addMessage()

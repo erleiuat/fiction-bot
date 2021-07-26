@@ -103,8 +103,9 @@ exports.sendFromDC = async function sendFromDC(action) {
   }
 }
 
-exports.sendFromLog = async function sendFromLog(action) {
+exports.sendFromLog = async function sendFromLog(action = false) {
   if (!started) return
+  if (!action) return
   let userProps = global.userManager.getUserProperties(action.user)
   let cmd = new Command()
 
@@ -193,7 +194,7 @@ exports.sendFromLog = async function sendFromLog(action) {
         break
     }
   } catch (error) {
-    global.log.error(_SN + 'sendFromLog(): ERROR: ' + error)
+    global.log.error(_SN + 'sendFromLog(): ERROR: ' + error + ' -> ' + action)
     routines.chat.reload_bot(cmd)
     cmd.addMessage()
     await executeCommand(cmd)

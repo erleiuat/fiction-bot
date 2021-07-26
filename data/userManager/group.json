@@ -3,6 +3,8 @@
     "isAdmin": false,
     "name": "Default",
     "allowBotCommands": [
+      "/new",
+      "/lang",
       "/connect",
       "/whoami",
       "/rules",

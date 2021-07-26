@@ -45,7 +45,8 @@ module.exports = {
     m1: ':[Stats]: ・ Name: {user} | Role: "{group}" | Joined: {date} at {time}',
     m2: ':[Stats]: ・ Total logins: {logins} | Total playtime: {playtime} hours',
     m3: ':[Stats]: ・ Messages - Local: {local} | Global: {global} | Squad: {squad}',
-    m4: ':[Stats]: ・ Kills: {kills} (including events and suicides)'
+    m4: ':[Stats]: ・ Warnings: Capslock {caps} | Spam - | Rules -',
+    m5: ':[Stats]: ・ Kills: {kills} (including events and suicides)'
   },
   rules: {
     intro: ':[Rules]: ・ These are the rules on the server. Check Discord for more details.',

@@ -551,7 +551,8 @@ function addStats(cmd, sUser, scope) {
       .replace('{global}', sUser.stats.totalMessages.global)
       .replace('{squad}', sUser.stats.totalMessages.squad)
   )
-  cmd.addMessage(scope, bms['en'].whoami.m4.replace('{kills}', Object.keys(sUser.kills).length))
+  cmd.addMessage(scope, bms['en'].whoami.m4.replace('{caps}', sUser.warning.capslock))
+  cmd.addMessage(scope, bms['en'].whoami.m5.replace('{kills}', Object.keys(sUser.kills).length))
 }
 
 function stampToDateTime(timestamp) {

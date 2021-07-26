@@ -130,10 +130,10 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (!ready) break
 
         if (!action.properties.isCommand) {
-          if (action.properties.scope != 'global') return
+          if (action.properties.scope != 'global') break
           let s = action.properties.value
           let numUpper = s.length - s.replace(/[A-Z]/g, '').length
-          if (numUpper > s.length * 0.9)
+          if (numUpper > s.length * 0.9) {
             cmd.addMessage(
               sGlobal,
               messages[action.properties.user.lang].capslock.replace(
@@ -141,6 +141,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
                 action.user.char.name
               )
             )
+          }
           break
         }
 

@@ -70,7 +70,11 @@ module.exports = class UserManager {
     let def = this.groups['_default']
     let group = this.groups[user.group]
 
-    let merged = { group: user.group }
+    let merged = {
+      group: user.group,
+      undercover: user.undercover
+    }
+
     merged = merge(merged, def, group, user.overwrite)
 
     let properties = {

@@ -9,51 +9,51 @@ function initSchedules() {
   schedules = {
     '5:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart1 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
     },
     '5:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart2 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
     },
     '5:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart3 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     },
     '11:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart1 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
     },
     '11:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart2 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
     },
     '11:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart3 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     },
     '17:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart1 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
     },
     '17:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart2 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
     },
     '17:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart3 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     },
     '23:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart1 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
     },
     '23:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart2 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
     },
     '23:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs.schedule.restart3 }]
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     }
   }
 }

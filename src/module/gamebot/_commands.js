@@ -8,6 +8,11 @@ exports.commands = {
     cooldown: null
   },
   */
+  '/lang': {
+    routine: 'set_lang',
+    scopes: ['squad', 'global', 'local'],
+    cooldown: null
+  },
   '/whois': {
     routine: 'whois_stats',
     scopes: ['local', 'global'],

@@ -1,17 +1,8 @@
-/* eslint prettier/prettier: ["error", { printWidth: 200 }] */
-
-/*
-    Placeholders:
-        {userID} = Users Steam-ID
-        {user[...]} = Name of the user
-        {msg[...]} = Placeholder for custom messages
-*/
-
 //const botName = 'scumfiction'
 //const botName = 'Chris P. Bacon'
 const botName = process.env.SETTING_BOT_NAME
 
-exports.messages = {
+module.exports = {
   prefix: ' ・ ',
   error: ':[Error]: ・ Something went wrong. Please try again or contact support.',
   tooEarly: ':[Error]: ・ Sorry, you are too fast. Please wait {minutes} minutes.',
@@ -19,6 +10,14 @@ exports.messages = {
   noPermission: ':[Error]: ・ @{user}: Sorry, You don’t have enough permissions for this.',
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
+  lang: {
+    unknown:
+      ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',
+    list: ':[Lang]: ・ @{user}: You can switch between these languages: english, german, russian',
+    ger: ':[Lang]: ・ @{user}: Language set to German.',
+    eng: ':[Lang]: ・ @{user}: Language set to English.',
+    rus: ':[Lang]: ・ @{user}: Language set to Russian.'
+  },
   tChnl: {
     needName: ':[Teams]: ・ Please tell me the name you’d like to use ("/team create [team-name]")'
   },
@@ -141,7 +140,7 @@ exports.messages = {
       m4: ':[Help]: ・ To see more commands check Discord: https://discord.gg/pZtw7NPdrZ'
     },
     joke: ':[Joke]: ・ {joke}',
-    ping: ':[BadaBong]: ・ Pong right back at you @{user} ;)',
+    ping: ':[BadaBong]: ・ Pong прямо на тебя @{user} ;)',
     online: ':[Online]: ・ There are currently {players} Players online.',
     time: ':[Time]: ・ It is currently about {time}',
     restart: ':[Restart]: ・ Next restart will be in: {hours} hours and {minutes} minutes.'

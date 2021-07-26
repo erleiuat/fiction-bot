@@ -1,11 +1,11 @@
 const _SN = '[MODULE][GAMEBOT] -> '
 
 const playerReporter = require('./playerReporter')
-const messages = require('./_messages').messages
+const messages = require('./_messages/')
 const commands = require('./_commands').commands
 const bot = require('../../service/bot/')
 const schedule = require('./schedule')
-const routines = require('./routines')
+const routines = require('./routines/')
 const Command = require('./command')
 
 let run = false
@@ -19,6 +19,8 @@ exports.ready = ready
 
 exports.start = async function start(dcClient) {
   routines.init(messages, sLocal, sGlobal)
+  routines.chat.init(messages, sLocal, sGlobal)
+
   new Command().init(messages, sLocal, sGlobal)
   schedule.start(messages, sLocal, sGlobal)
 
@@ -129,7 +131,7 @@ exports.sendFromLog = async function sendFromLog(action) {
               !commands[cmdKey].cooldown ||
               !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
             )
-              await routines[commands[cmdKey].routine](cmd, action)
+              await routines.chat[commands[cmdKey].routine](cmd, action)
           } else {
             cmd.addMessage(sGlobal, messages.noPermission.replace('{user}', action.user.char.name))
           }
@@ -191,7 +193,7 @@ exports.sendFromLog = async function sendFromLog(action) {
     }
   } catch (error) {
     global.log.error(_SN + 'sendFromLog(): ERROR: ' + error)
-    routines.reload_bot(cmd)
+    routines.chat.reload_bot(cmd)
     cmd.addMessage()
     await executeCommand(cmd)
   }

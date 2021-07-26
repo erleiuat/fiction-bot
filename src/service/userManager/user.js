@@ -2,6 +2,7 @@ module.exports = class User {
   steamID = null
   discordID = null
 
+  lang = 'en'
   group = null
   overwrite = {}
   undercover = false

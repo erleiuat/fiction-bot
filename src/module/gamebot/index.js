@@ -136,10 +136,15 @@ exports.sendFromLog = async function sendFromLog(action = false) {
             s.length -
             s.toString().replace(/[A-Z]/g, '').replace(/\s/g, '').replace(/\d+/g, '').length
           if (numUpper > s.replace(/\s/g, '').length * 0.95 && s.length > 5) {
-            cmd.addMessage(
-              sGlobal,
-              messages['en'].capslock.replace('{user}', action.user.char.name)
-            )
+            action.user.warning.capslockCounter++
+            if (action.user.warning.capslockCounter > 3) {
+              action.user.warning.capslockCounter = 0
+              action.user.warning.capslock++
+              cmd.addMessage(
+                sGlobal,
+                messages['en'].capslock.replace('{user}', action.user.char.name)
+              )
+            }
             await executeCommand(cmd)
           }
           break

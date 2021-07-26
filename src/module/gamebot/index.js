@@ -138,6 +138,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
               sGlobal,
               messages['en'].capslock.replace('{user}', action.user.char.name)
             )
+            await executeCommand(cmd)
           }
           break
         }

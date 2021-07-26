@@ -487,6 +487,7 @@ async function execScript(scriptName) {
     global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
     await global.time.sleep(5)
     global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
+    if (global.args.includes('test')) return
     const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
     child.on('data', data => console.log(data))
     child.on('error', error => console.log(error))

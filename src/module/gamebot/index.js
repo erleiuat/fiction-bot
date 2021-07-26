@@ -132,8 +132,10 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (!action.properties.isCommand) {
           if (action.properties.scope != 'global') break
           let s = action.properties.value
-          let numUpper = s.length - s.replace(/[A-Z]/g, '').length
-          if (numUpper > s.length * 0.9) {
+          let numUpper =
+            s.length -
+            s.toString().replace(/[A-Z]/g, '').replace(/\s/g, '').replace(/\d+/g, '').length
+          if (numUpper > s.replace(/\s/g, '').length * 0.95 && s.length > 5) {
             cmd.addMessage(
               sGlobal,
               messages['en'].capslock.replace('{user}', action.user.char.name)

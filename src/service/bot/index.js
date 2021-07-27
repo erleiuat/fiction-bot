@@ -7,7 +7,8 @@ exports.execute = async function execute(cmdObj) {
   if (!cmdObj || !cmdObj.commands || !cmdObj.commands.length) return
 
   let resp = {
-    error: false
+    error: false,
+    status: 'success'
   }
 
   for (const command of cmdObj.commands) {

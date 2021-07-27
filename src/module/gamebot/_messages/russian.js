@@ -94,7 +94,7 @@ module.exports = {
     logout: ' ・ >> {user} left << ・ ',
     kill: ':[Killfeed]: ・ >> {user1} {event} {user2} << ・ ',
     traps:
-      ':[Traps]: ・ If you have just placed a trap, please note that this is only allowed in and immediately around your Base. Remove the mine if this is not the case.',
+      ':[Traps]: ・ If you have just placed a trap, please note that this is only allowed in and immediately around your Base. Remove the trap if this is not the case.',
     sKit: {
       illegal:
         ':[Starterkit]: ・ @{user} you should have already received your starterkit ;) If not, please contact support.',

@@ -68,6 +68,8 @@ module.exports = {
   },
   schedule: {
     restart1: '#Announce Restart in 5 minutes!',
+    backup:
+      ':[Restart-Info]: ・ There will be 2 restarts shortly after each other now. The first one will be at 5:55 and the second at 6:00. The Server should be back online at about 6:03.',
     restart2:
       ':[Restart-Info]: ・ Don’t drive and make sure there are no valuable items on the floor!',
     restart3: '#Announce Restart in 1 minute!'

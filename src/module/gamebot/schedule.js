@@ -7,13 +7,21 @@ let sLocal = 'local'
 
 function initSchedules() {
   schedules = {
-    '5:55': {
+    '5:50': {
       type: 'messages',
       values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
     },
-    '5:57': {
+    '5:52': {
+      type: 'messages',
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.backup }]
+    },
+    '5:53': {
       type: 'messages',
       values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
+    },
+    '5:54': {
+      type: 'messages',
+      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     },
     '5:59': {
       type: 'messages',

@@ -28,6 +28,7 @@ module.exports = {
   },
   deactivate_mine: function (cmd, action) {
     let mineKey = action.properties.value.split(' ')[1]
+    global.log.debug(_SN + 'Deactivating Mine: ' + mineKey)
     let mine = global.mineManager.getMineByKey(mineKey)
     if (!mine) {
       cmd.addMessage(sLocal, bms['en'].deactMineNotFound)

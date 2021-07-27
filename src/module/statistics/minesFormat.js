@@ -30,7 +30,7 @@ exports.format = function format(list) {
         '\n'
 
     let msg = new Discord.MessageEmbed({
-      title: mine.key,
+      title: '`' + mine.key + '`',
       color: 'F3EA5F',
       files: [new Discord.MessageAttachment(fPath + fName, fName)],
       image: {

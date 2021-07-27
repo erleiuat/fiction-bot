@@ -30,7 +30,7 @@ module.exports = class MineManager {
 
     let minesCache = JSON.parse(fs.readFileSync('./data/mineManager/mines.json'))
     for (const u in minesCache)
-      this.mines[u.toString()] = Object.assign(
+      this.mines[minesCache[u].key] = Object.assign(
         new Mine(minesCache[u], minesCache[u].created, minesCache[u].image),
         minesCache[u]
       )

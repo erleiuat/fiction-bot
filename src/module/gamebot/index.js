@@ -196,10 +196,8 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         break
 
       case 'auth':
-        if (userProps.hideLogin || userProps.undercover) break
-        let uName = userProps.loginAnonym
-          ? '(Anonymous)'
-          : global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
+        if (userProps.hideLogin || userProps.undercover || userProps.loginAnonym) break
+        let uName = global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
         if (action.properties.authType == 'login') {
           cmd.addMessage(sGlobal, messages['en'].in.login.replace('{user}', uName))
           if (action.user.stats.totalLogins <= 1) {

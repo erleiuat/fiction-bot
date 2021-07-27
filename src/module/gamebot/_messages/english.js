@@ -33,7 +33,7 @@ module.exports = {
     m5: ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
     m6: ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',
     m7: ':[New]: ・ There are quite a few more commands available. Get a list of some important ones by writing "/help".',
-    m8: ':[New]: ・ To see all commands as well as tons of other features, join our Discord! https://discord.gg/pZtw7NPdrZ'
+    m8: ':[New]: ・ To see all commands as well as tons of other features, join our Discord! discord.gg/9NH3GFjn9U'
   },
   tChnl: {
     needName: ':[Teams]: ・ Please tell me the name you’d like to use ("/team create [team-name]")'

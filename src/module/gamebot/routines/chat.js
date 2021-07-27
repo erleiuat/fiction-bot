@@ -67,6 +67,10 @@ module.exports = {
     cmd.addMessage(scope, ':[Wot]: ・ ...is going on here')
     cmd.addMessage(scope, ':[Wot]: ・ BREKFEST')
   },
+  vote_night: function (cmd, action = null) {
+    cmd.addMessage(sGlobal, bms[action.user.lang].pub.vote.night)
+    cmd.addMessage(sGlobal, '#vote SetTimeOfDay 22')
+  },
   vote_weather_sun: function (cmd, action = null) {
     cmd.addMessage(sGlobal, bms[action.user.lang].pub.vote.sun)
     cmd.addMessage(sGlobal, '#vote SetWeather 0')

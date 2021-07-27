@@ -29,6 +29,27 @@ module.exports = class Mine {
     this.location.z = mProps.location.z
   }
 
+  deactivate(user, timestamp) {
+    let key = timestamp + '_deactivate'
+    if (this.events[key]) return false
+
+    let event = {
+      timestamp: timestamp,
+      action: 'deactivated',
+      causer: {
+        steamID: user.steamID,
+        char: {
+          id: user.char.id,
+          name: user.char.name
+        }
+      }
+    }
+
+    this.active = false
+    this.events[key] = event
+    return true
+  }
+
   handleEvent(mProps, user, timestamp) {
     let key = timestamp + '_' + mProps.action
     if (this.events[key]) return false

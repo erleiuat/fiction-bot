@@ -70,6 +70,25 @@ async function iterateStatistics() {
   playersSts()
   playersOnlineSts()
   minesActiveSts()
+  minesInactiveSts()
+}
+
+async function minesInactiveSts() {
+  let dataCache = ''
+  do {
+    await go()
+
+    let data = global.mineManager.getInactiveMines()
+    if (dataCache != JSON.stringify(data)) {
+      global.log.info(_SN + 'Updating "MinesInactive"')
+      await cleanUp(channels.minesInactive)
+      let msgs = minesFormat.formatInactive(data)
+      for (const msg of msgs) if (msg && msg.length > 0) await channels.minesInactive.send(msg)
+      dataCache = JSON.stringify(data)
+    }
+
+    await global.time.sleep(120)
+  } while (true)
 }
 
 async function minesActiveSts() {

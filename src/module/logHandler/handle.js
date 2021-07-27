@@ -353,7 +353,7 @@ function formMineProps(mineString, actUser, timestamp) {
   }
 
   if (owner && owner.steamID)
-    key = locationKey + owner.steamID + '_' + type.split(' ')[0].toLowerCase() + '_'
+    key = timestamp + '_' + owner.steamID + '_' + type.split(' ')[0].toLowerCase()
 
   return {
     key: key,

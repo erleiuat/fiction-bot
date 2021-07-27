@@ -11,6 +11,8 @@ module.exports = {
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
   capslock: ':[Warn]: ・ @{user}: Please don’t write in capslock too much <3',
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
+  deactMine: ' ・ (Mine has been deactivated)',
+  deactMineNotFound: ' ・ (Mine not found)',
   lang: {
     unknown:
       ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',

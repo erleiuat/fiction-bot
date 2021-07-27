@@ -1,7 +1,7 @@
 {
   "_default": {
     "isAdmin": false,
-    "name": "Default",
+    "name": "def",
     "allowBotCommands": [
       "/new",
       "/lang",
@@ -89,8 +89,8 @@
   },
   "moderators": {
     "isAdmin": true,
-    "name": "MOD",
-    "allowBotCommands": ["/reload", "/reboot", "/welcome", "/reset", "/whois"],
+    "name": "Mod",
+    "allowBotCommands": ["/*"],
     "hideCommandAlarms": [
       "#Kick",
       "#Vote",

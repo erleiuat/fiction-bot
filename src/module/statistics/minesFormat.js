@@ -1,5 +1,10 @@
 const _SN = '[MODULE][STATISTICS][MINESACTIVE] -> '
 
+const spaces1 = ''
+const spaces2 = '\u0020\u0020\u0020\u0020\u0020\u0020'
+const spaces3 = '\u0020\u0020\u0020\u0020\u0020\u0020\u0020\u0020'
+const divider = '\u200b\n--------------------------------------------------------------\n\n\u200b'
+
 const Discord = require('discord.js')
 
 exports.format = function format(list) {
@@ -25,7 +30,7 @@ exports.format = function format(list) {
         '\n'
 
     let msg = new Discord.MessageEmbed({
-      title: 'MINE #' + i,
+      title: mine.key,
       color: 'F3EA5F',
       files: [new Discord.MessageAttachment(fPath + fName, fName)],
       image: {
@@ -57,6 +62,68 @@ exports.format = function format(list) {
 
     tmpMsgs.push(msg)
   }
+  return tmpMsgs
+}
+
+exports.formatInactive = function formatInactive(listObj) {
+  let tmpMsgs = []
+  let total = 0
+
+  let msgEntry = ''
+  for (const key in listObj) {
+    let mine = listObj[key]
+    total++
+
+    let mEvents = ''
+    for (const key in mine.events) {
+      mEvents +=
+        '\n' +
+        spaces3 +
+        formatTimestamp(mine.events[key].timestamp) +
+        ': ' +
+        mine.events[key].action
+    }
+
+    let mEntry =
+      spaces1 +
+      '`' +
+      mine.key +
+      '`\n' +
+      spaces2 +
+      'Type: ' +
+      mine.type +
+      '\n' +
+      spaces2 +
+      'Created: ' +
+      formatTimestamp(mine.created) +
+      '\n' +
+      spaces2 +
+      'Owner: ' +
+      mine.owner.char.name +
+      '\n' +
+      spaces2 +
+      'Events: ' +
+      mEvents +
+      '\n' +
+      divider
+
+    if (msgEntry.length + mEntry.length >= 2000) {
+      tmpMsgs.push(msgEntry)
+      msgEntry = ''
+    }
+
+    msgEntry += mEntry
+  }
+
+  let totalMsg = '\u200b\n\n**TOTAL:** ' + total + '\n\u200b'
+  if (msgEntry.length + totalMsg.length >= 2000) {
+    tmpMsgs.push(msgEntry)
+    msgEntry = ''
+  }
+
+  msgEntry += totalMsg
+  tmpMsgs.push(msgEntry)
+
   return tmpMsgs
 }
 

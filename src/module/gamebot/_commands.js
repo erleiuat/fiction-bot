@@ -8,6 +8,11 @@ exports.commands = {
     cooldown: null
   },
   */
+  '/deactivatemine': {
+    routine: 'deactivate_mine',
+    scopes: ['squad', 'global', 'local'],
+    cooldown: null
+  },
   '/new': {
     routine: 'new_player',
     scopes: ['squad', 'global', 'local'],

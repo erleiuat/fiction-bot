@@ -26,6 +26,16 @@ module.exports = {
     sLocal = scopeLocal
     bms = msgs
   },
+  deactivate_mine: function (cmd, action) {
+    let mineKey = action.properties.value.split(' ')[1]
+    let mine = global.mineManager.getMineByKey(mineKey)
+    if (!mine) {
+      cmd.addMessage(sLocal, bms['en'].deactMineNotFound)
+      return
+    }
+    if (mine.deactivate(action.user, action.timestamp)) cmd.addMessage(sLocal, bms['en'].deactMine)
+    global.mineManager.saveChanges()
+  },
   new_player: function (cmd, action) {
     cmd.addMessage(sLocal, bms[action.user.lang].newP.m1.replace('{user}', action.user.char.name))
     cmd.addMessage(sLocal, bms[action.user.lang].newP.m2)

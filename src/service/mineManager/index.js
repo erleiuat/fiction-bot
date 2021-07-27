@@ -10,40 +10,46 @@ module.exports = class MineManager {
   mines = {}
 
   constructor() {
-    this.syncLists()
-    this.saveChanges()
+    if (!fs.existsSync('./data/mineManager/'))
+      fs.mkdirSync('./data/mineManager/', { recursive: true })
+    this.loadCached()
+    this.iterateSave()
   }
 
   getFullImagePath(mine) {
     return this.imagePath + mine.image
   }
 
-  async syncLists() {
-    do {
-      while (!this.#run) await global.time.sleep(0.05)
-      this.#run = false
+  loadCached() {
+    if (!fs.existsSync('./data/mineManager/mines.json')) {
+      this.mines = {}
+      return
+    }
 
-      this.mines = JSON.parse(fs.readFileSync('./data/mineManager/mines.json'))
-      let minesCache = JSON.parse(fs.readFileSync('./data/mineManager/mines.json'))
-      for (const u in minesCache)
-        this.mines[u.toString()] = Object.assign(
-          new Mine(minesCache[u], minesCache[u].created, minesCache[u].image),
-          minesCache[u]
-        )
+    this.#run = false
 
-      this.#run = true
-      await global.time.sleep(60)
-    } while (false)
+    let minesCache = JSON.parse(fs.readFileSync('./data/mineManager/mines.json'))
+    for (const u in minesCache)
+      this.mines[u.toString()] = Object.assign(
+        new Mine(minesCache[u], minesCache[u].created, minesCache[u].image),
+        minesCache[u]
+      )
+
+    this.#run = true
   }
 
-  async saveChanges() {
+  async iterateSave() {
     do {
       while (!this.#run) await global.time.sleep(0.05)
-      this.#run = false
-      fs.writeFileSync('./data/mineManager/mines.json', JSON.stringify(this.mines))
-      this.#run = true
-      await global.time.sleep(5)
+      this.saveChanges()
+      await global.time.sleep(60)
     } while (true)
+  }
+
+  saveChanges() {
+    this.#run = false
+    fs.writeFileSync('./data/mineManager/mines.json', JSON.stringify(this.mines))
+    this.#run = true
   }
 
   locationToKey(loc) {

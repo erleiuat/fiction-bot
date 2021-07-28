@@ -51,6 +51,11 @@ function initSchedules() {
       type: 'messages',
       values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     },
+    '23:58': {
+      type: 'messages',
+      values: [{ scope: sGlobal, content: '(Restart at 00:00 will be skipped)' }]
+    }
+    /*
     '23:55': {
       type: 'messages',
       values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
@@ -63,6 +68,7 @@ function initSchedules() {
       type: 'messages',
       values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
     }
+    */
   }
 }
 

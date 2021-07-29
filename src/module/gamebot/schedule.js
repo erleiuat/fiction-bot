@@ -1,7 +1,7 @@
 const _SN = '[MODULE][GAMEBOT][SCHEDULE] -> '
 
 let schedules = null
-let botMsgs = null
+let bms = null
 let sGlobal = 'local'
 let sLocal = 'local'
 
@@ -9,47 +9,47 @@ function initSchedules() {
   schedules = {
     '5:50': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.1', 'def') }]
     },
     '5:52': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.backup }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.backup', 'def') }]
     },
     '5:53': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.2', 'def') }]
     },
     '5:54': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.3', 'def') }]
     },
     '5:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.3', 'def') }]
     },
     '11:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.1', 'def') }]
     },
     '11:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.2', 'def') }]
     },
     '11:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.3', 'def') }]
     },
     '17:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.1', 'def') }]
     },
     '17:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.2', 'def') }]
     },
     '17:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart.3', 'def') }]
     },
     '23:58': {
       type: 'messages',
@@ -58,24 +58,24 @@ function initSchedules() {
     /*
     '23:55': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart1 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart1 }]
     },
     '23:57': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart2 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart2 }]
     },
     '23:59': {
       type: 'messages',
-      values: [{ scope: sGlobal, content: botMsgs['en'].schedule.restart3 }]
+      values: [{ scope: sGlobal, content: bms.get('schedule.restart3 }]
     }
     */
   }
 }
 
-exports.start = async function start(msgs, scopeLocal, scopeGlobal) {
-  sGlobal = scopeGlobal
+exports.start = async function start(botMessages, scopeLocal, scopeGlobal) {
+  bms = botMessages
   sLocal = scopeLocal
-  botMsgs = msgs
+  sGlobal = scopeGlobal
   initSchedules()
 
   do {

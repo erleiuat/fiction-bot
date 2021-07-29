@@ -1,6 +1,4 @@
-/* eslint prettier/prettier: ["error", { printWidth: 200 }] */
-
-exports.commands = {
+module.exports = {
   /*
   '/team': {
     routine: 'team_channel',

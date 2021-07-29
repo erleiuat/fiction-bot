@@ -5,19 +5,19 @@ let sGlobal = null
 let sLocal = null
 
 module.exports = {
-  init: function (msgs, scopeLocal, scopeGlobal) {
-    sGlobal = scopeGlobal
-    sLocal = scopeLocal
-    bms = msgs
-  },
   chat: require('./chat'),
+  init: function (botMessages, scopeLocal, scopeGlobal) {
+    bms = botMessages
+    sLocal = scopeLocal
+    sGlobal = scopeGlobal
+  },
   botStart: function (cmd, action = null) {
-    cmd.addMessage(sLocal, bms['en'].fName)
+    cmd.addMessage(sLocal, bms.get('fName', 'def'))
     cmd.addMessage(sLocal, '#ListAnimals')
     cmd.addMessage(sLocal, '#ShowOtherPlayerInfo true')
     cmd.addMessage(sLocal, '#ShowFlagLocations true')
-    cmd.addMessage(sLocal, bms['en'].pos.idle)
-    cmd.addMessage(sGlobal, bms['en'].start.ready)
+    cmd.addMessage(sLocal, bms.get('pos.idle', 'def'))
+    cmd.addMessage(sGlobal, bms.get('start.ready', 'def'))
   },
   playerReport: function (cmd, action = null) {
     cmd.addAction('playerReport', true)
@@ -46,6 +46,6 @@ module.exports = {
   dcMessage: function (cmd, action) {
     cmd.addMessage(sGlobal, '#SetFakeName ' + action.properties.useName)
     cmd.addMessage(sGlobal, action.properties.message)
-    cmd.addMessage(sGlobal, bms['en'].fName)
+    cmd.addMessage(sGlobal, bms.get('fName', 'def'))
   }
 }

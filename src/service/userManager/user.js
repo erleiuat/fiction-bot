@@ -1,5 +1,3 @@
-const { capslock } = require('../../module/gamebot/_messages/russian')
-
 module.exports = class User {
   steamID = null
   discordID = null

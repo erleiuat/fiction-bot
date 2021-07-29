@@ -1,8 +1,8 @@
 const _SN = '[MODULE][GAMEBOT] -> '
 
 const playerReporter = require('./playerReporter')
-const messages = require('./_messages/')
-const commands = require('./_commands').commands
+const bms = require('./_messages')
+const commands = require('./_commands')
 const bot = require('../../service/bot/')
 const schedule = require('./schedule')
 const routines = require('./routines/')
@@ -18,11 +18,11 @@ exports.executeCommand = executeCommand
 exports.ready = ready
 
 exports.start = async function start(dcClient) {
-  routines.init(messages, sLocal, sGlobal)
-  routines.chat.init(messages, sLocal, sGlobal)
+  routines.init(bms, sLocal, sGlobal)
+  routines.chat.init(bms, sLocal, sGlobal)
 
-  new Command().init(messages, sLocal, sGlobal)
-  schedule.start(messages, sLocal, sGlobal)
+  new Command().init(bms, sLocal, sGlobal)
+  schedule.start(bms, sLocal, sGlobal)
 
   let state = { status: 'success' }
   if (!global.args.includes('test')) {
@@ -138,7 +138,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
               action.user.warning.capslock++
               cmd.addMessage(
                 sGlobal,
-                messages['en'].capslock.replace('{user}', action.user.char.name)
+                messages[action.user.lang].capslock.replace('{user}', action.user.char.name)
               )
               await executeCommand(cmd)
             }
@@ -161,20 +161,20 @@ exports.sendFromLog = async function sendFromLog(action = false) {
           } else {
             cmd.addMessage(
               sGlobal,
-              messages['en'].noPermission.replace('{user}', action.user.char.name)
+              messages[action.user.lang].noPermission.replace('{user}', action.user.char.name)
             )
           }
         } else if (action.properties.scope == 'global')
           cmd.addMessage(
             sGlobal,
-            messages['en'].unknownCommand.replace('{user}', action.user.char.name)
+            messages[action.user.lang].unknownCommand.replace('{user}', action.user.char.name)
           )
         await executeCommand(cmd)
         break
 
       case 'mine':
         if (action.properties.action != 'armed') break
-        cmd.addMessage(sGlobal, messages['en'].in.traps)
+        cmd.addMessage(sGlobal, messages[action.user.lang].traps)
         await executeCommand(cmd)
         break
 
@@ -184,7 +184,8 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (action.properties.type == 'comatosed') event = 'knocked out'
         cmd.addMessage(
           sGlobal,
-          messages['en'].in.kill
+          bms
+            .get('kill', 'def')
             .replace(
               '{user1}',
               action.properties.causer ? action.properties.causer.char.name : 'unknown'
@@ -199,20 +200,20 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (userProps.hideLogin || userProps.undercover || userProps.loginAnonym) break
         let uName = global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
         if (action.properties.authType == 'login') {
-          cmd.addMessage(sGlobal, messages['en'].in.login.replace('{user}', uName))
+          cmd.addMessage(sGlobal, bms.get('login', 'def').replace('{user}', uName))
           if (action.user.stats.totalLogins <= 1) {
             cmd.addMessage(
               sGlobal,
-              messages['en'].pPos.firstJoin.replace('{userID}', action.user.steamID)
+              bms.get('pPos.firstJoin', 'def').replace('{userID}', action.user.steamID)
             )
             cmd.addMessage(sGlobal, '#SetFamePoints 10 ' + action.user.steamID)
             cmd.addMessage(
               sGlobal,
-              messages['en'].firstJoin.m1.replace('{user}', action.user.char.name)
+              bms.get('firstJoin.m1', 'def').replace('{user}', action.user.char.name)
             )
-            cmd.addMessage(sGlobal, messages['en'].firstJoin.m2)
+            cmd.addMessage(sGlobal, bms.get('firstJoin.m2', 'def'))
           }
-        } else cmd.addMessage(sGlobal, messages['en'].in.logout.replace('{user}', uName))
+        } else cmd.addMessage(sGlobal, bms.get('logout', 'def').replace('{user}', uName))
         await executeCommand(cmd)
         break
     }

@@ -184,7 +184,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (action.properties.type == 'comatosed') event = 'knocked out'
         cmd.addMessage(
           sGlobal,
-          bms
+          await bms
             .get('kill', 'def')
             .replace(
               '{user1}',
@@ -204,16 +204,16 @@ exports.sendFromLog = async function sendFromLog(action = false) {
           if (action.user.stats.totalLogins <= 1) {
             cmd.addMessage(
               sGlobal,
-              bms.get('pPos.firstJoin', 'def').replace('{userID}', action.user.steamID)
+              await bms.get('pPos.firstJoin', 'def').replace('{userID}', action.user.steamID)
             )
             cmd.addMessage(sGlobal, '#SetFamePoints 10 ' + action.user.steamID)
             cmd.addMessage(
               sGlobal,
-              bms.get('firstJoin.m1', 'def').replace('{user}', action.user.char.name)
+              await bms.get('firstJoin.m1', 'def').replace('{user}', action.user.char.name)
             )
-            cmd.addMessage(sGlobal, bms.get('firstJoin.m2', 'def'))
+            cmd.addMessage(sGlobal, await bms.get('firstJoin.m2', 'def'))
           }
-        } else cmd.addMessage(sGlobal, bms.get('logout', 'def').replace('{user}', uName))
+        } else cmd.addMessage(sGlobal, await bms.get('logout', 'def').replace('{user}', uName))
         await executeCommand(cmd)
         break
     }

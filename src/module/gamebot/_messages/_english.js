@@ -11,15 +11,15 @@ module.exports = {
 
   'lang.unknown':
     ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',
-  'lang.list.1': ':[Lang]: ・ @{user}: You can switch between these languages: ',
+  'lang.list.1':
+    ':[Lang]: ・ @{user}: You can switch between these languages: (use "/lang [language]" to change).',
   'lang.list.2':
     ':[Lang]: ・ @{user}: english, german, russian, bulgarian, spanish, french, italian, japanese, polish',
   'lang.set': ':[Lang]: ・ @{user}: Language set to {language}.',
 
   'newP.m1': ':[New]: ・ Welcome to the Server @{user}!',
   'newP.m2': ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
-  'newP.m3':
-    ':[New]: ・ You can change the language I use to speak with you by writing: "/lang" (early-access feature, not complete)',
+  'newP.m3': ':[New]: ・ You can change the language I use to speak with you by writing: "/lang"',
   'newP.m4':
     ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "/rules" command. Use "/rules" in local to get a list of the rules.',
   'newP.m5':
@@ -40,7 +40,7 @@ module.exports = {
 
   'rules.intro': ':[Rules]: ・ These are the rules on the server. Check Discord for more details.',
   'rules.notFound': ':[Rules]: ・ There is no rule #{number}',
-  'rules.rules': [
+  'rules.list': [
     ':[Rules]: ・ #1 DBAA / Don’t be an asshole',
     ':[Rules]: ・ #2 No purposeless destruction',
     ':[Rules]: ・ #3 No destruction of vehicles',

@@ -32,7 +32,7 @@ exports.start = async function start(dcClient) {
 
   if (state.status == 'success') {
     let cmd = new Command(true)
-    routines.botStart(cmd)
+    await routines.botStart(cmd)
     run = true
     await executeCommand(cmd)
     global.log.info(_SN + 'Started')
@@ -138,7 +138,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
               action.user.warning.capslock++
               cmd.addMessage(
                 sGlobal,
-                messages[action.user.lang].capslock.replace('{user}', action.user.char.name)
+                await bms.get('capslock', action.user.lang, { '{user}': action.user.char.name })
               )
               await executeCommand(cmd)
             }
@@ -161,13 +161,13 @@ exports.sendFromLog = async function sendFromLog(action = false) {
           } else {
             cmd.addMessage(
               sGlobal,
-              messages[action.user.lang].noPermission.replace('{user}', action.user.char.name)
+              await bms.get('noPermission', action.user.lang, { '{user}': action.user.char.name })
             )
           }
         } else if (action.properties.scope == 'global')
           cmd.addMessage(
             sGlobal,
-            messages[action.user.lang].unknownCommand.replace('{user}', action.user.char.name)
+            await bms.get('unknownCommand', action.user.lang, { '{user}': action.user.char.name })
           )
         await executeCommand(cmd)
         break
@@ -184,14 +184,11 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (action.properties.type == 'comatosed') event = 'knocked out'
         cmd.addMessage(
           sGlobal,
-          await bms
-            .get('kill', 'def')
-            .replace(
-              '{user1}',
-              action.properties.causer ? action.properties.causer.char.name : 'unknown'
-            )
-            .replace('{event}', event)
-            .replace('{user2}', action.user.char.name)
+          await bms.get('kill', 'def', {
+            '{user1}': action.properties.causer ? action.properties.causer.char.name : 'unknown',
+            '{event}': event,
+            '{user2}': action.user.char.name
+          })
         )
         await executeCommand(cmd)
         break
@@ -200,20 +197,20 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (userProps.hideLogin || userProps.undercover || userProps.loginAnonym) break
         let uName = global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
         if (action.properties.authType == 'login') {
-          cmd.addMessage(sGlobal, bms.get('login', 'def').replace('{user}', uName))
+          cmd.addMessage(sGlobal, bms.get('login', 'def', { '{user}': uName }))
           if (action.user.stats.totalLogins <= 1) {
             cmd.addMessage(
               sGlobal,
-              await bms.get('pPos.firstJoin', 'def').replace('{userID}', action.user.steamID)
+              await bms.get('pPos.firstJoin', 'def', { '{userID}': action.user.steamID })
             )
             cmd.addMessage(sGlobal, '#SetFamePoints 10 ' + action.user.steamID)
             cmd.addMessage(
               sGlobal,
-              await bms.get('firstJoin.m1', 'def').replace('{user}', action.user.char.name)
+              await bms.get('firstJoin.m1', 'def', { '{user}': action.user.char.name })
             )
             cmd.addMessage(sGlobal, await bms.get('firstJoin.m2', 'def'))
           }
-        } else cmd.addMessage(sGlobal, await bms.get('logout', 'def').replace('{user}', uName))
+        } else cmd.addMessage(sGlobal, await bms.get('logout', 'def', { '{user}': uName }))
         await executeCommand(cmd)
         break
     }

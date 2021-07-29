@@ -32,7 +32,7 @@ module.exports = {
     if (!lang) {
       cmd.addMessage(
         sGlobal,
-        await bms.get('lang.list.1', 'en', { '{user}': action.user.char.name })
+        await bms.get('lang.list.1', action.user.lang, { '{user}': action.user.char.name })
       )
       cmd.addMessage(
         sGlobal,

@@ -39,7 +39,11 @@ function txtReplace(text, replacements) {
 exports.get = async function get(key, lang = false, replacements = false) {
   if (!lang) lang = 'en'
 
-  if (botMsgs[lang] && botMsgs[lang][key]) return botMsgs[lang][key]
+  if (botMsgs[lang] && botMsgs[lang][key]) {
+    let text = botMsgs[lang][key]
+    if (replacements) txt = txtReplace(txt, replacements)
+    return txt
+  }
 
   if (botMsgs['en'][key] && lang != 'en') {
     let prefix = ''

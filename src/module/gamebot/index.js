@@ -197,7 +197,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (userProps.hideLogin || userProps.undercover || userProps.loginAnonym) break
         let uName = global.userManager.groups[action.user.group].name + ' ' + action.user.char.name
         if (action.properties.authType == 'login') {
-          cmd.addMessage(sGlobal, await bms.get('login', 'def', { '{user}': uName }))
+          cmd.addMessage(sGlobal, await bms.get('auth.login', 'def', { '{user}': uName }))
           if (action.user.stats.totalLogins <= 1) {
             cmd.addMessage(
               sGlobal,
@@ -210,7 +210,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
             )
             cmd.addMessage(sGlobal, await bms.get('firstJoin.m2', 'def'))
           }
-        } else cmd.addMessage(sGlobal, await bms.get('logout', 'def', { '{user}': uName }))
+        } else cmd.addMessage(sGlobal, await bms.get('auth.logout', 'def', { '{user}': uName }))
         await executeCommand(cmd)
         break
     }

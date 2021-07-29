@@ -42,8 +42,9 @@ module.exports = {
 
     delete parts[0]
     delete parts[1]
-    let txt = parts.join(' ')
+    let txt = parts.join(' ').trim()
 
+    global.log.info(_SN + 'Translating to ' + lang + ': ' + txt)
     let translated = await bms.translate(txt, lang)
     cmd.addMessage(sGlobal, '#SetFakeName [Translated] ' + action.user.char.name)
     cmd.addMessage(sGlobal, translated)

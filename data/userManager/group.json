@@ -3,6 +3,7 @@
     "isAdmin": false,
     "name": "def",
     "allowBotCommands": [
+      "/discord",
       "/new",
       "/lang",
       "/connect",

@@ -1,9 +1,11 @@
 //const botName = 'scumfiction'
 //const botName = 'Chris P. Bacon'
 const botName = process.env.SETTING_BOT_NAME
+const dcLink = process.env.DC_LINK
 
 module.exports = {
   prefix: ' ・ ',
+  discordLink: ':[Discord]: ・ ' + dcLink,
   error: ':[Error]: ・ Something went wrong. Please try again or contact support.',
   tooEarly: ':[Error]: ・ Sorry, you are too fast. Please wait {minutes} minutes.',
   unknownUser: ':[Error]: ・ Sorry, I was not able to find the user {user}.',
@@ -33,13 +35,17 @@ module.exports = {
     m5: ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
     m6: ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',
     m7: ':[New]: ・ There are quite a few more commands available. Get a list of some important ones by writing "/help".',
-    m8: ':[New]: ・ To see all commands as well as tons of other features, join our Discord! discord.gg/9NH3GFjn9U'
+    m8:
+      ':[New]: ・ To see all commands as well as tons of other features, join our Discord! ' +
+      dcLink
   },
   tChnl: {
     needName: ':[Teams]: ・ Please tell me the name you’d like to use ("/team create [team-name]")'
   },
   connect: {
-    help: ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "/connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server!',
+    help:
+      ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "/connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server! ' +
+      dcLink,
     nope: ':[Connect]: ・ Sorry, this didn’t work. Try getting a new code over on Discord or contact support.',
     yap: ':[Connect]: ・ Your Discord account has been successfully paired!'
   },
@@ -150,7 +156,7 @@ module.exports = {
       m1: ':[Help]: ・ @{user}: Доступные команды (если бот находится в сети):',
       m2: ':[Help]: ・ /voteday, /votesun, /online, /restart, /starterkit, /shop, /transfer, /fasttravel, /whoami, /ping',
       m3: ':[Help]: ・ (Большинство из них будут работать только в ГЛОБАЛЬНОМ чате! Откройте чат с помощью "T" и нажмите "TAB", чтобы изменить чат)',
-      m4: ':[Help]: ・ Чтобы увидеть больше команд, проверьте Discord: https://discord.gg/pZtw7NPdrZ'
+      m4: ':[Help]: ・ Чтобы увидеть больше команд, проверьте Discord: ' + dcLink
     },
     joke: ':[Joke]: ・ {joke}',
     ping: ':[BadaBong]: ・ Pong прямо на тебя @{user} ;)',

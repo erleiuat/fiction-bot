@@ -26,6 +26,9 @@ module.exports = {
     sLocal = scopeLocal
     bms = msgs
   },
+  discord_link: function (cmd, action = null) {
+    cmd.addMessage(sGlobal, bms['en'].discordLink)
+  },
   deactivate_mine: function (cmd, action) {
     let mineKey = action.properties.value.split(' ')[1]
     global.log.debug(_SN + 'Deactivating Mine: ' + mineKey)

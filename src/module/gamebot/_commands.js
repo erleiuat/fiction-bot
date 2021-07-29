@@ -8,6 +8,11 @@ exports.commands = {
     cooldown: null
   },
   */
+  '/discord': {
+    routine: 'discord_link',
+    scopes: ['squad', 'global', 'local'],
+    cooldown: null
+  },
   '/deactivatemine': {
     routine: 'deactivate_mine',
     scopes: ['squad', 'global', 'local'],

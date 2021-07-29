@@ -478,7 +478,7 @@ module.exports = {
     cmd.addAction('sale', {
       userID: action.user.steamID,
       userName: action.user.char.name,
-      shop: [-116688, -66384, 1000, 1000],
+      shop: [-117504, -67171, 1000, 1000],
       item: item,
       teleport: teleport,
       teleportUser: teleportUser,

@@ -1,0 +1,16 @@
+{
+  "76561199166410611": {
+    "group": "bots",
+    "overwrite": {
+      "isAdmin": true,
+      "hideCommandAlarms": ["#*"],
+      "allowCommands": ["#*"],
+      "useFakeNames": true,
+      "hideLogin": true,
+      "ranking": {
+        "hidePlaytime": true,
+        "hideKills": true
+      }
+    }
+  }
+}

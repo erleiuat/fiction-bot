@@ -14,7 +14,7 @@ module.exports = {
   'vote.day': ':[Voting]: ・ Daytime-Voting begins! (7:00 AM) Press "F2" or "F3" to vote!',
   'vote.night': ':[Voting]: ・ Nighttime-Voting begins! (10:00 PM) Press "F2" or "F3" to vote!',
   'vote.sun': ':[Voting]: ・ Weather voting begins! (Sunny) Press "F2" or "F3" to vote!',
-  'pos.idle': '#Teleport -118018 -67506 37011 "' + botName + '"',
+  'pos.idle': '#Teleport -118018 -67506 37020 "' + botName + '"',
   'pos.outside': '#Teleport -117233 -67161 37422 "' + botName + '"',
   'pPos.firstJoin': '#Teleport -115792 -65255 37194 {userID}',
   'pPos.inside': '#Teleport -117653 -67530 37010 {userID}',

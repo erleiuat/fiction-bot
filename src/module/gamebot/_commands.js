@@ -6,6 +6,11 @@ module.exports = {
     cooldown: null
   },
   */
+  '/tl': {
+    routine: 'translate_chat',
+    scopes: ['global', 'local'],
+    cooldown: null
+  },
   '/discord': {
     routine: 'discord_link',
     scopes: ['squad', 'global', 'local'],

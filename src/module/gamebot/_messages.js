@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const botMsgs = require('./_messages/')
 
-exports.translate = async function translate(text, target = 'DE', source = 'EN') {
+exports.translate = async function translate(text, target = 'DE', source = false) {
   let requestOptions = {
     method: 'POST',
     redirect: 'follow'
@@ -15,8 +15,7 @@ exports.translate = async function translate(text, target = 'DE', source = 'EN')
         text +
         '&target_lang=' +
         target +
-        '&source_lang=' +
-        source
+        (source ? '&source_lang=' + source : '')
     ),
     requestOptions
   )

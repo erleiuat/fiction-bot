@@ -26,6 +26,29 @@ module.exports = {
     sLocal = scopeLocal
     sGlobal = scopeGlobal
   },
+  translate_chat: async function (cmd, action) {
+    let parts = action.properties.value.split(' ')
+    let lang = parts[1].toLowerCase().trim()
+
+    if (lang.startsWith('ger')) lang = 'DE'
+    else if (lang.startsWith('eng')) lang = 'EN'
+    else if (lang.startsWith('rus')) lang = 'RU'
+    else if (lang.startsWith('bul')) lang = 'BG'
+    else if (lang.startsWith('spa')) lang = 'ES'
+    else if (lang.startsWith('fre')) lang = 'FR'
+    else if (lang.startsWith('ita')) lang = 'IT'
+    else if (lang.startsWith('jap')) lang = 'JA'
+    else if (lang.startsWith('pol')) lang = 'PL'
+
+    delete parts[0]
+    delete parts[1]
+    let txt = parts.join(' ')
+
+    let translated = await bms.translate(txt, lang)
+    cmd.addMessage(sGlobal, '#SetFakeName [Translated] ' + action.user.char.name)
+    cmd.addMessage(sGlobal, translated)
+    cmd.addMessage(sGlobal, await bms.get('fName', 'def'))
+  },
   set_lang: async function (cmd, action) {
     let lang = action.properties.value.split(' ')[1]
     if (lang) lang = lang.toLowerCase().trim()

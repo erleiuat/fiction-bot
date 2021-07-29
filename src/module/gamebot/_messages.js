@@ -40,7 +40,7 @@ exports.get = async function get(key, lang = false, replacements = false) {
   if (!lang) lang = 'en'
 
   if (botMsgs[lang] && botMsgs[lang][key]) {
-    let text = botMsgs[lang][key]
+    let txt = botMsgs[lang][key]
     if (replacements) txt = txtReplace(txt, replacements)
     return txt
   }

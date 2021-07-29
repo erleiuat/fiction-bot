@@ -111,16 +111,16 @@ module.exports = {
     let scope = sLocal
     if (action.properties.scope == 'global') scope = sGlobal
     cmd.addMessage(scope, await bms.get('rules.intro', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.1', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.2', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.3', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.4', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.5', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.6', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.7', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.8', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.9', action.user.lang))
-    cmd.addMessage(scope, await bms.get('rules.10', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r1', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r2', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r3', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r4', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r5', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r6', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r7', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r8', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r9', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.r10', action.user.lang))
   },
   what_is_going_on: async function (cmd, action = null) {
     let scope = sLocal

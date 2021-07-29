@@ -111,7 +111,16 @@ module.exports = {
     let scope = sLocal
     if (action.properties.scope == 'global') scope = sGlobal
     cmd.addMessage(scope, await bms.get('rules.intro', action.user.lang))
-    for (const rule of await bms.get('rules.rules', action.user.lang)) cmd.addMessage(scope, rule)
+    cmd.addMessage(scope, await bms.get('rules.1', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.2', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.3', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.4', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.5', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.6', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.7', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.8', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.9', action.user.lang))
+    cmd.addMessage(scope, await bms.get('rules.10', action.user.lang))
   },
   what_is_going_on: async function (cmd, action = null) {
     let scope = sLocal
@@ -217,7 +226,7 @@ module.exports = {
     if (action.properties.scope == 'global') scope = sGlobal
 
     let ruleKey = parseInt(action.properties.value.split(' ')[1])
-    let rule = await bms.get('rules.rules', action.user.lang)[ruleKey - 1]
+    let rule = await bms.get('rules.' + ruleKey, action.user.lang)
     if (!rule) rule = await bms.get('rules.notFound', action.user.lang, { '{number}': ruleKey })
     cmd.addMessage(scope, rule)
   },

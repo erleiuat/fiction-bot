@@ -17,7 +17,8 @@ const languages = [
   'french',
   'italian',
   'japanese',
-  'polish'
+  'polish',
+  'chinese'
 ]
 
 module.exports = {
@@ -81,6 +82,7 @@ module.exports = {
     else if (lang == 'italian') action.user.lang = 'it'
     else if (lang == 'japanese') action.user.lang = 'ja'
     else if (lang == 'polish') action.user.lang = 'pl'
+    else if (lang == 'chinese') action.user.lang = 'zh'
 
     global.userManager.saveChanges()
     cmd.addMessage(

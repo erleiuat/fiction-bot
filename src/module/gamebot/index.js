@@ -73,9 +73,9 @@ async function executeCommand(cmd) {
 exports.sendFromSchedule = async function sendFromSchedule(action) {
   if (!started) return
   let cmd = new Command()
-  if (action.properties.type == 'messages') {
+  if (action.properties.type == 'messages')
     for (const msg of action.properties.values) cmd.addMessage(msg.scope, msg.content)
-  }
+
   await executeCommand(cmd)
 }
 

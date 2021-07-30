@@ -174,7 +174,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
 
       case 'mine':
         if (action.properties.action != 'armed') break
-        cmd.addMessage(sGlobal, messages[action.user.lang].traps)
+        cmd.addMessage(sGlobal, await bms.get('traps', action.user.lang))
         await executeCommand(cmd)
         break
 

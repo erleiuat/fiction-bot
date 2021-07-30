@@ -16,8 +16,6 @@ module.exports = {
   'sKit.start1':
     ':[Starterkit]: ・ @{user} du wirst zur Handelszone (grüner Kreis in B2) teleportiert, um dein Starterkit zu erhalten. Stelle sicher, dass du bereit bist und kein Fahrzeug fährst.',
   'sKit.start2':
-    ':[Starterkit]: ・ Schreibe "/ready", wenn du soweit bist. Du erhälst ein Quad, um wieder aus der Handelszone herauszukommen.',
-  'sKit.start3':
     ':[Starterkit]: ・ @{user} du wirst in wenigen Sekunden in die Handelszone transportiert.',
   'sKit.done':
     ':[Starterkit]: ・ @{user} dein Starterkit sollte nun da sein und dein Quad sollte draußen auf dich warten.',

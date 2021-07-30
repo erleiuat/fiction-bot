@@ -191,7 +191,7 @@ exports.kill = function kill(action) {
     fields: [
       {
         name: 'Attacker',
-        value: action.properties.causer.char.name
+        value: action.properties.causer ? action.properties.causer.char.name : ' Unknown '
       },
       {
         name: 'Victim',

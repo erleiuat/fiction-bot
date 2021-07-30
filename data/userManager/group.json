@@ -40,7 +40,8 @@
       "/ping",
       "/pong",
       "/starterkit",
-      "/ready",
+      "/starterset",
+      "/starterpack",
       "/shop",
       "/fictionshop",
       "/botshop"

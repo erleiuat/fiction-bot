@@ -60,11 +60,9 @@ module.exports = {
   'sKit.illegal':
     ':[Starterkit]: ・ @{user} you should have already received your starterkit ;) If not, please contact support.',
   'sKit.start1':
-    ':[Starterkit]: ・ @{user} you will be teleported to the trading-zone (green circle in B2) to receive your starterkit. Make sure you are ready and not driving a vehicle.',
+    ':[Starterkit]: ・ @{user} you will be teleported to the tradingzone (green circle in B2) to receive your starterkit. Make sure you are ready and not driving a vehicle.',
   'sKit.start2':
-    ':[Starterkit]: ・ Type "/ready" when you are ready. You will get a quad to get out of the trading-zone again.',
-  'sKit.start3':
-    ':[Starterkit]: ・ @{user} you will be transported to the trading zone in a few seconds.',
+    ':[Starterkit]: ・ @{user} you will be transported to the tradingzone in a few seconds.',
   'sKit.done':
     ':[Starterkit]: ・ @{user} your starterkit should now be there and your Quad should be waiting for you outside.',
 

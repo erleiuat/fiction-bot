@@ -282,19 +282,9 @@ module.exports = {
       sGlobal,
       await bms.get('sKit.start1', action.user.lang, { '{user}': action.user.char.name })
     )
-    cmd.addMessage(sGlobal, await bms.get('sKit.start2', action.user.lang))
-  },
-  starterkit_ready: async function (cmd, action) {
-    if (action.user.info.starterkit) {
-      cmd.addMessage(
-        sGlobal,
-        await bms.get('sKit.illegal', action.user.lang, { '{user}': action.user.char.name })
-      )
-      return
-    }
     cmd.addMessage(
       sGlobal,
-      await bms.get('sKit.start3', action.user.lang, { '{user}': action.user.char.name })
+      await bms.get('sKit.start2', action.user.lang, { '{user}': action.user.char.name })
     )
     cmd.addMessage(
       sGlobal,

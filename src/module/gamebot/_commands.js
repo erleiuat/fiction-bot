@@ -218,11 +218,16 @@ module.exports = {
   },
   '/starterkit': {
     routine: 'starterkit',
-    scopes: ['global'],
+    scopes: ['local', 'global'],
     cooldown: null
   },
-  '/ready': {
-    routine: 'starterkit_ready',
+  '/starterset': {
+    routine: 'starterkit',
+    scopes: ['local', 'global'],
+    cooldown: null
+  },
+  '/starterpack': {
+    routine: 'starterkit',
     scopes: ['local', 'global'],
     cooldown: null
   },

@@ -179,7 +179,6 @@ module.exports = class UserManager {
       let files = fs.readdirSync('./data/userManager/updates/')
 
       if (files.length) {
-        console.log(this.userPropertiesCache['76561198058320009'])
         let now = new Date().getTime()
         fs.copyFileSync(
           './data/userManager/users.json',
@@ -238,7 +237,6 @@ module.exports = class UserManager {
           )
         }
 
-        console.log(this.userPropertiesCache['76561198058320009'])
         this.saveChanges()
       }
 

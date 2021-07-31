@@ -27,7 +27,7 @@ module.exports = {
     ' ・ I will reboot my PC now. It can take up to 10 minutes untill I’m ready again.',
   'start.ready': ' ・ I’m ready!',
   'whoami.m1': ':[Stats]: ・ Name: {user} | Role: "{group}" | Joined: {date} at {time}',
-  'whoami.m2': ':[Stats]: ・ Total logins: {logins} | Total playtime: {playtime} hours',
+  'whoami.m2': ':[Stats]: ・ Logins: {logins} | Playtime: {playtime} hours | Rank: {rank}',
   'whoami.m3': ':[Stats]: ・ Messages - Local: {local} | Global: {global} | Squad: {squad}',
   'whoami.m4': ':[Stats]: ・ Warnings: Capslock {caps} | Spam - | Rules -',
   'whoami.m5': ':[Stats]: ・ Kills: {kills} (including events and suicides)',

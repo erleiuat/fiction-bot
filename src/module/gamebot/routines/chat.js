@@ -590,7 +590,8 @@ async function addStats(cmd, sUser, scope) {
     scope,
     await bms.get('whoami.m2', 'def', {
       '{logins}': sUser.stats.totalLogins,
-      '{playtime}': parseInt(pTime.d) * 24 + parseInt(pTime.h)
+      '{playtime}': parseInt(pTime.d) * 24 + parseInt(pTime.h),
+      '{rank}': sUser.rank
     })
   )
   cmd.addMessage(

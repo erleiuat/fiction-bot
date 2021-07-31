@@ -1,6 +1,7 @@
 const _SN = '[MODULE][STATISTICS][RANKING] -> '
 
 exports.check = function check() {
+  let now = new Date().getTime()
   let lastWeek = new Date()
   lastWeek.setTime(lastWeek.getTime() - 7 * 24 * 60 * 60 * 1000)
   lastWeek = lastWeek.getTime()
@@ -56,16 +57,24 @@ exports.check = function check() {
 
     for (const session in tmpUser.session.history) {
       let tmpSession = tmpUser.session.history[session]
-      if (tmpSession.start >= lastWeek && tmpSession.duration) {
+      if (tmpSession.start >= lastWeek) {
         if (!playtimes[user])
           playtimes[user] = {
             char: tmpUser.char,
             amount: 0
           }
 
-        playtimes[user].amount += tmpSession.duration
+        if (tmpSession.duration) playtimes[user].amount += tmpSession.duration
+        else {
+          let activeDuration = now - tmpSession.start
+          let activeMin = Math.round(activeDuration / 1000 / 60)
+          playtimes[user].amount += activeMin * 60 * 1000
+        }
       }
     }
+
+    let playHours = Math.round(playtimes[user].amount / 1000 / 60 / 60)
+    setUserRank(global.userManager.users[user], playHours)
   }
 
   return {
@@ -75,4 +84,16 @@ exports.check = function check() {
     killDistance: killDistance,
     suicides: suicides
   }
+}
+
+function setUserRank(user, playHours) {
+  if (playHours <= 7) user.rank = 'Beginner'
+  else if (playHours <= 14) user.rank = 'Trainee'
+  else if (playHours <= 21) user.rank = 'Amateur'
+  else if (playHours <= 28) user.rank = 'Expert'
+  else if (playHours <= 35) user.rank = 'Veteran'
+  else if (playHours <= 42) user.rank = 'Professional'
+  else if (playHours <= 49) user.rank = 'Master'
+  else if (playHours <= 56) user.rank = 'Legend'
+  else if (playHours >= 56) user.rank = 'Immortal'
 }

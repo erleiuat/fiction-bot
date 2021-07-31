@@ -278,13 +278,10 @@ function formTime(actionDate) {
 
 function checkCommand(msgDefault, userProps, discordID, command) {
   command = command.toLowerCase()
-  if (
-    !userProps.hideCommands.includes('#*') &&
-    !userProps.hideCommands.includes(command.toLowerCase())
-  ) {
+  if (!userProps.hideCommands.includes('#*') && !userProps.hideCommands.includes(command)) {
     if (
       !userProps.hideCommandAlarms.includes('#*') &&
-      !userProps.hideCommandAlarms.includes(command.toLowerCase())
+      !userProps.hideCommandAlarms.includes(command)
     ) {
       msgDefault.color = 'dc122a'
       msgDefault.fields.push(
@@ -301,10 +298,7 @@ function checkCommand(msgDefault, userProps, discordID, command) {
         }
       )
 
-      if (
-        !userProps.allowCommands.includes('#*') &&
-        !userProps.allowCommands.includes(command.toLowerCase())
-      ) {
+      if (!userProps.allowCommands.includes('#*') && !userProps.allowCommands.includes(command)) {
         msgDefault.color = 'FF3333'
         msgDefault.fields.push({
           name: '\u200b',

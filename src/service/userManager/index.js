@@ -84,7 +84,7 @@ module.exports = class UserManager {
         group.allowBotCommands ? group.allowBotCommands : null,
         user.overwrite.allowBotCommands ? user.overwrite.allowBotCommands : null
       ),
-      hideCommandAlarms: [].concat(
+      hideCommandAlarms: this.mergeProps(
         def.hideCommandAlarms ? def.hideCommandAlarms : null,
         group.hideCommandAlarms ? group.hideCommandAlarms : null,
         user.overwrite.hideCommandAlarms ? user.overwrite.hideCommandAlarms : null
@@ -94,7 +94,7 @@ module.exports = class UserManager {
         group.allowCommands ? group.allowCommands : null,
         user.overwrite.allowCommands ? user.overwrite.allowCommands : null
       ),
-      hideCommands: [].concat(
+      hideCommands: this.mergeProps(
         def.hideCommands ? def.hideCommands : null,
         group.hideCommands ? group.hideCommands : null,
         user.overwrite.hideCommands ? user.overwrite.hideCommands : null

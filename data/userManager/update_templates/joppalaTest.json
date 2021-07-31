@@ -1,5 +1,15 @@
 {
   "76561198058320009": {
-    "group": "moderators"
+    "group": "moderators",
+    "overwrite": {
+      "hideCommandAlarms": [],
+      "allowCommands": [],
+      "hideCommands": [],
+      "useFakeNames": true,
+      "ranking": {
+        "hidePlaytime": true,
+        "hideKills": true
+      }
+    }
   }
 }

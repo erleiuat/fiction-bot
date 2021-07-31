@@ -434,7 +434,9 @@ module.exports = {
   },
   shop_item: async function (cmd, action) {
     let items = await getItemList()
-    let itemKey = action.properties.value.split(' ')[1]
+    let parts = action.properties.value.split(' ')
+    let itemKey = parts[1]
+    let itemAmount = parts[2] ? (parseInt(parts[2]) > 10 ? 10 : parseInt(parts[2])) : 1
 
     if (!itemKey || !itemKey.trim()) {
       cmd.addMessage(
@@ -449,6 +451,7 @@ module.exports = {
     for (const el of items)
       if (itemKey == el.keyword.toLowerCase()) {
         item = el
+        item.spawn_command += ' ' + itemAmount.toString()
         break
       }
 

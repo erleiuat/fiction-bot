@@ -3,7 +3,7 @@ module.exports = class User {
   discordID = null
 
   lang = 'en'
-  rank = null
+  rank = 'Beginner'
   group = null
   overwrite = {}
   undercover = false

@@ -492,13 +492,13 @@ module.exports = {
         startSale: await bms.get('shop.startSale', action.user.lang, {
           '{user}': action.user.char.name,
           '{fame}': item.price_fame,
-          '{amount}': itemamount,
+          '{amount}': itemAmount,
           '{item}': item.name
         }),
         endSale: await bms.get('shop.endSale', action.user.lang, {
           '{user}': action.user.char.name,
           '{fame}': item.price_fame,
-          '{amount}': itemamount,
+          '{amount}': itemAmount,
           '{item}': item.name
         }),
         somethingWrong: await bms.get('shop.somethingWrong', action.user.lang)

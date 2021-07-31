@@ -83,8 +83,9 @@ module.exports = {
   'shop.notNearShop': ':[Shop]: ・ @{user} you need to be near the shop to buy things.',
   'shop.notEnoughMoney': ':[Shop]: ・ @{user} you need at least {fame} Famepoints to buy this.',
   'shop.startSale':
-    ':[Shop]: ・ @{user} your purchase of {item} for {fame} Famepoints starts shortly. You will be teleported to your Item when it’s done.',
-  'shop.endSale': ':[Shop]: ・ @{user} you successfully bought {item} for {fame} Famepoints!',
+    ':[Shop]: ・ @{user} your purchase of {amount}x {item} for {fame} Famepoints starts shortly. You will be teleported to your Item when it’s done.',
+  'shop.endSale':
+    ':[Shop]: ・ @{user} you successfully bought {amount}x {item} for {fame} Famepoints!',
   'shop.somethingWrong': ':[Shop]: ・ Something went wrong. Please try again.',
 
   'travel.info':

@@ -514,8 +514,8 @@ module.exports = {
         }),
         startSale: await bms.get('shop.startSale', action.user.lang, {
           '{user}': action.user.char.name,
-          '{fame}': item.price_fame,
-          '{amount}': itemAmount + (discount > 0 ? '(' + discount * 100 + '% discount)' : ''),
+          '{fame}': item.price_fame + (discount > 0 ? '(' + discount * 100 + '% discount)' : ''),
+          '{amount}': itemAmount,
           '{item}': item.name
         }),
         endSale: await bms.get('shop.endSale', action.user.lang, {

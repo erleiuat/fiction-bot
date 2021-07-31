@@ -100,6 +100,9 @@ exports.sendFromDC = async function sendFromDC(action) {
 }
 
 exports.sendFromLog = async function sendFromLog(action = false) {
+  global.log.debug(
+    _SN + 'sendFromLog() -> received: ' + JSON.stringify(action ? action.properties : false)
+  )
   if (!started) return
   if (!action) return
   let userProps = global.userManager.getUserProperties(action.user)

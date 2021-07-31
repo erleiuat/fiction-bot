@@ -148,6 +148,15 @@ module.exports = {
     cmd.addMessage(scope, await bms.get('rules.r9', action.user.lang))
     cmd.addMessage(scope, await bms.get('rules.r10', action.user.lang))
   },
+  show_rule: async function (cmd, action) {
+    let scope = sLocal
+    if (action.properties.scope == 'global') scope = sGlobal
+
+    let ruleKey = parseInt(action.properties.value.split(' ')[1])
+    let rule = await bms.get('rules.r' + ruleKey, action.user.lang)
+    if (!rule) rule = await bms.get('rules.notFound', action.user.lang, { '{number}': ruleKey })
+    cmd.addMessage(scope, rule)
+  },
   what_is_going_on: async function (cmd, action = null) {
     let scope = sLocal
     if (action.properties.scope == 'global') scope = sGlobal
@@ -246,15 +255,6 @@ module.exports = {
     cmd.addMessage(scope, await bms.get('pPos.firstJoin', 'def', { '{userID}': charName }))
     cmd.addMessage(sGlobal, await bms.get('firstJoin.m1', 'def', { '{user}': charName }))
     cmd.addMessage(sGlobal, await bms.get('firstJoin.m2', 'def'))
-  },
-  show_rule: async function (cmd, action) {
-    let scope = sLocal
-    if (action.properties.scope == 'global') scope = sGlobal
-
-    let ruleKey = parseInt(action.properties.value.split(' ')[1])
-    let rule = await bms.get('rules.' + ruleKey, action.user.lang)
-    if (!rule) rule = await bms.get('rules.notFound', action.user.lang, { '{number}': ruleKey })
-    cmd.addMessage(scope, rule)
   },
   anonymize_login: async function (cmd, action) {
     let userProps = global.userManager.getUserProperties(action.user)

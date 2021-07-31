@@ -447,12 +447,35 @@ module.exports = {
     }
 
     let item = false
+    let discount = 0
+    switch (action.user.rank) {
+      case 'Expert':
+        discount = 0.1
+        break
+      case 'Veteran':
+        discount = 0.15
+        break
+      case 'Professional':
+        discount = 0.2
+        break
+      case 'Master':
+        discount = 0.25
+        break
+      case 'Legend':
+        discount = 0.3
+        break
+      case 'Immortal':
+        discount = 0.6
+        break
+    }
+
     itemKey = itemKey.trim().toLowerCase()
     for (const el of items)
       if (itemKey == el.keyword.toLowerCase()) {
         item = el
         item.spawn_command += ' ' + itemAmount.toString()
-        item.price_fame = parseInt(item.price_fame) * itemAmount
+        item.price_fame =
+          Math.round(parseInt(item.price_fame) - parseInt(item.price_fame) * discount) * itemAmount
         break
       }
 
@@ -492,7 +515,7 @@ module.exports = {
         startSale: await bms.get('shop.startSale', action.user.lang, {
           '{user}': action.user.char.name,
           '{fame}': item.price_fame,
-          '{amount}': itemAmount,
+          '{amount}': itemAmount + (discount > 0 ? '(' + discount + '% discount)' : ''),
           '{item}': item.name
         }),
         endSale: await bms.get('shop.endSale', action.user.lang, {

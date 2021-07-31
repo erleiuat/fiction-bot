@@ -60,7 +60,7 @@ async function sendMessage(channel, message) {
         _SN +
         '[TEST] -> Sending message to Channel "' +
         channel.name +
-        '":' +
+        '":\n' +
         JSON.stringify(message) +
         '\n'
     )
@@ -68,9 +68,10 @@ async function sendMessage(channel, message) {
 
 async function toChannels(action, channels) {
   let msgs = buildMessages(action)
-  for (const el of channels)
+  for (const el of channels) {
     if (el.extended) await sendMessage(el.channel, msgs.extended)
     else if (msgs.default) await sendMessage(el.channel, msgs.default)
+  }
 
   global.log.info(_SN + 'sendFromLog(): ' + action.type + ' sent')
 }

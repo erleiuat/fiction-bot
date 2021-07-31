@@ -179,6 +179,7 @@ module.exports = class UserManager {
       let files = fs.readdirSync('./data/userManager/updates/')
 
       if (files.length) {
+        console.log(this.userPropertiesCache['76561198058320009'])
         let now = new Date().getTime()
         fs.copyFileSync(
           './data/userManager/users.json',
@@ -224,9 +225,9 @@ module.exports = class UserManager {
                 tmpUser.info = up.info
                 global.log.info(this.#_SN + 'Updated info for user: ' + user)
               }
-            }
 
-            this.getUserProperties(this.users[user], true)
+              this.getUserProperties(this.users[user], true)
+            }
           } catch (err) {
             global.log.error(this.#_SN + 'Failed to parse JSON: ' + files[e])
           }
@@ -237,6 +238,7 @@ module.exports = class UserManager {
           )
         }
 
+        console.log(this.userPropertiesCache['76561198058320009'])
         this.saveChanges()
       }
 

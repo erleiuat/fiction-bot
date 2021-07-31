@@ -310,7 +310,7 @@ function checkCommand(msgDefault, userProps, discordID, command) {
       }
     }
   } else {
-    msgDefault = false
+    return false
   }
   return msgDefault
 }

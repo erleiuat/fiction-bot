@@ -349,7 +349,7 @@ module.exports = {
       await bms.get('help.m1', action.user.lang, { '{user}': action.user.char.name })
     )
     cmd.addMessage(sGlobal, await bms.get('help.m2', action.user.lang))
-    cmd.addMessage(sGlobal, await bms.get('help.m3', action.user.lang))
+    cmd.addMessage(sGlobal, await bms.get('help.m3', 'en'))
     cmd.addMessage(sGlobal, await bms.get('help.m4', action.user.lang))
   },
   travel: async function (cmd, action) {

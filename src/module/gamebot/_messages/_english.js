@@ -99,7 +99,7 @@ module.exports = {
 
   'help.m1': ':[Help]: ・ @{user}: Available commands (if bot is online):',
   'help.m2':
-    ':[Help]: ・ !voteday, !votesun, !online, !restart, !starterkit, !shop, !transfer, !fasttravel, !whoami, !ping',
+    ':[Help]: ・ !voteday, !votesun, !online, !restart, !starterkit, !shop, !transfer, !whoami, !ping, !anonymize, !connect',
   'help.m3':
     ':[Help]: ・ (Most will only work in GLOBAL Chat! Open chat with "T" and press "TAB" to change chatroom)',
   'help.m4': ':[Help]: ・ To see more commands check Discord: ' + dcLink,

@@ -28,9 +28,10 @@ function init() {
 
 async function messageHandler(msg) {
   if (msg.channel.id == process.env.DC_CH_CONSOLE) consoleMsg(msg)
-  else if (msg.content.trim() == '/connect') buildConnection(msg)
-  else if (msg.content.trim() == '/reload') forceReload(msg)
-  else if (msg.content.trim() == '/reboot') forceReboot(msg)
+  else if (msg.content.trim() == '!connect') buildConnection(msg)
+  else if (msg.content.trim() == '!restart') forceReboot(msg)
+  else if (msg.content.trim() == '!reload') forceReload(msg)
+  else if (msg.content.trim() == '!reboot') forceReboot(msg)
   else if (msg.channel.id == process.env.DC_CH_INGAMECHAT) chatMsg(msg)
 }
 
@@ -49,13 +50,26 @@ async function execScript(scriptName) {
   }
 }
 
+async function forceRestart(msg) {
+  if (
+    msg.member.roles.cache.has(process.env.DC_ROLE_MOD) ||
+    msg.member.roles.cache.has(process.env.DC_ROLE_SUPPORT) ||
+    msg.member.hasPermission('ADMINISTRATOR')
+  ) {
+    global.sysControl.restart()
+    global.userManager.saveChanges()
+    global.mineManager.saveChanges()
+    await msg.delete()
+  }
+}
+
 async function forceReload(msg) {
   if (
     msg.member.roles.cache.has(process.env.DC_ROLE_MOD) ||
     msg.member.roles.cache.has(process.env.DC_ROLE_SUPPORT) ||
     msg.member.hasPermission('ADMINISTRATOR')
   ) {
-    execScript('.\\src\\scripts\\reload.bat')
+    global.sysControl.reload()
     global.userManager.saveChanges()
     global.mineManager.saveChanges()
     await msg.delete()
@@ -68,7 +82,7 @@ async function forceReboot(msg) {
     msg.member.roles.cache.has(process.env.DC_ROLE_SUPPORT) ||
     msg.member.hasPermission('ADMINISTRATOR')
   ) {
-    execScript('.\\src\\scripts\\reboot.bat')
+    global.sysControl.reboot()
     global.userManager.saveChanges()
     global.mineManager.saveChanges()
     await msg.delete()

@@ -1,3 +1,4 @@
+const _SN = '[MODULE][GAMEBOT][MESSAGES] -> '
 const fetch = require('node-fetch')
 const botMsgs = require('./_messages/')
 
@@ -23,7 +24,9 @@ exports.translate = async function translate(text, target = 'DE', source = false
     .then(result => {
       return result.translations[0].text
     })
-    .catch(error => console.log('error', error))
+    .catch(error => {
+      global.log.error(_SN + 'Failed to translate with deepl: ' + error)
+    })
 
   return resp
 }

@@ -39,6 +39,8 @@ function def(guild) {
   global.log.info(_SN + 'Started Service "global.time"')
   require('./service/nZero')
   global.log.info(_SN + 'Started Service "global.nZero"')
+  require('./service/sysControl')
+  global.log.info(_SN + 'Started Service "global.sysControl"')
 
   const UserManager = require('./service/userManager/')
   global.userManager = new UserManager()

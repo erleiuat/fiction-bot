@@ -35,14 +35,13 @@ module.exports = class Teams {
           color: '#000fff'
         }
       })
-      .then(console.log)
-      .catch(console.error)
+      .then()
+      .catch()
     */
     let newCat = await this.server.channels.create('🔹 TEAM ' + teamName, {
       type: 'category',
       position: 7
     })
-    console.log(newCat)
 
     newCat.overwritePermissions(this.server.roles.fetch(process.env.DC_ROLE_DEF), {
       // Disallow Everyone to see, join, invite, or speak
@@ -57,13 +56,9 @@ module.exports = class Teams {
       parent: newCat
     })
 
-    console.log(newText)
-
     let newVoice = await this.server.channels.create('Voice', {
       type: 'voice',
       parent: newCat
     })
-
-    console.log(newVoice)
   }
 }

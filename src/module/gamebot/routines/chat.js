@@ -534,7 +534,7 @@ module.exports = {
     let scope = sLocal
     if (action && action.properties && action.properties.scope == 'global') scope = sGlobal
     global.log.info(_SN + 'RELOAD: STARTED')
-    execScript('.\\src\\scripts\\reload.bat')
+    if (!global.args.includes('test')) global.sysControl.reload()
     global.userManager.saveChanges()
     global.mineManager.saveChanges()
     global.log.info(_SN + 'RELOAD: Saved mngr data')
@@ -544,26 +544,21 @@ module.exports = {
     let scope = sLocal
     if (action && action.properties && action.properties.scope == 'global') scope = sGlobal
     global.log.info(_SN + 'REBOOT: STARTED')
-    if (!global.args.includes('test')) execScript('.\\src\\scripts\\reboot.bat')
+    if (!global.args.includes('test')) global.sysControl.reboot()
     global.userManager.saveChanges()
     global.mineManager.saveChanges()
     global.log.info(_SN + 'REBOOT: Saved mngr data')
     cmd.addMessage(scope, await bms.get('start.reboot', 'def'))
-  }
-}
-
-async function execScript(scriptName) {
-  try {
-    global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
-    await global.time.sleep(5)
-    global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
-    if (global.args.includes('test')) return
-    const child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
-    child.on('data', data => console.log(data))
-    child.on('error', error => console.log(error))
-    child.on('close', code => console.log(code))
-  } catch (error) {
-    console.log(error)
+  },
+  restart_bot: async function (cmd, action = null) {
+    let scope = sLocal
+    if (action && action.properties && action.properties.scope == 'global') scope = sGlobal
+    global.log.info(_SN + 'REBOOT: STARTED')
+    if (!global.args.includes('test')) global.sysControl.restart()
+    global.userManager.saveChanges()
+    global.mineManager.saveChanges()
+    global.log.info(_SN + 'REBOOT: Saved mngr data')
+    cmd.addMessage(scope, await bms.get('start.reboot', 'def'))
   }
 }
 

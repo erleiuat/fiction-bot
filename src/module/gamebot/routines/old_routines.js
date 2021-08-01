@@ -17,7 +17,6 @@ exports.init = function init(msgs, scopeLocal, scopeGlobal) {
 exports.team_channel = async function team_channel(cmd, action) {
   let parts = action.properties.value.split(' ')
   let stmt = parts[1].trim().toLowerCase()
-  console.log(parts)
   switch (stmt) {
     case 'create':
       let name = parts[2] ? parts[2].trim().toLowerCase() : false

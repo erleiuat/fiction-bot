@@ -196,12 +196,12 @@ async function getBMState() {
 
     if (checkCounter <= 0) {
       stateCheck = await state.check()
-      checkCounter = 60
+      checkCounter = 15
     } else {
       checkCounter--
     }
 
-    await global.time.sleep(5)
+    await global.time.sleep(2)
   } while (true)
 }
 
@@ -217,7 +217,7 @@ async function stateSts() {
     if (playersCache == global.state.players && stateCheck && stateCheck.players) {
       global.state.players = stateCheck.players
     } else if (playersCache != global.state.players) {
-      checkCounter = 60
+      checkCounter = 15
     }
 
     stateCheck = null

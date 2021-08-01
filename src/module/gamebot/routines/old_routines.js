@@ -1,6 +1,5 @@
 const _SN = '[MODULE][GAMEBOT][ROUTINES] -> '
 
-const cp = require('child_process')
 const fetch = require('node-fetch')
 const request = require('request')
 

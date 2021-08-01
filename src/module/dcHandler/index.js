@@ -1,7 +1,5 @@
 const _SN = '[MODULE][DCHANDLER] -> '
 
-const cp = require('child_process')
-const Discord = require('discord.js')
 const channels = {
   console: null,
   ingameChat: null

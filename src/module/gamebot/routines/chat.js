@@ -170,6 +170,10 @@ module.exports = {
     cmd.addMessage(sGlobal, await bms.get('vote.sun', 'def'))
     cmd.addMessage(sGlobal, '#vote SetWeather 0')
   },
+  vote_weather_rain: async function (cmd, action = null) {
+    cmd.addMessage(sGlobal, await bms.get('vote.rain', 'def'))
+    cmd.addMessage(sGlobal, '#vote SetWeather 1')
+  },
   vote_day: async function (cmd, action = null) {
     cmd.addMessage(sGlobal, await bms.get('vote.day', 'def'))
     cmd.addMessage(sGlobal, '#vote SetTimeOfDay 7')

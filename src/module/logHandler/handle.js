@@ -63,7 +63,7 @@ async function handleChat(lines) {
     actionObj.properties.scope = content[0].trim().toLowerCase()
     delete content[0]
     actionObj.properties.value = content.join(' ').trim()
-    actionObj.properties.isCommand = content[1].trim().startsWith('/')
+    actionObj.properties.isCommand = content[1].trim().startsWith('!')
 
     actionObj.user.stats.totalMessages[actionObj.properties.scope]++
     global.actionHandler.handle(actionObj)

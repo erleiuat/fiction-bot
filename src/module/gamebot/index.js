@@ -153,7 +153,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
         if (commands[cmdKey]) {
           if (!commands[cmdKey].scopes.includes(action.properties.scope)) break
           if (
-            userProps.allowBotCommands.includes('/*') ||
+            userProps.allowBotCommands.includes('!*') ||
             userProps.allowBotCommands.includes(cmdKey)
           ) {
             if (

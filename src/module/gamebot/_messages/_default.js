@@ -10,7 +10,7 @@ module.exports = {
   'mine.deact': ' ・ (Mine has been deactivated)',
   'mine.notFound': ' ・ (Mine not found)',
   'firstJoin.m1': ':[Welcome]: ・ Welcome to the Server @{user}!',
-  'firstJoin.m2': ':[Welcome]: ・ Open chat with "T" and write "/new" to get started!',
+  'firstJoin.m2': ':[Welcome]: ・ Open chat with "T" and write "!new" to get started!',
   'vote.day': ':[Voting]: ・ Daytime-Voting begins! (7:00 AM) Press "F2" or "F3" to vote!',
   'vote.night': ':[Voting]: ・ Nighttime-Voting begins! (10:00 PM) Press "F2" or "F3" to vote!',
   'vote.sun': ':[Voting]: ・ Weather voting begins! (Sunny) Press "F2" or "F3" to vote!',

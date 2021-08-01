@@ -12,27 +12,27 @@ module.exports = {
   'lang.unknown':
     ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',
   'lang.list.1':
-    ':[Lang]: ・ @{user}: You can switch between these languages: (use "/lang [language]" to change).',
+    ':[Lang]: ・ @{user}: You can switch between these languages: (use "!lang [language]" to change).',
   'lang.list.2':
     ':[Lang]: ・ @{user}: english, german, russian, bulgarian, spanish, french, italian, japanese, polish, chinese',
   'lang.set': ':[Lang]: ・ @{user}: Language set to {language}.',
 
   'newP.m1': ':[New]: ・ Welcome to the Server @{user}!',
-  'newP.m2': ':[New]: ・ Make sure you get your starterkit! Write: "/starterkit"',
-  'newP.m3': ':[New]: ・ You can change the language I use to speak with you by writing: "/lang"',
+  'newP.m2': ':[New]: ・ Make sure you get your starterkit! Write: "!starterkit"',
+  'newP.m3': ':[New]: ・ You can change the language I use to speak with you by writing: "!lang"',
   'newP.m4':
-    ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "/rules" command. Use "/rules" in local to get a list of the rules.',
+    ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "!rules" command. Use "!rules" in local to get a list of the rules.',
   'newP.m5':
     ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
   'newP.m6':
-    ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "/voteday"!',
+    ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "!voteday"!',
   'newP.m7':
-    ':[New]: ・ There are quite a few more commands available. Get a list of some important ones by writing "/help".',
+    ':[New]: ・ There are quite a few more commands available. Get a list of some important ones by writing "!help".',
   'newP.m8':
     ':[New]: ・ To see all commands as well as tons of other features, join our Discord! ' + dcLink,
 
   'connect.help':
-    ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "/connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server! ' +
+    ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "!connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server! ' +
     dcLink,
   'connect.nope':
     ':[Connect]: ・ Sorry, this didn’t work. Try getting a new code over on Discord or contact support.',
@@ -66,7 +66,7 @@ module.exports = {
   'sKit.done':
     ':[Starterkit]: ・ @{user} your starterkit should now be there and your Quad should be waiting for you outside.',
 
-  'trans.form': ':[Transfer]: ・ @{user} Use this format: /transfer [amount] [user]',
+  'trans.form': ':[Transfer]: ・ @{user} Use this format: "!transfer [amount] [user]"',
   'trans.notEnough':
     ':[Transfer]: ・ @{user} You don’t have enough famepoints for this transaction.',
   'trans.notFound':
@@ -76,7 +76,7 @@ module.exports = {
   'trans.somethingWrong': ':[Transfer]: ・ @{user} Something went wrong. Please try again.',
 
   'shop.info':
-    ':[Shop]: ・ @{user} Check https://shop.scumfiction.com/ to find our range of products! Then, use /buyitem [item_key] to buy something!',
+    ':[Shop]: ・ @{user} Check https://shop.scumfiction.com/ to find our range of products! Then, use "!buyitem [item_key] [amount]" to buy something!',
   'shop.pleaseWait': ':[Shop]: ・ @{user} Please be patient, your item should be there shortly.',
   'shop.noItem': ':[Shop]: ・ @{user} you need to tell me what Item you want to buy.',
   'shop.unknownItem': ':[Shop]: ・ @{user} I don’t know this item.',
@@ -99,7 +99,7 @@ module.exports = {
 
   'help.m1': ':[Help]: ・ @{user}: Available commands (if bot is online):',
   'help.m2':
-    ':[Help]: ・ /voteday, /votesun, /online, /restart, /starterkit, /shop, /transfer, /fasttravel, /whoami, /ping',
+    ':[Help]: ・ !voteday, !votesun, !online, !restart, !starterkit, !shop, !transfer, !fasttravel, !whoami, !ping',
   'help.m3':
     ':[Help]: ・ (Most will only work in GLOBAL Chat! Open chat with "T" and press "TAB" to change chatroom)',
   'help.m4': ':[Help]: ・ To see more commands check Discord: ' + dcLink,

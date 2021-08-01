@@ -1,247 +1,247 @@
 module.exports = {
   /*
-  '/team': {
+  '!team': {
     routine: 'team_channel',
     scopes: ['squad'],
     cooldown: null
   },
   */
-  '/tl': {
+  '!tl': {
     routine: 'translate_chat',
     scopes: ['global', 'local'],
     cooldown: null
   },
-  '/discord': {
+  '!discord': {
     routine: 'discord_link',
     scopes: ['squad', 'global', 'local'],
     cooldown: null
   },
-  '/deactivatemine': {
+  '!deactivatemine': {
     routine: 'deactivate_mine',
     scopes: ['squad', 'global', 'local'],
     cooldown: null
   },
-  '/new': {
+  '!new': {
     routine: 'new_player',
     scopes: ['squad', 'global', 'local'],
     cooldown: null
   },
-  '/lang': {
+  '!lang': {
     routine: 'set_lang',
     scopes: ['squad', 'global', 'local'],
     cooldown: null
   },
-  '/whois': {
+  '!whois': {
     routine: 'whois_stats',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/reset': {
+  '!reset': {
     routine: 'reset_starterkit',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/connect': {
+  '!connect': {
     routine: 'connectDC',
     scopes: ['global'],
     cooldown: null
   },
-  '/whoami': {
+  '!whoami': {
     routine: 'whoami_stats',
     scopes: ['global'],
     cooldown: null
   },
-  '/welcome': {
+  '!welcome': {
     routine: 'manual_welcome',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/rules': {
+  '!rules': {
     routine: 'list_rules',
     scopes: ['local', 'global'],
     cooldown: 5
   },
-  '/rule': {
+  '!rule': {
     routine: 'show_rule',
     scopes: ['global', 'local'],
     cooldown: null
   },
-  '/anonymous': {
+  '!anonymous': {
     routine: 'anonymize_login',
     scopes: ['global'],
     cooldown: null
   },
-  '/anonym': {
+  '!anonym': {
     routine: 'anonymize_login',
     scopes: ['global'],
     cooldown: null
   },
-  '/anonymize': {
+  '!anonymize': {
     routine: 'anonymize_login',
     scopes: ['global'],
     cooldown: null
   },
-  '/reboot': {
+  '!reboot': {
     routine: 'reboot_bot',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/reload': {
+  '!reload': {
     routine: 'reload_bot',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/voteday': {
+  '!voteday': {
     routine: 'vote_day',
     scopes: ['global'],
     cooldown: 5
   },
-  '/dayvote': {
+  '!dayvote': {
     routine: 'vote_day',
     scopes: ['global'],
     cooldown: 5
   },
-  '/votenight': {
+  '!votenight': {
     routine: 'vote_night',
     scopes: ['global'],
     cooldown: 5
   },
-  '/nightvote': {
+  '!nightvote': {
     routine: 'vote_night',
     scopes: ['global'],
     cooldown: 5
   },
-  '/votesun': {
+  '!votesun': {
     routine: 'vote_weather_sun',
     scopes: ['global'],
     cooldown: 5
   },
-  '/sunvote': {
+  '!sunvote': {
     routine: 'vote_weather_sun',
     scopes: ['global'],
     cooldown: 5
   },
-  '/online': {
+  '!online': {
     routine: 'online',
     scopes: ['global'],
     cooldown: null
   },
-  '/players': {
+  '!players': {
     routine: 'online',
     scopes: ['global'],
     cooldown: null
   },
-  '/playersonline': {
+  '!playersonline': {
     routine: 'online',
     scopes: ['global'],
     cooldown: null
   },
-  '/onlineplayers': {
+  '!onlineplayers': {
     routine: 'online',
     scopes: ['global'],
     cooldown: null
   },
-  '/restart': {
+  '!restart': {
     routine: 'restart_countdown',
     scopes: ['global'],
     cooldown: null
   },
-  '/whenrestart': {
+  '!whenrestart': {
     routine: 'restart_countdown',
     scopes: ['global'],
     cooldown: null
   },
-  '/restartwhen': {
+  '!restartwhen': {
     routine: 'restart_countdown',
     scopes: ['global'],
     cooldown: null
   },
-  '/help': {
+  '!help': {
     routine: 'help',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/commands': {
+  '!commands': {
     routine: 'help',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/joke': {
+  '!joke': {
     routine: 'joke',
     scopes: ['global'],
     cooldown: 5
   },
-  '/time': {
+  '!time': {
     routine: 'time',
     scopes: ['global'],
     cooldown: null
   },
-  '/what': {
+  '!what': {
     routine: 'what_is_going_on',
     scopes: ['local', 'global', 'squad'],
     cooldown: null
   },
-  '/fasttravel': {
+  '!fasttravel': {
     routine: 'travel',
     scopes: ['local', 'global', 'squad'],
     cooldown: null
   },
-  '/travel': {
+  '!travel': {
     routine: 'travel',
     scopes: ['local', 'global', 'squad'],
     cooldown: null
   },
-  '/transfer': {
+  '!transfer': {
     routine: 'transfer',
     scopes: ['local', 'global', 'squad'],
     cooldown: null
   },
-  '/buyitem': {
+  '!buyitem': {
     routine: 'shop_item',
     scopes: ['local', 'global', 'squad'],
     cooldown: null
   },
-  '/buy': {
+  '!buy': {
     routine: 'shop_item',
     scopes: ['local', 'global', 'squad'],
     cooldown: null
   },
-  '/ping': {
+  '!ping': {
     routine: 'ping',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/pong': {
+  '!pong': {
     routine: 'ping',
     scopes: ['local', 'global'],
     cooldown: 1
   },
-  '/starterkit': {
+  '!starterkit': {
     routine: 'starterkit',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/starterset': {
+  '!starterset': {
     routine: 'starterkit',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/starterpack': {
+  '!starterpack': {
     routine: 'starterkit',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/shop': {
+  '!shop': {
     routine: 'shop_info',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/fictionshop': {
+  '!fictionshop': {
     routine: 'shop_info',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '/botshop': {
+  '!botshop': {
     routine: 'shop_info',
     scopes: ['local', 'global'],
     cooldown: null

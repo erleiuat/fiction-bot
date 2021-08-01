@@ -20,7 +20,7 @@ module.exports = {
   'sKit.done':
     ':[Starterkit]: ・ @{user} dein Starterkit sollte nun da sein und dein Quad sollte draußen auf dich warten.',
   'shop.info':
-    ':[Shop]: ・ @{user} Besuche https://shop.scumfiction.com/ um unser Angebot zu finden! Verwende dann /buyitem [item_key], um etwas zu kaufen!',
+    ':[Shop]: ・ @{user} Besuche https://shop.scumfiction.com/ um unser Angebot zu finden! Verwende dann "!buyitem [item] [Menge]", um etwas zu kaufen!',
   'shop.pleaseWait':
     ':[Shop]: ・ @{user} bitte hab etwas Geduld, dein Artikel sollte in Kürze bei dir sein.',
   'shop.noItem':
@@ -37,7 +37,7 @@ module.exports = {
 
   'help.m1': ':[Help]: ・ @{user}: Verfügbare Befehle (wenn der Bot online ist):',
   'help.m2':
-    ':[Help]: ・ /voteday, /votesun, /online, /restart, /starterkit, /shop, /transfer, /fasttravel, /whoami, /ping',
+    ':[Help]: ・ !voteday, !votesun, !online, !restart, !starterkit, !shop, !transfer, !fasttravel, !whoami, !ping',
   'help.m3':
     ':[Help]: ・ (Die meisten funktionieren nur im GLOBAL-Chat! Öffnen den Chat mit "T" und drücke "TAB", um den Chatraum zu wechseln)',
   'help.m4': ':[Help]: ・ Um weitere Befehle zu sehen, besuche uns auf Discord: ' + dcLink,

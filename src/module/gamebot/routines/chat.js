@@ -349,8 +349,8 @@ module.exports = {
     let target = false
     let station = action.properties.value
       .toLowerCase()
-      .replace('/travel', '')
-      .replace('/fasttravel', '')
+      .replace('!travel', '')
+      .replace('!fasttravel', '')
       .trim()
     if (station == 'd0') target = '#Teleport -669327 387796 72675'
     else if (station == 'b2') target = '#Teleport -116775 -66744 37065'

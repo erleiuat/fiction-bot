@@ -85,8 +85,8 @@ async function buildConnection(msg) {
     \n__**` +
       code +
       `**__
-    \nUse the code in the ingame-chat (global) with the command \`/connect\` to finish the pairing.\nThe full command would be:
-    \`\`\`/connect ` +
+    \nUse the code in the ingame-chat (global) with the command \`!connect\` to finish the pairing.\nThe full command would be:
+    \`\`\`!connect ` +
       code +
       `\`\`\`
     \n_Best Regards, your FiBo_  :kissing_heart: 
@@ -101,7 +101,7 @@ async function chatMsg(msg) {
   if (msg.author.id !== process.env.DC_BOT_ID) {
     global.log.debug(_SN + 'Chat message detected!')
 
-    if (msg.content.trim().startsWith('#') || msg.content.trim().startsWith('/')) {
+    if (msg.content.trim().startsWith('#') || msg.content.trim().startsWith('!')) {
       await msg.delete()
       return
     }

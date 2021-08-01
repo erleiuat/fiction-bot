@@ -29,25 +29,10 @@ function init() {
 async function messageHandler(msg) {
   if (msg.channel.id == process.env.DC_CH_CONSOLE) consoleMsg(msg)
   else if (msg.content.trim() == '!connect') buildConnection(msg)
-  else if (msg.content.trim() == '!restart') forceReboot(msg)
+  else if (msg.content.trim() == '!restart') forceRestart(msg)
   else if (msg.content.trim() == '!reload') forceReload(msg)
   else if (msg.content.trim() == '!reboot') forceReboot(msg)
   else if (msg.channel.id == process.env.DC_CH_INGAMECHAT) chatMsg(msg)
-}
-
-async function execScript(scriptName) {
-  try {
-    global.log.info(_SN + 'EXECSCRIPT: Waiting 10sec before executing')
-    await global.time.sleep(5)
-    global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
-    if (global.args.includes('test')) return
-    let child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
-    child.on('data', data => console.log(data))
-    child.on('error', error => console.log(error))
-    child.on('close', code => console.log(code))
-  } catch (error) {
-    console.log(error)
-  }
 }
 
 async function forceRestart(msg) {

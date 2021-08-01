@@ -15,7 +15,7 @@ global.dcWriter = null
 global.gamebot = null
 global.state = {
   players: null,
-  time: '09:12:33'
+  time: null
 }
 
 client.on('ready', () => {

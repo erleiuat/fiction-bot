@@ -17,7 +17,8 @@ const languages = [
   'italian',
   'japanese',
   'polish',
-  'chinese'
+  'chinese',
+  'dutch'
 ]
 
 module.exports = {
@@ -39,6 +40,7 @@ module.exports = {
     else if (lang.startsWith('ita')) lang = 'IT'
     else if (lang.startsWith('jap')) lang = 'JA'
     else if (lang.startsWith('pol')) lang = 'PL'
+    else if (lang.startsWith('dut')) lang = 'NL'
 
     delete parts[0]
     delete parts[1]
@@ -82,6 +84,7 @@ module.exports = {
     else if (lang == 'japanese') action.user.lang = 'ja'
     else if (lang == 'polish') action.user.lang = 'pl'
     else if (lang == 'chinese') action.user.lang = 'zh'
+    else if (lang == 'dutch') action.user.lang = 'nl'
 
     global.userManager.saveChanges()
     cmd.addMessage(

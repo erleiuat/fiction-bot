@@ -14,7 +14,7 @@ module.exports = {
   'lang.list.1':
     ':[Lang]: ・ @{user}: You can switch between these languages: (use "!lang [language]" to change).',
   'lang.list.2':
-    ':[Lang]: ・ @{user}: english, german, russian, bulgarian, spanish, french, italian, japanese, polish, chinese',
+    ':[Lang]: ・ @{user}: english, german, russian, bulgarian, spanish, french, italian, japanese, polish, chinese, dutch',
   'lang.set': ':[Lang]: ・ @{user}: Language set to {language}.',
 
   'newP.m1': ':[New]: ・ Welcome to the Server @{user}!',

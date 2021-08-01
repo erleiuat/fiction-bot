@@ -1,3 +1,5 @@
+const _SN = '[SERVICE][SYSCONTROL]'
+
 async function execScript(scriptName) {
   try {
     global.log.info(_SN + 'EXECSCRIPT: Waiting 5 seconds before executing')

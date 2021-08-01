@@ -17,7 +17,7 @@ exports.check = async function check() {
               inf = data.data
               global.log.info(_SN + 'State loaded')
               resolve({
-                players: inf.attributes.players,
+                players: parseInt(inf.attributes.players) + 1,
                 time: inf.attributes.details.time
               })
             }

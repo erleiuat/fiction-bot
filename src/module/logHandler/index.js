@@ -77,6 +77,8 @@ async function logHandler() {
   if (!fs.existsSync('./data/tmp/logHandler/'))
     fs.mkdirSync('./data/tmp/logHandler/', { recursive: true })
 
+  if (!fs.existsSync('./data/scumLogs/')) fs.mkdirSync('./data/scumLogs/', { recursive: true })
+
   if (fs.existsSync('./data/tmp/logHandler/_cache.json')) {
     cache = JSON.parse(fs.readFileSync('./data/tmp/logHandler/_cache.json'))
   } else {

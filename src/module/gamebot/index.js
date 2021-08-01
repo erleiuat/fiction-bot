@@ -158,7 +158,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
           ) {
             if (
               !commands[cmdKey].cooldown ||
-              !cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown)
+              !(await cmd.tooEarly(commands[cmdKey].routine, commands[cmdKey].cooldown))
             )
               await routines.chat[commands[cmdKey].routine](cmd, action)
           } else {

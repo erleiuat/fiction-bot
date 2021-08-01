@@ -9,6 +9,7 @@ const _SN = '[START] -> '
  * -noHandle    -> Don't use actionHandler (don't process events)
  * -authOnly    -> Only process auth-events (create/handle users with userManager)
  * -test        -> Output gamebot & discord events to console without executing them
+ * -scumlog     -> Only start Log-Processing functions
  *
  */
 

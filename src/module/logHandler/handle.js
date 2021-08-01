@@ -1,4 +1,5 @@
 const _SN = '[MODULE][LOGHANDLER][HANDLE] -> '
+const writeScumLog = require('./writeScumLogs')
 const fs = require('fs')
 
 function formLines(content) {
@@ -44,6 +45,7 @@ async function handleViolation(lines) {
     let actionObj = initAction('violation', line)
     actionObj.properties.value = line.slice(21).trim()
     global.actionHandler.handle(actionObj)
+    writeScumLog.violation(actionObj)
   }
 }
 
@@ -67,6 +69,7 @@ async function handleChat(lines) {
 
     actionObj.user.stats.totalMessages[actionObj.properties.scope]++
     global.actionHandler.handle(actionObj)
+    writeScumLog.chat(actionObj)
   }
 }
 
@@ -96,6 +99,7 @@ async function handleAdmin(lines) {
       actionObj.user.char.fakeName = null
 
     global.actionHandler.handle(actionObj)
+    writeScumLog.admin(actionObj)
   }
 }
 
@@ -124,6 +128,7 @@ async function handleAuth(lines) {
       global.state.players++
       actionObj.user.startSession(actionObj.date)
       global.actionHandler.handle(actionObj)
+      writeScumLog.auth(actionObj)
     } else if (line.includes('logging out')) {
       let actionObj = initAction('auth', line)
       let charID = line.substring(line.indexOf(": '") + 3, line.lastIndexOf("' logg"))
@@ -141,6 +146,7 @@ async function handleAuth(lines) {
       global.state.players--
       actionObj.user.endSession(actionObj.date)
       global.actionHandler.handle(actionObj)
+      writeScumLog.auth(actionObj)
     } else {
       continue
     }
@@ -227,7 +233,7 @@ async function handleKill(lines) {
           z: parseInt(causerLoc[2])
         }
     }
-
+    console.log(line)
     actionObj.properties.causer = global.userManager.getUserBySteamID(causer.steamID)
     if (!actionObj.properties.causer)
       global.log.error(_SN + 'handleKill -> Causer not found: ' + cauStr)
@@ -242,6 +248,7 @@ async function handleKill(lines) {
 
     if (actionObj.properties.causer) actionObj.properties.causer.addKill(actionObj)
     global.actionHandler.handle(actionObj)
+    writeScumLog.kill(actionObj)
   }
 }
 
@@ -305,6 +312,7 @@ function handleMineLine(line) {
 
   actionObj.properties.mine.handleEvent(mineProps, actionObj.user, actionObj.timestamp)
   if (!found) global.actionHandler.handle(actionObj)
+  writeScumLog.mine(actionObj)
 }
 
 function setActionUser(actionObj, user) {

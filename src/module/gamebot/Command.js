@@ -58,12 +58,12 @@ module.exports = class Command {
       })
   }
 
-  tooEarly(action, waitMins) {
+  async tooEarly(action, waitMins) {
     let now = new Date().getTime()
     waitMins = waitMins * 60 * 1000
     if (lastDone[action] && lastDone[action] > now - waitMins) {
       let waitFor = Math.round((waitMins - (now - lastDone[action])) / 1000 / 60)
-      this.addMessage(sGlobal, botMsgs.tooEarly.replace('{minutes}', waitFor))
+      this.addMessage(sGlobal, await bms.get('tooEarly', 'def', { '{minutes}': waitFor }))
       return true
     }
     lastDone[action] = now

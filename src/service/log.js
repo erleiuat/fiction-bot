@@ -5,18 +5,18 @@ const timezoned = () => {
   let d = new Date()
   return (
     d.getFullYear() +
-    '_' +
-    (d.getMonth() + 1) +
-    '_' +
-    d.getDate() +
+    '.' +
+    global.nZero.form(d.getMonth() + 1) +
+    '.' +
+    global.nZero.form(d.getDate()) +
     '/' +
-    d.getHours() +
-    '_' +
-    d.getMinutes() +
-    '_' +
-    d.getSeconds() +
-    '_' +
-    d.getMilliseconds()
+    global.nZero.form(d.getHours()) +
+    ':' +
+    global.nZero.form(d.getMinutes()) +
+    ':' +
+    global.nZero.form(d.getSeconds()) +
+    '.' +
+    global.nZero.form(d.getMilliseconds())
   )
 }
 

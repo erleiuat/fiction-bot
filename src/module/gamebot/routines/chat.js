@@ -178,6 +178,16 @@ module.exports = {
     cmd.addMessage(sGlobal, '#vote SetWeather 1')
   },
   vote_day: async function (cmd, action = null) {
+    if (global.state.time) {
+      let hour = parseInt(global.state.time.slice(0, -6))
+      if (hour < 2 || hour > 7) {
+        cmd.addMessage(
+          sGlobal,
+          await bms.get('vote.day.nope', 'def', { '{time}': global.state.time })
+        )
+        return
+      }
+    }
     cmd.addMessage(sGlobal, await bms.get('vote.day', 'def'))
     cmd.addMessage(sGlobal, '#vote SetTimeOfDay 7')
   },

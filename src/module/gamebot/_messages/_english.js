@@ -3,7 +3,6 @@ const dcLink = process.env.DC_LINK
 
 module.exports = {
   error: ':[Error]: ・ Something went wrong. Please try again or contact support.',
-  tooEarly: ':[Error]: ・ Sorry, you are too fast. Please wait {minutes} minutes.',
   unknownUser: ':[Error]: ・ Sorry, I was not able to find the user {user}.',
   noPermission: ':[Error]: ・ @{user}: Sorry, You don’t have enough permissions for this.',
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',

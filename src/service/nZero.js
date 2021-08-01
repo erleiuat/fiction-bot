@@ -1,8 +1,7 @@
 const _SN = '[SERVICE][NZERO] -> '
 
 function form(val) {
-  if (val < 10) return '0' + val
-  else return val
+  return ('0' + val).slice(-2)
 }
 
 global.nZero = {

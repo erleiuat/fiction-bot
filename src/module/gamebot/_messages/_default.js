@@ -4,6 +4,7 @@ const dcLink = process.env.DC_LINK
 module.exports = {
   prefix: ' ・ ',
   discordLink: ':[Discord]: ・ ' + dcLink,
+  tooEarly: ':[Error]: ・ Sorry, you are too fast. Please wait {minutes} minutes.',
   fName: '#SetFakeName ・ :[FiBo]',
   joke: ':[Joke]: ・ {joke}',
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
@@ -12,6 +13,8 @@ module.exports = {
   'firstJoin.m1': ':[Welcome]: ・ Welcome to the Server @{user}!',
   'firstJoin.m2': ':[Welcome]: ・ Open chat with "T" and write "!new" to get started!',
   'vote.day': ':[Voting]: ・ Daytime-Voting begins! (7:00 AM) Press "F2" or "F3" to vote!',
+  'vote.day.nope':
+    ':[Voting]: ・ Daytime-Voting is only available from 02:00-07:00. It currently is about {time}',
   'vote.night': ':[Voting]: ・ Nighttime-Voting begins! (10:00 PM) Press "F2" or "F3" to vote!',
   'vote.sun': ':[Voting]: ・ Weather voting begins! (Sunny) Press "F2" or "F3" to vote!',
   'vote.rain': ':[Voting]: ・ Weather voting begins! (Rainy/Stormy) Press "F2" or "F3" to vote!',

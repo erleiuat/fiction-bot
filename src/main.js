@@ -1,5 +1,7 @@
 const _SN = '[MAIN] -> '
+require('./service/nZero')
 require('./service/log')
+global.log.info(_SN + 'Started Service "global.nZero"')
 global.log.info(_SN + 'Started Service "global.log"')
 
 const Discord = require('discord.js')
@@ -13,7 +15,7 @@ global.dcWriter = null
 global.gamebot = null
 global.state = {
   players: null,
-  time: null
+  time: '09:12:33'
 }
 
 client.on('ready', () => {
@@ -31,14 +33,16 @@ client.on('ready', () => {
   global.log.info(_SN + `Started everything!`)
 })
 
-global.log.info(_SN + 'Logging in')
-client.login(process.env.DC_TOKEN)
+if (global.args.includes('discord') || global.args.includes('gamebot')) {
+  global.log.info(_SN + 'Logging in')
+  client.login(process.env.DC_TOKEN)
+} else if (global.args.includes('scumlog')) {
+  def()
+}
 
-function def(guild) {
+function def(guild = null) {
   require('./service/time')
   global.log.info(_SN + 'Started Service "global.time"')
-  require('./service/nZero')
-  global.log.info(_SN + 'Started Service "global.nZero"')
   require('./service/sysControl')
   global.log.info(_SN + 'Started Service "global.sysControl"')
 

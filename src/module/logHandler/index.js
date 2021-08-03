@@ -61,6 +61,7 @@ async function logHandler() {
     })
     await ftp_pp.ensureDir(process.env.FTP_ROOT_PP)
   } catch (error) {
+    sysControl.restart()
     throw new Error(_SN + error)
   }
 
@@ -91,39 +92,44 @@ async function logHandler() {
     global.log.info(_SN + 'Logfiles downloaded')
   }
 
-  let i = 0
-  do {
-    i++
-    await go()
-    global.log.debug(_SN + 'RUN: ' + i)
-    if (i % 10 == 0) global.log.info(_SN + 'Checking for new updates (#' + i + ')')
+  try {
+    let i = 0
+    do {
+      i++
+      await go()
+      global.log.debug(_SN + 'RUN: ' + i)
+      if (i % 10 == 0) global.log.info(_SN + 'Checking for new updates (#' + i + ')')
 
-    let updates = { ...types }
-    let fileList = await getFileList()
+      let updates = { ...types }
+      let fileList = await getFileList()
 
-    for (const file in fileList) {
-      if (global.args.includes('authOnly') && fileList[file].type != 'login') continue
-      if (global.args.includes('mineOnly') && fileList[file].type != 'mines') continue
-      if (global.args.includes('killOnly') && fileList[file].type != 'kill') continue
-      if (!cache[file]) {
-        global.log.debug(_SN + 'Downloading: ' + file)
-        fileList[file].content = await getFileContent(file)
-        updates[fileList[file].type] += fileList[file].content
-        cache[file] = { ...fileList[file] }
-        continue
+      for (const file in fileList) {
+        if (global.args.includes('authOnly') && fileList[file].type != 'login') continue
+        if (global.args.includes('mineOnly') && fileList[file].type != 'mines') continue
+        if (global.args.includes('killOnly') && fileList[file].type != 'kill') continue
+        if (!cache[file]) {
+          global.log.debug(_SN + 'Downloading: ' + file)
+          fileList[file].content = await getFileContent(file)
+          updates[fileList[file].type] += fileList[file].content
+          cache[file] = { ...fileList[file] }
+          continue
+        }
+
+        if (cache[file].size < fileList[file].size) {
+          fileList[file].content = await getFileContent(file)
+          updates[fileList[file].type] += fileList[file].content.replace(cache[file].content, '')
+          cache[file] = { ...fileList[file] }
+          continue
+        }
       }
 
-      if (cache[file].size < fileList[file].size) {
-        fileList[file].content = await getFileContent(file)
-        updates[fileList[file].type] += fileList[file].content.replace(cache[file].content, '')
-        cache[file] = { ...fileList[file] }
-        continue
-      }
-    }
-
-    if (i % 10 == 0) writeCache(cache)
-    handle.updates(updates)
-  } while (true)
+      if (i % 10 == 0) writeCache(cache)
+      handle.updates(updates)
+    } while (true)
+  } catch (error) {
+    sysControl.restart()
+    throw new Error(_SN + error)
+  }
 }
 
 logHandler()

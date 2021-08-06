@@ -120,9 +120,6 @@ module.exports = {
     cmd.addMessage(sLocal, await bms.get('newP.m3', action.user.lang))
     cmd.addMessage(sLocal, await bms.get('newP.m4', action.user.lang))
     cmd.addMessage(sLocal, await bms.get('newP.m5', action.user.lang))
-    cmd.addMessage(sLocal, await bms.get('newP.m6', action.user.lang))
-    cmd.addMessage(sLocal, await bms.get('newP.m7', action.user.lang))
-    cmd.addMessage(sLocal, await bms.get('newP.m8', action.user.lang))
   },
   ping: async function (cmd, action) {
     cmd.addMessage(

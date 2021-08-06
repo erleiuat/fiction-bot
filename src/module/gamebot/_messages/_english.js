@@ -16,19 +16,17 @@ module.exports = {
     ':[Lang]: ・ @{user}: english, german, russian, bulgarian, spanish, french, italian, japanese, polish, chinese, dutch',
   'lang.set': ':[Lang]: ・ @{user}: Language set to {language}.',
 
-  'newP.m1': ':[New]: ・ Welcome to the Server @{user}!',
-  'newP.m2': ':[New]: ・ Make sure you get your starterkit! Write: "!starterkit"',
-  'newP.m3': ':[New]: ・ You can change the language I use to speak with you by writing: "!lang"',
+  'newP.m1':
+    ':[New]: ・ Welcome @{user}! You are currently in a safezone, which means that no other players or zombies can harm you.',
+  'newP.m2':
+    ':[New]: ・ However, as soon as you leave this area, the law of the wilderness applies and you are no longer safe from anything or anyone.',
+  'newP.m3':
+    ':[New]: ・ You can open chat with "T" and change the scope with "TAB". There are many commands available to you, like "!lang" which changes the language I use to speak with you.',
   'newP.m4':
-    ':[New]: ・ You can open chat with "T" and change the scope with "TAB". Some commands only work in a specific scope, like the "!rules" command. Use "!rules" in local to get a list of the rules.',
+    ':[New]: ・ But there are a lot more commands. You can see some of them by writing "!help", and even more as well as many other features on our Discord: ' +
+    dcLink,
   'newP.m5':
-    ':[New]: ・ If you have any questions, please don’t hesitate to contact us. Use "@support" to directly notify an admin or mod.',
-  'newP.m6':
-    ':[New]: ・ Is it so dark that you can’t see something? Start a voting for daytime with "!voteday"!',
-  'newP.m7':
-    ':[New]: ・ There are quite a few more commands available. Get a list of some important ones by writing "!help".',
-  'newP.m8':
-    ':[New]: ・ To see all commands as well as tons of other features, join our Discord! ' + dcLink,
+    ':[New]: ・ If you got any issues or questions, please don’t hesitate to contact us. We wish you a lot of fun and good luck!  ',
 
   'connect.help':
     ':[Connect]: ・ Send me a private message on Discord (FictionBot#9302) with the content "!connect" to get your pairing-code! You can also just write this command into any channel on our Discord-Server! ' +
@@ -48,7 +46,6 @@ module.exports = {
   'rules.r7': ':[Rules]: ・ #7 No thievery in the Tradingzone B2',
   'rules.r8': ':[Rules]: ・ #8 Don’t raid if your base is within the safe zone Z0',
   'rules.r9': ':[Rules]: ・ #9 Traps only in own flag circle and NOT on roads or POIs',
-  'rules.r10': ':[Rules]: ・ #10 Bases must not be unraidable',
 
   'anonymize.on': ' ・ @{user}: Your logins & logouts will be anonymous by now.',
   'anonymize.off': ' ・ @{user}: Your logins & logouts won’t me anonymous anymore.',

@@ -174,7 +174,7 @@
   "bots": {
     "isAdmin": true,
     "name": "Bot",
-    "allowBotCommands": ["/*"],
+    "allowBotCommands": ["!*"],
     "hideCommandAlarms": ["#*"],
     "hideCommands": [
       "#setfakename",

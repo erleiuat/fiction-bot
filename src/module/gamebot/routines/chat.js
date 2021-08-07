@@ -601,7 +601,7 @@ module.exports = {
             action.user.char.name,
             action.user.steamID,
             'scumfiction',
-            100,
+            60,
             true
           )
           cmd.addMessage(

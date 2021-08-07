@@ -9,10 +9,10 @@ module.exports = {
   capslock: ':[Warn]: ・ @{user}: Please don’t write in capslock too much <3',
 
   'lottery.noMoney':
-    ':[Lottery]: ・ @{user}: Sorry, you need at least 150 Famepoints to participate (the ticket only costs 100)',
+    ':[Lottery]: ・ @{user}: Sorry, you need at least 100 Famepoints to participate (the ticket only costs 60)',
   'lottery.buying': ':[Lottery]: ・ @{user}: Your purchase is getting processed.',
   'lottery.bought':
-    ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket with the ID {ticket}!',
+    ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket for 60 famepoints with the ID {ticket}!',
   'lottery.draw1':
     ':[Lottery]: ・ The winner of the lottery draw is {user}! There was a total of {ticketamount} participants making the winning sum {amount} famepoints!',
   'lottery.draw2': ':[Lottery]: ・ Collect your winnings using "!lottery collect".',
@@ -20,7 +20,7 @@ module.exports = {
   'lottery.collect':
     ':[Lottery]: ・ @{user}: A total of {amount} famepoints will now be transfered to you.',
   'lottery.info':
-    ':[Lottery]: ・ There are currently {ticketamount} tickets in the lottery making the winning sum {amount} famepoints!',
+    ':[Lottery]: ・ There are currently {ticketamount} tickets in the lottery making the winning sum {amount} famepoints! A single ticket costs 60 famepoints.',
   'lang.unknown':
     ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',
   'lang.list.1':

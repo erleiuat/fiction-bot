@@ -40,7 +40,7 @@ class Action:
                     pProps.append(prop)
             uid = pProps[0][3:].strip()
             playerList[uid] = {
-                'userID': uid,
+                'steamID': uid,
                 'steamName': pProps[1].strip(),
                 'charName': pProps[2].strip(),
                 'fame': pProps[3].strip()
@@ -61,25 +61,23 @@ class Action:
         self.CON.openAll()
         self.RES.add({'fileName': fileName, 'fullPath': fullPath})
 
-    def playerReport(self):
-        playerInfo = {}
+    def playerReport(self, props):
+        withLocation = False
+        if("dict" in type(props).__name__ and props['location']):
+            withLocation = True
         playerList = self.getPlayerList()
-        for player in playerList:
-            p = self.PRC_CHAT.send('#Location '+playerList[player]['userID'], read=True)
-            playerLoc = (p[(p.find(':')+1):]).strip().split()
-            playerInfo[player] = {
-                'steamID': player,
-                'charName': playerList[player]['charName'],
-                'steamName': playerList[player]['steamName'],
-                'fame': playerList[player]['fame'],
-                'location': {
+
+        if(withLocation):
+            for player in playerList:
+                p = self.PRC_CHAT.send('#Location '+playerList[player]['steamID'], read=True)
+                playerLoc = (p[(p.find(':')+1):]).strip().split()
+                playerList[player]['location'] = {
                     'x': playerLoc[0][2:],
                     'y': playerLoc[1][2:],
                     'z': playerLoc[2][2:]
                 }
-            }
-
-        self.RES.add({'playerInfo': playerInfo})
+            
+        self.RES.add({'playerInfo': playerList})
 
 
     def transfer(self, props):
@@ -105,7 +103,7 @@ class Action:
                 return False
 
             withdraw = '#SetFamePoints ' + str(int(sender['fame']) - int(props['amount'])) + ' ' + props['from']
-            deposit = '#SetFamePoints ' + str(int(recipient['fame']) + int(props['amount'])) + ' ' + recipient['userID']
+            deposit = '#SetFamePoints ' + str(int(recipient['fame']) + int(props['amount'])) + ' ' + recipient['steamID']
 
             self.RES.add({
                 "transactionInfo": {

@@ -116,6 +116,16 @@ module.exports = {
     scopes: ['global'],
     cooldown: null
   },
+  '!lotterydraw': {
+    routine: 'lottery_draw',
+    scopes: ['global'],
+    cooldown: null
+  },
+  '!lottery': {
+    routine: 'lottery',
+    scopes: ['global'],
+    cooldown: null
+  },
 
   '!rules': {
     routine: 'list_rules',
@@ -249,17 +259,17 @@ module.exports = {
     scopes: ['global', 'local'],
     cooldown: null
   },
-  '!bot_reboot': {
+  '!reboot': {
     routine: 'reboot_bot',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '!bot_reload': {
+  '!reload': {
     routine: 'reload_bot',
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '!bot_restart': {
+  '!restart': {
     routine: 'restart_bot',
     scopes: ['local', 'global'],
     cooldown: null

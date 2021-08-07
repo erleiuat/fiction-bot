@@ -41,7 +41,7 @@ class Process:
             if(action['type'] == 'mapShot'):
                 self.PRC_ACTION.mapShot(action['properties'])
             if(action['type'] == 'playerReport'):
-                self.PRC_ACTION.playerReport()
+                self.PRC_ACTION.playerReport(action['properties'])
             elif(action['type'] == 'sale'):
                 self.PRC_ACTION.sale(action['properties'])
             elif(action['type'] == 'travel'):
@@ -51,7 +51,7 @@ class Process:
 
 
     testActions = [{
-        "type":"reloadBot"
+        "type":"playerReport", "properties": {"location": True}
     }]
 
     testMessages = []

@@ -421,28 +421,14 @@ module.exports = {
         await bms.get('trans.form', action.user.lang, { '{user}': action.user.char.name })
       )
     else {
-      cmd.addAction('transfer', {
-        from: action.user.steamID,
-        to: transferTo,
-        amount: amount,
-        messages: {
-          notEnough: await bms.get('trans.notEnough', action.user.lang, {
-            '{user}': action.user.char.name
-          }),
-          notFound: await bms.get('trans.notFound', action.user.lang, {
-            '{user}': action.user.char.name
-          }),
-          success: await bms.get('trans.success', action.user.lang, {
-            '{user}': action.user.char.name
-          }),
-          started: await bms.get('trans.started', action.user.lang, {
-            '{user}': action.user.char.name
-          }),
-          somethingWrong: await bms.get('trans.somethingWrong', action.user.lang, {
-            '{user}': action.user.char.name
-          })
-        }
-      })
+      await transferFame(
+        cmd,
+        action.user.lang,
+        action.user.char.name,
+        action.user.steamID,
+        transferTo,
+        amount
+      )
     }
   },
   shop_item: async function (cmd, action) {
@@ -572,7 +558,105 @@ module.exports = {
     global.mineManager.saveChanges()
     global.log.info(_SN + 'REBOOT: Saved mngr data')
     cmd.addMessage(scope, await bms.get('start.reboot', 'def'))
+  },
+  lottery_draw: async function (cmd, action = null) {
+    let winner = global.lottery.draw()
+    cmd.addMessage(
+      sGlobal,
+      await bms.get('lottery.draw1', 'en', {
+        '{user}': winner.charName,
+        '{ticketamount}': winner.ticketAmount,
+        '{amount}': winner.amount
+      })
+    )
+    cmd.addMessage(sGlobal, await bms.get('lottery.draw2', 'en'))
+    global.lottery.cleanUp()
+  },
+  lottery: async function (cmd, action) {
+    let parts = action.properties.value.split(' ')
+    let type = parts[1].toLowerCase().trim()
+
+    if (type == 'buy') {
+      let userInfo = await global.gamebot.getOnlinePlayerStats()
+      if (userInfo[action.user.steamID]) {
+        let fp = userInfo[action.user.steamID].fame
+        if (fp && fp >= 50) {
+          cmd.addMessage(
+            sGlobal,
+            await bms.get('lottery.buying', action.user.lang, { '{user}': action.user.char.name })
+          )
+          await transferFame(
+            cmd,
+            action.user.lang,
+            action.user.char.name,
+            action.user.steamID,
+            'scumfiction',
+            10,
+            true
+          )
+          let ticket = global.lottery.newTicket(action.user.steamID, action.user.char.name)
+          cmd.addMessage(
+            sGlobal,
+            await bms.get('lottery.bought', action.user.lang, {
+              '{user}': action.user.char.name,
+              '{ticket}': ticket
+            })
+          )
+        } else {
+          cmd.addMessage(
+            sGlobal,
+            await bms.get('lottery.noMoney', action.user.lang, { '{user}': action.user.char.name })
+          )
+        }
+      }
+    } else if (type == 'collect') {
+      let amount = global.lottery.getWinnings(action.user.steamID)
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('lottery.collect', 'en', {
+          '{user}': action.user.char.name,
+          '{amount}': amount
+        })
+      )
+
+      await transferFame(
+        cmd,
+        'en',
+        'Lottery',
+        process.env.BOT_STEAMID,
+        action.user.char.name,
+        amount,
+        true
+      )
+
+      global.lottery.clearWinnings(action.user.steamID)
+    }
   }
+}
+
+async function transferFame(cmd, language, username, from, to, amount) {
+  cmd.addAction('transfer', {
+    from: from,
+    to: to,
+    amount: amount,
+    messages: {
+      notEnough: await bms.get('trans.notEnough', language, {
+        '{user}': username
+      }),
+      notFound: await bms.get('trans.notFound', language, {
+        '{user}': username
+      }),
+      success: await bms.get('trans.success', language, {
+        '{user}': username
+      }),
+      started: await bms.get('trans.started', language, {
+        '{user}': username
+      }),
+      somethingWrong: await bms.get('trans.somethingWrong', language, {
+        '{user}': username
+      })
+    }
+  })
 }
 
 async function getItemList() {

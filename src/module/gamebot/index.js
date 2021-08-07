@@ -15,22 +15,25 @@ let sGlobal = process.env.SETTING_CHAT_GLOBAL_SCOPE
 let sLocal = process.env.SETTING_CHAT_LOCAL_SCOPE
 
 exports.executeCommand = executeCommand
+exports.getOnlinePlayerStats = getOnlinePlayerStats
 exports.ready = ready
 
 exports.start = async function start(dcClient) {
+  new Command().init(bms, sLocal, sGlobal)
+
   routines.init(bms, sLocal, sGlobal)
   routines.chat.init(bms, sLocal, sGlobal)
-
-  new Command().init(bms, sLocal, sGlobal)
   schedule.start(bms, sLocal, sGlobal)
 
   let state = { status: 'success' }
+
   if (!global.args.includes('test')) {
     playerReporter.start(dcClient, routines)
     state = await bot.start()
   }
 
   if (state.status == 'success') {
+    //let cmd = new Command()
     let cmd = new Command(true)
     await routines.botStart(cmd)
     run = true
@@ -47,6 +50,14 @@ exports.pause = async function pause() {
 
 async function go() {
   while (!run) await global.time.sleep(0.001)
+}
+
+async function getOnlinePlayerStats() {
+  let cmd = new Command()
+  await routines.playerReport(cmd)
+  let results = await executeCommand(cmd)
+  if (results.data.playerInfo) return results.data.playerInfo
+  return false
 }
 
 async function executeCommand(cmd) {
@@ -105,6 +116,7 @@ exports.sendFromLog = async function sendFromLog(action = false) {
   )
   if (!started) return
   if (!action) return
+  if (action.type == 'violation') return
   let userProps = global.userManager.getUserProperties(action.user)
   let cmd = new Command()
 

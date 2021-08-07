@@ -8,6 +8,16 @@ module.exports = {
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
   capslock: ':[Warn]: ・ @{user}: Please don’t write in capslock too much <3',
 
+  'lottery.noMoney':
+    ':[Lottery]: ・ @{user}: Sorry, you need at least 50 Famepoints to participate (the ticket only costs 10)',
+  'lottery.buying': ':[Lottery]: ・ @{user}: Your purchase is getting processed.',
+  'lottery.bought':
+    ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket with the ID {ticket}!',
+  'lottery.draw1':
+    ':[Lottery]: ・ The winner of the lottery draw is {user}! There was a total of {ticketamount} participants making the winning sum {amount} famepoints!',
+  'lottery.draw2': ':[Lottery]: ・ Collect your winnings using "!lottery collect".',
+  'lottery.collect':
+    ':[Lottery]: ・ @{user}: A total of {amount} famepoints will now be transfered to you.',
   'lang.unknown':
     ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',
   'lang.list.1':

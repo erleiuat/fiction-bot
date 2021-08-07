@@ -10,6 +10,15 @@ class Chat:
     SCB = None
     PAG = None
 
+
+    safeCommands = [
+        '#location', 
+        '#listplayers', 
+        '#listspawnedvehicles', 
+        '#findsquadmember', 
+        '#listsquads'
+    ]
+    
     currentScope = None
     clean = False
 
@@ -63,16 +72,23 @@ class Chat:
         self.clean = True
 
 
-    def read(self):
-        loc = self.CON.getPoint(150, 470)
-        self.PAG.moveTo(loc[0], loc[1], 0.2, self.PAG.easeOutQuad)
-        self.PAG.hotkey('ctrl','v')
-        self.PAG.press('enter')
-        self.PAG.click()
-        self.PAG.hotkey('ctrl','a')
-        self.PAG.hotkey('ctrl', 'c')
-        self.PAG.press('esc')
-        self.PAG.press('t')
+    def read(self, message):
+        command = message.split()[0].strip().lower()
+        if(command in self.safeCommands):
+            self.copyToClip(message + ' true')
+            self.PAG.hotkey('ctrl','v')
+            self.PAG.press('enter')
+        else:
+            self.copyToClip(message)
+            chat = self.CON.onScreen('img/chat_stumm.png', region='chatStumm')
+            self.PAG.moveTo(chat[0], chat[1]-30, 0.2, self.PAG.easeOutQuad)
+            self.PAG.hotkey('ctrl','v')
+            self.PAG.press('enter')
+            self.PAG.click(chat[0], chat[1]-30)
+            self.PAG.hotkey('ctrl','a')
+            self.PAG.hotkey('ctrl', 'c')
+            self.PAG.press('esc')
+            self.PAG.press('t')
         return self.readFromClip().strip()
 
 
@@ -98,6 +114,7 @@ class Chat:
 
 
     def send(self, message, read = False):
+        message = message.strip()
         data = True
         teleport = False
         current = False
@@ -107,10 +124,10 @@ class Chat:
             if(current == teleport):
                 return data
         self.RES.printer('SENDING MSG -> ' + message)
-        self.copyToClip(message)
         if(read):
-            data = self.read()
+            data = self.read(message)
         else:
+            self.copyToClip(message)
             self.PAG.hotkey('ctrl','v')
             self.PAG.press('enter')
             if(teleport):

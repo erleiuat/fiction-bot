@@ -233,7 +233,7 @@ async function handleKill(lines) {
           z: parseInt(causerLoc[2])
         }
     }
-    console.log(line)
+
     actionObj.properties.causer = global.userManager.getUserBySteamID(causer.steamID)
     if (!actionObj.properties.causer)
       global.log.error(_SN + 'handleKill -> Causer not found: ' + cauStr)

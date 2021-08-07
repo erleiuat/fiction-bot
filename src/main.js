@@ -12,6 +12,7 @@ global.mineHandler = null
 global.logHandler = null
 global.statistics = null
 global.dcWriter = null
+global.lottery = null
 global.gamebot = null
 global.state = {
   players: null,
@@ -53,6 +54,10 @@ function def(guild = null) {
   const MineManager = require('./service/mineManager/')
   global.mineManager = new MineManager()
   global.log.info(_SN + 'Started Service "global.mineManager"')
+
+  const Lottery = require('./service/lottery')
+  global.lottery = new Lottery()
+  global.log.info(_SN + 'Started Service "global.lottery"')
 
   /*
   const Teams = require('./service/teams')

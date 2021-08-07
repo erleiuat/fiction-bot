@@ -3,6 +3,7 @@ from pywinauto import Application
 import ctypes.wintypes
 from ctypes import *
 import win32gui
+import getpass
 import psutil
 import ctypes
 import time
@@ -36,6 +37,7 @@ class Focus:
                 app.top_window().set_focus()
                 success = True
             except Exception as e:
+                self.RES.printer(e)
                 exception_type, exception_object, exception_traceback = sys.exc_info()
                 if('not responding' in str(e).lower()):
                     time.sleep(3)
@@ -50,11 +52,12 @@ class Focus:
 
     def doIt(self):
         self.RES.printer('FOCUSING')
+        pcUser = getpass.getuser()
         if(self.foregroundWindow() == 'scum'):
             self.RES.printer('FOCUSED')
             return True
-        for proc in psutil.process_iter():
-            if 'SCUM.exe' in proc.name():
+        for proc in list(psutil.process_iter(['pid', 'name', 'username'])):
+            if (proc.info['username'] and pcUser in proc.info['username'] and 'SCUM.exe' in proc.name()):
                 self.getTryFocus(proc)
                 self.RES.printer('FOCUSED')
                 time.sleep(0.05)

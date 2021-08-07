@@ -39,13 +39,13 @@ async function resOutput(resolve, logTxt) {
   bot.stdout.once('data', data => {
     data = `${data}`
     global.log.debug(_SN + data.trim())
-    global.log.info(_SN + logTxt)
     try {
       resolve(JSON.parse(data))
+      global.log.info(_SN + logTxt)
     } catch (err) {
       if (err.message.includes('JSON')) resolve(JSON.stringify(data))
       else {
-        global.log.debug(err)
+        global.log.error(_SN + err)
         resolve(false)
       }
     }
@@ -67,7 +67,7 @@ exports.start = async function start() {
 
 exports.messages = async function messages(msgs) {
   return new Promise(resolve => {
-    global.log.info(_SN + 'Sending messages')
+    global.log.info(_SN + 'Sending messages:' + JSON.stringify(msgs))
     resOutput(resolve, 'Messages sent')
     bot.stdin.write(encodeURI('MESSAGES') + '\n')
     bot.stdin.write(encodeURI(JSON.stringify(msgs)) + '\n')
@@ -76,7 +76,7 @@ exports.messages = async function messages(msgs) {
 
 exports.actions = async function actions(action) {
   return new Promise(resolve => {
-    global.log.info(_SN + 'Doing actions')
+    global.log.info(_SN + 'Doing actions: ' + JSON.stringify(action))
     resOutput(resolve, 'Actions done')
     bot.stdin.write(encodeURI('ACTION') + '\n')
     bot.stdin.write(encodeURI(JSON.stringify(action)) + '\n')

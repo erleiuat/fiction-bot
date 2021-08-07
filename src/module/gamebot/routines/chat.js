@@ -578,7 +578,7 @@ module.exports = {
   },
   lottery: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
-    let type = parts[1].toLowerCase().trim()
+    let type = parts[1] ? parts[1].toLowerCase().trim() : ''
 
     if (type == 'buy') {
       let userInfo = await global.gamebot.getOnlinePlayerStats()

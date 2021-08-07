@@ -636,7 +636,7 @@ module.exports = {
         sGlobal,
         await bms.get('lottery.info', 'en', {
           '{ticketamount}': info.ticketAmount,
-          '{amount}': amount
+          '{amount}': info.amount
         })
       )
     }

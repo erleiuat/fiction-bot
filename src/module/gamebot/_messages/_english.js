@@ -9,7 +9,7 @@ module.exports = {
   capslock: ':[Warn]: ・ @{user}: Please don’t write in capslock too much <3',
 
   'lottery.noMoney':
-    ':[Lottery]: ・ @{user}: Sorry, you need at least 50 Famepoints to participate (the ticket only costs 10)',
+    ':[Lottery]: ・ @{user}: Sorry, you need at least 150 Famepoints to participate (the ticket only costs 100)',
   'lottery.buying': ':[Lottery]: ・ @{user}: Your purchase is getting processed.',
   'lottery.bought':
     ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket with the ID {ticket}!',

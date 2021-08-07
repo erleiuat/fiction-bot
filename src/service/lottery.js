@@ -25,7 +25,7 @@ module.exports = class Lottery {
     let ticketAmount = Object.keys(this.tickets).length
     let keys = Object.keys(this.tickets)
     let winner = keys[(keys.length * Math.random()) << 0]
-    let amount = Math.round(ticketAmount * 10 * 0.9)
+    let amount = Math.round(ticketAmount * 100 * 0.9)
 
     if (!this.winnings[this.tickets[winner].steamID])
       this.winnings[this.tickets[winner].steamID] = 0
@@ -49,7 +49,7 @@ module.exports = class Lottery {
 
   getInfo() {
     let ticketAmount = Object.keys(this.tickets).length
-    let amount = Math.round(ticketAmount * 10 * 0.9)
+    let amount = Math.round(ticketAmount * 100 * 0.9)
 
     return {
       ticketAmount: ticketAmount,

@@ -41,6 +41,8 @@ module.exports = class User {
     starterkit: null
   }
 
+  bountys = {}
+
   kills = {}
 
   session = {

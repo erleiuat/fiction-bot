@@ -100,9 +100,9 @@ class Chat:
 
     def getLocation(self):
         i = 0
-        loc = self.send('#Location', read = True)
+        loc = self.send('#Location 76561199192438131', read = True)
         while(not loc.lower().startswith('scumfiction') and i < 10):
-            loc = self.send('#Location', read = True)
+            loc = self.send('#Location 76561199192438131', read = True)
             i = i + 1
         if(not loc.lower().startswith('scumfiction')):
             self.RES.addError('Unable to catch location', '_process_chat: getLocation()')

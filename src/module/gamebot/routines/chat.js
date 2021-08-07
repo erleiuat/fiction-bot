@@ -632,6 +632,7 @@ module.exports = {
       global.lottery.clearWinnings(action.user.steamID)
     } else if (type == 'info') {
       let info = global.lottery.getInfo()
+
       cmd.addMessage(
         sGlobal,
         await bms.get('lottery.info', 'en', {

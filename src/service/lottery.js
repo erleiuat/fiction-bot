@@ -52,7 +52,7 @@ module.exports = class Lottery {
     let amount = Math.round(ticketAmount * 10 * 0.9)
 
     return {
-      tickedAmount: ticketAmount,
+      ticketAmount: ticketAmount,
       amount: amount
     }
   }

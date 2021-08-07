@@ -16,6 +16,7 @@ module.exports = {
   'lottery.draw1':
     ':[Lottery]: ・ The winner of the lottery draw is {user}! There was a total of {ticketamount} participants making the winning sum {amount} famepoints!',
   'lottery.draw2': ':[Lottery]: ・ Collect your winnings using "!lottery collect".',
+  'lottery.already': ':[Lottery]: ・ @{user}: You already bought a ticket.',
   'lottery.collect':
     ':[Lottery]: ・ @{user}: A total of {amount} famepoints will now be transfered to you.',
   'lottery.info':

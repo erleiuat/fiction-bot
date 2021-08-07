@@ -581,6 +581,16 @@ module.exports = {
       if (userInfo[action.user.steamID]) {
         let fp = userInfo[action.user.steamID].fame
         if (fp && fp >= 50) {
+          let ticket = global.lottery.newTicket(action.user.steamID, action.user.char.name)
+          if (!ticket) {
+            cmd.addMessage(
+              sGlobal,
+              await bms.get('lottery.already', action.user.lang, {
+                '{user}': action.user.char.name
+              })
+            )
+            return
+          }
           cmd.addMessage(
             sGlobal,
             await bms.get('lottery.buying', action.user.lang, { '{user}': action.user.char.name })
@@ -594,7 +604,6 @@ module.exports = {
             10,
             true
           )
-          let ticket = global.lottery.newTicket(action.user.steamID, action.user.char.name)
           cmd.addMessage(
             sGlobal,
             await bms.get('lottery.bought', action.user.lang, {

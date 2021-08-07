@@ -69,9 +69,11 @@ module.exports = class Lottery {
 
   newTicket(steamID, charName) {
     let ticketID = this.makeid(steamID)
-    this.tickets[ticketID] = {
+    if (this.tickets[steamID]) return false
+    this.tickets[steamID] = {
       steamID: steamID,
-      charName: charName
+      charName: charName,
+      ticketID: ticketID
     }
     this.saveChanges()
     return ticketID

@@ -561,6 +561,10 @@ module.exports = {
   },
   lottery_draw: async function (cmd, action = null) {
     let winner = global.lottery.draw()
+    cmd.addMessage(sGlobal, await bms.get('lottery.drawcount1', 'en'))
+    cmd.addMessage(sGlobal, await bms.get('lottery.drawcount2', 'en'))
+    cmd.addMessage(sGlobal, await bms.get('lottery.drawcount3', 'en'))
+    cmd.addMessage(sGlobal, await bms.get('lottery.drawcount4', 'en'))
     cmd.addMessage(
       sGlobal,
       await bms.get('lottery.draw1', 'en', {
@@ -580,7 +584,7 @@ module.exports = {
       let userInfo = await global.gamebot.getOnlinePlayerStats()
       if (userInfo[action.user.steamID]) {
         let fp = userInfo[action.user.steamID].fame
-        if (fp && fp >= 50) {
+        if (fp && fp >= 100) {
           let ticket = global.lottery.newTicket(action.user.steamID, action.user.char.name)
           if (!ticket) {
             cmd.addMessage(
@@ -639,7 +643,7 @@ module.exports = {
       )
 
       global.lottery.clearWinnings(action.user.steamID)
-    } else if (type == 'info') {
+    } else {
       let info = global.lottery.getInfo()
 
       cmd.addMessage(

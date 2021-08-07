@@ -13,6 +13,10 @@ module.exports = {
   'lottery.buying': ':[Lottery]: ・ @{user}: Your purchase is getting processed.',
   'lottery.bought':
     ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket for 60 famepoints with the ID {ticket}!',
+  'lottery.drawcount1': ':[Lottery]: ・ Lottery draw in:',
+  'lottery.drawcount2': ':[Lottery]: ・ 3',
+  'lottery.drawcount3': ':[Lottery]: ・ 2',
+  'lottery.drawcount4': ':[Lottery]: ・ 1',
   'lottery.draw1':
     ':[Lottery]: ・ The winner of the lottery draw is {user}! There was a total of {ticketamount} participants making the winning sum {amount} famepoints!',
   'lottery.draw2': ':[Lottery]: ・ Collect your winnings using "!lottery collect".',

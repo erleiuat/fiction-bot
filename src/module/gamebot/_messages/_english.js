@@ -18,6 +18,8 @@ module.exports = {
   'lottery.draw2': ':[Lottery]: ・ Collect your winnings using "!lottery collect".',
   'lottery.collect':
     ':[Lottery]: ・ @{user}: A total of {amount} famepoints will now be transfered to you.',
+  'lottery.info':
+    ':[Lottery]: ・ There are currently {ticketamount} tickets in the lottery making the winning sum {amount} famepoints!',
   'lang.unknown':
     ':[Lang]: ・ @{user}: Sorry, I don’t know this language. Please check if you wrote it correctly.',
   'lang.list.1':

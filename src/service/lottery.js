@@ -47,6 +47,16 @@ module.exports = class Lottery {
     this.saveChanges()
   }
 
+  getInfo() {
+    let ticketAmount = Object.keys(this.tickets).length
+    let amount = Math.round(ticketAmount * 10 * 0.9)
+
+    return {
+      tickedAmount: ticketAmount,
+      amount: amount
+    }
+  }
+
   getWinnings(steamID) {
     if (!this.winnings[steamID]) return 0
     else return this.winnings[steamID]

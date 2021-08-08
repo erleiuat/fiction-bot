@@ -58,7 +58,7 @@ async function getOnlinePlayerStats() {
   let results = await executeCommand(cmd)
   if (results.data.playerInfo) return results.data.playerInfo
   return false
-  /* TODO
+  /*
   return {
     '76561198058320009': {
       fame: 123
@@ -237,7 +237,6 @@ exports.sendFromLog = async function sendFromLog(action = false) {
               sGlobal,
               await bms.get('firstJoin.m1', 'def', { '{user}': action.user.char.name })
             )
-            cmd.addMessage(sGlobal, await bms.get('firstJoin.m2', 'def'))
           }
         } else cmd.addMessage(sGlobal, await bms.get('auth.logout', 'def', { '{user}': uName }))
         await executeCommand(cmd)

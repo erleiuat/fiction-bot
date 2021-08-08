@@ -355,8 +355,8 @@ module.exports = {
       sGlobal,
       await bms.get('help.m1', action.user.lang, { '{user}': action.user.char.name })
     )
-    cmd.addMessage(sGlobal, await bms.get('help.m2', action.user.lang))
-    cmd.addMessage(sGlobal, await bms.get('help.m3', 'en'))
+    cmd.addMessage(sGlobal, await bms.get('help.m2', 'en'))
+    cmd.addMessage(sGlobal, await bms.get('help.m3', action.user.lang))
     cmd.addMessage(sGlobal, await bms.get('help.m4', action.user.lang))
   },
   travel: async function (cmd, action) {
@@ -595,23 +595,25 @@ module.exports = {
             )
             return
           }
+          /*
           cmd.addMessage(
             sGlobal,
             await bms.get('lottery.buying', action.user.lang, { '{user}': action.user.char.name })
           )
+          */
           await transferFame(
             cmd,
             action.user.lang,
             action.user.char.name,
             action.user.steamID,
             'scumfiction',
-            60
+            60,
+            'LotteryBank'
           )
           cmd.addMessage(
             sGlobal,
             await bms.get('lottery.bought', action.user.lang, {
-              '{user}': action.user.char.name,
-              '{ticket}': ticket
+              '{user}': action.user.char.name
             })
           )
         } else {
@@ -634,7 +636,7 @@ module.exports = {
       await transferFame(
         cmd,
         action.user.lang,
-        'Lottery',
+        'LotteryBank',
         process.env.BOT_STEAMID,
         action.user.char.name,
         amount
@@ -663,20 +665,20 @@ module.exports = {
 
       let amount = parts[2] ? parseInt(parts[2]) : 0
       if (amount <= 0) {
-        cmd.addMessage(sGlobal, 'no amount')
+        cmd.addMessage(sGlobal, await bms.get('bounty.noAmount', action.user.lang))
         return
       }
 
       let userfp = userInfo[action.user.steamID].fame
       if (!userfp || userfp < amount) {
-        cmd.addMessage(sGlobal, 'not enough fame')
+        cmd.addMessage(sGlobal, await bms.get('bounty.noFame', action.user.lang))
         return
       }
 
       let target = parts[3] ? parts[3].trim() : false
       target = global.userManager.getUserByCharName(target)
       if (!target) {
-        cmd.addMessage(sGlobal, 'target not found')
+        cmd.addMessage(sGlobal, await bms.get('bounty.noVictim', action.user.lang))
         return
       }
 
@@ -686,18 +688,19 @@ module.exports = {
         action.user.char.name,
         action.user.steamID,
         'scumfiction',
-        amount
+        amount,
+        'BountyBank'
       )
 
       target.addBounty(action.user.steamID, amount)
       global.userManager.saveChanges()
 
-      cmd.addMessage(sGlobal, 'all good')
+      cmd.addMessage(sGlobal, await bms.get('bounty.addSuccess', action.user.lang))
     } else if (type == 'remove') {
       let target = parts[2] ? parts[2].trim() : false
       target = global.userManager.getUserByCharName(target)
       if (!target) {
-        cmd.addMessage(sGlobal, 'target not found')
+        cmd.addMessage(sGlobal, await bms.get('bounty.noVictim', action.user.lang))
         return
       }
 
@@ -706,7 +709,7 @@ module.exports = {
       await transferFame(
         cmd,
         action.user.lang,
-        'Bounty',
+        'BountyBank',
         process.env.BOT_STEAMID,
         action.user.char.name,
         amount
@@ -717,14 +720,14 @@ module.exports = {
       let amount = action.user.bountyEarned
 
       if (amount < 0) {
-        cmd.addMessage(sGlobal, 'no bounty earned')
+        cmd.addMessage(sGlobal, await bms.get('bounty.noneEarned', action.user.lang))
         return
       }
 
       await transferFame(
         cmd,
         action.user.lang,
-        'Bounty',
+        'BountyBank',
         process.env.BOT_STEAMID,
         action.user.char.name,
         amount
@@ -732,17 +735,32 @@ module.exports = {
 
       action.user.bountyEarned = 0
       global.userManager.saveChanges()
+    } else if (type == 'help' || type == 'info') {
+      cmd.addMessage(sGlobal, await bms.get('bounty.help', action.user.lang))
     } else {
       let list = global.userManager.getBountyList()
-      cmd.addMessage(sGlobal, 'Current bounties:')
-      for (const e in list) {
-        cmd.addMessage(sGlobal, list[e])
+      if (!list.length) {
+        cmd.addMessage(sGlobal, await bms.get('bounty.noBounties', action.user.lang))
+        return
       }
+
+      cmd.addMessage(sGlobal, await bms.get('bounty.listCurrent', action.user.lang))
+      for (const e in list) {
+        cmd.addMessage(
+          sGlobal,
+          await bms.get('bounty.listEntry', action.user.lang, {
+            '{victim}': list[e].charName,
+            '{bouties}': list[e].bounties,
+            '{total}': list[e].totalAmount
+          })
+        )
+      }
+      cmd.addMessage(sGlobal, await bms.get('bounty.help', action.user.lang))
     }
   }
 }
 
-async function transferFame(cmd, language, username, from, to, amount) {
+async function transferFame(cmd, language, username, from, to, amount, altTo = false) {
   cmd.addAction('transfer', {
     from: from,
     to: to,
@@ -758,7 +776,8 @@ async function transferFame(cmd, language, username, from, to, amount) {
         '{user}': username
       }),
       started: await bms.get('trans.started', language, {
-        '{user}': username
+        '{user1}': username,
+        '{user2}': altTo ? altTo : to
       }),
       somethingWrong: await bms.get('trans.somethingWrong', language, {
         '{user}': username

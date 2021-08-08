@@ -128,7 +128,7 @@ module.exports = {
   },
   '!bounty': {
     routine: 'bounty',
-    scopes: ['global'], // TODO
+    scopes: ['global'],
     cooldown: null
   },
 

@@ -10,8 +10,8 @@ module.exports = {
   resetStarter: ':[Starterkit]: ・ The Starterkit for {user} has been reset.',
   'mine.deact': ' ・ (Mine has been deactivated)',
   'mine.notFound': ' ・ (Mine not found)',
-  'firstJoin.m1': ':[Welcome]: ・ Welcome to the Server @{user}!',
-  'firstJoin.m2': ':[Welcome]: ・ Open chat with "T" and write "!new" to get started!',
+  'firstJoin.m1':
+    ':[Welcome]: ・ Welcome to the Server @{user}! Open chat with "T" and write "!new" to get started!',
   'vote.day': ':[Voting]: ・ Daytime-Voting begins! (7:00 AM) Press "F2" or "F3" to vote!',
   'vote.day.nope':
     ':[Voting]: ・ Daytime-Voting is only available from 02:00-07:00. It currently is about {time}',

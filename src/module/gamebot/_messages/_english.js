@@ -8,11 +8,23 @@ module.exports = {
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
   capslock: ':[Warn]: ・ @{user}: Please don’t write in capslock too much <3',
 
+  'bounty.noBounties': ':[Bounty]: ・ No bounties are set at the moment',
+  'bounty.help':
+    ':[Bounty]: ・ Use "!bounty add [amount] [player]" to place a bounty and "!bounty remove [player]" to remove it.',
+  'bounty.listCurrent': ':[Bounty]: ・ Currently available bounties:',
+  'bounty.listEntry': ':[Bounty]: ・ - {victim}: {bouties} Bounties - Total: {total} Famepoints',
+  'bounty.noneEarned': ':[Bounty]: ・ You didn’t earn any bounties to collect.',
+  'bounty.noVictim': ':[Bounty]: ・ Sorry, I wasn’t able to find that user.',
+  'bounty.addSuccess': ':[Bounty]: ・ The bounty has been placed successfully!',
+  'bounty.noFame': ':[Bounty]: ・ Sorry, you don’t have enough famepoints to do this.',
+  'bounty.noAmount':
+    ':[Bounty]: ・ Sorry, I didn’t get the amount of famepoints you want to place.',
+
   'lottery.noMoney':
     ':[Lottery]: ・ @{user}: Sorry, you need at least 100 Famepoints to participate (the ticket only costs 60)',
   'lottery.buying': ':[Lottery]: ・ @{user}: Your purchase is getting processed.',
   'lottery.bought':
-    ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket for 60 famepoints with the ID {ticket}!',
+    ':[Lottery]: ・ @{user}: You successfully bought a lottery ticket for 60 famepoints!',
   'lottery.drawcount1': ':[Lottery]: ・ Lottery draw in:',
   'lottery.drawcount2': ':[Lottery]: ・ 3',
   'lottery.drawcount3': ':[Lottery]: ・ 2',
@@ -84,8 +96,8 @@ module.exports = {
     ':[Transfer]: ・ @{user} You don’t have enough famepoints for this transaction.',
   'trans.notFound':
     ':[Transfer]: ・ @{user} I couldn’t find the recipient with that name. Make sure to tell the name as it is spelled in chat.',
-  'trans.success': ':[Transfer]: ・ @{user} Your transaction was successful.',
-  'trans.started': ':[Transfer]: ・ @{user} Transaction started. Please wait...',
+  'trans.success': ':[Transfer]: ・ @{user} Transaction completed successfully.',
+  'trans.started': ':[Transfer]: ・ @{user1} Transferring famepoints to {user2}...',
   'trans.somethingWrong': ':[Transfer]: ・ @{user} Something went wrong. Please try again.',
 
   'shop.info':

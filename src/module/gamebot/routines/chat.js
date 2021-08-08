@@ -760,7 +760,6 @@ module.exports = {
           sGlobal,
           await bms.get('bounty.listEntry', action.user.lang, {
             '{victim}': list[e].charName,
-            '{bouties}': list[e].bounties,
             '{total}': list[e].totalAmount
           })
         )

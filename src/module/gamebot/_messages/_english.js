@@ -17,6 +17,8 @@ module.exports = {
   'bounty.noVictim': ':[Bounty]: ・ Sorry, I wasn’t able to find that user.',
   'bounty.addSuccess': ':[Bounty]: ・ The bounty has been placed successfully!',
   'bounty.noFame': ':[Bounty]: ・ Sorry, you don’t have enough famepoints to do this.',
+  'bounty.transferEarned': ':[Bounty]: ・ {amount} Famepoints have been transfered to you.',
+  'bounty.removed': ':[Bounty]: ・ {amount} Famepoints have been transfered back to you.',
   'bounty.noAmount':
     ':[Bounty]: ・ Sorry, I didn’t get the amount of famepoints you want to place.',
 

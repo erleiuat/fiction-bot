@@ -715,11 +715,16 @@ module.exports = {
         amount
       )
 
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('bounty.removed', action.user.lang, { '{amount}': amount })
+      )
+
       global.userManager.saveChanges()
     } else if (type == 'collect') {
       let amount = action.user.bountyEarned
 
-      if (amount < 0) {
+      if (amount <= 0) {
         cmd.addMessage(sGlobal, await bms.get('bounty.noneEarned', action.user.lang))
         return
       }
@@ -731,6 +736,11 @@ module.exports = {
         process.env.BOT_STEAMID,
         action.user.char.name,
         amount
+      )
+
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('bounty.transferEarned', action.user.lang, { '{amount}': amount })
       )
 
       action.user.bountyEarned = 0

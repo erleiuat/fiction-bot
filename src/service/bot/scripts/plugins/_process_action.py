@@ -180,7 +180,7 @@ class Action:
         try:
             self.PRC_CHAT.goScope('local')
             self.PRC_CHAT.send(props['messages']['startSale'])
-            p = self.PRC_CHAT.send('#Location '+props['userID'], read=True)
+            p = self.PRC_CHAT.send('#Location ' + props['userID'], read=True)
             playerLoc = (p[(p.find(': ')+1):]).strip().split()
             nearShop = False
             if(float(playerLoc[0][2:]) > (props['shop'][0] - props['shop'][2]) and float(playerLoc[0][2:]) < (props['shop'][0] + props['shop'][2])):
@@ -207,11 +207,7 @@ class Action:
             self.PRC_CHAT.send(props['teleport'])
             self.PRC_CHAT.send(props['teleportUser'])
             self.PRC_CHAT.send(famePointSetter)
-            self.PRC_CHAT.send(props['messages']['pleaseWait'])
-            while(not self.spawn(itemSpawner) and i < 10):
-                self.PRC_CHAT.send(props['messages']['pleaseWait'])
-                time.sleep(2)
-                i = i + 1
+            self.PRC_CHAT.send(command)
             self.PRC_CHAT.send(props['messages']['endSale'])
 
         except Exception as e:

@@ -111,7 +111,9 @@
       "#ListSpawnedAnimals",
       "#ListSpawnedVehicles",
       "#ShowVehicleInfo",
-      "#ShowVehicleLocations"
+      "#ShowVehicleLocations",
+      "#SetFakeName",
+      "#ClearFakeName"
     ],
     "allowCommands": [
       "#Kick",
@@ -129,6 +131,8 @@
       "#ListSpawnedVehicles",
       "#ShowVehicleInfo",
       "#ShowVehicleLocations",
+      "#SetFakeName",
+      "#ClearFakeName",
       "#Ban",
       "#Unban",
       "#SetFamePoints",

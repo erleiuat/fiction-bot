@@ -12,7 +12,8 @@ module.exports = {
   'bounty.help':
     ':[Bounty]: ・ Use "!bounty add [amount] [player]" to place a bounty and "!bounty remove [player]" to remove it.',
   'bounty.listCurrent': ':[Bounty]: ・ Currently available bounties:',
-  'bounty.listEntry': ':[Bounty]: ・ - {victim}: {bouties} Bounties - Total: {total} Famepoints',
+  'bounty.listEntry':
+    ':[Bounty]: ・ - Target: {victim} | Bounty: {total} Famepoints (from {bounties} people)',
   'bounty.noneEarned': ':[Bounty]: ・ You didn’t earn any bounties to collect.',
   'bounty.noVictim': ':[Bounty]: ・ Sorry, I wasn’t able to find that user.',
   'bounty.addSuccess': ':[Bounty]: ・ The bounty has been placed successfully!',

@@ -36,9 +36,20 @@ module.exports = class UserManager {
   }
 
   getBountyList() {
-    for (const user of this.users) {
-      console.log(user.bountys)
+    let bountyList = []
+    for (const e in this.users) {
+      let u = this.users[e]
+
+      let bountyLength = Object.keys(u.bounties).length
+      if (!bountyLength) continue
+
+      let totalAmount = 0
+      for (const el in u.bounties) totalAmount += u.bounties[el]
+
+      bountyList.push({ charName: u.char.name, bounties: bountyLength, totalAmount: totalAmount })
     }
+
+    return bountyList
   }
 
   redeemConnectionCode(user, code) {

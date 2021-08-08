@@ -41,7 +41,8 @@ module.exports = class User {
     starterkit: null
   }
 
-  bountys = {}
+  bounties = {}
+  bountyEarned = 0
 
   kills = {}
 
@@ -55,9 +56,20 @@ module.exports = class User {
     this.group = group
   }
 
+  getTotalBounty() {
+    let totalAmount = 0
+    for (const el in this.bounties) totalAmount += this.bounties[el]
+    return totalAmount
+  }
+
   addBounty(steamID, amount) {
-    if (!this.bountys[steamID]) this.bountys[steamID] = 0
-    this.bountys[steamID] += amount
+    this.bounties[steamID] ? (this.bounties[steamID] += amount) : (this.bounties[steamID] = amount)
+  }
+
+  removeBounty(steamID) {
+    let amount = parseInt(this.bounties[steamID])
+    delete this.bounties[steamID]
+    return amount
   }
 
   setActivity(timestamp) {

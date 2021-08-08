@@ -605,8 +605,7 @@ module.exports = {
             action.user.char.name,
             action.user.steamID,
             'scumfiction',
-            60,
-            true
+            60
           )
           cmd.addMessage(
             sGlobal,
@@ -634,12 +633,11 @@ module.exports = {
 
       await transferFame(
         cmd,
-        'en',
+        action.user.lang,
         'Lottery',
         process.env.BOT_STEAMID,
         action.user.char.name,
-        amount,
-        true
+        amount
       )
 
       global.lottery.clearWinnings(action.user.steamID)
@@ -669,6 +667,12 @@ module.exports = {
         return
       }
 
+      let userfp = userInfo[action.user.steamID].fame
+      if (!userfp || userfp < amount) {
+        cmd.addMessage(sGlobal, 'not enough fame')
+        return
+      }
+
       let target = parts[3] ? parts[3].trim() : false
       target = global.userManager.getUserByCharName(target)
       if (!target) {
@@ -676,13 +680,64 @@ module.exports = {
         return
       }
 
+      await transferFame(
+        cmd,
+        action.user.lang,
+        action.user.char.name,
+        action.user.steamID,
+        'scumfiction',
+        amount
+      )
+
       target.addBounty(action.user.steamID, amount)
       global.userManager.saveChanges()
 
-      //console.log(target)
       cmd.addMessage(sGlobal, 'all good')
     } else if (type == 'remove') {
+      let target = parts[2] ? parts[2].trim() : false
+      target = global.userManager.getUserByCharName(target)
+      if (!target) {
+        cmd.addMessage(sGlobal, 'target not found')
+        return
+      }
+
+      let amount = target.removeBounty(action.user.steamID)
+
+      await transferFame(
+        cmd,
+        action.user.lang,
+        'Bounty',
+        process.env.BOT_STEAMID,
+        action.user.char.name,
+        amount
+      )
+
+      global.userManager.saveChanges()
+    } else if (type == 'collect') {
+      let amount = action.user.bountyEarned
+
+      if (amount < 0) {
+        cmd.addMessage(sGlobal, 'no bounty earned')
+        return
+      }
+
+      await transferFame(
+        cmd,
+        action.user.lang,
+        'Bounty',
+        process.env.BOT_STEAMID,
+        action.user.char.name,
+        amount
+      )
+
+      action.user.bountyEarned = 0
+      global.userManager.saveChanges()
     } else {
+      let list = global.userManager.getBountyList()
+      cmd.addMessage(sGlobal, 'Current bounties:')
+      for (const e in list) {
+        cmd.addMessage(sGlobal, list[e])
+      }
     }
   }
 }

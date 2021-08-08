@@ -26,6 +26,8 @@ module.exports = {
   'auth.login': ' ・ >> {user} is joining << ・ ',
   'auth.logout': ' ・ >> {user} left << ・ ',
   kill: ':[Killfeed]: ・ >> {user1} {event} {user2} << ・ ',
+  'kill.bounty':
+    ':[Killfeed]: ・ There was a bounty on the victim in the amount of {amount}! Get it with "!bounty collect".',
   'start.reload': ' ・ Reloading...',
   'start.reboot':
     ' ・ I will reboot my PC now. It can take up to 10 minutes untill I’m ready again.',

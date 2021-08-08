@@ -58,6 +58,13 @@ async function getOnlinePlayerStats() {
   let results = await executeCommand(cmd)
   if (results.data.playerInfo) return results.data.playerInfo
   return false
+  /* TODO
+  return {
+    '76561198058320009': {
+      fame: 123
+    }
+  }
+  */
 }
 
 async function executeCommand(cmd) {
@@ -205,6 +212,13 @@ exports.sendFromLog = async function sendFromLog(action = false) {
             '{user2}': action.user.char.name
           })
         )
+        if (action.properties.hasBounty > 0)
+          cmd.addMessage(
+            sGlobal,
+            await bms.get('kill.bounty', 'def', {
+              '{amount}': action.properties.hasBounty
+            })
+          )
         await executeCommand(cmd)
         break
 

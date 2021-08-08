@@ -116,9 +116,11 @@ async function logHandler() {
         }
 
         if (cache[file].size < fileList[file].size) {
+          global.log.debug(_SN + 'UPDATE: ' + file)
           fileList[file].content = await getFileContent(file)
           updates[fileList[file].type] += fileList[file].content.replace(cache[file].content, '')
           cache[file] = { ...fileList[file] }
+          global.log.debug(_SN + 'UPDATE: ' + file + ' -> DONE')
           continue
         }
       }

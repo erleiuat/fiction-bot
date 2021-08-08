@@ -207,6 +207,7 @@ async function handleKill(lines) {
     let causerLoc
     if (causer.steamID == -1) {
       let i = 0
+      actionObj.properties.isMine = true
 
       do {
         i++
@@ -246,7 +247,24 @@ async function handleKill(lines) {
       distance = actionObj.properties.distance = Math.round(dist / 100)
     }
 
-    if (actionObj.properties.causer) actionObj.properties.causer.addKill(actionObj)
+    if (actionObj.properties.causer) {
+      actionObj.properties.causer.addKill(actionObj)
+
+      if (
+        !actionObj.properties.event &&
+        !actionObj.properties.isMine &&
+        actionObj.properties.type == 'died'
+      ) {
+        let totalBounty = actionObj.user.getTotalBounty()
+        if (totalBounty > 0) {
+          actionObj.properties.causer.bountyEarned += totalBounty
+          actionObj.user.bounties = {}
+          actionObj.properties.hasBounty = totalBounty
+        }
+      }
+    }
+
+    global.userManager.saveChanges()
     global.actionHandler.handle(actionObj)
     writeScumLog.kill(actionObj)
   }
@@ -422,6 +440,8 @@ function initAction(actType, line) {
       properties = {
         type: null,
         weapon: null,
+        isMine: false,
+        hasBounty: 0,
         event: false,
         causer: null,
         distance: null,

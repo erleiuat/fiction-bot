@@ -127,8 +127,8 @@ async function logHandler() {
       handle.updates(updates)
     } while (true)
   } catch (error) {
-    sysControl.restart()
-    throw new Error(_SN + error)
+    global.log.error(_SN + 'LogHandler crashed. Restarting the script... (Error: ' + error + ')')
+    global.sysControl.restart()
   }
 }
 

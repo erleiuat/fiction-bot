@@ -654,6 +654,36 @@ module.exports = {
         })
       )
     }
+  },
+  bounty: async function (cmd, action) {
+    let parts = action.properties.value.split(' ')
+    let type = parts[1] ? parts[1].toLowerCase().trim() : ''
+
+    if (type == 'add') {
+      let userInfo = await global.gamebot.getOnlinePlayerStats()
+      if (!userInfo[action.user.steamID]) return
+
+      let amount = parts[2] ? parseInt(parts[2]) : 0
+      if (amount <= 0) {
+        cmd.addMessage(sGlobal, 'no amount')
+        return
+      }
+
+      let target = parts[3] ? parts[3].trim() : false
+      target = global.userManager.getUserByCharName(target)
+      if (!target) {
+        cmd.addMessage(sGlobal, 'target not found')
+        return
+      }
+
+      target.addBounty(action.user.steamID, amount)
+      global.userManager.saveChanges()
+
+      //console.log(target)
+      cmd.addMessage(sGlobal, 'all good')
+    } else if (type == 'remove') {
+    } else {
+    }
   }
 }
 

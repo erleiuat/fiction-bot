@@ -55,6 +55,11 @@ module.exports = class User {
     this.group = group
   }
 
+  addBounty(steamID, amount) {
+    if (!this.bountys[steamID]) this.bountys[steamID] = 0
+    this.bountys[steamID] += amount
+  }
+
   setActivity(timestamp) {
     if (this.stats.lastActivity < timestamp) this.stats.lastActivity = timestamp
   }

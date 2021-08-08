@@ -35,6 +35,12 @@ module.exports = class UserManager {
     this.iterateSave()
   }
 
+  getBountyList() {
+    for (const user of this.users) {
+      console.log(user.bountys)
+    }
+  }
+
   redeemConnectionCode(user, code) {
     let discordID = this.connectionCodes[code]
     if (!discordID) return false

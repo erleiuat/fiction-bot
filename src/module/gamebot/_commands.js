@@ -126,6 +126,11 @@ module.exports = {
     scopes: ['global'],
     cooldown: null
   },
+  '!bounty': {
+    routine: 'bounty',
+    scopes: ['local'], // TODO
+    cooldown: null
+  },
 
   '!rules': {
     routine: 'list_rules',

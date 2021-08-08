@@ -14,7 +14,7 @@ module.exports = {
     ':[Welcome]: ・ Welcome to the Server @{user}! Open chat with "T" and write "!new" to get started!',
   'vote.day': ':[Voting]: ・ Daytime-Voting begins! (7:00 AM) Press "F2" or "F3" to vote!',
   'vote.day.nope':
-    ':[Voting]: ・ Daytime-Voting is only available from 02:00-07:00. It currently is about {time}',
+    ':[Voting]: ・ Daytime-Voting is only available from 00:00-07:00. It currently is about {time}',
   'vote.night': ':[Voting]: ・ Nighttime-Voting begins! (10:00 PM) Press "F2" or "F3" to vote!',
   'vote.sun': ':[Voting]: ・ Weather voting begins! (Sunny) Press "F2" or "F3" to vote!',
   'vote.rain': ':[Voting]: ・ Weather voting begins! (Rainy/Stormy) Press "F2" or "F3" to vote!',

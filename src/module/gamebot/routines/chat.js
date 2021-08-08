@@ -27,6 +27,11 @@ module.exports = {
     sLocal = scopeLocal
     sGlobal = scopeGlobal
   },
+  exec_cmd: async function (cmd, action) {
+    let coms = action.properties.value.toLowerCase().replace('!exec', '').trim()
+    coms = coms.split(';')
+    for (const c of coms) cmd.addMessage(sLocal, c.trim())
+  },
   translate_chat: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
     let lang = parts[1].toLowerCase().trim()
@@ -177,7 +182,7 @@ module.exports = {
   vote_day: async function (cmd, action = null) {
     if (global.state.time) {
       let hour = parseInt(global.state.time.slice(0, -6))
-      if (hour < 2 || hour > 7) {
+      if (hour > 7) {
         cmd.addMessage(
           sGlobal,
           await bms.get('vote.day.nope', 'def', { '{time}': global.state.time })

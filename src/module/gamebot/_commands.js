@@ -284,6 +284,11 @@ module.exports = {
     scopes: ['local', 'global'],
     cooldown: null
   },
+  '!exec': {
+    routine: 'exec_cmd',
+    scopes: ['local', 'global', 'squad'],
+    cooldown: null
+  },
   '!welcome': {
     routine: 'manual_welcome',
     scopes: ['local', 'global'],

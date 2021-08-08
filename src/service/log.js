@@ -11,9 +11,9 @@ const timezoned = () => {
     global.nZero.form(d.getDate()) +
     '/' +
     global.nZero.form(d.getHours()) +
-    ':' +
+    '.' +
     global.nZero.form(d.getMinutes()) +
-    ':' +
+    '.' +
     global.nZero.form(d.getSeconds()) +
     '.' +
     global.nZero.form(d.getMilliseconds())

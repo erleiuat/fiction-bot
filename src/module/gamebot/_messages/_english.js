@@ -91,7 +91,7 @@ module.exports = {
   'sKit.start2':
     ':[Starterkit]: ・ @{user} you will be transported to the tradingzone in a few seconds.',
   'sKit.done':
-    ':[Starterkit]: ・ @{user} your starterkit should now be there and your Quad should be waiting for you outside.',
+    ':[Starterkit]: ・ @{user} your starterkit should now be there and your Quad should be waiting for you outside. KEEP IN MIND: The Quad will despawn after some time. Make sure to get a diffrent car!',
 
   'trans.form': ':[Transfer]: ・ @{user} Use this format: "!transfer [amount] [user]"',
   'trans.notEnough':

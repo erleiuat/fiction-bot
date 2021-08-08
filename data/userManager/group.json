@@ -109,7 +109,8 @@
       "#FindSquadMember",
       "#ListSquadMembers",
       "#ListSpawnedAnimals",
-      "#ListSpawnedVehicles"
+      "#ListSpawnedVehicles",
+      "#ShowVehicleInfo"
     ],
     "allowCommands": [
       "#Kick",
@@ -125,6 +126,7 @@
       "#ListSquadMembers",
       "#ListSpawnedAnimals",
       "#ListSpawnedVehicles",
+      "#ShowVehicleInfo",
       "#Ban",
       "#Unban",
       "#SetFamePoints",

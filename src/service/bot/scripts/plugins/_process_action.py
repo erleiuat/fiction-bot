@@ -207,7 +207,7 @@ class Action:
             self.PRC_CHAT.send(props['teleport'])
             self.PRC_CHAT.send(props['teleportUser'])
             self.PRC_CHAT.send(famePointSetter)
-            self.PRC_CHAT.send(command)
+            self.PRC_CHAT.send(itemSpawner)
             self.PRC_CHAT.send(props['messages']['endSale'])
 
         except Exception as e:

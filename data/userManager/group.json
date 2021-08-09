@@ -114,7 +114,9 @@
       "#ShowVehicleInfo",
       "#ShowVehicleLocations",
       "#SetFakeName",
-      "#ClearFakeName"
+      "#ClearFakeName",
+      "#ShowOtherPlayerInfo",
+      "#ShowOtherPlayerLocations"
     ],
     "allowCommands": [
       "#Kick",
@@ -134,6 +136,8 @@
       "#ShowVehicleLocations",
       "#SetFakeName",
       "#ClearFakeName",
+      "#ShowOtherPlayerInfo",
+      "#ShowOtherPlayerLocations",
       "#Ban",
       "#Unban",
       "#SetFamePoints",

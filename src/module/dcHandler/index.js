@@ -111,7 +111,7 @@ async function sendMsgIngame(msg) {
   } else {
     uName = user.char.name
     let userProps = global.userManager.getUserProperties(user)
-    if (user.char.fakeName && userProps.useFakeNames) uName = action.fakeName
+    if (user.char.fakeName && userProps.useFakeNames) uName = user.char.fakeName
   }
 
   let actionObj = {

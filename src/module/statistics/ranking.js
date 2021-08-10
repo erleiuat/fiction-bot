@@ -64,7 +64,7 @@ exports.check = function check() {
             amount: 0
           }
 
-        if (tmpSession.duration) playtimes[user].amount += tmpSession.duration
+        if (tmpSession.duration !== null) playtimes[user].amount += tmpSession.duration
         else {
           let activeDuration = now - tmpSession.start
           let activeMin = Math.round(activeDuration / 1000 / 60)

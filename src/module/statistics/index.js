@@ -183,7 +183,7 @@ async function rankingSts() {
       dataCache = JSON.stringify(data)
     }
 
-    await global.time.sleep(15)
+    await global.time.sleep(60)
   } while (true)
 }
 

@@ -274,11 +274,6 @@ module.exports = {
     scopes: ['local', 'global'],
     cooldown: null
   },
-  '!restart': {
-    routine: 'restart_bot',
-    scopes: ['local', 'global'],
-    cooldown: null
-  },
   '!reset': {
     routine: 'reset_starterkit',
     scopes: ['local', 'global'],

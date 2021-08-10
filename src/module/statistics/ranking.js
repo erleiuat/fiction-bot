@@ -73,8 +73,10 @@ exports.check = function check() {
       }
     }
 
-    let playHours = Math.round(playtimes[user].amount / 1000 / 60 / 60)
-    setUserRank(global.userManager.users[user], playHours)
+    if (playtimes[user]) {
+      let playHours = Math.round(playtimes[user].amount / 1000 / 60 / 60)
+      setUserRank(global.userManager.users[user], playHours)
+    }
   }
 
   return {

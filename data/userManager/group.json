@@ -116,7 +116,8 @@
       "#SetFakeName",
       "#ClearFakeName",
       "#ShowOtherPlayerInfo",
-      "#ShowOtherPlayerLocations"
+      "#ShowOtherPlayerLocations",
+      "#ListPlayers"
     ],
     "allowCommands": [
       "#Kick",
@@ -138,6 +139,7 @@
       "#ClearFakeName",
       "#ShowOtherPlayerInfo",
       "#ShowOtherPlayerLocations",
+      "#ListPlayers",
       "#Ban",
       "#Unban",
       "#SetFamePoints",

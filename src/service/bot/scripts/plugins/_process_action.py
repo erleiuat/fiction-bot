@@ -96,6 +96,7 @@ class Action:
 
             if(not recipient):
                 self.PRC_CHAT.send(props['messages']['notFound'])
+                self.RES.add({'playerInfo': playerList})
                 return False
 
             if(int(sender['fame']) < int(props['amount'])):

@@ -45,6 +45,7 @@ module.exports = {
     else if (lang.startsWith('ita')) lang = 'IT'
     else if (lang.startsWith('jap')) lang = 'JA'
     else if (lang.startsWith('pol')) lang = 'PL'
+    else if (lang.startsWith('chi')) lang = 'ZH'
     else if (lang.startsWith('dut')) lang = 'NL'
 
     delete parts[0]

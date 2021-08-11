@@ -32,7 +32,7 @@ class Action:
         pList = pList.split('\n')
         pList.pop(0)
         for el in pList:
-            elProps = el.split('            ')
+            elProps = el.split('    ')
             pProps = []
             for prop in elProps:
                 prop.strip()

@@ -250,7 +250,7 @@ async function updateByKey(msgs, channel) {
 
     for (const dmg of current) {
       if (dmg[1].content.includes(msg.key)) {
-        await dmg[1].edit(msg.content)
+        if (dmg[1].content != msg.content) await dmg[1].edit(msg.content)
         written = true
         break
       }

@@ -137,14 +137,12 @@ async function playersSts() {
     let data = players.check()
     if (dataCache != JSON.stringify(data)) {
       global.log.info(_SN + 'Updating "PlayerStats"')
-      // await cleanUp(channels.players)
       let msgs = players.format(data)
-      //for (const msg of msgs) if (msg && msg.length > 0) await channels.players.send(msg)
       await updateByKey(msgs, channels.players)
       dataCache = JSON.stringify(data)
     }
 
-    await global.time.sleep(120)
+    await global.time.sleep(5)
   } while (true)
 }
 

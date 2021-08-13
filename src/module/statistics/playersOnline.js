@@ -62,13 +62,24 @@ exports.format = function format(listObj) {
       (user.drone ? '**True**' : 'False') +
       '\n'
 
+    if (msgEntry.length + userEntry.length >= 2000) {
+      tmpMsgs.push(msgEntry)
+      msgEntry = ''
+    }
+
+    msgEntry += userEntry
     tmpMsgs.push({ key: user.steamID, content: userEntry })
   }
 
-  let totalMsg = divider + '**Total:** __**' + dates.length + '**__ \n\n\u200b' + divider
-  let totArr = [{ key: '-----------------------------', content: totalMsg }]
+  let totalMsg = divider + '**Total:** __**' + dates.length + '**__ \n\n\u200b'
 
-  tmpMsgs = totArr.concat(tmpMsgs)
+  if (msgEntry.length + totalMsg.length >= 2000) {
+    tmpMsgs.push(msgEntry)
+    msgEntry = ''
+  }
+
+  msgEntry += totalMsg
+  tmpMsgs.push(msgEntry)
   return tmpMsgs
 }
 

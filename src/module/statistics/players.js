@@ -157,12 +157,17 @@ exports.format = function format(listObj) {
     'h ' +
     formed2.m +
     'm' +
-    '**__ \n\u200b'
+    '**__ \n\u200b' +
+    divider
 
-  tmpMsgs.push({
-    key: '--------------------------------------------------------------',
-    content: totalMsg
-  })
+  let totArr = [
+    {
+      key: '--------------------------------------------------------------',
+      content: totalMsg
+    }
+  ]
+
+  tmpMsgs = totArr.concat(tmpMsgs)
 
   return tmpMsgs
 }

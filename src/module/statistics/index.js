@@ -246,7 +246,6 @@ async function updateByKey(msgs, channel) {
   channel.startTyping()
   for (const msg of msgs) {
     let written = false
-    console.log(msg.key)
 
     for (const dmg of current) {
       if (dmg[1].content.includes(msg.key)) {

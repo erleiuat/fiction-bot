@@ -135,9 +135,10 @@ async function playersSts() {
     let data = players.check()
     if (dataCache != JSON.stringify(data)) {
       global.log.info(_SN + 'Updating "PlayerStats"')
-      await cleanUp(channels.players)
+      // await cleanUp(channels.players)
       let msgs = players.format(data)
-      for (const msg of msgs) if (msg && msg.length > 0) await channels.players.send(msg)
+      //for (const msg of msgs) if (msg && msg.length > 0) await channels.players.send(msg)
+      await updateByKey(msgs, channels.players)
       dataCache = JSON.stringify(data)
     }
 
@@ -237,4 +238,26 @@ async function stateSts() {
 
     await global.time.sleep(5)
   } while (true)
+}
+
+async function updateByKey(msgs, channel) {
+  let current = await channel.messages.fetch({ limit: 100 })
+
+  channel.startTyping()
+  for (const msg of msgs) {
+    let written = false
+    console.log(msg.key)
+
+    for (const dmg of current) {
+      if (dmg[1].content.includes(msg.key)) {
+        await dmg[1].edit(msg.content)
+        written = true
+        break
+      }
+    }
+
+    if (!written) channel.send(msg.content)
+  }
+
+  channel.stopTyping()
 }

@@ -128,13 +128,7 @@ exports.format = function format(listObj) {
       '\n'
 
     if (user.char.fakeName) userEntry += spaces2 + 'Fakename: ' + user.char.fakeName + '\n'
-
-    if (msgEntry.length + userEntry.length >= 2000) {
-      tmpMsgs.push(msgEntry)
-      msgEntry = ''
-    }
-
-    msgEntry += userEntry
+    tmpMsgs.push({ key: user.steamID, content: userEntry })
   }
 
   let formed1 = getDuration(totalPlaytime / dates.length)
@@ -161,13 +155,11 @@ exports.format = function format(listObj) {
     'm' +
     '**__ \n\u200b'
 
-  if (msgEntry.length + totalMsg.length >= 2000) {
-    tmpMsgs.push(msgEntry)
-    msgEntry = ''
-  }
+  tmpMsgs.push({
+    key: '--------------------------------------------------------------',
+    content: totalMsg
+  })
 
-  msgEntry += totalMsg
-  tmpMsgs.push(msgEntry)
   return tmpMsgs
 }
 

@@ -69,6 +69,10 @@ exports.format = function format(listObj) {
       user.char.id +
       ')\n' +
       spaces2 +
+      'Name: `' +
+      user.char.name +
+      '`\n' +
+      spaces2 +
       'SteamID: ' +
       user.steamID +
       '\n' +

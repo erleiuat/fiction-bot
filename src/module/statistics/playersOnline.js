@@ -24,21 +24,46 @@ function toDateKey(timestamp) {
   }
 }
 
+function calcGetDuration(milli) {
+  let minutes = milli / 60000
+  let hours = minutes / 60
+  let days = Math.floor(Math.floor(hours) / 24)
+  minutes = (hours - Math.floor(hours)) * 60
+  hours = Math.floor(hours) - days * 24
+  return {
+    d: global.nZero.form(Math.floor(days)),
+    h: global.nZero.form(Math.floor(hours)),
+    m: global.nZero.form(Math.floor(minutes))
+  }
+}
+
+function getDuration(timestamp, nowTimestamp) {
+  let tmpDur = calcGetDuration(nowTimestamp - timestamp)
+  return tmpDur.h + 'h ' + tmpDur.m + 'm '
+}
+
 exports.format = function format(listObj) {
   let dates = []
   for (const key in listObj) dates.push(key)
   dates.sort()
 
+  let i = 0
   let tmpMsgs = []
+  let nowTimestamp = new Date().getTime()
   let msgEntry = ''
 
   for (const date of dates) {
     let user = listObj[date]
-    let login = toDateKey(new Date(user.lastLogin).getTime())
+    let tmpTS = new Date(user.lastLogin).getTime()
+    let login = toDateKey(tmpTS)
+    let sessDur = getDuration(tmpTS, nowTimestamp)
+    i++
 
     let userEntry =
       spaces1 +
-      '\u200b\n◽️ ** 1. ' +
+      '\u200b\n◽️ ** ' +
+      i +
+      '. ' +
       user.char.name.replace(/\*/g, '').replace(/_/g, '') +
       '** (' +
       user.char.id +
@@ -58,6 +83,10 @@ exports.format = function format(listObj) {
       user.totalLogins +
       '\n' +
       spaces2 +
+      'Online since: ' +
+      sessDur +
+      '\n' +
+      spaces2 +
       'Drone: ' +
       (user.drone ? '**True**' : 'False') +
       '\n'
@@ -68,7 +97,7 @@ exports.format = function format(listObj) {
   let totalMsg = divider + '**Total:** __**' + dates.length + '**__ \n\n\u200b' + divider
   let totArr = [{ key: '-----------------------------', content: totalMsg }]
 
-  tmpMsgs = totArr.concat(tmpMsgs)
+  tmpMsgs = totArr.concat(tmpMsgs.reverse())
   return tmpMsgs
 }
 

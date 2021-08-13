@@ -247,19 +247,20 @@ async function updateByKey(msgs, channel, deleteOthers = false) {
   let current = await fetchAll.messages(channel, {
     reverseArray: true
   })
-  
-  for (const msg of msgs) if (!(await doUpdate(msg, current))) await channel.send(msg.content)
-  
-  if(deleteOthers) for (const dmg of current) 
-    await dmg.delete()
-  
+
+  for (const msg of msgs) {
+    if (!(await doUpdate(msg, current))) await channel.send(msg.content)
+  }
+
+  if (deleteOthers) for (const dmg of current) await dmg.delete()
+
   channel.stopTyping()
 }
 
 async function doUpdate(msg, current) {
   for (const dmg of current)
     if (dmg.content.includes(msg.key)) {
-      if (dmg.content.replace(/\s/g, '') != msg.content.replace(/\s/g, '')) 
+      if (dmg.content.replace(/\s/g, '') != msg.content.replace(/\s/g, ''))
         await dmg.edit(msg.content)
       delete dmg
       return true

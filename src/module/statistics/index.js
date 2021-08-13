@@ -1,5 +1,7 @@
 const _SN = '[MODULE][STATISTICS] -> '
 
+const fetchAll = require('discord-fetch-all')
+
 const state = require('./state')
 const ranking = require('./ranking')
 const players = require('./players')
@@ -241,30 +243,23 @@ async function stateSts() {
 }
 
 async function updateByKey(msgs, channel) {
-  let current = await channel.messages.fetch({ limit: 100 })
-
-  let i = 0
   channel.startTyping()
-  for (const msg of msgs) {
-    let written = false
-    i++
 
-    for (const dmg of current) {
-      if (dmg[1].content.includes(msg.key)) {
-        if (dmg[1].content != msg.content) {
-          await dmg[1].edit(msg.content)
-          console.log(i + ' editing: ' + msg.key)
-        }
-        written = true
-        break
-      }
-    }
+  let current = await fetchAll.messages(channel, {
+    reverseArray: true
+  })
 
-    if (!written) {
-      console.log(i + ' sending: ' + msg.key)
-      await channel.send(msg.content)
-    }
-  }
+  for (const msg of msgs) if (!(await doUpdate(msg, current))) await channel.send(msg.content)
 
   channel.stopTyping()
+}
+
+async function doUpdate(msg, current) {
+  for (const dmg of current)
+    if (dmg.content.includes(msg.key)) {
+      if (dmg.content != msg.content) await dmg.edit(msg.content)
+      return true
+    }
+
+  return false
 }

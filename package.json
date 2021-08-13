@@ -8,13 +8,14 @@
   },
   "dependencies": {
     "basic-ftp": "^4.6.6",
-    "dotenv": "^10.0.0",
+    "discord-fetch-all": "^3.0.2",
     "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
     "iconv-lite": "^0.6.3",
     "jimp": "^0.16.1",
     "lodash.clonedeep": "^4.5.0",
-    "lodash.merge": "^4.6.2",
     "lodash.keyby": "^4.6.0",
+    "lodash.merge": "^4.6.2",
     "mysql": "^2.18.1",
     "request": "^2.88.2",
     "winston": "^3.3.3"

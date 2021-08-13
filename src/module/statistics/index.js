@@ -69,7 +69,7 @@ async function iterateStatistics() {
   stateSts()
   rankingSts()
   newPlayersSts()
-  //playersSts()
+  playersSts()
   playersOnlineSts()
   minesActiveSts()
   minesInactiveSts()
@@ -119,14 +119,12 @@ async function playersOnlineSts() {
     let data = playersOnline.check()
     if (dataCache != JSON.stringify(data)) {
       global.log.info(_SN + 'Updating "PlayersOnline"')
-      //await cleanUp(channels.playersOnline)
       let msgs = playersOnline.format(data)
       await updateByKey(msgs, channels.playersOnline, true)
-      //for (const msg of msgs) if (msg && msg.length > 0) await channels.playersOnline.send(msg)
       dataCache = JSON.stringify(data)
     }
 
-    await global.time.sleep(15)
+    await global.time.sleep(5)
   } while (true)
 }
 

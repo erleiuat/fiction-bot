@@ -69,7 +69,7 @@ async function iterateStatistics() {
   stateSts()
   rankingSts()
   newPlayersSts()
-  playersSts()
+  //playersSts()
   playersOnlineSts()
   minesActiveSts()
   minesInactiveSts()
@@ -119,9 +119,10 @@ async function playersOnlineSts() {
     let data = playersOnline.check()
     if (dataCache != JSON.stringify(data)) {
       global.log.info(_SN + 'Updating "PlayersOnline"')
-      await cleanUp(channels.playersOnline)
+      //await cleanUp(channels.playersOnline)
       let msgs = playersOnline.format(data)
-      for (const msg of msgs) if (msg && msg.length > 0) await channels.playersOnline.send(msg)
+      await updateByKey(msgs, channels.playersOnline, true)
+      //for (const msg of msgs) if (msg && msg.length > 0) await channels.playersOnline.send(msg)
       dataCache = JSON.stringify(data)
     }
 
@@ -240,23 +241,27 @@ async function stateSts() {
   } while (true)
 }
 
-async function updateByKey(msgs, channel) {
+async function updateByKey(msgs, channel, deleteOthers = false) {
   channel.startTyping()
 
   let current = await fetchAll.messages(channel, {
     reverseArray: true
   })
-
+  
   for (const msg of msgs) if (!(await doUpdate(msg, current))) await channel.send(msg.content)
-
+  
+  if(deleteOthers) for (const dmg of current) 
+    await dmg.delete()
+  
   channel.stopTyping()
 }
 
 async function doUpdate(msg, current) {
   for (const dmg of current)
     if (dmg.content.includes(msg.key)) {
-      if (dmg.content.replace(/\s/g, '') != msg.content.replace(/\s/g, ''))
+      if (dmg.content.replace(/\s/g, '') != msg.content.replace(/\s/g, '')) 
         await dmg.edit(msg.content)
+      delete dmg
       return true
     }
 

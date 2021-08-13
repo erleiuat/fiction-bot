@@ -172,13 +172,14 @@ async function rankingSts() {
     let data = ranking.check()
     if (dataCache != JSON.stringify(data)) {
       global.log.info(_SN + 'Updating "Ranking"')
-      await cleanUp(channels.ranking)
 
-      await channels.ranking.send(rankingFormat.playtimes(data.playtimes))
-      await channels.ranking.send(rankingFormat.kills(data.kills))
-      await channels.ranking.send(rankingFormat.eventKills(data.eventKills))
-      await channels.ranking.send(rankingFormat.killDistance(data.killDistance))
-      await channels.ranking.send(rankingFormat.suicides(data.suicides))
+      let msgArr = []
+      msgArr.push(rankingFormat.playtimes(data.playtimes))
+      msgArr.push(rankingFormat.kills(data.kills))
+      msgArr.push(rankingFormat.eventKills(data.eventKills))
+      msgArr.push(rankingFormat.killDistance(data.killDistance))
+      msgArr.push(rankingFormat.suicides(data.suicides))
+      await updateByKey(msgArr, channels.ranking)
 
       dataCache = JSON.stringify(data)
     }

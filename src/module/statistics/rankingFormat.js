@@ -21,7 +21,7 @@ exports.suicides = function suicides(listObj) {
       '\n'
   }
   tmpMsg += '\n- - - - - - - - - - - - - - - - - - - - - - - -\n```\n'
-  return tmpMsg
+  return { key: 'Selbstmorden', content: tmpMsg }
 }
 
 exports.killDistance = function killDistance(listObj) {
@@ -45,7 +45,7 @@ exports.killDistance = function killDistance(listObj) {
       '\n'
   }
   tmpMsg += '\n- - - - - - - - - - - - - - - - - - - - - - - -\n```\n'
-  return tmpMsg
+  return { key: 'Kill-Distance', content: tmpMsg }
 }
 
 exports.eventKills = function eventKills(listObj) {
@@ -69,7 +69,7 @@ exports.eventKills = function eventKills(listObj) {
       '\n'
   }
   tmpMsg += '\n- - - - - - - - - - - - - - - - - - - - - - - -\n```\n'
-  return tmpMsg
+  return { key: 'EVENT-Kills', content: tmpMsg }
 }
 
 exports.kills = function kills(listObj) {
@@ -93,7 +93,7 @@ exports.kills = function kills(listObj) {
       '\n'
   }
   tmpMsg += '\n- - - - - - - - - - - - - - - - - - - - - - - -\n```\n'
-  return tmpMsg
+  return { key: 'by Kills', content: tmpMsg }
 }
 
 exports.playtimes = function playtimes(listObj) {
@@ -121,8 +121,7 @@ exports.playtimes = function playtimes(listObj) {
   }
 
   tmpMsg += '\n- - - - - - - - - - - - - - - - - - - - - - - -\n```\n'
-
-  return tmpMsg
+  return { key: 'Spielzeit', content: tmpMsg }
 }
 
 function getDuration(milli) {

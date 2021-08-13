@@ -97,7 +97,7 @@ exports.format = function format(listObj) {
   let totalMsg = divider + '**Total:** __**' + dates.length + '**__ \n\n\u200b' + divider
   let totArr = [{ key: '-----------------------------', content: totalMsg }]
 
-  tmpMsgs = totArr.concat(tmpMsgs.reverse())
+  tmpMsgs = totArr.concat(tmpMsgs)
   return tmpMsgs
 }
 

@@ -243,19 +243,27 @@ async function stateSts() {
 async function updateByKey(msgs, channel) {
   let current = await channel.messages.fetch({ limit: 100 })
 
+  let i = 0
   channel.startTyping()
   for (const msg of msgs) {
     let written = false
+    i++
 
     for (const dmg of current) {
       if (dmg[1].content.includes(msg.key)) {
-        if (dmg[1].content != msg.content) await dmg[1].edit(msg.content)
+        if (dmg[1].content != msg.content) {
+          await dmg[1].edit(msg.content)
+          console.log(i + ' editing: ' + msg.key)
+        }
         written = true
         break
       }
     }
 
-    if (!written) channel.send(msg.content)
+    if (!written) {
+      console.log(i + ' sending: ' + msg.key)
+      await channel.send(msg.content)
+    }
   }
 
   channel.stopTyping()

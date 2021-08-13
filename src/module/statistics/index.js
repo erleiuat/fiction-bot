@@ -257,7 +257,8 @@ async function updateByKey(msgs, channel) {
 async function doUpdate(msg, current) {
   for (const dmg of current)
     if (dmg.content.includes(msg.key)) {
-      if (dmg.content != msg.content) await dmg.edit(msg.content)
+      if (dmg.content.replace(/\s/g, '') != msg.content.replace(/\s/g, ''))
+        await dmg.edit(msg.content)
       return true
     }
 

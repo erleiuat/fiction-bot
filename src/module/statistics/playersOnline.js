@@ -48,6 +48,10 @@ exports.format = function format(listObj) {
       user.steamID +
       '\n' +
       spaces2 +
+      'IP: ' +
+      user.ip +
+      '\n' +
+      spaces2 +
       'Login: ' +
       login.key +
       ' - ' +
@@ -92,6 +96,7 @@ exports.check = function check() {
     let keyObj = toDateKey(tmpUser.stats.lastActivity)
     list[keyObj.key + '_' + tmpUser.steamID] = {
       char: { ...tmpUser.char },
+      ip: tmpUser.auth.ip,
       steamID: tmpUser.steamID,
       lastLogin: tmpUser.auth.lastLogin,
       totalLogins: tmpUser.stats.totalLogins,

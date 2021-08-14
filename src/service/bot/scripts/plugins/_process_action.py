@@ -61,6 +61,7 @@ class Action:
         self.CON.openAll()
         self.RES.add({'fileName': fileName, 'fullPath': fullPath})
 
+
     def playerReport(self, props):
         withLocation = False
         if("dict" in type(props).__name__ and props['location']):
@@ -206,7 +207,7 @@ class Action:
 
             self.PRC_CHAT.goScope('local')
             self.PRC_CHAT.send(props['teleport'])
-            self.PRC_CHAT.send(props['teleportUser'])
+            #self.PRC_CHAT.send(props['teleportUser'])
             self.PRC_CHAT.send(famePointSetter)
             self.PRC_CHAT.send(itemSpawner)
             self.PRC_CHAT.send(props['messages']['endSale'])

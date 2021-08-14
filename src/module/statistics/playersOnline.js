@@ -38,7 +38,7 @@ exports.format = function format(listObj) {
 
     let userEntry =
       spaces1 +
-      '\u200b\n◽️ ** 1. ' +
+      '\u200b\n◽️ **' +
       user.char.name.replace(/\*/g, '').replace(/_/g, '') +
       '** (' +
       user.char.id +

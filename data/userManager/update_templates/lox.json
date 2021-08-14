@@ -1,6 +1,6 @@
 {
   "76561198082374095": {
-    "group": "administrators",
+    "group": "founders",
     "overwrite": {
       "hideCommandAlarms": ["#*"],
       "allowCommands": ["#*"],

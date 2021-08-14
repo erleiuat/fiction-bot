@@ -111,12 +111,8 @@
       "#ListSquadMembers",
       "#ListSpawnedAnimals",
       "#ListSpawnedVehicles",
-      "#ShowVehicleInfo",
-      "#ShowVehicleLocations",
       "#SetFakeName",
       "#ClearFakeName",
-      "#ShowOtherPlayerInfo",
-      "#ShowOtherPlayerLocations",
       "#ListPlayers"
     ],
     "allowCommands": [
@@ -175,8 +171,33 @@
       "#Silence",
       "#Unsilence",
       "#FindSquadMember",
-      "#ListSquadMembers"
+      "#ListSquadMembers",
+      "#ListSpawnedAnimals",
+      "#ListSpawnedVehicles",
+      "#ShowVehicleInfo",
+      "#ShowVehicleLocations",
+      "#SetFakeName",
+      "#ClearFakeName",
+      "#ShowOtherPlayerInfo",
+      "#ShowOtherPlayerLocations",
+      "#ListPlayers"
     ],
+    "allowCommands": ["#*"],
+    "hideCommands": [],
+    "useFakeNames": true,
+    "hideLogin": false,
+    "loginAnonym": false,
+    "noTrapNotification": false,
+    "ranking": {
+      "hidePlaytime": false,
+      "hideKills": false
+    }
+  },
+  "founders": {
+    "isAdmin": true,
+    "name": "Founder",
+    "allowBotCommands": ["!*"],
+    "hideCommandAlarms": ["#*"],
     "allowCommands": ["#*"],
     "hideCommands": [],
     "useFakeNames": true,

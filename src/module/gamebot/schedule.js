@@ -27,10 +27,6 @@ async function initSchedules() {
       type: 'messages',
       values: [{ scope: sGlobal, content: await bms.get('schedule.restart.3', 'def') }]
     },
-    '11:58': {
-      type: 'messages',
-      values: [{ scope: sGlobal, content: '(Restart at 12:00 will be skipped)' }]
-    },
     '17:55': {
       type: 'messages',
       values: [{ scope: sGlobal, content: await bms.get('schedule.restart.1', 'def') }]
@@ -46,8 +42,7 @@ async function initSchedules() {
     '23:58': {
       type: 'messages',
       values: [{ scope: sGlobal, content: '(Restart at 00:00 will be skipped)' }]
-    }
-    /*
+    },
     '11:55': {
       type: 'messages',
       values: [{ scope: sGlobal, content: await bms.get('schedule.restart.1', 'def') }]
@@ -59,7 +54,8 @@ async function initSchedules() {
     '11:59': {
       type: 'messages',
       values: [{ scope: sGlobal, content: await bms.get('schedule.restart.3', 'def') }]
-    },
+    }
+    /*
     '23:55': {
       type: 'messages',
       values: [{ scope: sGlobal, content: await bms.get('schedule.restart1 }]

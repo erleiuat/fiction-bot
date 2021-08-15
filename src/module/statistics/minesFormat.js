@@ -47,7 +47,11 @@ exports.format = function format(list) {
         },
         {
           name: 'Location',
-          value: mine.location.x + ' ' + mine.location.y + ' ' + mine.location.z
+          value: '`#Teleport ' + mine.location.x + ' ' + mine.location.y + ' 0`'
+        },
+        {
+          name: 'Deactivate',
+          value: '`!deactivatemine ' + mine.key + '`'
         },
         {
           name: 'Created',

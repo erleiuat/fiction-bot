@@ -26,6 +26,7 @@ module.exports = {
     bms = botMessages
     sLocal = scopeLocal
     sGlobal = scopeGlobal
+    getItemList()
   },
   exec_cmd: async function (cmd, action) {
     let coms = action.properties.value.toLowerCase().replace('!exec', '').trim()
@@ -438,7 +439,6 @@ module.exports = {
     }
   },
   shop_item: async function (cmd, action) {
-    let items = await getItemList()
     let parts = action.properties.value.split(' ')
     let itemKey = parts[1]
     let itemAmount = parts[2] ? (parseInt(parts[2]) > 10 ? 10 : parseInt(parts[2])) : 1
@@ -451,7 +451,16 @@ module.exports = {
       return
     }
 
-    let item = false
+    let items = await getItemList()
+    let item = items[itemKey.trim().toLowerCase()]
+    if (!item || !item.spawn_command) {
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('shop.unknownItem', action.user.lang, { '{user}': action.user.char.name })
+      )
+      return
+    }
+
     let discount = 0
     switch (action.user.rank) {
       case 'Expert':
@@ -472,24 +481,6 @@ module.exports = {
       case 'Immortal':
         discount = 0.6
         break
-    }
-
-    itemKey = itemKey.trim().toLowerCase()
-    for (const el of items)
-      if (itemKey == el.keyword.toLowerCase()) {
-        item = el
-        item.spawn_command += ' ' + itemAmount.toString()
-        item.price_fame =
-          Math.round(parseInt(item.price_fame) - parseInt(item.price_fame) * discount) * itemAmount
-        break
-      }
-
-    if (!item || !item.spawn_command) {
-      cmd.addMessage(
-        sGlobal,
-        await bms.get('shop.unknownItem', action.user.lang, { '{user}': action.user.char.name })
-      )
-      return
     }
 
     let teleport = await bms.get('pos.idle', 'def')
@@ -801,15 +792,24 @@ async function transferFame(cmd, language, username, from, to, amount, altTo = f
   })
 }
 
+let itemListCache = null
+
 async function getItemList() {
+  if (itemListCache) return itemListCache
+
   let url = process.env.SETTING_SHOPITEMS_URL
-  return await fetch(url, {
+  let iList = await fetch(url, {
     method: 'Get'
   })
     .then(res => res.json())
     .then(json => {
       return json
     })
+
+  let iListNew = {}
+  for (let i of iList) iListNew[i.keyword] = i
+  itemListCache = iListNew
+  return itemListCache
 }
 
 function getJoke() {

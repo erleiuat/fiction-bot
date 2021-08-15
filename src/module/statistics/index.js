@@ -178,7 +178,7 @@ async function rankingSts() {
       msgArr.push(rankingFormat.playtimes(data.playtimes))
       msgArr.push(rankingFormat.kills(data.kills))
       msgArr.push(rankingFormat.eventKills(data.eventKills))
-      msgArr.push(rankingFormat.killDistance(data.killDistance))
+      //msgArr.push(rankingFormat.killDistance(data.killDistance))
       msgArr.push(rankingFormat.suicides(data.suicides))
       await updateByKey(msgArr, channels.ranking)
 

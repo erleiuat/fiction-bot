@@ -35,16 +35,18 @@ exports.killDistance = function killDistance(listObj) {
   tmpMsg +=
     '```diff\n+Rank  \tDistance\t\t Player\n- - - - - - - - - - - - - - - - - - - - - - - -\n\n'
   list.sort((a, b) => (a.amount > b.amount ? 1 : -1)).reverse()
+  console.log('🚀 | file: rankingFormat.js | line 39 | list', list)
   for (let i = 0; i < 10 && i < list.length; i++) {
     tmpMsg +=
       global.nZero.form(i + 1, ' ') +
       '.\t\t   ' +
-      global.nZero.form(list[i].amount, ' ') +
+      list[i].amount +
       'm    \t\t' +
       list[i].char.name +
       '\n'
   }
   tmpMsg += '\n- - - - - - - - - - - - - - - - - - - - - - - -\n```\n'
+  console.log('🚀 | file: rankingFormat.js | line 51 | tmpMsg', tmpMsg)
   return { key: 'Kill-Distance', content: tmpMsg }
 }
 
@@ -63,7 +65,7 @@ exports.eventKills = function eventKills(listObj) {
     tmpMsg +=
       global.nZero.form(i + 1, ' ') +
       '.\t\t   ' +
-      global.nZero.form(list[i].amount, ' ') +
+      list[i].amount +
       '    \t\t' +
       list[i].char.name +
       '\n'

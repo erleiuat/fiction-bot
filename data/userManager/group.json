@@ -3,6 +3,7 @@
     "isAdmin": false,
     "name": "def",
     "allowBotCommands": [
+      "!voteban",
       "!bounty",
       "!lottery",
       "!tl",

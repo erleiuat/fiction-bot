@@ -6,6 +6,7 @@ const request = require('request')
 let bms = null
 let sGlobal = null
 let sLocal = null
+let voteBanCache = {}
 
 const languages = [
   'english',
@@ -352,8 +353,11 @@ module.exports = {
     else cmd.addMessage(sGlobal, await bms.get('connect.nope', action.user.lang))
   },
   shop_info: async function (cmd, action) {
+    let scope = sLocal
+    if (action.properties.scope == 'global') scope = sGlobal
+
     cmd.addMessage(
-      sGlobal,
+      scope,
       await bms.get('shop.info', action.user.lang, { '{user}': action.user.char.name })
     )
   },
@@ -763,6 +767,35 @@ module.exports = {
       }
       cmd.addMessage(sGlobal, await bms.get('bounty.help', action.user.lang))
     }
+  },
+  voteban: async function (cmd, action) {
+    let parts = action.properties.value.split(' ')
+    let banUser = parts[1] ? parts[1].toLowerCase().trim() : ''
+
+    let toBeBanned = null
+    const userInfo = await global.gamebot.getOnlinePlayerStats()
+
+    for (const key in userInfo) {
+      if (userInfo[key].charName.toLowerCase().includes(banUser)) {
+        toBeBanned = userInfo[key]
+        break
+      }
+    }
+
+    if (!voteBanCache[toBeBanned.steamID]) voteBanCache[toBeBanned.steamID] = []
+    if (voteBanCache[toBeBanned.steamID].includes(action.user.steamID)) {
+      cmd.addMessage(sGlobal, 'Already voted')
+      return
+    }
+
+    voteBanCache[toBeBanned.steamID].push(action.user.steamID)
+    if (voteBanCache[toBeBanned.steamID].length >= process.env.SETTING_VOTEBAN_AMOUNT) {
+      cmd.addMessage(sGlobal, 'Vote successful.')
+      return
+    }
+
+    cmd.addMessage(sGlobal, 'Vote added. X votes left.')
+    return
   }
 }
 

@@ -53,18 +53,27 @@ async function go() {
 }
 
 async function getOnlinePlayerStats() {
+  if (global.args.includes('test'))
+    return {
+      '76561198058320109': {
+        steamID: '76561198058320109',
+        steamName: 'BlaBliBlub',
+        charName: 'BlaBliBlub',
+        fame: 123
+      },
+      '76561198058320009': {
+        steamID: '76561198058320009',
+        steamName: 'Joppala',
+        charName: '[FT] FluffyK9',
+        fame: 123
+      }
+    }
+
   let cmd = new Command()
   await routines.playerReport(cmd)
   let results = await executeCommand(cmd)
   if (results.data.playerInfo) return results.data.playerInfo
   return false
-  /*
-  return {
-    '76561198058320009': {
-      fame: 123
-    }
-  }
-  */
 }
 
 async function executeCommand(cmd) {

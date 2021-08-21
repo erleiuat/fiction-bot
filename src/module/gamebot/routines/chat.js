@@ -423,11 +423,11 @@ module.exports = {
   },
   transfer: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
-    let amount = parts[1].replace('[', '').replace(']', '')
+    let amount = parts[1].replace('[', '').replace(']', '').trim()
 
     delete parts[0]
     delete parts[1]
-    let transferTo = parts.join(' ')
+    let transferTo = parts.join(' ').trim()
 
     if (!transferTo)
       cmd.addMessage(
@@ -773,7 +773,9 @@ module.exports = {
   },
   voteban: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
-    let banUser = parts[1] ? parts[1].toLowerCase().trim() : null
+
+    delete parts[0]
+    let banUser = parts.join(' ').trim()
 
     if (!banUser || !banUser.length) {
       cmd.addMessage(sGlobal, 'Please provide Username')
@@ -791,7 +793,7 @@ module.exports = {
     }
 
     if (!toBeBanned) {
-      cmd.addMessage(sGlobal, 'User xyz not found')
+      cmd.addMessage(sGlobal, 'User ' + banUser + ' not found')
       return
     }
 

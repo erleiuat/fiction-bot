@@ -12,7 +12,7 @@ module.exports = {
   'voteban.nameNotFound': ':[Voteban]: ・ I couldn’t find a User called "{user}"',
   'voteban.alreadyVoted': ':[Voteban]: ・ You already voted for this user.',
   'voteban.success': ':[Voteban]: ・ Voting successful. User "{user}" will now be banned.',
-  'voteban.voteAdded': ':[Voteban]: ・ Vote added for "{user}" -> {amount} votes left for ban',
+  'voteban.voteAdded': ':[Voteban]: ・ Vote added for "{user}" - {amount} votes left for ban',
 
   'bounty.noBounties': ':[Bounty]: ・ No bounties are set at the moment',
   'bounty.help':

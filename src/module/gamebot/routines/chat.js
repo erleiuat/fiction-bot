@@ -809,7 +809,9 @@ module.exports = {
       return
     }
 
-    cmd.addMessage(sGlobal, 'Vote added. X votes left.')
+    let voteLeft = process.env.SETTING_VOTEBAN_AMOUNT - voteBanCache[toBeBanned.steamID].length
+
+    cmd.addMessage(sGlobal, 'Vote added. ' + voteLeft + ' votes left.')
     return
   }
 }

@@ -28,7 +28,7 @@ module.exports = {
   'shop.notEnoughMoney':
     ':[Shop]: ・ @{user} du brauchst mindestens {fame} Ruhmpunkte um das zu kaufen.',
   'shop.startSale':
-    ':[Shop]: ・ @{user} dein Kauf von {amount}x {item} für {fame} Ruhmpunkte beginnt in Kürze. Du wirst zu deinem Artikel teleportiert, wenn es soweit ist.',
+    ':[Shop]: ・ @{user} dein Kauf von {amount}x {item} für {fame} Ruhmpunkte beginnt in Kürze.',
   'shop.endSale':
     ':[Shop]: ・ @{user} du hast erfolgreich {amount}x {item} für {fame} Ruhmpunkte gekauft!',
   'shop.somethingWrong': ':[Shop]: ・ Es ist ein Fehler aufgetreten. Bitte versuche es erneut.',

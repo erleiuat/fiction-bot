@@ -782,6 +782,11 @@ module.exports = {
       }
     }
 
+    if (!toBeBanned) {
+      cmd.addMessage(sGlobal, 'User xyz not found')
+      return
+    }
+
     if (!voteBanCache[toBeBanned.steamID]) voteBanCache[toBeBanned.steamID] = []
     if (voteBanCache[toBeBanned.steamID].includes(action.user.steamID)) {
       cmd.addMessage(sGlobal, 'Already voted')

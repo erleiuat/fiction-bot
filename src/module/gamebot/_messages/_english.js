@@ -8,6 +8,12 @@ module.exports = {
   unknownCommand: ':[Error]: ・ @{user}: Sorry, I don’t know this command.',
   capslock: ':[Warn]: ・ @{user}: Please don’t write in capslock too much <3',
 
+  'voteban.provideName': ':[Voteban]: ・ Please provide a Username (like "!voteban monke").',
+  'voteban.nameNotFound': ':[Voteban]: ・ I couldn’t find a User called {user}',
+  'voteban.alreadyVoted': ':[Voteban]: ・ You already voted for this user.',
+  'voteban.success': ':[Voteban]: ・ Voting successful. User {user} will now be banned.',
+  'voteban.voteAdded': ':[Voteban]: ・ Vote added for {user}. {amount} votes left for ban.',
+
   'bounty.noBounties': ':[Bounty]: ・ No bounties are set at the moment',
   'bounty.help':
     ':[Bounty]: ・ Use "!bounty add [amount] [player]" to place a bounty and "!bounty remove [player]" to remove it.',

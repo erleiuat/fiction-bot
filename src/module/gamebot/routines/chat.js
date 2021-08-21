@@ -778,7 +778,7 @@ module.exports = {
     let banUser = parts.join(' ').trim()
 
     if (!banUser || !banUser.length) {
-      cmd.addMessage(sGlobal, 'Please provide Username')
+      cmd.addMessage(sGlobal, await bms.get('voteban.provideName', action.user.lang))
       return
     }
 
@@ -793,25 +793,41 @@ module.exports = {
     }
 
     if (!toBeBanned) {
-      cmd.addMessage(sGlobal, 'User ' + banUser + ' not found')
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('voteban.nameNotFound', action.user.lang, {
+          '{user}': banUser
+        })
+      )
       return
     }
 
     if (!voteBanCache[toBeBanned.steamID]) voteBanCache[toBeBanned.steamID] = []
     if (voteBanCache[toBeBanned.steamID].includes(action.user.steamID)) {
-      cmd.addMessage(sGlobal, 'Already voted')
+      cmd.addMessage(sGlobal, await bms.get('voteban.alreadyVoted', action.user.lang))
       return
     }
 
     voteBanCache[toBeBanned.steamID].push(action.user.steamID)
     if (voteBanCache[toBeBanned.steamID].length >= process.env.SETTING_VOTEBAN_AMOUNT) {
-      cmd.addMessage(sGlobal, 'Vote successful.')
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('voteban.success', 'en', {
+          '{user}': toBeBanned.charName
+        })
+      )
       return
     }
 
     let voteLeft = process.env.SETTING_VOTEBAN_AMOUNT - voteBanCache[toBeBanned.steamID].length
 
-    cmd.addMessage(sGlobal, 'Vote added. ' + voteLeft + ' votes left.')
+    cmd.addMessage(
+      sGlobal,
+      await bms.get('voteban.voteAdded', 'en', {
+        '{user}': toBeBanned.charName,
+        '{amount}': voteLeft
+      })
+    )
     return
   }
 }

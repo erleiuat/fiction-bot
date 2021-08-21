@@ -770,7 +770,12 @@ module.exports = {
   },
   voteban: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
-    let banUser = parts[1] ? parts[1].toLowerCase().trim() : ''
+    let banUser = parts[1] ? parts[1].toLowerCase().trim() : null
+
+    if (!banUser || !banUser.length) {
+      cmd.addMessage(sGlobal, 'Please provide Username')
+      return
+    }
 
     let toBeBanned = null
     const userInfo = await global.gamebot.getOnlinePlayerStats()

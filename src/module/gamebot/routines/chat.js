@@ -424,7 +424,10 @@ module.exports = {
   transfer: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
     let amount = parts[1].replace('[', '').replace(']', '')
-    let transferTo = parts[2].replace('[', '').replace(']', '')
+
+    delete parts[0]
+    delete parts[1]
+    let transferTo = parts.join(' ')
 
     if (!transferTo)
       cmd.addMessage(

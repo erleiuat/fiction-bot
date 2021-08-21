@@ -808,8 +808,14 @@ module.exports = {
       return
     }
 
+    let minVotes = Math.round(
+      global.state.players / 2 > process.env.SETTING_VOTEBAN_AMOUNT
+        ? global.state.players / 2
+        : process.env.SETTING_VOTEBAN_AMOUNT
+    )
+
     voteBanCache[toBeBanned.steamID].push(action.user.steamID)
-    if (voteBanCache[toBeBanned.steamID].length >= process.env.SETTING_VOTEBAN_AMOUNT) {
+    if (voteBanCache[toBeBanned.steamID].length >= minVotes) {
       cmd.addMessage(
         sGlobal,
         await bms.get('voteban.success', 'en', {
@@ -820,7 +826,7 @@ module.exports = {
       return
     }
 
-    let voteLeft = process.env.SETTING_VOTEBAN_AMOUNT - voteBanCache[toBeBanned.steamID].length
+    let voteLeft = minVotes - voteBanCache[toBeBanned.steamID].length
 
     cmd.addMessage(
       sGlobal,

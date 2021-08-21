@@ -781,7 +781,7 @@ module.exports = {
     const userInfo = await global.gamebot.getOnlinePlayerStats()
 
     for (const key in userInfo) {
-      if (userInfo[key].charName.toLowerCase().includes(banUser)) {
+      if (userInfo[key].charName.toLowerCase().trim() == banUser) {
         toBeBanned = userInfo[key]
         break
       }

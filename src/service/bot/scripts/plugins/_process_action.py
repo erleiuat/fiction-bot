@@ -95,14 +95,20 @@ class Action:
                     recipient = playerList[el]
                     break
 
+                
             if(not recipient):
                 self.PRC_CHAT.send(props['messages']['notFound'])
                 self.RES.add({'playerInfo': playerList})
                 return False
 
+            if(props['from'] == recipient['steamID']):
+                self.PRC_CHAT.send(props['messages']['somethingWrong'])
+                return False
+
             if(int(sender['fame']) < int(props['amount'])):
                 self.PRC_CHAT.send(props['messages']['notEnough'])
                 return False
+
 
             withdraw = '#SetFamePoints ' + str(int(sender['fame']) - int(props['amount'])) + ' ' + props['from']
             deposit = '#SetFamePoints ' + str(int(recipient['fame']) + int(props['amount'])) + ' ' + recipient['steamID']

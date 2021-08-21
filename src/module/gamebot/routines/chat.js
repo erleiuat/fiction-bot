@@ -816,6 +816,7 @@ module.exports = {
           '{user}': toBeBanned.charName
         })
       )
+      cmd.addMessage(sGlobal, '#Ban ' + toBeBanned.steamID)
       return
     }
 

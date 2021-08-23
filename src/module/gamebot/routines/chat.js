@@ -496,6 +496,9 @@ module.exports = {
       teleport = await bms.get('pos.outside', 'def')
       teleportUser = await bms.get('pPos.outside', 'def', { '{userID}': action.user.steamID })
     }
+    
+    item.spawn_command += ' ' + itemAmount.toString()
+    item.price_fame = Math.round(parseInt(item.price_fame) - parseInt(item.price_fame) * discount) * itemAmount
 
     cmd.addAction('sale', {
       userID: action.user.steamID,

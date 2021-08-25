@@ -70,7 +70,7 @@ class Control:
         return (x, y, w, h)
 
 
-    def onScreen(self, img, region=False, bw=True, sure=0.97):
+    def onScreen(self, img, region=False, bw=True, sure=0.9):
         self.RES.printer('ONSCREEN: ' + str(img))
         #rName = region
         if(not region):

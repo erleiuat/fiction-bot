@@ -642,6 +642,7 @@ module.exports = {
         })
       )
 
+      cmd.addMessage(sGlobal, '#SetFamePoints ' + (parseInt(amount) + 10))
       await transferFame(
         cmd,
         action.user.lang,
@@ -715,6 +716,7 @@ module.exports = {
 
       let amount = target.removeBounty(action.user.steamID)
 
+      cmd.addMessage(sGlobal, '#SetFamePoints ' + (parseInt(amount) + 10))
       await transferFame(
         cmd,
         action.user.lang,
@@ -738,6 +740,7 @@ module.exports = {
         return
       }
 
+      cmd.addMessage(sGlobal, '#SetFamePoints ' + (parseInt(amount) + 10))
       await transferFame(
         cmd,
         action.user.lang,

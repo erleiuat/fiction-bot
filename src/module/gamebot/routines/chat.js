@@ -423,6 +423,7 @@ module.exports = {
   },
   transfer: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
+    if (!parts[1]) return
     let amount = parts[1].replace('[', '').replace(']', '').trim()
 
     delete parts[0]
@@ -843,6 +844,7 @@ module.exports = {
   },
   givefp: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
+    if (!parts[1]) return
     let amount = parts[1].replace('[', '').replace(']', '').trim()
 
     delete parts[0]

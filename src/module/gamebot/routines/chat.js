@@ -496,9 +496,10 @@ module.exports = {
       teleport = await bms.get('pos.outside', 'def')
       teleportUser = await bms.get('pPos.outside', 'def', { '{userID}': action.user.steamID })
     }
-    
+
     item.spawn_command += ' ' + itemAmount.toString()
-    item.price_fame = Math.round(parseInt(item.price_fame) - parseInt(item.price_fame) * discount) * itemAmount
+    item.price_fame =
+      Math.round(parseInt(item.price_fame) - parseInt(item.price_fame) * discount) * itemAmount
 
     cmd.addAction('sale', {
       userID: action.user.steamID,
@@ -839,6 +840,24 @@ module.exports = {
       })
     )
     return
+  },
+  givefp: async function (cmd, action) {
+    let parts = action.properties.value.split(' ')
+    let amount = parts[1].replace('[', '').replace(']', '').trim()
+
+    delete parts[0]
+    delete parts[1]
+    let transferTo = parts.join(' ').trim()
+
+    if (!transferTo)
+      cmd.addMessage(
+        sGlobal,
+        await bms.get('trans.form', action.user.lang, { '{user}': action.user.char.name })
+      )
+    else {
+      cmd.addMessage(sGlobal, '#SetFamePoints ' + (parseInt(amount) + 10))
+      await transferFame(cmd, 'en', 'Bank', process.env.BOT_STEAMID, transferTo, amount)
+    }
   }
 }
 

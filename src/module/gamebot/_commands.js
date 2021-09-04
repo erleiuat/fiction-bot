@@ -6,6 +6,11 @@ module.exports = {
     cooldown: null
   },
   */
+  '!givefp': {
+    routine: 'givefp',
+    scopes: ['global', 'local', 'squad'],
+    cooldown: null
+  },
   '!voteban': {
     routine: 'voteban',
     scopes: ['global', 'local', 'squad'],

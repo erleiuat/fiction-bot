@@ -866,8 +866,7 @@ module.exports = {
   },
   office: async function (cmd, action) {
     let parts = action.properties.value.split(' ')
-    if (!parts[1]) return
-    let what = parts[1].replace('[', '').replace(']', '').trim()
+    let what = parts[1] ? parts[1].replace('[', '').replace(']', '').trim() : ''
     if (what == 'out')
       cmd.addMessage(sGlobal, '#Teleport -114226 -65111 37187 ' + action.user.steamID)
     else cmd.addMessage(sGlobal, '#Teleport -114076 -64591 37187' + action.user.steamID)

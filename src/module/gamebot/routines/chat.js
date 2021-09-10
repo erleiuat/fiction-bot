@@ -500,7 +500,7 @@ module.exports = {
 
     item.spawn_command += ' ' + itemAmount.toString()
     item.price_fame =
-      Math.round(parseInt(item.price_fame) - parseInt(item.price_fame) * discount) * itemAmount
+      Math.round((parseInt(item.price_fame) * itemAmount) * (1 - discount))
 
     cmd.addAction('sale', {
       userID: action.user.steamID,

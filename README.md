@@ -21,7 +21,7 @@ Everything needed is stored into JSON files, so there's no need to have a databa
 
 - "bot" contains all the Python-Scripts which will run your ingame-bot.
 - "mapLocation" is a simple service turning coordinates into images with markers.
-- "mineManager" will take track of all the mines being placed on the map. Over Discord you can then see if someone places a mine somewhere they shouldn't.
+- "mineManager" will take track of all the mines being placed on the map. Over Discord you can then see if someone places a mine somewhere they shouldn't. (Is currently disabled everywhere in code since it caused errors when only using the discord-functions)
 - "userManager" will track every little information about your players. Every single message they send and kill they make will be processed and later on saved into a JSON file by this service.
 
 ### I don't have a clue how this thing rly works anymore

@@ -41,7 +41,7 @@ async function forceRestart(msg) {
   ) {
     global.sysControl.restart()
     global.userManager.saveChanges()
-    global.mineManager.saveChanges()
+    //global.mineManager.saveChanges()
     await msg.delete()
   }
 }
@@ -54,7 +54,7 @@ async function forceReload(msg) {
   ) {
     global.sysControl.reload()
     global.userManager.saveChanges()
-    global.mineManager.saveChanges()
+    //global.mineManager.saveChanges()
     await msg.delete()
   }
 }
@@ -67,7 +67,7 @@ async function forceReboot(msg) {
   ) {
     global.sysControl.reboot()
     global.userManager.saveChanges()
-    global.mineManager.saveChanges()
+    //global.mineManager.saveChanges()
     await msg.delete()
   }
 }

@@ -76,6 +76,8 @@ async function iterateStatistics() {
 }
 
 async function minesInactiveSts() {
+  return false
+
   let dataCache = ''
   do {
     await go()
@@ -94,6 +96,8 @@ async function minesInactiveSts() {
 }
 
 async function minesActiveSts() {
+  return false
+  
   let dataCache = ''
   do {
     await go()

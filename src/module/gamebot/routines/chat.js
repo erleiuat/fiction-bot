@@ -107,6 +107,7 @@ module.exports = {
   discord_link: async function (cmd, action = null) {
     cmd.addMessage(sGlobal, await bms.get('discordLink', 'def'))
   },
+  /*
   deactivate_mine: async function (cmd, action) {
     let mineKey = action.properties.value.split(' ')[1]
     global.log.debug(_SN + 'Deactivating Mine: ' + mineKey)
@@ -119,6 +120,7 @@ module.exports = {
       cmd.addMessage(sLocal, await bms.get('mine.deact', 'def'))
     global.mineManager.saveChanges()
   },
+  */
   new_player: async function (cmd, action) {
     cmd.addMessage(
       sLocal,
@@ -544,7 +546,7 @@ module.exports = {
     global.log.info(_SN + 'RELOAD: STARTED')
     if (!global.args.includes('test')) global.sysControl.reload()
     global.userManager.saveChanges()
-    global.mineManager.saveChanges()
+    //global.mineManager.saveChanges()
     global.log.info(_SN + 'RELOAD: Saved mngr data')
     cmd.addMessage(scope, await bms.get('start.reload', 'def'))
   },
@@ -554,7 +556,7 @@ module.exports = {
     global.log.info(_SN + 'REBOOT: STARTED')
     if (!global.args.includes('test')) global.sysControl.reboot()
     global.userManager.saveChanges()
-    global.mineManager.saveChanges()
+    //global.mineManager.saveChanges()
     global.log.info(_SN + 'REBOOT: Saved mngr data')
     cmd.addMessage(scope, await bms.get('start.reboot', 'def'))
   },
@@ -564,7 +566,7 @@ module.exports = {
     global.log.info(_SN + 'REBOOT: STARTED')
     if (!global.args.includes('test')) global.sysControl.restart()
     global.userManager.saveChanges()
-    global.mineManager.saveChanges()
+    //global.mineManager.saveChanges()
     global.log.info(_SN + 'REBOOT: Saved mngr data')
     cmd.addMessage(scope, await bms.get('start.reboot', 'def'))
   },

@@ -209,12 +209,14 @@ async function handleKill(lines) {
       let i = 0
       actionObj.properties.isMine = true
 
+      /*
       do {
         i++
         let mineProps = global.mineManager.findTriggeredMine(actionObj.timestamp, victim)
         if (mineProps) causer = mineProps.mine.owner
         if (causer.steamID == -1) await global.time.sleep(0.5)
       } while (causer.steamID == -1 && i < 20)
+      */
 
       if (causer.steamID == -1)
         global.log.error(_SN + 'No Mine-Entry found for kill: ' + victim.name)
@@ -299,17 +301,14 @@ function handleMineLine(line) {
   let mineProps = formMineProps(newLine, actionObj.user, actionObj.timestamp)
   actionObj.properties.action = mineProps.action
 
-  if (mineProps.key) actionObj.properties.mine = global.mineManager.getMineByKey(mineProps.key)
+  if (mineProps.key) actionObj.properties.mine = false
 
   if (!actionObj.properties.mine) {
     if (mineProps.canCreate)
-      actionObj.properties.mine = global.mineManager.createMine(mineProps, actionObj.timestamp)
-    else if (mineProps.owner) actionObj.properties.mine = global.mineManager.findMine(mineProps)
+      actionObj.properties.mine = false
+    else if (mineProps.owner) actionObj.properties.mine = false
     else
-      actionObj.properties.mine = global.mineManager.findMineByLocation(
-        mineProps.location,
-        mineProps.type
-      )
+      actionObj.properties.mine = false
   }
 
   if (!actionObj.properties.mine) {
@@ -365,7 +364,7 @@ function formMineProps(mineString, actUser, timestamp) {
     z: parseInt(tmpLoc[2])
   }
 
-  let locationKey = global.mineManager.locationToKey(location)
+  let locationKey = false
 
   if (action == 'armed' || action == 'crafted') {
     canCreate = true
@@ -383,7 +382,7 @@ function formMineProps(mineString, actUser, timestamp) {
 
   return {
     key: key,
-    locationKey: locationKey,
+    //locationKey: locationKey,
     canCreate: canCreate,
     action: action,
     type: type,

@@ -51,9 +51,11 @@ function def(guild = null) {
   global.userManager = new UserManager()
   global.log.info(_SN + 'Started Service "global.userManager"')
 
+  /*
   const MineManager = require('./service/mineManager/')
   global.mineManager = new MineManager()
   global.log.info(_SN + 'Started Service "global.mineManager"')
+  */
 
   const Lottery = require('./service/lottery')
   global.lottery = new Lottery()

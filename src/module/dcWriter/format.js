@@ -65,6 +65,8 @@ exports.admin = function admin(action) {
 }
 
 exports.mine = function mine(action) {
+  return false
+  
   let formedTime = formTime(action.date)
 
   let msgDefault = {

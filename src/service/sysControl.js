@@ -7,6 +7,7 @@ async function execScript(scriptName) {
     global.log.info(_SN + 'EXECSCRIPT: Waiting 5 seconds before executing')
     await global.time.sleep(5)
     global.log.info(_SN + 'EXECSCRIPT: EXECUTING')
+    throw new Error('ERRORED')
     if (global.args.includes('test')) return
     let child = cp.spawn('cmd.exe', ['/c', scriptName], { detached: true })
     child.on('data', data => console.log(data))
@@ -14,6 +15,7 @@ async function execScript(scriptName) {
     child.on('close', code => console.log(code))
   } catch (error) {
     console.log(error)
+    throw new Error('ERRORED2')
   }
 }
 

@@ -1,10 +1,14 @@
 # Fiction-bot
 
+## THIS BOT IS PROBABLY EXTREMELY OUTDATED
+
+It was used years ago and has not been updated since (because the Scum-Devs made too many unnecessairy but breaking patches, which was a way too big pain in the ass to keep up with).
+
 ## How to
 
 You can either only use the Discord functionalities by starting the Script with the params "-discord" or install the whole thing on a exclusive computer running scum as your ingame-bot.
 
-The code is kinda clean organized and since this is for free, you won't find any detailed documentation about how it works. So a little bit of coding knowledge will be neccessairy.
+The code is kinda clean organized but there's basically no documentation. So a little bit of coding knowledge will be neccessairy.
 
 Everything needed is stored into JSON files, so there's no need to have a database or anything. This doesn't harm the performance of the Bot tho, since everything is being loaded into your RAM on start. So the Bot can access everything he needs right away without the need of querys or smth like that. If you have many players and a lot of activity on your server, the Bot will require about 200MB of RAM.
 
@@ -26,6 +30,4 @@ Everything needed is stored into JSON files, so there's no need to have a databa
 
 ### I don't have a clue how this thing rly works anymore
 
-Feel free to use this code for your own server or do Pull Requests with some changes to improove it further. It's performant af imho, but if you find something please go ahead. I wouldn't mind turning this into a community project at all :)
-
-Fork this repo to reuse it with your own settings to get it running on your machine. Let me know (open an issue) if you need any help ^^
+Feel free to use this code for your own server
